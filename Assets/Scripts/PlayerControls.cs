@@ -14,13 +14,14 @@ public class PlayerControls : MonoBehaviour {
     public GameManager manager;
     public AudioSource audio;
     public AudioClip[] kisses = new AudioClip[3];
+    public GameObject myHearts;
 
     bool kissIsPlaying;
     float kissAudioTime;
 
     public int Health;
 
-    private bool IsDoingKissing;
+    public bool IsDoingKissing;
     
 	void Awake () 
     {
@@ -49,11 +50,13 @@ public class PlayerControls : MonoBehaviour {
 	
 	void Update () 
     {
+        //Exit
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
 
+        //Audio Delay
         if(kissIsPlaying)
         {
             kissAudioTime += Time.deltaTime;
@@ -64,12 +67,21 @@ public class PlayerControls : MonoBehaviour {
             }
         }
 
-        if (this.Health <= 0 && this.tag == "Human")
-        {
-            IsFacingRight = false;
-            SwapCharacters();
+        //Player Sprite Check
+        switch (this.tag)
+        { 
+            case "Ghost":
+                this.GetComponent<SpriteRenderer>().sprite = GhostSprite;
+                break;
+            case "Human":
+                //this.GetComponent<SpriteRenderer>().sprite = HumanSprite;
+                break;
+            default:
+                break;
         }
 
+       
+        //Kissing Controller
         if(this.name == "Player1" && this.tag == "Ghost")
         {
             kissCollider = this.GetComponent<BoxCollider2D>();
@@ -98,7 +110,9 @@ public class PlayerControls : MonoBehaviour {
                 IsDoingKissing = false;
             }
         }
-
+        
+        
+        //Direction Controller
         this.direction.x = Input.GetAxis(HorizontalID);
         this.direction.y = Input.GetAxis(VerticalID);
 
@@ -113,11 +127,19 @@ public class PlayerControls : MonoBehaviour {
             FlipSprite();
             IsFacingRight = true;
         }
-            
-	    if (direction != Vector2.zero)
+
+        if (direction != Vector2.zero)
         {
-            Vector3 calc = new Vector3(direction.x*speed*Time.deltaTime, direction.y*speed*Time.deltaTime, 0);
+            Vector3 calc = new Vector3(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime, 0);
             this.rigidBody.transform.position += calc;
+            if (this.tag == "Human")
+            {
+                this.GetComponent<Animator>().SetBool("isMoving", true);
+            }
+        }
+        else if(this.tag == "Human")
+        {
+            this.GetComponent<Animator>().SetBool("isMoving", false);
         }
 	}
 
@@ -152,29 +174,10 @@ public class PlayerControls : MonoBehaviour {
             }
 
             if (HumanHealth < 0)
-                SwapCharacters();
+                manager.GetComponent<GameManager>().SwapCharacters();
         }
 
     }
 
-   public void SwapCharacters()
-    {
-        if(this.tag == "Ghost")
-        {
-            this.tag = "Human";
-            this.Health = 200;
-            this.GetComponent<SpriteRenderer>().sprite = HumanSprite;
-            this.IsDoingKissing = false;
-           // kissCollider.enabled = false;
-        }
 
-        else
-        {
-            this.tag = "Ghost";
-            this.Health = 0;
-            this.GetComponent<SpriteRenderer>().sprite = GhostSprite;
-            this.IsDoingKissing = false;
-           // kissCollider.enabled = true;
-        }
-    }
 }

@@ -21,7 +21,7 @@ public class RoomGenerator : MonoBehaviour {
 		LargeBaseRoomPiece.SetActive(true);
         GenerateInternals(new Vector2(4f, 4f));
 	}
-	void GenerateInternals(Vector2 RoomSize)
+	public void GenerateInternals(Vector2 RoomSize)
 	{
 		int NoF = numberOfFloors;
 		currentFloors = new List<GameObject>();
