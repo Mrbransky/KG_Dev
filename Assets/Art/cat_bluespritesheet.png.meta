@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe8d6156054b55f489a2243af2b783b9
-timeCreated: 1445710832
+timeCreated: 1445953957
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -69,9 +69,9 @@ TextureImporter:
         x: 244
         y: 0
         width: 84
-        height: 44
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: cat_bluespritesheet_2
       rect:
@@ -79,7 +79,7 @@ TextureImporter:
         x: 76
         y: 0
         width: 84
-        height: 44
+        height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -89,7 +89,7 @@ TextureImporter:
         x: 160
         y: 0
         width: 83
-        height: 41
+        height: 48
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e41cde35c4d9fc04b8fa56c7665cf7aa
-timeCreated: 1445710843
+timeCreated: 1445954352
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,9 +57,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 8
+        y: 0
         width: 56
-        height: 80
+        height: 88
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -69,7 +69,7 @@ TextureImporter:
         x: 56
         y: 0
         width: 56
-        height: 84
+        height: 88
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 64
         height: 88
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .569999993, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: cat_blackspritesheet_3
       rect:
@@ -89,7 +89,7 @@ TextureImporter:
         x: 176
         y: 0
         width: 56
-        height: 84
+        height: 88
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

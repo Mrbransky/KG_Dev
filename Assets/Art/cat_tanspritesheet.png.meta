@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 771f291f63b2ade45ab3c950964ff19b
-timeCreated: 1445710790
+timeCreated: 1445954287
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -69,17 +69,17 @@ TextureImporter:
         x: 64
         y: 0
         width: 60
-        height: 60
+        height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: cat_tanspritesheet_2
       rect:
         serializedVersion: 2
-        x: 124
+        x: 125
         y: 0
-        width: 52
-        height: 56
+        width: 51
+        height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -89,7 +89,7 @@ TextureImporter:
         x: 176
         y: 0
         width: 60
-        height: 60
+        height: 64
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

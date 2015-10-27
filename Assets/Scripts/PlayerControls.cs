@@ -15,6 +15,8 @@ public class PlayerControls : MonoBehaviour {
     public AudioSource audio;
     public AudioClip[] kisses = new AudioClip[3];
     public GameObject myHearts;
+	public RuntimeAnimatorController humanAnimator;
+	public RuntimeAnimatorController ghostAnimator;
 
     bool kissIsPlaying;
     float kissAudioTime;
@@ -68,18 +70,14 @@ public class PlayerControls : MonoBehaviour {
         }
 
         //Player Sprite Check
-        switch (this.tag)
+		if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BaseLayer.Ghost_Idle"))
         { 
-            case "Ghost":
-                this.GetComponent<SpriteRenderer>().sprite = GhostSprite;
-                break;
-            case "Human":
-                //this.GetComponent<SpriteRenderer>().sprite = HumanSprite;
-                break;
-            default:
-                break;
+        	this.GetComponent<SpriteRenderer>().sprite = GhostSprite;
         }
-
+		else if (this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("BaseLayer.Idle_1"))
+		{
+			this.GetComponent<SpriteRenderer>().sprite = HumanSprite;
+		}
        
         //Kissing Controller
         if(this.name == "Player1" && this.tag == "Ghost")
@@ -134,10 +132,16 @@ public class PlayerControls : MonoBehaviour {
             this.rigidBody.transform.position += calc;
             if (this.tag == "Human")
             {
+				this.GetComponent<Animator>().runtimeAnimatorController = humanAnimator;
                 this.GetComponent<Animator>().SetBool("isMoving", true);
             }
+			if (this.tag == "Ghost")
+			{
+				this.GetComponent<Animator>().runtimeAnimatorController = ghostAnimator;
+				this.GetComponent<Animator>().SetBool("isMoving", true);
+			}
         }
-        else if(this.tag == "Human")
+        else
         {
             this.GetComponent<Animator>().SetBool("isMoving", false);
         }
