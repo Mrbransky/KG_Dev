@@ -109,7 +109,14 @@ public class PlayerControls : MonoBehaviour {
             }
         }
         
-        
+        if(this.transform.localScale.x == 1)
+        {
+            IsFacingRight = false;
+        }
+        if(this.transform.localScale.x == -1)
+        {
+            IsFacingRight = true;
+        }
         //Direction Controller
         this.direction.x = Input.GetAxis(HorizontalID);
         this.direction.y = Input.GetAxis(VerticalID);

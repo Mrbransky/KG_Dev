@@ -4,26 +4,40 @@ using UnityEngine.UI;
 
 public class MenuSelect : MonoBehaviour {
 
-	public Text option1;
-	public Text option2;
-	public Text option3;
+	public Image option1;
+	public Image option2;
+    public Image option3;
 
-    public Text instructions;
+    public Text Credits;
 
     public AudioSource audio;
+
+    float timer = 0.4f;
+
+    bool canMove = false;
 
 	int choice = 1;
 	// Use this for initialization
 	void Start () {
-        instructions.GetComponent<Text>().enabled = false;
+        Credits.GetComponent<Text>().enabled = false;
 
         audio.loop = true;
         audio.Play();
 	}
-	
 	// Update is called once per frame
+
 	void Update () {
 
+        if (canMove == false)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                canMove = true;
+                timer = 0.4f;
+            }
+        }
+        float JoystickMove = Input.GetAxisRaw("Menu");
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			switch(choice)
 			{
@@ -34,27 +48,32 @@ public class MenuSelect : MonoBehaviour {
                 Application.Quit();
 				break;
 			case 3:
-                instructions.GetComponent<Text>().enabled = true;
+                Credits.GetComponent<Text>().enabled = true;
 				break;
 			default:
 				break;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {
+		if (Input.GetKeyDown (KeyCode.DownArrow) || JoystickMove == 1 && canMove == true) {
 			if (choice >=3)
 			{
+                canMove = false;
 				choice = 1;
 			}
 			else{
+            canMove = false;
 			choice++;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
+        if (Input.GetKeyDown(KeyCode.UpArrow) || JoystickMove == -1 && canMove == true)
+        {
 			if (choice <=1)
 			{
+                canMove = false;
 				choice = 3;
 			}
 			else{
+                canMove = false;
 				choice--;
 			}
 		}

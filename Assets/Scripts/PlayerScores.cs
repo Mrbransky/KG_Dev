@@ -4,8 +4,8 @@ using System.Collections;
 
 public class PlayerScores : MonoBehaviour {
 
-    public Text scoreText;
-    public Text scoreText2;
+    public Image scoreBar1;
+    public Image scoreBar2;
 
     Color textColor;
     private Vector2 textPosition;
@@ -19,13 +19,13 @@ public class PlayerScores : MonoBehaviour {
 	void Start () 
     {
        
-        if (this.gameObject.name == "Player1")
+        if (this.gameObject.tag == "Human")
         {
-            scoreText.color = Color.green;
+            //scoreText.color = Color.green;
         }
-        else if (this.gameObject.name == "Player2")
+        else if (this.gameObject.tag == "Ghost")
         {
-            scoreText2.color = Color.magenta;
+            //scoreText2.color = Color.magenta;
         }
 	}
 	
@@ -35,21 +35,15 @@ public class PlayerScores : MonoBehaviour {
         {
             TimeAmtAsHuman1 += Time.deltaTime;
             player1Score = (int)TimeAmtAsHuman1 * 5;
+            scoreBar1.transform.localScale += new Vector3(0.02f, 0, 0)*Time.deltaTime;
 
         }
         if (this.gameObject.tag == "Human" && this.gameObject.name == "Player2")
         {
             TimeAmtAsHuman2 += Time.deltaTime;
             player2Score = (int)TimeAmtAsHuman2 * 5;
+            scoreBar2.transform.localScale += new Vector3(0.02f, 0, 0) * Time.deltaTime;
         }
-
-        if(this.gameObject.name == "Player1") 
-            scoreText.text = player1Score.ToString();
-
-        if(this.gameObject.name == "Player2") 
-            scoreText2.text = player2Score.ToString();
-
-        //scoreText.text = score.ToString();
         
 	}
 }
