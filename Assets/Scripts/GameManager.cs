@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     PlayerControls player1_;
     PlayerControls player2_;
 	public GameObject heart_splosion;
+	public GameObject heartZoom;
 	// Update is called once per frame
 
     void Start()
@@ -16,7 +17,10 @@ public class GameManager : MonoBehaviour {
         player2_ = Player2.GetComponent<PlayerControls>();
     }
 	void Update () {
-
+		heartZoom.transform.position = Vector3.Lerp (Player1.transform.position, Player2.transform.position, 0.5f);
+		if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1) {
+			heartZoom.SetActive(false);
+		}
         if (Player1.tag == "Ghost" && Player2.GetComponent<PlayerControls>().Health <= 0)
         {
             if (Player1.GetComponent<PlayerControls>().IsFacingRight != true)
@@ -41,6 +45,7 @@ public class GameManager : MonoBehaviour {
     public void SwapCharacters()
     {
         this.GetComponent<RoomGenerator>().GenerateNewRoom();
+		heartZoom.SetActive (true);
 
         if (Player1.tag == "Ghost")
         {

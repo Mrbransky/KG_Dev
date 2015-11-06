@@ -19,7 +19,7 @@ public class RoomGenerator : MonoBehaviour {
 		SmallBaseRoomPiece.SetActive(false);
 		MediumBaseRoomPiece.SetActive(false);
 		LargeBaseRoomPiece.SetActive(true);
-		GenerateInternals(new Vector2(3.5f, 3.5f));
+		GenerateInternals(new Vector2(5.0f, 2.5f));
 	}
 	public void GenerateInternals(Vector2 RoomSize)
 	{
@@ -64,7 +64,7 @@ public class RoomGenerator : MonoBehaviour {
 	public void GenerateNewRoom()
 	{
 		RemoveFloors ();
-		GenerateInternals(new Vector2(3.5f, 3.5f));
+		GenerateInternals(new Vector2(5.0f, 2.5f));
 //		switch (Random.Range (1, 4)) {
 //		case 1:
 //			RemoveFloors();
