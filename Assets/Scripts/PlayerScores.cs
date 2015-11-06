@@ -44,6 +44,11 @@ public class PlayerScores : MonoBehaviour {
             player2Score = (int)TimeAmtAsHuman2 * 5;
             scoreBar2.transform.localScale += new Vector3(0.02f, 0, 0) * Time.deltaTime;
         }
+
+		//Win condition!
+		if (scoreBar1.transform.localScale.x >= 1 || scoreBar2.transform.localScale.x >= 1) {
+			Debug.Log("win!");
+		}
         
 	}
 }

@@ -64,7 +64,7 @@ public class RoomGenerator : MonoBehaviour {
 	public void GenerateNewRoom()
 	{
 		RemoveFloors ();
-		GenerateInternals(new Vector2(5.0f, 2.5f));
+		GenerateInternals(new Vector2(6f, 3f));
 //		switch (Random.Range (1, 4)) {
 //		case 1:
 //			RemoveFloors();

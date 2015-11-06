@@ -11,8 +11,7 @@ public class GhostKiss : MonoBehaviour {
 
         if (this.GetComponent<PlayerControls>().IsFacingRight == false)
         {
-            kissCollider.offset = new Vector2(GhostDirection.x, GhostDirection.y);
-            
+            kissCollider.offset = new Vector2(GhostDirection.x, GhostDirection.y);    
         }
         else
         {

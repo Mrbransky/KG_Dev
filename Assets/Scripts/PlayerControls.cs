@@ -13,6 +13,7 @@ public class PlayerControls : MonoBehaviour {
     public float speed;
     private string EntityID, HorizontalID, VerticalID, ActionID;
     public bool IsFacingRight;
+    public float dodgeRollForce;
 
     public GameManager manager;
     public AudioSource audio;
@@ -48,6 +49,9 @@ public class PlayerControls : MonoBehaviour {
     public int Health;
 
     public bool IsDoingKissing;
+    private bool HasDodgeRolled = false;
+    public float dodgeRollCoolDown;
+    public float dodgeRollTimeAmt;
     
 	void Awake () 
     {
@@ -57,7 +61,6 @@ public class PlayerControls : MonoBehaviour {
             IsFacingRight = false;
             this.Health = 200;
             this.GetComponent<SpriteRenderer>().sprite = HumanSprite;
-            //kissCollider.enabled = false;
         }
 
         //Player2
@@ -92,8 +95,24 @@ public class PlayerControls : MonoBehaviour {
         if (ShouldFlipSprite())
             FlipSprite();
 
-        HandleDirectionInput();
         HandleKissButton();
+
+        //CLEAN THIS UP ._.
+        #region DodgeRollCode
+        if (!HasDodgeRolled)
+            HandleDirectionInput();
+
+        HandleDodgeRoll();
+
+        if (HasDodgeRolled)
+        {
+            if (dodgeRollTimeAmt > 0)
+                dodgeRollTimeAmt -= Time.deltaTime;
+        }
+
+        if(dodgeRollCoolDown > 0)
+            dodgeRollCoolDown -= Time.deltaTime;
+        #endregion
 
         //If the controller list changes, change player inputs accordingly
         if (!cachedControllerList.SequenceEqual(controllers))
@@ -158,6 +177,26 @@ public class PlayerControls : MonoBehaviour {
                 IsDoingKissing = true;
 
             else IsDoingKissing = false;
+        }
+    }
+
+    //THIS IS WHERE DODGE ROLLING HAPPENS, JACK
+    void HandleDodgeRoll()
+    {
+        if (this.tag == "Human" && !HasDodgeRolled && Input.GetButton(ActionID) && dodgeRollCoolDown <= 0 )
+        {
+            Vector2 dir = direction.normalized;
+            rigidBody.AddForce(new Vector2(dir.x * dodgeRollForce, dir.y * dodgeRollForce));
+            HasDodgeRolled = true;
+            dodgeRollTimeAmt = .35f;
+            Debug.Log("DODGE ROLLED");
+        }
+
+        else if (HasDodgeRolled && dodgeRollTimeAmt <= 0)
+        {
+            rigidBody.velocity = Vector2.zero;
+            HasDodgeRolled = false;
+            dodgeRollCoolDown = 3;
         }
     }
 
