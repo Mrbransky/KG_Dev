@@ -46,8 +46,9 @@ public class PlayerScores : MonoBehaviour {
         }
 
 		//Win condition!
-		if (scoreBar1.transform.localScale.x >= 1 || scoreBar2.transform.localScale.x >= 1) {
-			Debug.Log("win!");
+		if (scoreBar1.transform.localScale.x >= .97f || scoreBar2.transform.localScale.x >= .97f) {
+
+			Application.LoadLevel(2);
 		}
         
 	}
