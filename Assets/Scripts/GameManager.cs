@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 			hearts.transform.SetParent(Player1.transform);
             player1_.myHearts.SetActive(false);
             Player1.tag = "Human";
+			Player1.transform.FindChild("Collider1").gameObject.layer = 8;
             player1_.Health = 200;
             Player1.GetComponent<SpriteRenderer>().sprite = player1_.HumanSprite;
             player1_.IsDoingKissing = false;
@@ -61,7 +62,8 @@ public class GameManager : MonoBehaviour {
         else
         {
             player1_.myHearts.SetActive(true);
-            player1_.tag = "Ghost";
+            Player1.tag = "Ghost";
+			Player1.transform.FindChild("Collider1").gameObject.layer= 9;
             player1_.Health = 0;
             Player1.GetComponent<SpriteRenderer>().sprite = player1_.GhostSprite;
             player1_.IsDoingKissing = false;
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour {
 			hearts.transform.SetParent(Player2.transform);
             player2_.myHearts.SetActive(false);
             Player2.tag = "Human";
+			Player2.transform.FindChild("Collider2").gameObject.layer = 8;
             player2_.Health = 200;
             Player2.GetComponent<SpriteRenderer>().sprite = player2_.HumanSprite;
             player2_.IsDoingKissing = false;
@@ -82,7 +85,8 @@ public class GameManager : MonoBehaviour {
         else
         {
             player2_.myHearts.SetActive(true);
-            player2_.tag = "Ghost";
+            Player2.tag = "Ghost";
+			Player2.transform.FindChild("Collider2").gameObject.layer= 9;
             player2_.Health = 0;
             Player2.GetComponent<SpriteRenderer>().sprite = player2_.GhostSprite;
             player2_.IsDoingKissing = false;

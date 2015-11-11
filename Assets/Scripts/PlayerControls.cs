@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour {
     private Rigidbody2D rigidBody;
     public Sprite HumanSprite, GhostSprite;
     public BoxCollider2D kissCollider;
+	public GameObject A_Button;
 
     public float speed;
     private string EntityID, HorizontalID, VerticalID, ActionID;
@@ -141,19 +142,27 @@ public class PlayerControls : MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D col)
     {
+		if (col.gameObject.tag == "Human") {
+			A_Button.SetActive (true);
+		}
         if (this.IsDoingKissing && col.gameObject.tag == "Human")
         {
             int HumanHealth = col.GetComponent<PlayerControls>().Health;
             if (HumanHealth >= 0)
             {
                 col.GetComponent<PlayerControls>().Health--;
-                Debug.Log(HumanHealth);
+                
             }
 
             if (HumanHealth < 0)
                 manager.GetComponent<GameManager>().SwapCharacters();
         }
     }
+
+	void OnTriggerExit2D(Collider2D col)
+	{
+		A_Button.SetActive (false);
+	}
 
     void DelaySmoochAudio()
     {
