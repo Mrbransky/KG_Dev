@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 		{
             heartZoom.transform.position = gameWinner.transform.position;
 		}
+
         if (Player1.tag == "Ghost" && Player2.GetComponent<PlayerControls>().Health <= 0)
         {
             if (Player1.GetComponent<PlayerControls>().IsFacingRight != true)
