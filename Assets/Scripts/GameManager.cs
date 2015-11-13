@@ -27,7 +27,11 @@ public class GameManager : MonoBehaviour {
 		}
 		else
 		{
+			heartZoom.SetActive(true);
             heartZoom.transform.position = gameWinner.transform.position;
+			if (heartZoom.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime > 0.5f) {
+				heartZoom.SetActive (false);
+			}
 		}
 
         if (Player1.tag == "Ghost" && Player2.GetComponent<PlayerControls>().Health <= 0)

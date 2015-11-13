@@ -9,6 +9,7 @@ public class PlayerScores : MonoBehaviour {
 
     Color textColor;
     private Vector2 textPosition;
+	bool isPlaying = true;
 
     private int player1Score;
     private int player2Score;
@@ -31,14 +32,14 @@ public class PlayerScores : MonoBehaviour {
 	
 	void Update () 
     {
-        if (this.gameObject.tag == "Human" && this.gameObject.name == "Player1")
+        if (this.gameObject.tag == "Human" && this.gameObject.name == "Player1" && isPlaying == true)
         {
             TimeAmtAsHuman1 += Time.deltaTime;
             player1Score = (int)TimeAmtAsHuman1 * 5;
             scoreBar1.transform.localScale += new Vector3(0.02f, 0, 0)*Time.deltaTime;
 
         }
-        if (this.gameObject.tag == "Human" && this.gameObject.name == "Player2")
+        if (this.gameObject.tag == "Human" && this.gameObject.name == "Player2" && isPlaying == true)
         {
             TimeAmtAsHuman2 += Time.deltaTime;
             player2Score = (int)TimeAmtAsHuman2 * 5;
@@ -46,12 +47,17 @@ public class PlayerScores : MonoBehaviour {
         }
 
 		//Win condition!
-		if (scoreBar1.transform.localScale.x >= .97f || scoreBar2.transform.localScale.x >= .97f) {
-
+		if (scoreBar1.transform.localScale.x >= 1f && this.gameObject.name == "Player1") {
+			isPlaying = false;
 			GameObject gm = GameObject.Find("GameManager");
 			gm.GetComponent<GameManager>().gameWinner = this.gameObject;
 			gm.GetComponent<GameManager>().gameEnd = true;
-			Application.LoadLevel(2);
+		}
+		if (scoreBar2.transform.localScale.x >= 1f && this.gameObject.name == "Player2") {
+			isPlaying = false;
+			GameObject gm = GameObject.Find("GameManager");
+			gm.GetComponent<GameManager>().gameWinner = this.gameObject;
+			gm.GetComponent<GameManager>().gameEnd = true;
 		}
         
 	}
