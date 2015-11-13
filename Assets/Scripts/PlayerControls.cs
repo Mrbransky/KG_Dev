@@ -12,7 +12,7 @@ public class PlayerControls : MonoBehaviour {
 	public GameObject A_Button;
 
     public float speed;
-    private string EntityID, HorizontalID, VerticalID, ActionID;
+    public string EntityID, HorizontalID, VerticalID, ActionID;
     public bool IsFacingRight;
     public float dodgeRollForce;
 

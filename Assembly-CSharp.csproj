@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GhostKiss.cs" />
+     <Compile Include="Assets\Scripts\GoBack.cs" />
      <Compile Include="Assets\Scripts\HeartSpawn.cs" />
      <Compile Include="Assets\Scripts\MenuSelect.cs" />
      <Compile Include="Assets\Scripts\PlayMainMusic.cs" />

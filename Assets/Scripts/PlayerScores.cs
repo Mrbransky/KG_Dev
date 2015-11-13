@@ -48,6 +48,8 @@ public class PlayerScores : MonoBehaviour {
 		//Win condition!
 		if (scoreBar1.transform.localScale.x >= .97f || scoreBar2.transform.localScale.x >= .97f) {
 
+			GameObject.Find("GameManager").GetComponent<GameManager>().gameWinner = this.gameObject;
+
 			Application.LoadLevel(2);
 		}
         

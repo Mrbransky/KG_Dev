@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     PlayerControls player2_;
 	public GameObject heart_splosion;
 	public GameObject heartZoom;
+	public bool gameEnd = false;
+	public GameObject gameWinner;
 	// Update is called once per frame
 
     void Start()
@@ -17,9 +19,15 @@ public class GameManager : MonoBehaviour {
         player2_ = Player2.GetComponent<PlayerControls>();
     }
 	void Update () {
-		heartZoom.transform.position = Vector3.Lerp (Player1.transform.position, Player2.transform.position, 0.5f);
-		if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1) {
-			heartZoom.SetActive(false);
+		if (gameEnd == false) {
+			heartZoom.transform.position = Vector3.Lerp (Player1.transform.position, Player2.transform.position, 0.5f);
+			if (heartZoom.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime > 1) {
+				heartZoom.SetActive (false);
+			}
+		}
+		else
+		{
+            heartZoom.transform.position = gameWinner.transform.position;
 		}
         if (Player1.tag == "Ghost" && Player2.GetComponent<PlayerControls>().Health <= 0)
         {

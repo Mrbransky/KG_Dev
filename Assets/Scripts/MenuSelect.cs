@@ -19,7 +19,6 @@ public class MenuSelect : MonoBehaviour {
 	int choice = 1;
 	// Use this for initialization
 	void Start () {
-        Credits.GetComponent<Text>().enabled = false;
 
         audio.loop = true;
         audio.Play();
@@ -38,7 +37,7 @@ public class MenuSelect : MonoBehaviour {
             }
         }
         float JoystickMove = Input.GetAxisRaw("Menu");
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space)|| Input.GetKey("joystick button 0")) {
 			switch(choice)
 			{
 			case 1:
@@ -48,7 +47,7 @@ public class MenuSelect : MonoBehaviour {
                 Application.Quit();
 				break;
 			case 3:
-                Credits.GetComponent<Text>().enabled = true;
+				Application.LoadLevel(3);
 				break;
 			default:
 				break;
