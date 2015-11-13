@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{C9C5ACED-AF37-B251-9AC8-2374AADD4A08}</ProjectGuid>
+	<ProjectGuid>{69BA1079-BCFD-DBFA-1EEA-A2EBB49FA2C8}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,14 +47,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\GhostKiss.cs" />
      <Compile Include="Assets\Scripts\GoBack.cs" />
      <Compile Include="Assets\Scripts\HeartSpawn.cs" />
-     <Compile Include="Assets\Scripts\MenuSelect.cs" />
      <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
-     <Compile Include="Assets\Scripts\PlayerControls.cs" />
-     <Compile Include="Assets\Scripts\PlayerScores.cs" />
+     <Compile Include="Assets\Scripts\Player\GhostKiss.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerControls.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerScores.cs" />
      <Compile Include="Assets\Scripts\RoomGenerator.cs" />
+     <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
