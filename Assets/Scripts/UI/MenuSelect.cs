@@ -12,7 +12,7 @@ public class MenuSelect : MonoBehaviour {
 
     public AudioSource audio;
 
-    float timer = 0.4f;
+    float timer = 0.2f;
 
     bool canMove = false;
 
@@ -33,7 +33,7 @@ public class MenuSelect : MonoBehaviour {
             if (timer <= 0)
             {
                 canMove = true;
-                timer = 0.4f;
+                timer = 0.2f;
             }
         }
         float JoystickMove = Input.GetAxisRaw("Menu");
@@ -44,16 +44,17 @@ public class MenuSelect : MonoBehaviour {
 				Application.LoadLevel(1);
 				break;
 			case 2:
-                Application.Quit();
+                Application.LoadLevel(3);
 				break;
 			case 3:
-				Application.LoadLevel(3);
+				
+                Application.Quit();
 				break;
 			default:
 				break;
 			}
 		}
-		if (Input.GetKeyDown (KeyCode.DownArrow) || JoystickMove == 1 && canMove == true) {
+		if (Input.GetKeyDown (KeyCode.DownArrow) || JoystickMove >= .7f && canMove == true) {
 			if (choice >=3)
 			{
                 canMove = false;
@@ -64,7 +65,7 @@ public class MenuSelect : MonoBehaviour {
 			choice++;
 			}
 		}
-        if (Input.GetKeyDown(KeyCode.UpArrow) || JoystickMove == -1 && canMove == true)
+        if (Input.GetKeyDown (KeyCode.UpArrow) || JoystickMove <= -.7f && canMove == true)
         {
 			if (choice <=1)
 			{
@@ -80,19 +81,19 @@ public class MenuSelect : MonoBehaviour {
 		switch (choice) {
 		
 		case 1:
-			option1.color = Color.green;
+			option1.color = Color.black;
 			option2.color = Color.white;
 			option3.color = Color.white;
 			break;
 		case 2:
 			option1.color = Color.white;
-			option2.color = Color.green;
+			option2.color = Color.black;
 			option3.color = Color.white;
 			break;
 		case 3:
 			option1.color = Color.white;
 			option2.color = Color.white;
-			option3.color = Color.green;
+			option3.color = Color.black;
 			break;
 		default:
 			break;

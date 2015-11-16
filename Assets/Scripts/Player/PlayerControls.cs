@@ -11,10 +11,15 @@ public class PlayerControls : MonoBehaviour {
     public BoxCollider2D kissCollider;
 	public GameObject A_Button;
 
-    public float speed;
-    public string EntityID, HorizontalID, VerticalID, ActionID;
+    public float currentSpeed;
+    string EntityID, HorizontalID, VerticalID, ActionID;
     public bool IsFacingRight;
     public float dodgeRollForce;
+
+    float baseSpeed;
+    public float minSpeed;
+    public float speedRateDecrease;
+    public float speedRateIncrease;
 
     public GameManager manager;
     public AudioSource audio;
@@ -52,7 +57,7 @@ public class PlayerControls : MonoBehaviour {
     public bool IsDoingKissing;
     private bool HasDodgeRolled = false;
     public float dodgeRollCoolDown;
-    public float dodgeRollTimeAmt;
+    float dodgeRollTimeAmt;
     
 	void Awake () 
     {
@@ -60,8 +65,11 @@ public class PlayerControls : MonoBehaviour {
         if (this.tag == "Human")
         {
             IsFacingRight = false;
-            this.Health = 200;
-            this.GetComponent<SpriteRenderer>().sprite = HumanSprite;
+            this.Health = 100;
+            this.GetComponent<SpriteRenderer>().sprite = HumanSprite;            
+            transform.Find("Crosshair").GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            transform.Find("Collider1").tag = "HumanCollider";
         }
 
         //Player2
@@ -71,6 +79,9 @@ public class PlayerControls : MonoBehaviour {
             IsDoingKissing = false;
             this.Health = -5;
             this.GetComponent<SpriteRenderer>().sprite = GhostSprite;
+            transform.Find("Crosshair").GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
+            transform.Find("Collider2").tag = "Untagged";
         }
 
         SetControls();
@@ -93,10 +104,12 @@ public class PlayerControls : MonoBehaviour {
 
         SetFaceDirection();
 
-        if (ShouldFlipSprite())
-            FlipSprite();
+        if (ShouldFlipSprite()) FlipSprite();
 
         HandleKissButton();
+
+        if (!IsDoingKissing && currentSpeed < baseSpeed)
+            ReturnSpeedToNormal();
 
         //CLEAN THIS UP ._.
         #region DodgeRollCode
@@ -128,33 +141,30 @@ public class PlayerControls : MonoBehaviour {
         IsFacingRight = !IsFacingRight;
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
-        if (this.IsDoingKissing && col.gameObject.tag == "Human")
+		if (col.gameObject.tag == "HumanCollider") 
+        {
+			A_Button.SetActive (true);
+		}
+
+        if (this.IsDoingKissing && col.gameObject.tag == "HumanCollider")
         {
             if (!kissIsPlaying)
             {
-                audio.PlayOneShot(kisses[Random.Range(0, 2)]);
+                audio.PlayOneShot(kisses[Random.Range(0, 2)], 2);
                 kissIsPlaying = true;
             }
-        }
 
-    }
-    void OnTriggerStay2D(Collider2D col)
-    {
-		if (col.gameObject.tag == "Human") {
-			A_Button.SetActive (true);
-		}
-        if (this.IsDoingKissing && col.gameObject.tag == "Human")
-        {
-            int HumanHealth = col.GetComponent<PlayerControls>().Health;
+            ReduceSpeed();
+
+            int HumanHealth = col.GetComponentInParent<PlayerControls>().Health;
             if (HumanHealth >= 0)
             {
-                col.GetComponent<PlayerControls>().Health--;
-                
+                col.GetComponentInParent<PlayerControls>().Health--;                
             }
 
-            if (HumanHealth < 0)
+            if (HumanHealth < 0)            
                 manager.GetComponent<GameManager>().SwapCharacters();
         }
     }
@@ -181,7 +191,7 @@ public class PlayerControls : MonoBehaviour {
     {
         if(this.tag == "Ghost")
         {
-            kissCollider = this.GetComponent<BoxCollider2D>();
+            //kissCollider = this.GetComponent<BoxCollider2D>();
             if (Input.GetButton(ActionID))
                 IsDoingKissing = true;
 
@@ -195,9 +205,10 @@ public class PlayerControls : MonoBehaviour {
         if (this.tag == "Human" && !HasDodgeRolled && Input.GetButton(ActionID) && dodgeRollCoolDown <= 0 )
         {
             Vector2 dir = direction.normalized;
+            this.GetComponent<Animator>().SetBool("isDashing", true);
             rigidBody.AddForce(new Vector2(dir.x * dodgeRollForce, dir.y * dodgeRollForce));
             HasDodgeRolled = true;
-            dodgeRollTimeAmt = .35f;
+            dodgeRollTimeAmt = .3f;
             Debug.Log("DODGE ROLLED");
         }
 
@@ -205,11 +216,12 @@ public class PlayerControls : MonoBehaviour {
         {
             rigidBody.velocity = Vector2.zero;
             HasDodgeRolled = false;
-            dodgeRollCoolDown = 3;
+            this.GetComponent<Animator>().SetBool("isDashing", false);
+            dodgeRollCoolDown = .65f;
         }
     }
 
-    void SetAnimation()
+    public void SetAnimation()
     {
         if (this.tag == "Human")
         {
@@ -234,7 +246,7 @@ public class PlayerControls : MonoBehaviour {
 
     void ApplyMovement()
     {
-        Vector3 calc = new Vector3(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime, 0);
+        Vector3 calc = new Vector3(direction.x * currentSpeed * Time.deltaTime, direction.y * currentSpeed * Time.deltaTime, 0);
         this.rigidBody.transform.position += calc;
     }
 
@@ -297,5 +309,26 @@ public class PlayerControls : MonoBehaviour {
             }
         }
         cachedControllerList = controllers;
+    }
+
+    void ReduceSpeed()
+    {
+        if (this.currentSpeed > minSpeed)
+            this.currentSpeed -= speedRateDecrease;
+        else
+            this.currentSpeed = minSpeed;
+    }
+
+    void ReturnSpeedToNormal()
+    {
+        if (this.currentSpeed < baseSpeed)
+            this.currentSpeed += speedRateIncrease;
+        else
+            this.currentSpeed = baseSpeed;
+    }
+
+    public void SetBaseSpeed(float f)
+    {
+        baseSpeed = f;
     }
 }
