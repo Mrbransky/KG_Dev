@@ -34,9 +34,9 @@ public class PlayerScores : MonoBehaviour {
     {
         if (this.gameObject.tag == "Human" && this.gameObject.name == "Player1" && isPlaying == true)
         {
-            TimeAmtAsHuman1 += Time.deltaTime;
+            TimeAmtAsHuman1 += Time.deltaTime ;
             player1Score = (int)TimeAmtAsHuman1 * 5;
-            scoreBar1.transform.localScale += new Vector3(0.02f, 0, 0)*Time.deltaTime;
+            scoreBar1.transform.localScale += new Vector3(2.02f, 0, 0)*Time.deltaTime;
 
         }
         if (this.gameObject.tag == "Human" && this.gameObject.name == "Player2" && isPlaying == true)

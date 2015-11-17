@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 	public bool gameEnd = false;
 	public GameObject gameWinner;
 
+    public GameObject gameEndPlayAgain, gameEndMainMenu;
+
     public float GhostSpeed, HumanSpeed;
 	// Update is called once per frame
 
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour {
         Player2.transform.Find("Hearts").GetComponent<ParticleSystem>().enableEmission = true;
     }
 	void Update () {
+        //win condition
 		if (gameEnd == false) {
 			heartZoom.transform.position = Vector3.Lerp (Player1.transform.position, Player2.transform.position, 0.5f);
 			if (heartZoom.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime > 1) {
@@ -37,9 +40,23 @@ public class GameManager : MonoBehaviour {
 		{
 			heartZoom.SetActive(true);
             heartZoom.transform.position = gameWinner.transform.position;
-			if (heartZoom.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime > 0.5f) {
-				heartZoom.SetActive (false);
-			}
+            heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
+            if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                gameEndPlayAgain.SetActive(true);
+                gameEndMainMenu.SetActive(true);
+                Time.timeScale = 0;
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
+                {
+                    Time.timeScale = 1;
+                    Application.LoadLevel(0);
+                }
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
+                {
+                    Time.timeScale = 1;
+                    Application.LoadLevel(1);
+                }
+            }
 		}
 
         if (Player1.tag == "Ghost" && Player2.GetComponent<PlayerControls>().Health <= 0)
