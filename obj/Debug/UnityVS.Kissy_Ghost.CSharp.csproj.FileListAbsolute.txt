@@ -9,3 +9,14 @@ C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngi
 C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\obj\Debug\UnityVS.Kissy_Ghost.CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\obj\Debug\Assembly-CSharp.dll
 C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\obj\Debug\UnityVS.Kissy_Ghost.CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\obj\Debug\Assembly-CSharp.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.Networking.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\Jack\Documents\GitHub\Kissy_Ghost\obj\Debug\Assembly-CSharp.pdb
