@@ -113,19 +113,19 @@ public class PlayerControls : MonoBehaviour {
 
         //CLEAN THIS UP ._.
         #region DodgeRollCode
-        if (!HasDodgeRolled)
-            HandleDirectionInput();
+        //if (!HasDodgeRolled)
+        //    HandleDirectionInput();
 
-        HandleDodgeRoll();
+        //HandleDodgeRoll();
 
-        if (HasDodgeRolled)
-        {
-            if (dodgeRollTimeAmt > 0)
-                dodgeRollTimeAmt -= Time.deltaTime;
-        }
+        //if (HasDodgeRolled)
+        //{
+        //    if (dodgeRollTimeAmt > 0)
+        //        dodgeRollTimeAmt -= Time.deltaTime;
+        //}
 
-        if(dodgeRollCoolDown > 0)
-            dodgeRollCoolDown -= Time.deltaTime;
+        //if(dodgeRollCoolDown > 0)
+        //    dodgeRollCoolDown -= Time.deltaTime;
         #endregion
 
         //If the controller list changes, change player inputs accordingly
@@ -200,26 +200,26 @@ public class PlayerControls : MonoBehaviour {
     }
 
     //THIS IS WHERE DODGE ROLLING HAPPENS, JACK
-    void HandleDodgeRoll()
-    {
-        if (this.tag == "Human" && !HasDodgeRolled && Input.GetButton(ActionID) && dodgeRollCoolDown <= 0 )
-        {
-            Vector2 dir = direction.normalized;
-            this.GetComponent<Animator>().SetBool("isDashing", true);
-            rigidBody.AddForce(new Vector2(dir.x * dodgeRollForce, dir.y * dodgeRollForce));
-            HasDodgeRolled = true;
-            dodgeRollTimeAmt = .3f;
-            Debug.Log("DODGE ROLLED");
-        }
+    //void HandleDodgeRoll()
+    //{
+    //    if (this.tag == "Human" && !HasDodgeRolled && Input.GetButton(ActionID) && dodgeRollCoolDown <= 0 )
+    //    {
+    //        Vector2 dir = direction.normalized;
+    //        this.GetComponent<Animator>().SetBool("isDashing", true);
+    //        rigidBody.AddForce(new Vector2(dir.x * dodgeRollForce, dir.y * dodgeRollForce));
+    //        HasDodgeRolled = true;
+    //        dodgeRollTimeAmt = .3f;
+    //        Debug.Log("DODGE ROLLED");
+    //    }
 
-        else if (HasDodgeRolled && dodgeRollTimeAmt <= 0)
-        {
-            rigidBody.velocity = Vector2.zero;
-            HasDodgeRolled = false;
-            this.GetComponent<Animator>().SetBool("isDashing", false);
-            dodgeRollCoolDown = .65f;
-        }
-    }
+    //    else if (HasDodgeRolled && dodgeRollTimeAmt <= 0)
+    //    {
+    //        rigidBody.velocity = Vector2.zero;
+    //        HasDodgeRolled = false;
+    //        this.GetComponent<Animator>().SetBool("isDashing", false);
+    //        dodgeRollCoolDown = .65f;
+    //    }
+    //}
 
     public void SetAnimation()
     {

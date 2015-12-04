@@ -68,15 +68,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\GhostKiss.cs" />
+    <Compile Include="Assets\New\_NewControls.cs" />
+    <Compile Include="Assets\Old\GameManager.cs" />
+    <Compile Include="Assets\Old\GhostKiss.cs" />
+    <Compile Include="Assets\Old\PlayerControls.cs" />
+    <Compile Include="Assets\Old\PlayerScores.cs" />
+    <Compile Include="Assets\Old\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\GoBack.cs" />
     <Compile Include="Assets\Scripts\HeartSpawn.cs" />
-    <Compile Include="Assets\Scripts\MenuSelect.cs" />
     <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
-    <Compile Include="Assets\Scripts\PlayerControls.cs" />
-    <Compile Include="Assets\Scripts\PlayerScores.cs" />
-    <Compile Include="Assets\Scripts\RoomGenerator.cs" />
+    <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
