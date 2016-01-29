@@ -72,8 +72,8 @@ function LateUpdate ()
 			theCamera.transform.position.x = avgDistance.x ;
  
 			theCamera.orthographicSize = largestDifference;
-			if(theCamera.orthographicSize >=5f)
-			{theCamera.orthographicSize =5f;}
+			if(theCamera.orthographicSize >=10f)
+			{theCamera.orthographicSize =10f;}
 			if(theCamera.orthographicSize <=3f)
 			{theCamera.orthographicSize = 3f;}
  

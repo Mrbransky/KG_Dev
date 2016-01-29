@@ -11,7 +11,6 @@ public class RoomGenerator : MonoBehaviour {
 	public GameObject LargeBaseRoomPiece;
 	List<GameObject> currentFloors;
 	public int numberOfFloors = 3;
-	//public float minDistance = 1f;
     public GameObject[] floorOptions;
 	
 	void Start()
@@ -25,13 +24,10 @@ public class RoomGenerator : MonoBehaviour {
 	{
 		int NoF = numberOfFloors;
 		currentFloors = new List<GameObject>();
-		//Vector3 InternalDimension = Vector3(RoomSize.x - 10f, RoomSize.y - 10f);
 
 		for(int i = 0; i<NoF; i++)
 		{
-            //floorPiece.GetComponent<SpriteRenderer>().sprite = floorOptions[Random.Range(0, floorOptions.Length)];
 			Vector2 newPos = new Vector2(Random.Range (-RoomSize.x,RoomSize.x),Random.Range (-RoomSize.y,RoomSize.y));
-			//Vector2 randPos = new Vector2(Random.Range (-RoomSize.x,RoomSize.x),Random.Range (-RoomSize.y,RoomSize.y));
 			GameObject newFloor = Instantiate(floorOptions[Random.Range (0,floorOptions.Length)],newPos,Quaternion.identity) as GameObject;
 			if(newFloor.tag == "Furniture")
 			{
@@ -41,19 +37,6 @@ public class RoomGenerator : MonoBehaviour {
 		}
 
 	}
-	/*Vector3 FindNewPos(Vector2 roomSize)
-	{
-		Collider[] neighbors;
-		Vector3 newPos;
-		do{
-			newPos = new Vector2(Random.Range (-roomSize.x,roomSize.x),Random.Range (-roomSize.y,roomSize.y));
-
-			neighbors = Physics.OverlapSphere(newPos, minDistance);
-		}
-		while(neighbors.Length > 0);
-		return newPos;
-
-	}*/
 	void RemoveFloors()
 	{
 		foreach  (GameObject floorsToDelete in currentFloors)
