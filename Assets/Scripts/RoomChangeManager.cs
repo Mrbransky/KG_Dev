@@ -6,24 +6,29 @@ public class RoomChangeManager : MonoBehaviour {
     public List<GameObject> playersGoingBottom = new List<GameObject>();
     public List<GameObject> playersGoingLeft = new List<GameObject>();
     public List<GameObject> playersGoingRight = new List<GameObject>();
-	
+
+    int curPlayerCount;
+
+    void Start()
+    {
+        curPlayerCount = GetComponent<GameManager>().playerCount;
+    }
 	void Update () {
 
-        //if(playersGoingBottom >= /*Max player count*/)
-        //{
-        //    //TODO
-        //    //Put players into the bottom room
-        //}
-        //if(playersGoingLeft>= /*Max player count*/)
-        //{
-        //    //TODO
-        //    //Put players into the left room
-        //}
-        //if(playersGoingRight >= /*Max player count*/)
-        //{
-        //    //TODO
-        //    //Put players into the right room
-        //}
+
+
+        if(playersGoingBottom.Count >= curPlayerCount)
+        {
+            //TODO Put player nodes into the bottom room
+        }
+        if (playersGoingLeft.Count >= curPlayerCount)
+        {
+            //TODO Put player nodes into the left room
+        }
+        if (playersGoingRight.Count >= curPlayerCount)
+        {
+            //TODO Put player nodes into the right room
+        }
 
 	}
 }

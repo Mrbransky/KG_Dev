@@ -53,8 +53,10 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GoBack.cs" />
      <Compile Include="Assets\Scripts\HeartSpawn.cs" />
+     <Compile Include="Assets\Scripts\KissableFurniture.cs" />
      <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
      <Compile Include="Assets\Scripts\Player\GhostKiss.cs" />
+     <Compile Include="Assets\Scripts\Player\MoveInteractTrigger.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerControls.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerScores.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerStructure\Entity.cs" />
