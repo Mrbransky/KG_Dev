@@ -164,8 +164,8 @@ public class PlayerControls : MonoBehaviour {
                 col.GetComponentInParent<PlayerControls>().Health--;                
             }
 
-            if (HumanHealth < 0)            
-                manager.GetComponent<GameManager>().SwapCharacters();
+            //if (HumanHealth < 0)            
+                //manager.GetComponent<GameManager>().SwapCharacters();
         }
     }
 

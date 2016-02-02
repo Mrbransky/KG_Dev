@@ -13,11 +13,11 @@ var offset : float;
  
 function Start(){
  
-    //targets = GameObject.FindGameObjectsWithTag("Player"); 
+    targets = GameObject.FindGameObjectsWithTag("Player"); 
  
     if(theCamera) isOrthographic = theCamera.orthographic;
  	//var globalControlScript = GameObject.Find("GlobalControl").GetComponent("GlobalControlScript");
- 	//theCamera.GetComponent.<Camera>().orthographicSize = 1 + (6f*2);
+ 	theCamera.GetComponent.<Camera>().orthographicSize = 1 + (6f*targets.length);
  
 }
 function OnGUI(){
@@ -29,23 +29,14 @@ function OnGUI(){
     //GUILayout.Label("number of players = " + targets.length.ToString());
  
 }
-function Update()
-{
-	if(targets.Length == 1)
-	{
-		Time.timeScale = 0.0f;
-		
-	}
-}
 function LateUpdate () 
  
 {
  
-    //targets = GameObject.FindGameObjectsWithTag("Player"); 
+    targets = GameObject.FindGameObjectsWithTag("Player"); 
  
-    //if (!GameObject.FindWithTag("Player"))
- 
-   // return;
+    if (!GameObject.FindWithTag("Player"))
+        return;
  	
  
  
