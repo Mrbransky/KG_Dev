@@ -7,7 +7,7 @@ public class Player : Entity
     public CircleCollider2D bodyCol;
 
     public int playerNum;
-    protected bool FacingRight;
+    public bool FacingRight;
 
     public override void Awake() 
     {
