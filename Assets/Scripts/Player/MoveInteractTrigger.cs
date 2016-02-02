@@ -19,6 +19,8 @@ public class MoveInteractTrigger : MonoBehaviour {
     {
         PlayerMoveDir = this.GetComponentInParent<Player>().moveDir;
         PlayerFacingRight = this.GetComponentInParent<Player>().FacingRight;
+
+
 	}
 
     //Old Method for moving sprite centered in the middle of InteractTrigger
