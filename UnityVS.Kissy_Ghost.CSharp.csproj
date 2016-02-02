@@ -63,6 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CharacterSelectData.cs" />
+    <Compile Include="Assets\Scripts\CharacterSelectDemoController.cs" />
+    <Compile Include="Assets\Scripts\CharacterSelectManager.cs" />
+    <Compile Include="Assets\Scripts\DoorCounter.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GoBack.cs" />
     <Compile Include="Assets\Scripts\HeartSpawn.cs" />
@@ -70,6 +74,12 @@
     <Compile Include="Assets\Scripts\Player\GhostKiss.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerScores.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStructure\Entity.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStructure\Ghost.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStructure\Human.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStructure\InputMapper.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerStructure\Player.cs" />
+    <Compile Include="Assets\Scripts\RoomChangeManager.cs" />
     <Compile Include="Assets\Scripts\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
   </ItemGroup>
