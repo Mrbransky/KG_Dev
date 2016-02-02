@@ -4,15 +4,28 @@ using System.Collections;
 public class CharacterSelectData : MonoBehaviour
 {
     private bool[] isPlayerReadyArray;
+    private int playerCount = 0;
     
-	void Start ()
+    public bool[] IsPlayerReadyArray
+    {
+        get { return isPlayerReadyArray; }
+    }
+
+    public int PlayerCount
+    {
+        get { return playerCount; }
+    }
+
+
+    void Start ()
     {
         DontDestroyOnLoad(gameObject);
 	}
 
-    public void SetIsPlayerReady(bool[] _isPlayerReadyArray)
+    public void SetIsPlayerReady(bool[] _isPlayerReadyArray, int _playerCount)
     {
         isPlayerReadyArray = _isPlayerReadyArray;
+        playerCount = _playerCount;
     }
 
     public bool GetIsPlayerReady(int playerNumber)

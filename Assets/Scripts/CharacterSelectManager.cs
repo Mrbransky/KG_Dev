@@ -95,8 +95,8 @@ public class CharacterSelectManager : MonoBehaviour
         GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
         if (characterSelectData != null)
         {
-            characterSelectData.GetComponent<CharacterSelectData>().SetIsPlayerReady(isPlayerReadyArray);
-            Application.LoadLevel("CharacterSelectDemo");
+            characterSelectData.GetComponent<CharacterSelectData>().SetIsPlayerReady(isPlayerReadyArray, playerCount);
+            Application.LoadLevel(Application.loadedLevel + 1);
         }
         else
         {

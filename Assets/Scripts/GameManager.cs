@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -10,16 +11,62 @@ public class GameManager : MonoBehaviour {
 
     public GameObject gameEndPlayAgain, gameEndMainMenu;
 
-    //For David
-    int playerCount = 0;
-
-    GameObject[] currentPlayers;
+    public int playerCount = 0;
+    public List<GameObject> currentPlayers;
+    private bool[] isPlayerReadyArray;
 
     void Start()
     {
-        currentPlayers = GameObject.FindGameObjectsWithTag("Player");
+        handleCharacterSelectData();
+        initializePlayers();
+        assignGhost();
     }
-	void Update () {
+
+    private void handleCharacterSelectData()
+    {
+        GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
+
+        if (characterSelectData != null)
+        {
+            isPlayerReadyArray = characterSelectData.GetComponent<CharacterSelectData>().IsPlayerReadyArray;
+            playerCount = characterSelectData.GetComponent<CharacterSelectData>().PlayerCount;
+            Destroy(characterSelectData);
+        }
+        else
+        {
+            Debug.LogError("CharacterSelectDemoController: Could not find game object with tag \"CharacterSelectData\"");
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void initializePlayers()
+    {
+        currentPlayers = new List<GameObject>();
+
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            int playerReadyArrayIndex = player.GetComponent<Human>().playerNum - 1;
+
+            if (!isPlayerReadyArray[playerReadyArrayIndex])
+            {
+                player.SetActive(false);
+            }
+            else
+            {
+                currentPlayers.Add(player);
+            }
+        }
+    }
+
+    private void assignGhost()
+    {
+        int randPlayerIndex = Random.Range(0, playerCount - 1);
+
+        // TODO Set player to ghost here using randPlayerIndex
+    }
+
+	void Update ()
+    {
         //win condition
 		if (gameEnd == false) {
             heartZoom.transform.position = Camera.main.transform.position;
