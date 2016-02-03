@@ -20,7 +20,8 @@ public class MoveInteractTrigger : MonoBehaviour {
         PlayerMoveDir = this.GetComponentInParent<Player>().moveDir;
         PlayerFacingRight = this.GetComponentInParent<Player>().FacingRight;
 
-
+        SetInteractTrigOffset();
+        SetInteractTrigPos();
 	}
 
     //Old Method for moving sprite centered in the middle of InteractTrigger
@@ -42,6 +43,15 @@ public class MoveInteractTrigger : MonoBehaviour {
     //    else
     //        crosshair.localPosition = new Vector3(GhostDirection.x, GhostDirection.y, 0);
     //}
+
+    void SetInteractTrigPos()
+    {
+        if (PlayerFacingRight)
+            InteractTransform.localPosition = new Vector3(-PlayerMoveDir.x, PlayerMoveDir.y, 0);
+
+        else
+            InteractTransform.localPosition = new Vector3(PlayerMoveDir.x, PlayerMoveDir.y, 0);
+    }
 
     void SetInteractTrigOffset()
     {
