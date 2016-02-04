@@ -48,8 +48,17 @@ public class CharacterSelectManager : MonoBehaviour
         {
             startGame();
         }
-        
+
         checkIfPlayerReady();
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
+        {
+            startGame();
+        }
+
+        debugCheckIfPlayerReady();
+#endif
     }
 
     private void checkIfPlayerReady()
@@ -76,6 +85,81 @@ public class CharacterSelectManager : MonoBehaviour
                 debugTextArray[i - 1] = "P" + i + ": Not Ready\n";
                 updateUI();
             }
+        }
+    }
+
+    private void debugCheckIfPlayerReady()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            isPlayerReadyArray[0] = !isPlayerReadyArray[0];
+
+            if (isPlayerReadyArray[0])
+            {
+                ++playerCount;
+                debugTextArray[0] = "P1: Ready\n";
+            }
+            else
+            {
+                --playerCount;
+                debugTextArray[0] = "P1: Not Ready\n";
+            }
+
+            updateUI();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            isPlayerReadyArray[1] = !isPlayerReadyArray[1];
+
+            if (isPlayerReadyArray[1])
+            {
+                ++playerCount;
+                debugTextArray[1] = "P2: Ready\n";
+            }
+            else
+            {
+                --playerCount;
+                debugTextArray[1] = "P2: Not Ready\n";
+            }
+
+            updateUI();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            isPlayerReadyArray[2] = !isPlayerReadyArray[2];
+
+            if (isPlayerReadyArray[2])
+            {
+                ++playerCount;
+                debugTextArray[2] = "P3: Ready\n";
+            }
+            else
+            {
+                --playerCount;
+                debugTextArray[2] = "P3: Not Ready\n";
+            }
+
+            updateUI();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            isPlayerReadyArray[3] = !isPlayerReadyArray[3];
+
+            if (isPlayerReadyArray[3])
+            {
+                ++playerCount;
+                debugTextArray[3] = "P4: Ready\n";
+            }
+            else
+            {
+                --playerCount;
+                debugTextArray[3] = "P4: Not Ready\n";
+            }
+
+            updateUI();
         }
     }
 
