@@ -4,13 +4,22 @@ using System.Collections;
 public class DoorCounter : MonoBehaviour {
 
     public GameObject roomManager;
+    bool isWaiting = false;
     void OnTriggerEnter2D(Collider2D col)
     {
-        roomManager.GetComponent<RoomChangeManager>().playersGoingBottom.Add(col.gameObject);
+        if (isWaiting == false)
+        {
+            roomManager.GetComponent<RoomChangeManager>().playersGoingBottom.Add(col.gameObject);
+            isWaiting = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        roomManager.GetComponent<RoomChangeManager>().playersGoingBottom.Remove(col.gameObject);
+        if (isWaiting == true)
+        {
+            roomManager.GetComponent<RoomChangeManager>().playersGoingBottom.Remove(col.gameObject);
+            isWaiting = false;
+        }  
     }
 }
