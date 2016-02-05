@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour {
                 {
                     ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
                     ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
+                    ghostPlayer.gameObject.tag = "Ghost";
                     Destroy(players[i]);
                 }
                 else

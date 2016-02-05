@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\GoBack.cs" />
     <Compile Include="Assets\Scripts\HeartSpawn.cs" />
     <Compile Include="Assets\Scripts\KissableFurniture.cs" />
+    <Compile Include="Assets\Scripts\NewCameraBehavior.cs" />
     <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
     <Compile Include="Assets\Scripts\Player\Hierarchy\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Hierarchy\Ghost.cs" />

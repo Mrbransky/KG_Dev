@@ -33,7 +33,8 @@ function LateUpdate ()
  
 {
  
-    targets = GameObject.FindGameObjectsWithTag("Player"); 
+    targets = GameObject.FindGameObjectsWithTag("Player");
+    
  
     if (!GameObject.FindWithTag("Player"))
         return;

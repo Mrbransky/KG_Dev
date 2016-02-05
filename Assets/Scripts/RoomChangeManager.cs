@@ -19,15 +19,24 @@ public class RoomChangeManager : MonoBehaviour {
 
         if(playersGoingBottom.Count >= curPlayerCount)
         {
-            //TODO Put player nodes into the bottom room
+            foreach (GameObject player in playersGoingBottom)
+            {
+                player.transform.position = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
+            }
         }
         if (playersGoingLeft.Count >= curPlayerCount)
         {
-            //TODO Put player nodes into the left room
+            foreach (GameObject player in playersGoingLeft)
+            {
+                player.transform.position = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
+            }
         }
         if (playersGoingRight.Count >= curPlayerCount)
         {
-            //TODO Put player nodes into the right room
+            foreach (GameObject player in playersGoingRight)
+            {
+                player.transform.position = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
+            }
         }
 
 	}

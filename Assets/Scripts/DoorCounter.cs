@@ -7,7 +7,7 @@ public class DoorCounter : MonoBehaviour {
     bool isWaiting = false;
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (isWaiting == false)
+        if (isWaiting == false && col.gameObject.tag == "Player")
         {
             roomManager.GetComponent<RoomChangeManager>().playersGoingBottom.Add(col.gameObject);
             isWaiting = true;
@@ -16,7 +16,7 @@ public class DoorCounter : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (isWaiting == true)
+        if (isWaiting == true && col.gameObject.tag == "Player")
         {
             roomManager.GetComponent<RoomChangeManager>().playersGoingBottom.Remove(col.gameObject);
             isWaiting = false;
