@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour {
 
     public int playerCount = 0;
     public List<GameObject> currentPlayers;
+    public GameObject ghostPrefab;
     private bool[] isPlayerReadyArray;
 
     void Start()
     {
         handleCharacterSelectData();
         initializePlayers();
-        assignGhost();
     }
 
     private void handleCharacterSelectData()
@@ -42,29 +42,40 @@ public class GameManager : MonoBehaviour {
     private void initializePlayers()
     {
         currentPlayers = new List<GameObject>();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        int randGhostPlayerIndex = Random.Range(0, playerCount);
+        int ghostPlayer_ForLoopCounter = 0;
+        GameObject ghostPlayer = null;
+
+        for (int i = 0; i < players.Length; ++i)
         {
-            int playerReadyArrayIndex = player.GetComponent<Human>().playerNum - 1;
+            int playerReadyArrayIndex = players[i].GetComponent<Human>().playerNum - 1;
 
             if (!isPlayerReadyArray[playerReadyArrayIndex])
             {
-                player.SetActive(false);
+                players[i].SetActive(false);
             }
             else
             {
-                currentPlayers.Add(player);
+                if (randGhostPlayerIndex == ghostPlayer_ForLoopCounter)
+                {
+                    ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
+                    ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
+                    Destroy(players[i]);
+                }
+                else
+                {
+                    currentPlayers.Add(players[i]);
+                }
+
+                ++ghostPlayer_ForLoopCounter;
             }
         }
+
+        currentPlayers.Add(ghostPlayer);
     }
-
-    private void assignGhost()
-    {
-        int randPlayerIndex = Random.Range(0, playerCount - 1);
-
-        // TODO Set player to ghost here using randPlayerIndex
-    }
-
+    
 	void Update ()
     {
         //win condition
