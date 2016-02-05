@@ -3,8 +3,9 @@ using System.Collections;
 
 public class CharacterSelectData : MonoBehaviour
 {
-    private bool[] isPlayerReadyArray;
-    private int playerCount = 0;
+    [SerializeField] private bool[] isPlayerReadyArray;
+    [SerializeField] private int playerCount = 0;
+    [SerializeField] private bool isDebugData = false;
     
     public bool[] IsPlayerReadyArray
     {
@@ -19,6 +20,11 @@ public class CharacterSelectData : MonoBehaviour
 
     void Start ()
     {
+        if (isDebugData && GameObject.FindGameObjectsWithTag("CharacterSelectData").Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
         DontDestroyOnLoad(gameObject);
 	}
 

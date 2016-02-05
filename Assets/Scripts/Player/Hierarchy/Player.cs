@@ -72,12 +72,14 @@ public class Player : Entity
         else if (MoveAnimation != MoveAnim.Idle)
             MoveAnimation = MoveAnim.Idle;
 
+#region Keyboard Input Related Code (for Debugging)
 #if UNITY_EDITOR
         if (moveDir == Vector2.zero)
         {
             DebugPlayerInput();
         }
 #endif
+#endregion
 
         base.Update();     
 	}
@@ -111,8 +113,11 @@ public class Player : Entity
         this.GetComponent<PlayerAnimator>().UpdateAnimation(anim);
     }
 
+#region Keyboard Input Related Functions (for Debugging)
+#if UNITY_EDITOR
     protected void DebugPlayerInput()
     {
+        #region SetMoveDirection
         debugMoveDir = Vector2.zero;
 
         switch (playerNum)
@@ -194,6 +199,7 @@ public class Player : Entity
                 }
                 break;
         }
+        #endregion
 
         if (debugMoveDir != Vector2.zero)
         {
@@ -207,4 +213,6 @@ public class Player : Entity
         else if (MoveAnimation != MoveAnim.Idle)
             MoveAnimation = MoveAnim.Idle;
     }
+#endif
+#endregion
 }
