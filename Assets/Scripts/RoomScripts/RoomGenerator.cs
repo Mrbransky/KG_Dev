@@ -24,14 +24,17 @@ public class RoomGenerator : MonoBehaviour {
     public List<GameObject> AllSpecialItems;
     List<GameObject> currentSpecialItems = new List<GameObject>();
     Vector2 specPos;
+
     void Start()
     {
-
         GenerateInternals(MainBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, MainBaseRoomPiece.transform.position, "big");
         GenerateInternals(LeftBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, LeftBaseRoomPiece.transform.position, "mediumLeft");
         GenerateInternals(RightBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, RightBaseRoomPiece.transform.position, "mediumRight");
         GenerateInternals(BottomBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, BottomBaseRoomPiece.transform.position, "small");
+        
+        initializeMissionManager();
     }
+
     void Awake()
     {
         for (int i = 0; i < 4; i++)
@@ -40,6 +43,7 @@ public class RoomGenerator : MonoBehaviour {
             currentSpecialItems.Add(AllSpecialItems[rand]);
         }
     }
+
 	public void GenerateInternals(Vector2 RoomSize, Vector2 roomCenterPoint, string room)
 	{
         int NoF = numberOfFurniture;
@@ -55,7 +59,8 @@ public class RoomGenerator : MonoBehaviour {
                     if (needsSpecialItem == true)
                     {
                         specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 5f), roomCenterPoint.x + (RoomSize.x - 5f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 5f), roomCenterPoint.y + (RoomSize.y - 5f)));
-                        Instantiate(currentSpecialItems[0], specPos, Quaternion.identity);
+                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[0], specPos, Quaternion.identity);
+                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
                         needsSpecialItem = false;
                     }
                     break;
@@ -64,7 +69,8 @@ public class RoomGenerator : MonoBehaviour {
                     if (needsSpecialItem == true)
                     {
                         specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 5f), roomCenterPoint.x + (RoomSize.x - 5f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 5f), roomCenterPoint.y + (RoomSize.y - 5f)));
-                        Instantiate(currentSpecialItems[1], specPos, Quaternion.identity);
+                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[1], specPos, Quaternion.identity);
+                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
                         needsSpecialItem = false;
                     }
                     break;
@@ -73,7 +79,8 @@ public class RoomGenerator : MonoBehaviour {
                     if (needsSpecialItem == true)
                     {
                         specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 8f), roomCenterPoint.x + (RoomSize.x - 8f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 8f), roomCenterPoint.y + (RoomSize.y - 8f)));
-                        Instantiate(currentSpecialItems[2], specPos, Quaternion.identity);
+                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[2], specPos, Quaternion.identity);
+                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
                         needsSpecialItem = false;
                     }
                     break;
@@ -82,21 +89,30 @@ public class RoomGenerator : MonoBehaviour {
                     if (needsSpecialItem == true)
                     {
                         specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 2f), roomCenterPoint.x + (RoomSize.x - 2f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 2f), roomCenterPoint.y + (RoomSize.y - 3f)));
-                        Instantiate(currentSpecialItems[3], specPos, Quaternion.identity);
+                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[3], specPos, Quaternion.identity);
+                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
                         needsSpecialItem = false;
                     }                 
                     break;
             }
+
             GameObject newFurniture = Instantiate(furnitureOptions[Random.Range(0, furnitureOptions.Length)], newPos, Quaternion.identity) as GameObject;
-            if (newFurniture.gameObject.tag == "Furniture"){
+            
+            if (newFurniture.gameObject.tag == "Furniture")
+            {
                 newFurniture.GetComponent<SpriteRenderer>().sortingOrder = (int)(-(newPos.y - roomCenterPoint.y) * 3);
                 currentFurniture.Add(newFurniture);
             }
-            else {
+            else 
+            {
                 newFurniture.GetComponent<SpriteRenderer>().sortingOrder = -20;
                 currentFurniture.Add(newFurniture);
             }
 		}
-
 	}
+
+    private void initializeMissionManager()
+    {
+        GetComponent<MissionManager>().Initialize();
+    }
 }

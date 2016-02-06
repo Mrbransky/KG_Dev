@@ -79,37 +79,84 @@ public class GameManager : MonoBehaviour {
     
 	void Update ()
     {
-        //win condition
-		if (gameEnd == false) {
-            heartZoom.transform.position = Camera.main.transform.position;
-			if (heartZoom.GetComponent<Animator> ().GetCurrentAnimatorStateInfo (0).normalizedTime > 1) {
-				heartZoom.SetActive (false);
-			}
-		}
-		else
-		{
-			heartZoom.SetActive(true);
-            //heartZoom.transform.position = gameWinner.transform.position;
+        checkIsGameEnd();
+	}
+
+    public void OnHumansWin()
+    {
+        gameEnd = true;
+    }
+
+    public void OnGhostWin()
+    {
+        gameEnd = true;
+    }
+
+    private void checkIsGameEnd()
+    {
+        if (gameEnd)
+        {
+            heartZoom.SetActive(true);
             heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
+
             if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
                 gameEndPlayAgain.SetActive(true);
                 gameEndMainMenu.SetActive(true);
                 Time.timeScale = 0;
+
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
                 {
                     Time.timeScale = 1;
                     Application.LoadLevel(0);
                 }
+
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
                 {
                     Time.timeScale = 1;
                     Application.LoadLevel(1);
                 }
             }
-		}
+        }
+    }
 
+    private void oldWinCondition()
+    {
+        if (gameEnd == false)
+        {
+            Vector3 heartZoomPos = Camera.main.transform.position;
+            heartZoomPos.z = 0;
+            heartZoom.transform.position = heartZoomPos;
 
-	}
+            if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                heartZoom.SetActive(false);
+            }
+        }
+        else
+        {
+            heartZoom.SetActive(true);
+            //heartZoom.transform.position = gameWinner.transform.position;
+            heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
 
+            if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                gameEndPlayAgain.SetActive(true);
+                gameEndMainMenu.SetActive(true);
+                Time.timeScale = 0;
+
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
+                {
+                    Time.timeScale = 1;
+                    Application.LoadLevel(0);
+                }
+
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
+                {
+                    Time.timeScale = 1;
+                    Application.LoadLevel(1);
+                }
+            }
+        }
+    }
 }
