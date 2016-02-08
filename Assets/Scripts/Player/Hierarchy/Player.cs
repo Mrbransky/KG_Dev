@@ -117,7 +117,7 @@ public class Player : Entity
 #if UNITY_EDITOR
     protected void DebugPlayerInput()
     {
-        #region SetMoveDirection
+        #region SetDebugMoveDirection
         debugMoveDir = Vector2.zero;
 
         switch (playerNum)

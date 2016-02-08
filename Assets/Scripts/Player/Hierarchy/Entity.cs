@@ -17,6 +17,7 @@ public class Entity : MonoBehaviour
 #if UNITY_EDITOR
     public Vector2 debugMoveDir;
     private float debugCurrentSpeed;
+    private Vector2 debugcachedMoveDir;
 #endif
 #endregion
 
@@ -53,7 +54,7 @@ public class Entity : MonoBehaviour
             cachedMoveDir = debugMoveDir;
             this.rigidBody.transform.position += calc;
         }
-        else if (Mathf.Abs(debugMoveDir.magnitude) <= .15f && currentSpeed > 0)
+        else if (Mathf.Abs(debugMoveDir.magnitude) <= .15f && debugCurrentSpeed > 0)
         {
             // DecelCurrentSpeed
             if (debugCurrentSpeed > 0)

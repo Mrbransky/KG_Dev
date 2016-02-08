@@ -15,8 +15,6 @@ public class RoomChangeManager : MonoBehaviour {
     }
 	void Update () {
 
-
-
         if(playersGoingBottom.Count >= curPlayerCount-1)
         {
             foreach (GameObject player in playersGoingBottom)

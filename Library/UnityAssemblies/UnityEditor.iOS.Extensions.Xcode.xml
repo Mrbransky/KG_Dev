@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <doc>
 	<assembly>
-		<name>UnityEngine.UI</name>
+		<name>UnityEditor.iOS.Extensions.Xcode</name>
 	</assembly>
 	<members>
 	</members>
