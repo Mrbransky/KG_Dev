@@ -1,52 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NewCameraBehavior : MonoBehaviour {
 
 	private bool isOrthographic;
-    public GameObject[] targets;
+    public List<GameObject> targets;
     public float currentDistance;
     public float largestDistance;
     public Camera theCamera;
     public float height = 5.0f;
     Vector3 avgDistance;
-    float distance = 0.0f;                    // Default Distance 
-    float speed = 1;
-    float offset;
+    public float distance = 0.0f;                    // Default Distance 
+    public int speed = 1;
+    public float offset;
 	void Start () {
-	
-    targets = GameObject.FindGameObjectsWithTag("Player"); 
- 
+	        
+        targets.AddRange(GameObject.FindGameObjectsWithTag("Player")); 
+
+
     if(theCamera)
     {
     isOrthographic = theCamera.orthographic;
     }
  	//var globalControlScript = GameObject.Find("GlobalControl").GetComponent("GlobalControlScript");
- 	theCamera.orthographicSize = 1 + (6f*targets.Length);
+ 	theCamera.orthographicSize = 1 + (6f*targets.Count);
  
 	}
 
+ 
     void LateUpdate()
     {
 
-        targets = GameObject.FindGameObjectsWithTag("Player");
+        //targets = GameObject.FindGameObjectsWithTag("Player");
 
 
-        if (!GameObject.FindWithTag("Player"))
-            return;
+        //if (!GameObject.FindWithTag("Player"))
+        //    return;
 
 
 
-        Vector3 sum =new Vector3(0, 0, 0);
+        Vector3 sum = new Vector3(0, 0, 0);
 
-        for (int n = 0; n < targets.Length; n++)
+        for (int n = 0; n < targets.Count; n++)
         {
 
             sum += targets[n].transform.position;
 
         }
 
-        Vector3 avgDistance = sum / targets.Length;
+        Vector3 avgDistance = sum / targets.Count;
 
         //    Debug.Log(avgDistance);
 
@@ -54,12 +57,12 @@ public class NewCameraBehavior : MonoBehaviour {
 
         height = Mathf.Lerp(height, largestDifference, Time.deltaTime * speed);
 
-        if (targets.Length > 1)
+        if (targets.Count > 1)
         {
             if (isOrthographic)
             {
 
-                theCamera.transform.Translate(avgDistance.x, 0, 0);
+                theCamera.transform.position = new Vector3(avgDistance.x,theCamera.transform.position.y,theCamera.transform.position.z);
 
                 theCamera.orthographicSize = largestDifference;
                 if (theCamera.orthographicSize >= 10f)
@@ -67,7 +70,7 @@ public class NewCameraBehavior : MonoBehaviour {
                 if (theCamera.orthographicSize <= 3f)
                 { theCamera.orthographicSize = 3f; }
 
-                theCamera.transform.Translate(0,avgDistance.y,0);
+                theCamera.transform.position = new Vector3(theCamera.transform.position.x, avgDistance.y,theCamera.transform.position.z);
 
                 theCamera.transform.LookAt(avgDistance);
 
@@ -75,11 +78,11 @@ public class NewCameraBehavior : MonoBehaviour {
             else
             {
 
-                theCamera.transform.Translate(avgDistance.x, 0, 0);
+                theCamera.transform.position = new Vector3(avgDistance.x, theCamera.transform.position.y, theCamera.transform.position.z);
 
-                theCamera.transform.Translate(0,0,avgDistance.z - distance + largestDifference);
+                theCamera.transform.position = new Vector3(theCamera.transform.position.x, theCamera.transform.position.y, avgDistance.z - distance + largestDifference);
 
-                theCamera.transform.Translate(0, height,0);
+                theCamera.transform.position = new Vector3(theCamera.transform.position.x, height, theCamera.transform.position.z);
 
                 theCamera.transform.LookAt(avgDistance);
 
@@ -98,10 +101,10 @@ public class NewCameraBehavior : MonoBehaviour {
 
         largestDistance = 0.0f;
 
-        for (int i = 0; i < targets.Length; i++)
+        for (int i = 0; i < targets.Count; i++)
         {
 
-            for (int j = 0; j < targets.Length; j++)
+            for (int j = 0; j < targets.Count; j++)
             {
 
                 currentDistance = Vector3.Distance(targets[i].transform.position, targets[j].transform.position);

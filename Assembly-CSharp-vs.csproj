@@ -48,13 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraBiz\NewCameraBehavior.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectData.cs" />
-     <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectDemoController.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager.cs" />
-     <Compile Include="Assets\Scripts\DoorCounter.cs" />
+     <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GoBack.cs" />
      <Compile Include="Assets\Scripts\HeartSpawn.cs" />
      <Compile Include="Assets\Scripts\KissableFurniture.cs" />
+     <Compile Include="Assets\Scripts\MissionManager.cs" />
+     <Compile Include="Assets\Scripts\MissionObjective.cs" />
      <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
      <Compile Include="Assets\Scripts\Player\Hierarchy\Entity.cs" />
      <Compile Include="Assets\Scripts\Player\Hierarchy\Ghost.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\Player\Util\InputMapper.cs" />
      <Compile Include="Assets\Scripts\Player\Util\MoveInteractTrigger.cs" />
      <Compile Include="Assets\Scripts\Player\Util\PlayerAnimator.cs" />
+     <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
      <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />

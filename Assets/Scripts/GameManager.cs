@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 
     public int playerCount = 0;
     public List<GameObject> currentPlayers;
+    public GameObject currentGhostPlayer;
     public GameObject ghostPrefab;
     private bool[] isPlayerReadyArray;
 
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour {
                     ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
                     ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
                     ghostPlayer.gameObject.tag = "Ghost";
+                    Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
                     Destroy(players[i]);
                 }
                 else
@@ -75,6 +77,8 @@ public class GameManager : MonoBehaviour {
         }
 
         currentPlayers.Add(ghostPlayer);
+        currentGhostPlayer = ghostPlayer;
+        Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Add(ghostPlayer);
     }
     
 	void Update ()
