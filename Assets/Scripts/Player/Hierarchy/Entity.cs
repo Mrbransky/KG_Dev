@@ -50,7 +50,7 @@ public class Entity : MonoBehaviour
             }
 
             // ApplyMovement
-            Vector3 calc = new Vector3(debugMoveDir.x, debugMoveDir.y, 0) * debugCurrentSpeed * Time.deltaTime;
+            Vector3 calc = new Vector3(debugMoveDir.x, debugMoveDir.y, 0).normalized * debugCurrentSpeed * Time.deltaTime;
             cachedMoveDir = debugMoveDir;
             this.rigidBody.transform.position += calc;
         }
@@ -78,7 +78,7 @@ public class Entity : MonoBehaviour
     {
         currentSpeed = AccelCurrentSpeed();
 
-        Vector3 calc = new Vector3(moveDir.x, moveDir.y, 0) * currentSpeed * Time.deltaTime;
+        Vector3 calc = new Vector3(moveDir.x, moveDir.y, 0).normalized * currentSpeed * Time.deltaTime;
         cachedMoveDir = moveDir;
         this.rigidBody.transform.position += calc;
     }
@@ -87,7 +87,7 @@ public class Entity : MonoBehaviour
     {
         currentSpeed = DecelCurrentSpeed();
 
-        Vector3 calc = new Vector3(cachedMoveDir.x, cachedMoveDir.y, 0) * currentSpeed * Time.deltaTime;
+        Vector3 calc = new Vector3(cachedMoveDir.x, cachedMoveDir.y, 0).normalized * currentSpeed * Time.deltaTime;
         this.rigidBody.transform.position += calc;
     }
 
