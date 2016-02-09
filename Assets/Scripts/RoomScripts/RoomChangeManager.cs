@@ -6,6 +6,7 @@ public class RoomChangeManager : MonoBehaviour {
     public List<GameObject> playersGoingBottom = new List<GameObject>();
     public List<GameObject> playersGoingLeft = new List<GameObject>();
     public List<GameObject> playersGoingRight = new List<GameObject>();
+    public List<GameObject> playersGoingBack = new List<GameObject>();
 
     int curPlayerCount;
 
@@ -37,6 +38,14 @@ public class RoomChangeManager : MonoBehaviour {
             {
                 player.transform.position = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
                 GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
+            }
+        }
+        if (playersGoingBack.Count >= curPlayerCount - 1)
+        {
+            foreach (GameObject player in playersGoingBack)
+            {
+                player.transform.position = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
+                GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
             }
         }
 
