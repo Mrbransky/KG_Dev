@@ -3,6 +3,14 @@ using System.Collections;
 
 public class Human : Player 
 {
+    [SerializeField] private int hugPoints = 3;
+    [SerializeField] private float invulnerabilityDuration = 1.5f;
+
+    private GameObject[] heartObjects;
+    private float timeSinceInvulnerable;
+    private Color defaultSpriteColor;
+    private Color invulnSpriteColor;
+
     public bool IsCarryingItem;
     string HeldItemName;
 
@@ -11,8 +19,19 @@ public class Human : Player
     public override void Awake() 
     {
         FacingRight = false;
-        
+
+        defaultSpriteColor = GetComponent<SpriteRenderer>().color;
+        invulnSpriteColor = defaultSpriteColor;
+        invulnSpriteColor.a /= 2;
+
+        heartObjects = new GameObject[hugPoints];
+
         base.Awake();
+
+        foreach (HeartComponent heartComponent in GetComponentsInChildren<HeartComponent>())
+        {
+            heartObjects[heartComponent.heartNum] = heartComponent.gameObject;
+        }
 	}
 
     public override void Update() 
@@ -27,6 +46,16 @@ public class Human : Player
             timeBetweenItemInteract -= Time.deltaTime;
         else if (timeBetweenItemInteract < 0)
             timeBetweenItemInteract = 0;
+
+        if (timeSinceInvulnerable > 0)
+        {
+            timeSinceInvulnerable -= Time.deltaTime;
+
+            if (timeSinceInvulnerable <= 0)
+            {
+                GetComponent<SpriteRenderer>().color = defaultSpriteColor;
+            }
+        }
 
         base.Update();
 	}
@@ -66,5 +95,33 @@ public class Human : Player
         }
     }
 
+    public void HugHuman()
+    {
+        if (timeSinceInvulnerable <= 0)
+        {
+            timeSinceInvulnerable = invulnerabilityDuration;
+            loseHealth();
 
+            GetComponent<SpriteRenderer>().color = invulnSpriteColor;
+        }
+    }
+
+    private void loseHealth()
+    {
+        heartObjects[hugPoints - 1].SetActive(false);
+        --hugPoints;
+
+        checkHealth();
+    }
+
+    private void checkHealth()
+    {
+        if (hugPoints <= 0)
+        {
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().OnHumanDead(gameObject);
+            Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
+
+            Destroy(gameObject);
+        }
+    }
 }

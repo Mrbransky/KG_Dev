@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     public GameObject ghostPrefab;
     private bool[] isPlayerReadyArray;
 
+    private int humansDeadCount = 0;
+
     void Start()
     {
         handleCharacterSelectData();
@@ -85,6 +87,17 @@ public class GameManager : MonoBehaviour {
     {
         checkIsGameEnd();
 	}
+
+    public void OnHumanDead(GameObject obj)
+    {
+        currentPlayers.Remove(obj);
+        ++humansDeadCount;
+        
+        if (humansDeadCount == playerCount - 1)
+        {
+            OnGhostWin();
+        }
+    }
 
     public void OnHumansWin()
     {

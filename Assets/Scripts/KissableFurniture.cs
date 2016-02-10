@@ -15,6 +15,8 @@ public class KissableFurniture : MonoBehaviour
 
     [SerializeField] private float minFollowDistance = 1.0f;
     [SerializeField] private float followSpeed = 3.5f;
+    [SerializeField] private float kissedDuration = 3.0f;
+    private float timeSinceKiss;
     private Transform firstPlayerTransform;
 
 #if UNITY_EDITOR
@@ -41,6 +43,13 @@ public class KissableFurniture : MonoBehaviour
 
         if (isKissed)
         {
+            timeSinceKiss -= Time.deltaTime;
+
+            if (timeSinceKiss <= 0)
+            {
+                UnkissFurniture();
+            }
+
             switch ((int)kissedBehavior)
             {
                 case (int)KissedFurnitureBehavior.FollowPlayer:
@@ -61,10 +70,22 @@ public class KissableFurniture : MonoBehaviour
         }
     }
 
-    public void KissFurniture()
+    // Returns false if the furniture is already kissed
+    public bool KissFurniture()
     {
-        isKissed = true;
-        OnFurnitureKissed();
+        if (isKissed)
+        {
+            return false;
+        }
+        else
+        {
+            isKissed = true;
+            timeSinceKiss = kissedDuration;
+
+            OnFurnitureKissed();
+
+            return true;
+        }
     }
 
     private void OnFurnitureKissed()
@@ -101,6 +122,19 @@ public class KissableFurniture : MonoBehaviour
             case (int)KissedFurnitureBehavior.FollowPlayer:
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 break;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (isKissed)
+        {
+            Human humanScript = col.gameObject.GetComponent<Human>();
+
+            if (humanScript != null)
+            {
+                humanScript.HugHuman();
+            }
         }
     }
 }

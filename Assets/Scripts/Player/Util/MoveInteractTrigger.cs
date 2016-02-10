@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MoveInteractTrigger : MonoBehaviour {
 
@@ -17,10 +18,18 @@ public class MoveInteractTrigger : MonoBehaviour {
     Transform InteractTransform;
     bool PlayerFacingRight;
 
+    public bool isGhostInteractTrigger = false;
+    public List<Collider2D> colliderList;
+
 	void Awake () 
     {
         InteractTransform = this.transform;
         InteractTrigger = this.GetComponent<BoxCollider2D>();
+
+        if (isGhostInteractTrigger)
+        {
+            colliderList = new List<Collider2D>();
+        }
 	}
 	
 	void Update () 
@@ -79,5 +88,21 @@ public class MoveInteractTrigger : MonoBehaviour {
 
         else InteractTrigger.offset =
             new Vector2(debugPlayerMoveDir.x * HorizReach, (debugPlayerMoveDir.y * VertReach) + TriggerVertOffset);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (isGhostInteractTrigger && col.tag == "Furniture" && !colliderList.Contains(col))
+        {
+            colliderList.Add(col);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (isGhostInteractTrigger && col.tag == "Furniture" && colliderList.Contains(col))
+        {
+            colliderList.Remove(col);
+        }
     }
 }
