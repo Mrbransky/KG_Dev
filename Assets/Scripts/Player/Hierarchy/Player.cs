@@ -45,6 +45,7 @@ public class Player : Entity
 
     private bool facingRight;
     private float xScale;
+    private Transform playerCanvasTransform;
 
     public override void Awake() 
     {
@@ -54,6 +55,13 @@ public class Player : Entity
 
         interactTrigger = transform.Find("Interact").GetComponent<BoxCollider2D>();
         bodyCol = GetComponent<CircleCollider2D>();
+
+        Canvas playerCanvas = GetComponentInChildren<Canvas>();
+        if (playerCanvas != null)
+        {
+            playerCanvasTransform = playerCanvas.transform;
+        }
+
         base.Awake();
 	}
 	
@@ -98,14 +106,28 @@ public class Player : Entity
 
     protected void FlipSprite(bool facingRight)
     {
-        if(facingRight)
-            this.gameObject.transform.localScale = 
-            new Vector3(-xScale, this.transform.localScale.y);
-
-        else
+        if (facingRight)
+        {
             this.gameObject.transform.localScale =
-            new Vector3(xScale, this.transform.localScale.y);
+                new Vector3(-xScale, this.transform.localScale.y);
 
+            if (playerCanvasTransform != null)
+            {
+                playerCanvasTransform.localScale =
+                    new Vector3(-xScale, playerCanvasTransform.localScale.y);
+            }
+        }
+        else
+        {
+            this.gameObject.transform.localScale =
+                new Vector3(xScale, this.transform.localScale.y);
+
+            if (playerCanvasTransform != null)
+            {
+                playerCanvasTransform.localScale =
+                    new Vector3(xScale, playerCanvasTransform.localScale.y);
+            }
+        }
     }
 
     protected void UpdateAnimatorScript(MoveAnim anim)

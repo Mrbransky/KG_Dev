@@ -20,6 +20,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 
     public bool isGhostInteractTrigger = false;
     public List<Collider2D> colliderList;
+    private SpriteRenderer spriteRenderer;
 
 	void Awake () 
     {
@@ -29,6 +30,7 @@ public class MoveInteractTrigger : MonoBehaviour {
         if (isGhostInteractTrigger)
         {
             colliderList = new List<Collider2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 	}
 	
@@ -95,6 +97,7 @@ public class MoveInteractTrigger : MonoBehaviour {
         if (isGhostInteractTrigger && col.tag == "Furniture" && !colliderList.Contains(col))
         {
             colliderList.Add(col);
+            spriteRenderer.enabled = true;
         }
     }
 
@@ -103,6 +106,11 @@ public class MoveInteractTrigger : MonoBehaviour {
         if (isGhostInteractTrigger && col.tag == "Furniture" && colliderList.Contains(col))
         {
             colliderList.Remove(col);
+            
+            if (colliderList.Count == 0)
+            {
+                spriteRenderer.enabled = false;
+            }
         }
     }
 }

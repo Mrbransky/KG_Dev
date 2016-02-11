@@ -16,12 +16,18 @@ public class KissableFurniture : MonoBehaviour
     [SerializeField] private float minFollowDistance = 1.0f;
     [SerializeField] private float followSpeed = 3.5f;
     [SerializeField] private float kissedDuration = 3.0f;
+    private GameManager _GameManager;
     private float timeSinceKiss;
-    private Transform firstPlayerTransform;
+    private Transform closestPlayerTransform;
 
 #if UNITY_EDITOR
     public KeyCode KissKey = KeyCode.Alpha0;
 #endif
+
+    void Start()
+    {
+        _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
 
     void Update()
     {
@@ -53,7 +59,13 @@ public class KissableFurniture : MonoBehaviour
             switch ((int)kissedBehavior)
             {
                 case (int)KissedFurnitureBehavior.FollowPlayer:
-                    Vector3 moveDir = firstPlayerTransform.position - transform.position;
+                    if (closestPlayerTransform == null)
+                    {
+                        UnkissFurniture();
+                        break;
+                    }
+
+                    Vector3 moveDir = closestPlayerTransform.position - transform.position;
                     float distanceFromPlayer = moveDir.magnitude;
                     moveDir.Normalize();
 
@@ -95,14 +107,27 @@ public class KissableFurniture : MonoBehaviour
         switch((int)kissedBehavior)
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
-                foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+                if (_GameManager.currentPlayers.Count < 2)
                 {
-                    if (player.name != "Ghost")
+                    UnkissFurniture();
+                    break;
+                }
+
+                GameObject closestPlayer = null;
+                float closestPlayerDist = float.MaxValue;
+                
+                for (int i = 0; i < _GameManager.currentPlayers.Count - 1; ++i)
+                {
+                    float playerDist = Vector3.Distance(_GameManager.currentPlayers[i].transform.position, transform.position);
+                    
+                    if (playerDist < closestPlayerDist)
                     {
-                        firstPlayerTransform = player.transform;
-                        break;
+                        closestPlayer = _GameManager.currentPlayers[i];
+                        closestPlayerDist = playerDist;
                     }
                 }
+
+                closestPlayerTransform = closestPlayer.transform;
                 break;
         }
     }
