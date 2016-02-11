@@ -15,7 +15,7 @@ public class RoomChangeManager : MonoBehaviour {
         curPlayerCount = GetComponent<GameManager>().playerCount;
     }
 	void Update () {
-
+        curPlayerCount = GetComponent<GameManager>().playerCount;
         if(playersGoingBottom.Count >= curPlayerCount-1)
         {
             foreach (GameObject player in playersGoingBottom)

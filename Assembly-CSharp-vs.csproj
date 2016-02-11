@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{69BA1079-BCFD-DBFA-1EEA-A2EBB49FA2C8}</ProjectGuid>
+	<ProjectGuid>{C9C5ACED-AF37-B251-9AC8-2374AADD4A08}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -56,15 +56,17 @@
      <Compile Include="Assets\Scripts\KissableFurniture.cs" />
      <Compile Include="Assets\Scripts\MissionManager.cs" />
      <Compile Include="Assets\Scripts\MissionObjective.cs" />
+     <Compile Include="Assets\Scripts\MissionObjective_Item.cs" />
+     <Compile Include="Assets\Scripts\MissionObjective_ItemNode.cs" />
      <Compile Include="Assets\Scripts\OffsetScroller.cs" />
      <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
-     <Compile Include="Assets\Scripts\Player\Hierarchy\Entity.cs" />
-     <Compile Include="Assets\Scripts\Player\Hierarchy\Ghost.cs" />
-     <Compile Include="Assets\Scripts\Player\Hierarchy\Human.cs" />
-     <Compile Include="Assets\Scripts\Player\Hierarchy\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\Entity.cs" />
+     <Compile Include="Assets\Scripts\Player\Ghost.cs" />
+     <Compile Include="Assets\Scripts\Player\Human.cs" />
      <Compile Include="Assets\Scripts\Player\OLD\GhostKiss.cs" />
      <Compile Include="Assets\Scripts\Player\OLD\PlayerControls.cs" />
      <Compile Include="Assets\Scripts\Player\OLD\PlayerScores.cs" />
+     <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\Util\InputMapper.cs" />
      <Compile Include="Assets\Scripts\Player\Util\MoveInteractTrigger.cs" />
      <Compile Include="Assets\Scripts\Player\Util\PlayerAnimator.cs" />

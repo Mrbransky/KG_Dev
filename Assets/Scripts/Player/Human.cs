@@ -155,7 +155,7 @@ public void HugHuman()
         {
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().OnHumanDead(gameObject);
             Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
-
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().playerCount--;
             Destroy(gameObject);
         }
     }
