@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Human : Player 
 {
@@ -7,7 +8,7 @@ public class Human : Player
     [SerializeField] private float invulnerabilityDuration = 1.5f;
 
     private GameObject[] heartObjects;
-    private float timeSinceInvulnerable;
+    private float timeSinceInvulnerable = -1;
     private Color defaultSpriteColor;
     private Color invulnSpriteColor;
 
@@ -15,6 +16,11 @@ public class Human : Player
     string HeldItemName;
 
     public float timeBetweenItemInteract;
+    private SpriteRenderer interactButtonPromptSpriteRenderer;
+
+#if UNITY_EDITOR
+    public KeyCode ItemPickUpKeycode = KeyCode.Z;
+#endif
 
     public override void Awake() 
     {
@@ -32,6 +38,14 @@ public class Human : Player
         {
             heartObjects[heartComponent.heartNum] = heartComponent.gameObject;
         }
+
+        foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
+        {
+            if (childSpriteRenderer.gameObject.name == "InteractButtonPrompt")
+            {
+                interactButtonPromptSpriteRenderer = childSpriteRenderer;
+            }
+        }
 	}
 
     public override void Update() 
@@ -41,6 +55,13 @@ public class Human : Player
             if (timeBetweenItemInteract == 0)
                 PutItemDown(HeldItemName);
         }
+#if UNITY_EDITOR
+        else if (IsCarryingItem && Input.GetKeyDown(ItemPickUpKeycode))
+        {
+            if (timeBetweenItemInteract == 0)
+                PutItemDown(HeldItemName);
+        }
+#endif
 
         if (timeBetweenItemInteract > 0)
             timeBetweenItemInteract -= Time.deltaTime;
@@ -68,6 +89,7 @@ public class Human : Player
         obj.transform.localPosition = new Vector3(0, .75f, 0);
         obj.transform.localScale = new Vector3(1, 1, 1);
         obj.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown = false;
         HeldItemName = obj.name;
 
         timeBetweenItemInteract = 1;
@@ -76,8 +98,10 @@ public class Human : Player
     void PutItemDown(string itemName)
     {
         this.IsCarryingItem = false;
-        transform.FindChild(itemName).localPosition = new Vector3(interactTrigger.offset.x, interactTrigger.offset.y, 1);
-        transform.FindChild(itemName).transform.parent = null;
+        Transform childTransform = transform.FindChild(itemName);
+        childTransform.localPosition = new Vector3(interactTrigger.offset.x, interactTrigger.offset.y, 1);
+        childTransform.transform.parent = null;
+        childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
         HeldItemName = "";
 
         timeBetweenItemInteract = 1;
@@ -85,17 +109,28 @@ public class Human : Player
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (this.interactTrigger.IsTouching(col) && InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+        if (this.interactTrigger.IsTouching(col) && !IsCarryingItem && col.tag == "Cat" && timeBetweenItemInteract == 0)
         {
-            if (!IsCarryingItem && col.tag == "Cat")
-            {
-                if(timeBetweenItemInteract == 0)
-                    GrabItem(col.gameObject);
-            }
-        }
-    }
+            interactButtonPromptSpriteRenderer.enabled = true;
 
-    public void HugHuman()
+            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+            {
+                GrabItem(col.gameObject);
+            }
+#if UNITY_EDITOR
+            else if (Input.GetKeyDown(ItemPickUpKeycode))
+            {
+                GrabItem(col.gameObject);
+            }
+#endif
+        }
+        else
+        {
+            interactButtonPromptSpriteRenderer.enabled = false;
+        }
+}
+
+public void HugHuman()
     {
         if (timeSinceInvulnerable <= 0)
         {

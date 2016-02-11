@@ -81,7 +81,7 @@ public class MissionManager : MonoBehaviour
 
         missionObjectiveList.Add(specialItem);
         ++missionObjectiveCount;
-        specialItem.GetComponent<MissionObjective>().MissionObjectiveListIndex = missionObjectiveCount - 1;
+        specialItem.GetComponent<MissionObjective_Item>().MissionObjectiveListIndex = missionObjectiveCount - 1;
     }
 
     public void Initialize()

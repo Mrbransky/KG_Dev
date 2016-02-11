@@ -13,7 +13,7 @@ public class KissableFurniture : MonoBehaviour
     public Color kissedColor = new Color(255.0f / 255.0f, 192.0f / 255.0f, 203.0f / 255.0f);
     private bool isKissed = false;
 
-    [SerializeField] private float minFollowDistance = 1.0f;
+    [SerializeField] private float minFollowDistance = 0.1f;
     [SerializeField] private float followSpeed = 3.5f;
     [SerializeField] private float kissedDuration = 3.0f;
     private GameManager _GameManager;
@@ -150,15 +150,16 @@ public class KissableFurniture : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
         if (isKissed)
         {
             Human humanScript = col.gameObject.GetComponent<Human>();
-
+            
             if (humanScript != null)
             {
                 humanScript.HugHuman();
+                UnkissFurniture();
             }
         }
     }
