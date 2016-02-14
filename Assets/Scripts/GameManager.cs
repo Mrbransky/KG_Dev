@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour {
 	public bool gameEnd = false;
 	public GameObject gameWinner;
 
-    public GameObject gameEndPlayAgain, gameEndMainMenu;
+    public List<GameObject> thingsToTurnOffAtGameEnd;
+    public List<GameObject> thingsToTurnOnAtGameEnd;
 
     public int playerCount = 0;
     public List<GameObject> currentPlayers;
@@ -118,8 +119,14 @@ public class GameManager : MonoBehaviour {
 
             if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
-                gameEndPlayAgain.SetActive(true);
-                gameEndMainMenu.SetActive(true);
+                foreach (GameObject i in thingsToTurnOffAtGameEnd)
+                {
+                    i.SetActive(false);
+                }
+                foreach (GameObject i in thingsToTurnOnAtGameEnd)
+                {
+                    i.SetActive(true);
+                }
                 Time.timeScale = 0;
 
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
@@ -137,43 +144,43 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void oldWinCondition()
-    {
-        if (gameEnd == false)
-        {
-            Vector3 heartZoomPos = Camera.main.transform.position;
-            heartZoomPos.z = 0;
-            heartZoom.transform.position = heartZoomPos;
+    //private void oldWinCondition()
+    //{
+    //    if (gameEnd == false)
+    //    {
+    //        Vector3 heartZoomPos = Camera.main.transform.position;
+    //        heartZoomPos.z = 0;
+    //        heartZoom.transform.position = heartZoomPos;
 
-            if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                heartZoom.SetActive(false);
-            }
-        }
-        else
-        {
-            heartZoom.SetActive(true);
-            //heartZoom.transform.position = gameWinner.transform.position;
-            heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
+    //        if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+    //        {
+    //            heartZoom.SetActive(false);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        heartZoom.SetActive(true);
+    //        //heartZoom.transform.position = gameWinner.transform.position;
+    //        heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
 
-            if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                gameEndPlayAgain.SetActive(true);
-                gameEndMainMenu.SetActive(true);
-                Time.timeScale = 0;
+    //        if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+    //        {
+    //            gameEndPlayAgain.SetActive(true);
+    //            gameEndMainMenu.SetActive(true);
+    //            Time.timeScale = 0;
 
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
-                {
-                    Time.timeScale = 1;
-                    Application.LoadLevel(0);
-                }
+    //            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
+    //            {
+    //                Time.timeScale = 1;
+    //                Application.LoadLevel(0);
+    //            }
 
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
-                {
-                    Time.timeScale = 1;
-                    Application.LoadLevel(1);
-                }
-            }
-        }
-    }
+    //            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
+    //            {
+    //                Time.timeScale = 1;
+    //                Application.LoadLevel(1);
+    //            }
+    //        }
+    //    }
+    //}
 }

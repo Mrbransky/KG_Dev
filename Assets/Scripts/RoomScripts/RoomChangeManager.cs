@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 public class RoomChangeManager : MonoBehaviour {
+
+    public bool RoomGoalAccomplished = false;
+
+    //TODO:Create more room goals other than timers
+    public float timer = 30f;
+    public Text timerText;
 
     public List<GameObject> playersGoingBottom = new List<GameObject>();
     public List<GameObject> playersGoingLeft = new List<GameObject>();
@@ -15,39 +22,72 @@ public class RoomChangeManager : MonoBehaviour {
         curPlayerCount = GetComponent<GameManager>().playerCount;
     }
 	void Update () {
-        curPlayerCount = GetComponent<GameManager>().playerCount;
-        if(playersGoingBottom.Count >= curPlayerCount-1)
-        {
-            foreach (GameObject player in playersGoingBottom)
-            {
-                player.transform.position = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
-                GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
-            }
-        }
-        if (playersGoingLeft.Count >= curPlayerCount-1)
-        {
-            foreach (GameObject player in playersGoingLeft)
-            {
-                player.transform.position = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
-                GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
-            }
-        }
-        if (playersGoingRight.Count >= curPlayerCount-1)
-        {
-            foreach (GameObject player in playersGoingRight)
-            {
-                player.transform.position = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
-                GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
-            }
-        }
-        if (playersGoingBack.Count >= curPlayerCount - 1)
-        {
-            foreach (GameObject player in playersGoingBack)
-            {
-                player.transform.position = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
-                GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
-            }
-        }
+
+        CountDown();
+        CheckPlayersWaiting();
 
 	}
-}
+
+
+//----------------------------------------------------------------------------
+    void CheckPlayersWaiting()
+    {
+        if (RoomGoalAccomplished == true)
+        {
+            curPlayerCount = GetComponent<GameManager>().playerCount;
+            if (playersGoingBottom.Count >= curPlayerCount - 1)
+            {
+                foreach (GameObject player in playersGoingBottom)
+                {
+                    player.transform.position = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
+                    GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
+                }
+                RoomGoalAccomplished = false;
+            }
+            if (playersGoingLeft.Count >= curPlayerCount - 1)
+            {
+                foreach (GameObject player in playersGoingLeft)
+                {
+                    player.transform.position = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
+                    GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
+                }
+                RoomGoalAccomplished = false;
+            }
+            if (playersGoingRight.Count >= curPlayerCount - 1)
+            {
+                foreach (GameObject player in playersGoingRight)
+                {
+                    player.transform.position = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
+                    GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
+                }
+                RoomGoalAccomplished = false;
+            }
+            if (playersGoingBack.Count >= curPlayerCount - 1)
+            {
+                foreach (GameObject player in playersGoingBack)
+                {
+                    player.transform.position = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
+                    GetComponent<GameManager>().currentGhostPlayer.transform.position = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
+                }
+                RoomGoalAccomplished = false;
+            }
+            
+        }
+    }//CheckPlayerWaiting end
+
+    void CountDown()
+    {
+        if (RoomGoalAccomplished == false)
+        {
+            timer -= Time.deltaTime;
+            timerText.text = ((int)timer).ToString();
+        }
+        if (timer <= 0)
+        {
+            RoomGoalAccomplished = true;
+            timer =30f;
+        }
+    }
+
+}//class end
+

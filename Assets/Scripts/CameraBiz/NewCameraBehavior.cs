@@ -14,6 +14,7 @@ public class NewCameraBehavior : MonoBehaviour {
     public float distance = 0.0f;                    // Default Distance 
     public int speed = 1;
     public float offset;
+    float yVelocity = 0.0f;
 	void Start () {
 	        
         targets.AddRange(GameObject.FindGameObjectsWithTag("Player")); 
