@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 public class Human : Player 
 {
-    [SerializeField] private int hugPoints = 3;
     [SerializeField] private float invulnerabilityDuration = 1.5f;
+
+    private int hugPoints = 0;
+    private int hugLimit = 3;
 
     private GameObject[] heartObjects;
     private float timeSinceInvulnerable = -1;
@@ -20,6 +22,7 @@ public class Human : Player
 
 #if UNITY_EDITOR
     public KeyCode ItemPickUpKeycode = KeyCode.Z;
+    public KeyCode ItemThrowKeycode = KeyCode.X;
 #endif
 
     public override void Awake() 
@@ -30,13 +33,14 @@ public class Human : Player
         invulnSpriteColor = defaultSpriteColor;
         invulnSpriteColor.a /= 2;
 
-        heartObjects = new GameObject[hugPoints];
+        heartObjects = new GameObject[hugLimit];
 
         base.Awake();
 
         foreach (HeartComponent heartComponent in GetComponentsInChildren<HeartComponent>())
         {
             heartObjects[heartComponent.heartNum] = heartComponent.gameObject;
+            heartComponent.gameObject.SetActive(false);
         }
 
         foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
@@ -50,18 +54,27 @@ public class Human : Player
 
     public override void Update() 
     {
-        if (IsCarryingItem && InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+        if (IsCarryingItem && timeBetweenItemInteract == 0)
         {
-            if (timeBetweenItemInteract == 0)
+            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+            {
                 PutItemDown(HeldItemName);
-        }
+            }
+            else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, this.playerNum))
+            {
+                ThrowItem(HeldItemName);
+            }
 #if UNITY_EDITOR
-        else if (IsCarryingItem && Input.GetKeyDown(ItemPickUpKeycode))
-        {
-            if (timeBetweenItemInteract == 0)
+            else if (Input.GetKeyDown(ItemPickUpKeycode))
+            {
                 PutItemDown(HeldItemName);
-        }
+            }
+            else if (Input.GetKeyDown(ItemThrowKeycode))
+            {
+                ThrowItem(HeldItemName);
+            }
 #endif
+        }
 
         if (timeBetweenItemInteract > 0)
             timeBetweenItemInteract -= Time.deltaTime;
@@ -92,7 +105,7 @@ public class Human : Player
         obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown = false;
         HeldItemName = obj.name;
 
-        timeBetweenItemInteract = 1;
+        timeBetweenItemInteract = 0.1f;
     }
     
     void PutItemDown(string itemName)
@@ -104,59 +117,97 @@ public class Human : Player
         childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
         HeldItemName = "";
 
+        timeBetweenItemInteract = 0.1f;
+    }
+
+    void ThrowItem(string itemName)
+    {
+        this.IsCarryingItem = false;
+        Transform childTransform = transform.FindChild(itemName);
+        childTransform.transform.parent = null;
+        childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
+
+        ThrowableItem _ThrowableItem = childTransform.GetComponent<ThrowableItem>();
+        if (_ThrowableItem != null)
+        {
+            _ThrowableItem.enabled = true;
+            _ThrowableItem.ThrowItem(FacingRight);
+        }
+
+        HeldItemName = "";
+
         timeBetweenItemInteract = 1;
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (this.interactTrigger.IsTouching(col) && !IsCarryingItem && col.tag == "Cat" && timeBetweenItemInteract == 0)
+        if (col.tag == "Cat")
         {
-            interactButtonPromptSpriteRenderer.enabled = true;
+            if (timeBetweenItemInteract == 0 && !IsCarryingItem && col.tag == "Cat" && this.interactTrigger.IsTouching(col))
+            {
+                interactButtonPromptSpriteRenderer.enabled = true;
 
-            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
-            {
-                GrabItem(col.gameObject);
-            }
+                if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+                {
+                    GrabItem(col.gameObject);
+                    interactButtonPromptSpriteRenderer.enabled = false;
+                }
 #if UNITY_EDITOR
-            else if (Input.GetKeyDown(ItemPickUpKeycode))
-            {
-                GrabItem(col.gameObject);
-            }
+                else if (Input.GetKeyDown(ItemPickUpKeycode))
+                {
+                    GrabItem(col.gameObject);
+                    interactButtonPromptSpriteRenderer.enabled = false;
+                    Debug.Log("PEW");
+                }
 #endif
+            }
+            else
+            {
+                interactButtonPromptSpriteRenderer.enabled = false;
+            }
         }
-        else
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Cat" && interactButtonPromptSpriteRenderer.enabled)
         {
             interactButtonPromptSpriteRenderer.enabled = false;
         }
-}
+    }
 
-public void HugHuman()
+    public void HugHuman()
     {
         if (timeSinceInvulnerable <= 0)
         {
             timeSinceInvulnerable = invulnerabilityDuration;
-            loseHealth();
+            gainHug();
 
             GetComponent<SpriteRenderer>().color = invulnSpriteColor;
         }
     }
 
-    private void loseHealth()
+    private void gainHug()
     {
-        heartObjects[hugPoints - 1].SetActive(false);
-        --hugPoints;
+        heartObjects[hugPoints].SetActive(true);
+        ++hugPoints;
 
-        checkHealth();
+        if (hugPoints >= hugLimit)
+        {
+            killSelf();
+        }
     }
 
-    private void checkHealth()
+    private void killSelf()
     {
-        if (hugPoints <= 0)
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().OnHumanDead(gameObject);
+        Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
+
+        if (IsCarryingItem)
         {
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().OnHumanDead(gameObject);
-            Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().playerCount--;
-            Destroy(gameObject);
+            PutItemDown(HeldItemName);
         }
+
+        Destroy(gameObject);
     }
 }

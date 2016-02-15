@@ -67,8 +67,6 @@ public class Player : Entity
 	
 	public override void Update () 
     {
-        SetMoveDirection();
-
         if (moveDir != Vector2.zero)
         {           
             SetFaceDirection();

@@ -20,7 +20,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 
     public bool isGhostInteractTrigger = false;
     public List<Collider2D> colliderList;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer_InteractButtonPrompt;
 
 	void Awake () 
     {
@@ -30,14 +30,13 @@ public class MoveInteractTrigger : MonoBehaviour {
         if (isGhostInteractTrigger)
         {
             colliderList = new List<Collider2D>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer_InteractButtonPrompt = GetComponentInChildren<SpriteRenderer>();
         }
 	}
 	
 	void Update () 
     {
         PlayerMoveDir = this.GetComponentInParent<Player>().moveDir;
-
 #if UNITY_EDITOR
         debugPlayerMoveDir = this.GetComponentInParent<Player>().debugMoveDir;
 #endif
@@ -46,12 +45,12 @@ public class MoveInteractTrigger : MonoBehaviour {
 
         if (PlayerMoveDir.magnitude >= .75)
             SetInteractTrigOffset();
-
 #if UNITY_EDITOR
-        else if(debugPlayerMoveDir.magnitude >= .75)
+        else if (debugPlayerMoveDir.magnitude >= .75)
             DEBUG_SetInteractTrigOffset();
 #endif
 
+        //SetInteractTrigOffset_Constant();
     }
 
     //Old Method for moving sprite centered in the middle of InteractTrigger
@@ -74,6 +73,18 @@ public class MoveInteractTrigger : MonoBehaviour {
     //        crosshair.localPosition = new Vector3(GhostDirection.x, GhostDirection.y, 0);
     //}
 
+    void SetInteractTrigOffset_Constant()
+    {
+        if (PlayerFacingRight)
+        {
+            InteractTrigger.offset = new Vector2(-HorizReach, 0);
+        }
+        else
+        {
+            InteractTrigger.offset = new Vector2(-HorizReach, 0);
+        }
+    }
+
     void SetInteractTrigOffset()
     {
         if (PlayerFacingRight) InteractTrigger.offset = 
@@ -92,12 +103,12 @@ public class MoveInteractTrigger : MonoBehaviour {
             new Vector2(debugPlayerMoveDir.x * HorizReach, (debugPlayerMoveDir.y * VertReach) + TriggerVertOffset);
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (isGhostInteractTrigger && col.tag == "Furniture" && !colliderList.Contains(col))
         {
             colliderList.Add(col);
-            spriteRenderer.enabled = true;
+            spriteRenderer_InteractButtonPrompt.enabled = true;
         }
     }
 
@@ -109,7 +120,7 @@ public class MoveInteractTrigger : MonoBehaviour {
             
             if (colliderList.Count == 0)
             {
-                spriteRenderer.enabled = false;
+                spriteRenderer_InteractButtonPrompt.enabled = false;
             }
         }
     }
