@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Player\Util\InputMapper.cs" />
      <Compile Include="Assets\Scripts\Player\Util\MoveInteractTrigger.cs" />
      <Compile Include="Assets\Scripts\Player\Util\PlayerAnimator.cs" />
+     <Compile Include="Assets\Scripts\PullSwitch.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
