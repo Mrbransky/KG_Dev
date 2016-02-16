@@ -45,15 +45,15 @@ public class Human : Player
         invulnSpriteColor = defaultSpriteColor;
         invulnSpriteColor.a /= 2;
 
-        heartObjects = new GameObject[hugLimit];
-
         base.Awake();
 
         GameManager _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-
-        if (_GameManager != null)
+        GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
+        
+        if (_GameManager != null && characterSelectData != null)
         {
-            switch (_GameManager.currentPlayers.Count)
+            int playerCount = characterSelectData.GetComponent<CharacterSelectData>().PlayerCount;
+            switch (playerCount)
             {
                 case 2:
                     hugLimit = 5;
@@ -66,6 +66,8 @@ public class Human : Player
                     break;
             }
         }
+
+        heartObjects = new GameObject[hugLimit];
 
         foreach (HeartComponent heartComponent in GetComponentsInChildren<HeartComponent>())
         {
