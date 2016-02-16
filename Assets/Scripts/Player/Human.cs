@@ -29,6 +29,8 @@ public class Human : Player
 
     public float timeBetweenItemInteract;
     private SpriteRenderer interactButtonPromptSpriteRenderer;
+    private float interactButtonPromptDurationBuffer = 0.1f;
+    private float timeSinceButtonPrompt = 0.0f;
 
 #if UNITY_EDITOR
     public KeyCode ItemPickUpKeycode = KeyCode.Z;
@@ -101,6 +103,16 @@ public class Human : Player
             }
         }
 
+        if (timeSinceButtonPrompt > 0)
+        {
+            timeSinceButtonPrompt -= Time.deltaTime;
+            
+            if (timeSinceButtonPrompt <= 0)
+            {
+                interactButtonPromptSpriteRenderer.enabled = false;
+            }
+        }
+
         base.Update();
 	}
 
@@ -154,6 +166,7 @@ public class Human : Player
         if (CanGrabItem && col.tag == "Cat")
         {
             interactButtonPromptSpriteRenderer.enabled = true;
+            timeSinceButtonPrompt = interactButtonPromptDurationBuffer;
 
             if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
             {
@@ -165,22 +178,8 @@ public class Human : Player
             {
                 GrabItem(col.gameObject);
                 interactButtonPromptSpriteRenderer.enabled = false;
-                Debug.Log("PEW");
             }
 #endif
-        }
-        else
-        {
-            interactButtonPromptSpriteRenderer.enabled = false;
-        }
-        
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.tag == "Cat" && interactButtonPromptSpriteRenderer.enabled)
-        {
-            interactButtonPromptSpriteRenderer.enabled = false;
         }
     }
 
