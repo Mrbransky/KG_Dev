@@ -4,7 +4,8 @@ using System.Collections;
 public enum KissedFurnitureBehavior
 {
     None = 0,
-    FollowPlayer = 1
+    FollowPlayer = 1,
+    Shoot = 2
 }
 
 public class KissableFurniture : MonoBehaviour
@@ -12,14 +13,13 @@ public class KissableFurniture : MonoBehaviour
     [SerializeField] private KissedFurnitureBehavior kissedBehavior = KissedFurnitureBehavior.None;
     public Color kissedColor = new Color(255.0f / 255.0f, 192.0f / 255.0f, 203.0f / 255.0f);
     private bool isKissed = false;
-
-    [SerializeField] private float minFollowDistance = 0.1f;
-    [SerializeField] private float followSpeed = 3.5f;
+   
     [SerializeField] private float kissedDuration = 3.0f;
-    private GameManager _GameManager;
     private float timeSinceKiss;
-    public int BounceBackForce;
-    private Transform closestPlayerTransform;
+    private GameManager _GameManager;
+
+    private Furniture_FollowPlayer followPlayerBehavior;
+    private Furniture_Shoot shootBehavior;
 
 #if UNITY_EDITOR
     public KeyCode KissKey = KeyCode.Alpha0;
@@ -28,6 +28,26 @@ public class KissableFurniture : MonoBehaviour
     void Start()
     {
         _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        
+        switch ((int)kissedBehavior)
+        {
+            case (int)KissedFurnitureBehavior.FollowPlayer:
+                followPlayerBehavior = GetComponent<Furniture_FollowPlayer>();
+
+                if (followPlayerBehavior == null)
+                {
+                    kissedBehavior = KissedFurnitureBehavior.None;
+                }
+                break;
+            case (int)KissedFurnitureBehavior.Shoot:
+                shootBehavior = GetComponent<Furniture_Shoot>();
+
+                if (shootBehavior == null)
+                {
+                    kissedBehavior = KissedFurnitureBehavior.None;
+                }
+                break;
+        }
     }
 
     void Update()
@@ -56,30 +76,6 @@ public class KissableFurniture : MonoBehaviour
             {
                 UnkissFurniture();
             }
-
-            switch ((int)kissedBehavior)
-            {
-                case (int)KissedFurnitureBehavior.FollowPlayer:
-                    if (closestPlayerTransform == null)
-                    {
-                        UnkissFurniture();
-                        break;
-                    }
-
-                    Vector3 moveDir = closestPlayerTransform.position - transform.position;
-                    float distanceFromPlayer = moveDir.magnitude;
-                    moveDir.Normalize();
-
-                    if (distanceFromPlayer > minFollowDistance)
-                    {
-                        GetComponent<Rigidbody2D>().velocity = moveDir * followSpeed;
-                    }
-                    else
-                    {
-                        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    }
-                    break;
-            }
         }
     }
 
@@ -103,40 +99,33 @@ public class KissableFurniture : MonoBehaviour
 
     private void OnFurnitureKissed()
     {
+        if (_GameManager.currentPlayers.Count < 2)
+        {
+            UnkissFurniture();
+            return;
+        }
+
         GetComponent<SpriteRenderer>().color = kissedColor;
 
-        switch((int)kissedBehavior)
+        switch ((int)kissedBehavior)
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
-                if (_GameManager.currentPlayers.Count < 2)
-                {
-                    UnkissFurniture();
-                    break;
-                }
-
-                GameObject closestPlayer = null;
-                float closestPlayerDist = float.MaxValue;
-                
-                for (int i = 0; i < _GameManager.currentPlayers.Count - 1; ++i)
-                {
-                    float playerDist = Vector3.Distance(_GameManager.currentPlayers[i].transform.position, transform.position);
-                    
-                    if (playerDist < closestPlayerDist)
-                    {
-                        closestPlayer = _GameManager.currentPlayers[i];
-                        closestPlayerDist = playerDist;
-                    }
-                }
-
-                closestPlayerTransform = closestPlayer.transform;
+                followPlayerBehavior.enabled = true;
+                followPlayerBehavior.Initialize(getClosestPlayerTransform());
+                break;
+            case (int)KissedFurnitureBehavior.Shoot:
+                shootBehavior.enabled = true;
                 break;
         }
     }
 
     public void UnkissFurniture()
     {
-        isKissed = false;
-        OnFurnitureUnkissed();
+        if (isKissed)
+        {
+            isKissed = false;
+            OnFurnitureUnkissed();
+        }
     }
 
     private void OnFurnitureUnkissed()
@@ -146,11 +135,10 @@ public class KissableFurniture : MonoBehaviour
         switch ((int)kissedBehavior)
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                Vector3 playVec = closestPlayerTransform.position;
-                GetComponent<Rigidbody2D>().AddForce((transform.position - playVec).normalized * BounceBackForce);
-                
-
+                followPlayerBehavior.enabled = false;
+                break;
+            case (int)KissedFurnitureBehavior.Shoot:
+                shootBehavior.enabled = false;
                 break;
         }
     }
@@ -167,5 +155,24 @@ public class KissableFurniture : MonoBehaviour
                 UnkissFurniture();
             }
         }
+    }
+
+    private Transform getClosestPlayerTransform()
+    {
+        GameObject closestPlayer = null;
+        float closestPlayerDist = float.MaxValue;
+
+        for (int i = 0; i < _GameManager.currentPlayers.Count - 1; ++i)
+        {
+            float playerDist = Vector3.Distance(_GameManager.currentPlayers[i].transform.position, transform.position);
+
+            if (playerDist < closestPlayerDist)
+            {
+                closestPlayer = _GameManager.currentPlayers[i];
+                closestPlayerDist = playerDist;
+            }
+        }
+
+        return closestPlayer.transform;
     }
 }

@@ -49,10 +49,35 @@ public class Human : Player
 
         base.Awake();
 
+        GameManager _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
+        if (_GameManager != null)
+        {
+            switch (_GameManager.currentPlayers.Count)
+            {
+                case 2:
+                    hugLimit = 5;
+                    break;
+                case 3:
+                    hugLimit = 4;
+                    break;
+                case 4:
+                    hugLimit = 3;
+                    break;
+            }
+        }
+
         foreach (HeartComponent heartComponent in GetComponentsInChildren<HeartComponent>())
         {
-            heartObjects[heartComponent.heartNum] = heartComponent.gameObject;
-            heartComponent.gameObject.SetActive(false);
+            if (heartComponent.heartNum < hugLimit)
+            {
+                heartObjects[heartComponent.heartNum] = heartComponent.gameObject;
+                heartComponent.GetComponent<Image>().enabled = false;
+            }
+            else
+            {
+                heartComponent.Disable();
+            }
         }
 
         foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
@@ -196,7 +221,7 @@ public class Human : Player
 
     private void gainHug()
     {
-        heartObjects[hugPoints].SetActive(true);
+        heartObjects[hugPoints].GetComponent<Image>().enabled = true;
         ++hugPoints;
 
         if (hugPoints >= hugLimit)
