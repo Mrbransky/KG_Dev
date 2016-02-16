@@ -63,4 +63,5 @@ public class Ghost : Player
             }
         }
     }
+
 }

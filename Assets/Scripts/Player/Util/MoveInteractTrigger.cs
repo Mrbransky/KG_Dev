@@ -50,28 +50,7 @@ public class MoveInteractTrigger : MonoBehaviour {
             DEBUG_SetInteractTrigOffset();
 #endif
 
-        //SetInteractTrigOffset_Constant();
     }
-
-    //Old Method for moving sprite centered in the middle of InteractTrigger
-    //void SetCrossHairPos()
-    //{
-    //    if (GhostDirection == Vector2.zero)
-    //        this.transform.Find("Crosshair").GetComponent<SpriteRenderer>().enabled = false;
-    //    else
-    //    {
-    //        if (!this.transform.Find("Crosshair").GetComponent<SpriteRenderer>().enabled)
-    //        {
-    //            this.transform.Find("Crosshair").GetComponent<SpriteRenderer>().enabled = true;
-    //        }
-    //    }
-
-    //    if (IsFacingRight)
-    //        crosshair.localPosition = new Vector3(-GhostDirection.x, GhostDirection.y, 0);
-
-    //    else
-    //        crosshair.localPosition = new Vector3(GhostDirection.x, GhostDirection.y, 0);
-    //}
 
     void SetInteractTrigOffset_Constant()
     {
@@ -109,6 +88,24 @@ public class MoveInteractTrigger : MonoBehaviour {
         {
             colliderList.Add(col);
             spriteRenderer_InteractButtonPrompt.enabled = true;
+        }
+
+        else if (col.tag == "Cat" && !isGhostInteractTrigger)
+        {
+            Human player = this.GetComponentInParent<Human>();
+            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, player.playerNum))
+            {
+                if (player.CanGrabItem)
+                    player.GrabItem(col.gameObject);
+            }
+
+#if UNITY_EDITOR
+            else if(Input.GetKeyDown(player.ItemPickUpKeycode))
+            {
+                if (player.CanGrabItem)
+                    player.GrabItem(col.gameObject);
+            }
+#endif
         }
     }
 

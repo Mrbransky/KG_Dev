@@ -15,6 +15,16 @@ public class Human : Player
     private Color invulnSpriteColor;
 
     public bool IsCarryingItem;
+    public bool CanGrabItem
+    {
+        get
+        {
+            if (!IsCarryingItem && timeBetweenItemInteract == 0)
+                return true;
+            else
+                return false;
+        }
+    }
     string HeldItemName;
 
     public float timeBetweenItemInteract;
@@ -91,12 +101,10 @@ public class Human : Player
             }
         }
 
-        reduceVelocity();
-
         base.Update();
 	}
 
-    void GrabItem(GameObject obj)
+    public void GrabItem(GameObject obj)
     {
         this.IsCarryingItem = true;
         
@@ -143,31 +151,29 @@ public class Human : Player
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Cat")
+        if (CanGrabItem && col.tag == "Cat")
         {
-            if (timeBetweenItemInteract == 0 && !IsCarryingItem && col.tag == "Cat" && this.interactTrigger.IsTouching(col))
-            {
-                interactButtonPromptSpriteRenderer.enabled = true;
+            interactButtonPromptSpriteRenderer.enabled = true;
 
-                if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
-                {
-                    GrabItem(col.gameObject);
-                    interactButtonPromptSpriteRenderer.enabled = false;
-                }
-#if UNITY_EDITOR
-                else if (Input.GetKeyDown(ItemPickUpKeycode))
-                {
-                    GrabItem(col.gameObject);
-                    interactButtonPromptSpriteRenderer.enabled = false;
-                    Debug.Log("PEW");
-                }
-#endif
-            }
-            else
+            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
             {
+                GrabItem(col.gameObject);
                 interactButtonPromptSpriteRenderer.enabled = false;
             }
+#if UNITY_EDITOR
+            else if (Input.GetKeyDown(ItemPickUpKeycode))
+            {
+                GrabItem(col.gameObject);
+                interactButtonPromptSpriteRenderer.enabled = false;
+                Debug.Log("PEW");
+            }
+#endif
         }
+        else
+        {
+            interactButtonPromptSpriteRenderer.enabled = false;
+        }
+        
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -211,15 +217,5 @@ public class Human : Player
         }
 
         Destroy(gameObject);
-    }
-
-    private void reduceVelocity()
-    {
-        Vector2 Vel = this.GetComponent<Rigidbody2D>().velocity;
-
-        if (Vel.x > 0)
-            rigidBody.velocity.Set(Vel.x -= .2f, Vel.y);
-        else if (Vel.x < 0)
-            rigidBody.velocity.Set(Vel.x += .2f, Vel.y);
     }
 }
