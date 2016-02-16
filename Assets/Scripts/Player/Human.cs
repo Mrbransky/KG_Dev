@@ -91,6 +91,8 @@ public class Human : Player
             }
         }
 
+        reduceVelocity();
+
         base.Update();
 	}
 
@@ -209,5 +211,15 @@ public class Human : Player
         }
 
         Destroy(gameObject);
+    }
+
+    private void reduceVelocity()
+    {
+        Vector2 Vel = this.GetComponent<Rigidbody2D>().velocity;
+
+        if (Vel.x > 0)
+            rigidBody.velocity.Set(Vel.x -= .2f, Vel.y);
+        else if (Vel.x < 0)
+            rigidBody.velocity.Set(Vel.x += .2f, Vel.y);
     }
 }

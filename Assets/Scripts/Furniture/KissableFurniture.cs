@@ -18,6 +18,7 @@ public class KissableFurniture : MonoBehaviour
     [SerializeField] private float kissedDuration = 3.0f;
     private GameManager _GameManager;
     private float timeSinceKiss;
+    public int BounceBackForce;
     private Transform closestPlayerTransform;
 
 #if UNITY_EDITOR
@@ -146,6 +147,10 @@ public class KissableFurniture : MonoBehaviour
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                Vector3 playVec = closestPlayerTransform.position;
+                GetComponent<Rigidbody2D>().AddForce((transform.position - playVec).normalized * BounceBackForce);
+                
+
                 break;
         }
     }

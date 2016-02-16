@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{C9C5ACED-AF37-B251-9AC8-2374AADD4A08}</ProjectGuid>
+	<ProjectGuid>{69BA1079-BCFD-DBFA-1EEA-A2EBB49FA2C8}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -50,14 +50,13 @@
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectData.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
+     <Compile Include="Assets\Scripts\Furniture\KissableFurniture.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GoBack.cs" />
      <Compile Include="Assets\Scripts\HeartSpawn.cs" />
-     <Compile Include="Assets\Scripts\KissableFurniture.cs" />
-     <Compile Include="Assets\Scripts\MissionManager.cs" />
-     <Compile Include="Assets\Scripts\MissionObjective.cs" />
-     <Compile Include="Assets\Scripts\MissionObjective_Item.cs" />
-     <Compile Include="Assets\Scripts\MissionObjective_ItemNode.cs" />
+     <Compile Include="Assets\Scripts\Mission\MissionManager.cs" />
+     <Compile Include="Assets\Scripts\Mission\MissionObjective_Item.cs" />
+     <Compile Include="Assets\Scripts\Mission\MissionObjective_ItemNode.cs" />
      <Compile Include="Assets\Scripts\OffsetScroller.cs" />
      <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
      <Compile Include="Assets\Scripts\Player\Entity.cs" />
@@ -73,6 +72,8 @@
      <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
+     <Compile Include="Assets\Scripts\SpriteColorSwapper.cs" />
+     <Compile Include="Assets\Scripts\ThrowableItem.cs" />
      <Compile Include="Assets\Scripts\UI\HeartComponent.cs" />
      <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
  <Reference Include="UnityEngine.UI">
