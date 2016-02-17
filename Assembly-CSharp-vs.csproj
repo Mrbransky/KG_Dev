@@ -50,6 +50,8 @@
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectData.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
+     <Compile Include="Assets\Scripts\Furniture\Furniture_FollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\Furniture\Furniture_Shoot.cs" />
      <Compile Include="Assets\Scripts\Furniture\KissableFurniture.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GoBack.cs" />
@@ -76,6 +78,7 @@
      <Compile Include="Assets\Scripts\SpriteColorSwapper.cs" />
      <Compile Include="Assets\Scripts\ThrowableItem.cs" />
      <Compile Include="Assets\Scripts\UI\HeartComponent.cs" />
+     <Compile Include="Assets\Scripts\UI\HeartComponentManager.cs" />
      <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
