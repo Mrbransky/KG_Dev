@@ -107,6 +107,16 @@ public class MoveInteractTrigger : MonoBehaviour {
             }
 #endif
         }
+
+        //else if (col.tag == "Pull")
+        //{
+        //    Human human = this.GetComponentInParent<Human>();
+        //    Debug.Log("WIZ BIZ");
+        //    if (InputMapper.GrabVal(XBOX360_BUTTONS.A, human.playerNum) || Input.GetKeyDown(human.ItemPickUpKeycode))
+        //    {
+        //        human.AttachToPullSwitch(col.gameObject);
+        //    }
+        //}
     }
 
     void OnTriggerExit2D(Collider2D col)

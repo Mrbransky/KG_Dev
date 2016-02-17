@@ -25,6 +25,8 @@ public class Human : Player
                 return false;
         }
     }
+    public bool IsPullingSwitch;
+
     string HeldItemName;
 
     public float timeBetweenItemInteract;
@@ -40,6 +42,7 @@ public class Human : Player
     public override void Awake() 
     {
         FacingRight = false;
+        IsPullingSwitch = false;
 
         defaultSpriteColor = GetComponent<SpriteRenderer>().color;
         invulnSpriteColor = defaultSpriteColor;
@@ -191,7 +194,7 @@ public class Human : Player
     void OnTriggerStay2D(Collider2D col)
     {
         if (CanGrabItem && col.tag == "Cat")
-        {
+        { 
             interactButtonPromptSpriteRenderer.enabled = true;
             timeSinceButtonPrompt = interactButtonPromptDurationBuffer;
 
@@ -208,6 +211,14 @@ public class Human : Player
             }
 #endif
         }
+
+        //else if (col.tag == "Pull" && !IsPullingSwitch)
+        //{
+        //    if(InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) || Input.GetKeyDown(ItemPickUpKeycode))
+        //    {
+        //        AttachToPullSwitch(col.gameObject);
+        //    }
+        //}
     }
 
     public void HugHuman()
@@ -244,4 +255,11 @@ public class Human : Player
 
         Destroy(gameObject);
     }
+
+    //public void AttachToPullSwitch(GameObject obj)
+    //{
+    //    IsPullingSwitch = true;
+    //    Vector3 newPos = obj.transform.position;
+    //    transform.position.Set(newPos.x, newPos.y, newPos.z);
+    //}
 }
