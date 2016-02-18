@@ -72,7 +72,7 @@ public class MoveInteractTrigger : MonoBehaviour {
         else InteractTrigger.offset = 
             new Vector2(PlayerMoveDir.x * HorizReach, (PlayerMoveDir.y * VertReach) + TriggerVertOffset);
     }
-
+#if UNITY_EDITOR
     void DEBUG_SetInteractTrigOffset()
     {
         if (PlayerFacingRight) InteractTrigger.offset =
@@ -81,7 +81,7 @@ public class MoveInteractTrigger : MonoBehaviour {
         else InteractTrigger.offset =
             new Vector2(debugPlayerMoveDir.x * HorizReach, (debugPlayerMoveDir.y * VertReach) + TriggerVertOffset);
     }
-
+#endif
     void OnTriggerStay2D(Collider2D col)
     {
         if (isGhostInteractTrigger && col.tag == "Furniture" && !colliderList.Contains(col))

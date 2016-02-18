@@ -92,13 +92,15 @@ public class MenuSelect : MonoBehaviour
                 {
                     case 1:
                         HasSelectedPlay = true;
-                        WhichInstructScreen = 1;
-                        Controls.gameObject.SetActive(true);
+
+                        Application.LoadLevel(1);
+                        //WhichInstructScreen = 1;
+                        //Controls.gameObject.SetActive(true);
 
                         break;
 
                     case 2:
-                        Application.LoadLevel(3);
+                        //Application.LoadLevel(3);
                         break;
 
                     case 3:

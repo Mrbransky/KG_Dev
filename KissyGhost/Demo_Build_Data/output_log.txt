@@ -2,33 +2,42 @@ Initialize engine version: 5.1.2f1 (afd2369b692a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
-    Vendor:   Intel
-    VRAM:     128 MB
+    Renderer: NVIDIA Quadro K4200 (ID=0x11b4)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.078 seconds
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.530 seconds
+desktop: 1920x1200 59Hz; virtual: 1920x1200 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initialized touch support.
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\System.dll (this message is harmless)
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: \\iam.local\user\Zachary.Bruin\pub\Kissy_Ghost\KissyGhost\Demo_Build_Data\Managed\System.dll (this message is harmless)
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.199282 ms
+UnloadTime: 2.897142 ms
 
-Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 497.
-Total: 0.321011 ms (FindLiveObjects: 0.024517 ms CreateObjectMapping: 0.021666 ms MarkObjects: 0.212677 ms  DeleteObjects: 0.061579 ms)
+Unloading 52 unused Assets to reduce memory usage. Loaded Objects now: 254.
+Total: 0.232736 ms (FindLiveObjects: 0.009431 ms CreateObjectMapping: 0.011095 ms MarkObjects: 0.107907 ms  DeleteObjects: 0.103469 ms)
 
-Platform assembly: C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Demo_Build_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Starting game...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.616951 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 909.
+Total: 1.193088 ms (FindLiveObjects: 0.029126 ms CreateObjectMapping: 0.027739 ms MarkObjects: 1.114584 ms  DeleteObjects: 0.021082 ms)
+
