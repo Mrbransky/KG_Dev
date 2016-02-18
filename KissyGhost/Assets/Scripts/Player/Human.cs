@@ -156,7 +156,7 @@ public class Human : Player
         
         obj.transform.parent = transform;
         obj.transform.localPosition = new Vector3(0, .75f, 0);
-        obj.transform.localScale = new Vector3(5, 5, 1);
+        obj.transform.localScale = new Vector3(1, 1, 1);
         obj.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown = false;
         HeldItemName = obj.name;
