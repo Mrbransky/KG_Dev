@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
             if (!isPlayerReadyArray[playerReadyArrayIndex])
             {
                 players[i].SetActive(false);
+                Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
             }
             else
             {

@@ -110,13 +110,6 @@ public class RoomGenerator : MonoBehaviour {
             }
 		}
 	}
-    void Update()
-    {
-        foreach (GameObject fur in currentFurniture)
-        {
-            fur.GetComponent<SpriteRenderer>().sortingOrder = (int)(-fur.transform.localPosition.y);
-        }
-    }
     private void initializeMissionManager()
     {
         GetComponent<MissionManager>().Initialize();

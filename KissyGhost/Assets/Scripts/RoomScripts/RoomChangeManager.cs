@@ -7,7 +7,7 @@ public class RoomChangeManager : MonoBehaviour {
     public bool RoomGoalAccomplished = false;
 
     //TODO:Create more room goals other than timers
-    public float timer = 30f;
+    public float timer = 10f;
     public Text timerText;
 
     public List<GameObject> playersGoingBottom = new List<GameObject>();
@@ -98,7 +98,7 @@ public class RoomChangeManager : MonoBehaviour {
         if (timer <= 0)
         {
             RoomGoalAccomplished = true;
-            timer =30f;
+            timer =10f;
         }
     }
 
