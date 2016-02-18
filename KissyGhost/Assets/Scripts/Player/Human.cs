@@ -96,6 +96,9 @@ public class Human : Player
 
     public override void Update() 
     {
+
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(-transform.localPosition.y+1);
+        
         if (IsCarryingItem && timeBetweenItemInteract == 0)
         {
             if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
@@ -152,7 +155,7 @@ public class Human : Player
         
         obj.transform.parent = transform;
         obj.transform.localPosition = new Vector3(0, .75f, 0);
-        obj.transform.localScale = new Vector3(1, 1, 1);
+        obj.transform.localScale = new Vector3(5, 5, 1);
         obj.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown = false;
         HeldItemName = obj.name;

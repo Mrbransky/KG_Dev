@@ -11,7 +11,7 @@ public class RoomGenerator : MonoBehaviour {
 	public GameObject MainBaseRoomPiece;
 
     //Furniture list
-	List<GameObject> currentFurniture;
+	public List<GameObject> currentFurniture;
 	public int numberOfFurniture = 3;
     public GameObject[] furnitureOptions;
 
@@ -100,7 +100,7 @@ public class RoomGenerator : MonoBehaviour {
             
             if (newFurniture.gameObject.tag == "Furniture")
             {
-                newFurniture.GetComponent<SpriteRenderer>().sortingOrder = (int)(-(newPos.y - roomCenterPoint.y) * 3);
+                newFurniture.GetComponent<SpriteRenderer>().sortingOrder = (int)(-newFurniture.transform.localPosition.y);
                 currentFurniture.Add(newFurniture);
             }
             else 
@@ -110,7 +110,13 @@ public class RoomGenerator : MonoBehaviour {
             }
 		}
 	}
-
+    void Update()
+    {
+        foreach (GameObject fur in currentFurniture)
+        {
+            fur.GetComponent<SpriteRenderer>().sortingOrder = (int)(-fur.transform.localPosition.y);
+        }
+    }
     private void initializeMissionManager()
     {
         GetComponent<MissionManager>().Initialize();
