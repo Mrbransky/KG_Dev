@@ -71,13 +71,14 @@ public class Human : Player
         }
 
         heartObjects = new GameObject[hugLimit];
+        hugPoints = hugLimit;
 
         foreach (HeartComponent heartComponent in GetComponentsInChildren<HeartComponent>())
         {
             if (heartComponent.heartNum < hugLimit)
             {
                 heartObjects[heartComponent.heartNum] = heartComponent.gameObject;
-                heartComponent.GetComponent<Image>().enabled = false;
+                //heartComponent.GetComponent<Image>().enabled = false;
             }
             else
             {
@@ -237,10 +238,10 @@ public class Human : Player
 
     private void gainHug()
     {
-        heartObjects[hugPoints].GetComponent<Image>().enabled = true;
-        ++hugPoints;
+        --hugPoints;
+        heartObjects[hugPoints].GetComponent<Image>().enabled = false;
 
-        if (hugPoints >= hugLimit)
+        if (hugPoints <= 0)
         {
             killSelf();
         }
