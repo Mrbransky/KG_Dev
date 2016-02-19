@@ -21,7 +21,7 @@ public class Ghost : Player
 
     public override void Update()
     {
-        if(GetComponent<Collider2D>().IsTouching())
+        //if(GetComponent<Collider2D>().IsTouching())
 
         if (timeSinceKiss > 0)
         {
