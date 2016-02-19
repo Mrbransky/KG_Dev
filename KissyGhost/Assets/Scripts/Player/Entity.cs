@@ -28,12 +28,18 @@ public class Entity : MonoBehaviour
     }
 	
 	public virtual void Update () 
-    {
-        if (moveDir != Vector2.zero && topSpeed > 0)
+    {       
+        if (moveDir.magnitude >= .25f)
             ApplyMovement();
 
-        else if (Mathf.Abs(moveDir.magnitude) <= .15f && currentSpeed > 0)
+        else if (Mathf.Abs(moveDir.magnitude) < .25f && currentSpeed > 0)
             DecelToStop();
+
+#if !UNITY_EDITOR
+        topSpeed = moveDir.magnitude * 5;
+        if (topSpeed > 5) topSpeed = 5;
+#endif
+        
 
 #region Keyboard Input Related Code (for Debugging)
 #if UNITY_EDITOR
@@ -68,10 +74,13 @@ public class Entity : MonoBehaviour
 
             // DecelToStop
             Vector3 calc = new Vector3(cachedMoveDir.x, cachedMoveDir.y, 0) * debugCurrentSpeed * Time.deltaTime;
-            this.rigidBody.transform.position += calc;
+            this.rigidBody.transform.position += calc;           
         }
+        
 #endif
 #endregion
+
+        
     }
 
     protected void ApplyMovement()
@@ -86,7 +95,7 @@ public class Entity : MonoBehaviour
     protected void DecelToStop()
     {
         currentSpeed = DecelCurrentSpeed();
-
+        
         Vector3 calc = new Vector3(cachedMoveDir.x, cachedMoveDir.y, 0).normalized * currentSpeed * Time.deltaTime;
         this.rigidBody.transform.position += calc;
     }

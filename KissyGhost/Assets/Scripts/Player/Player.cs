@@ -67,7 +67,7 @@ public class Player : Entity
 	
 	public override void Update () 
     {
-        if (moveDir != Vector2.zero)
+        if (moveDir.magnitude >= .25f)
         {           
             SetFaceDirection();
 

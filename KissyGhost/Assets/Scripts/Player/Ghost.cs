@@ -21,6 +21,8 @@ public class Ghost : Player
 
     public override void Update()
     {
+        if(GetComponent<Collider2D>().IsTouching())
+
         if (timeSinceKiss > 0)
         {
             timeSinceKiss -= Time.deltaTime;
@@ -62,6 +64,11 @@ public class Ghost : Player
                 source.PlayOneShot(PickRandomKissSound());
             }
         }
+    }
+
+    void OnTriggerStay2D(Collision2D col)
+    {
+        
     }
 
 }
