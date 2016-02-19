@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 5270c05cf652e1e499f0962217d63525
-timeCreated: 1445710766
-licenseType: Free
+guid: df300f540b4a02a4a97f10cf3093bf18
+timeCreated: 1455839500
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: heartin_spritesheet_0
-    21300002: heartin_spritesheet_1
-    21300004: heartin_spritesheet_2
-    21300006: heartin_spritesheet_3
+    21300000: HeartZoom_Transition_0
+    21300002: HeartZoom_Transition_1
+    21300004: HeartZoom_Transition_2
+    21300006: HeartZoom_Transition_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -30,18 +30,18 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 1024
+  textureFormat: -3
+  maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: 1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,49 +49,49 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 0
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: heartin_spritesheet_0
+    - name: HeartZoom_Transition_0
       rect:
         serializedVersion: 2
-        x: 12
+        x: 0
         y: 0
-        width: 4
-        height: 4
+        width: 248
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: heartin_spritesheet_1
+    - name: HeartZoom_Transition_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 248
         y: 0
-        width: 20
-        height: 12
+        width: 248
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: heartin_spritesheet_2
+    - name: HeartZoom_Transition_2
       rect:
         serializedVersion: 2
-        x: 56
+        x: 496
         y: 0
-        width: 26
-        height: 28
+        width: 248
+        height: 250
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: heartin_spritesheet_3
+    - name: HeartZoom_Transition_3
       rect:
         serializedVersion: 2
-        x: 82
+        x: 744
         y: 0
-        width: 30
-        height: 28
+        width: 248
+        height: 250
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -8,6 +8,7 @@ public class MenuSelect : MonoBehaviour
     public Image option1, option2, option3;
     public AudioSource audio;
     Transform Controls, Instructions, WinCondition;
+    public GameObject heartZoom;
 
     float menuSelectTimer = 0.2f;
     float instructScreensTimer = 1;
@@ -32,6 +33,7 @@ public class MenuSelect : MonoBehaviour
 
     void Update()
     {
+
         DelayMenuSelect();
         HandleInput();
         ColorSelectedText();
@@ -91,9 +93,13 @@ public class MenuSelect : MonoBehaviour
                 switch (choice)
                 {
                     case 1:
-                        HasSelectedPlay = true;
-
-                        Application.LoadLevel(1);
+                      //  HasSelectedPlay = true;
+                      //  heartZoom.SetActive(true);
+                        
+                      //  if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                       // {
+                            Application.LoadLevel(1);
+                       // }
                         //WhichInstructScreen = 1;
                         //Controls.gameObject.SetActive(true);
 
