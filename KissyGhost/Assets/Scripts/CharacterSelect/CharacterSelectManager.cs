@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using XInputDotNetPure;
 
 public class CharacterSelectManager : MonoBehaviour
 {
@@ -72,6 +73,10 @@ public class CharacterSelectManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Start") && playerCount >= MIN_PLAYER_COUNT_TO_START)
         {
+            for (int i = 0; i < playerCount; i++)           
+                GamePad.SetVibration((PlayerIndex)i, 0, 0);
+                
+            
             startGame();
         }
 
@@ -96,6 +101,7 @@ public class CharacterSelectManager : MonoBehaviour
             if (Input.GetButtonDown("P" + i + "pad_A") && !isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, true);
+                StartCoroutine(InputMapper.Vibration(i, .2f, 0, .8f));
 
                 #region Debug Code
 #if UNITY_EDITOR

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CameraBiz\NewCameraBehavior.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectData.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager.cs" />
+     <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectPlayerSpritePositioner.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
      <Compile Include="Assets\Scripts\Furniture\Furniture_FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\Furniture\Furniture_Shoot.cs" />
@@ -60,6 +61,10 @@
      <Compile Include="Assets\Scripts\Mission\MissionObjective_Item.cs" />
      <Compile Include="Assets\Scripts\Mission\MissionObjective_ItemNode.cs" />
      <Compile Include="Assets\Scripts\OffsetScroller.cs" />
+     <Compile Include="Assets\Scripts\PaletteSwap\ColorPalette.cs" />
+     <Compile Include="Assets\Scripts\PaletteSwap\CustomAssetUtil.cs" />
+     <Compile Include="Assets\Scripts\PaletteSwap\OLD\SpriteColorSwapper.cs" />
+     <Compile Include="Assets\Scripts\PaletteSwap\PaletteSwapper.cs" />
      <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
      <Compile Include="Assets\Scripts\Player\Entity.cs" />
      <Compile Include="Assets\Scripts\Player\Ghost.cs" />
@@ -75,12 +80,13 @@
      <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
-     <Compile Include="Assets\Scripts\SpriteColorSwapper.cs" />
      <Compile Include="Assets\Scripts\ThrowableItem.cs" />
      <Compile Include="Assets\Scripts\UI\HeartComponent.cs" />
      <Compile Include="Assets\Scripts\UI\HeartComponentManager.cs" />
      <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
-     <None Include="Assets\Scripts\Shader\SpritePaletteSwap.shader" />
+     <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
+     <None Include="Assets\XInputDotNet\MITLicense.txt" />
+     <None Include="Assets\Scripts\PaletteSwap\OLD\SpritePaletteSwap.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -89,6 +95,9 @@
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="XInputDotNetPure">
+ <HintPath>C:/Users/zachary.bruin/Desktop/GitHub/Kissy_Ghost/KissyGhost/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

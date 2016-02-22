@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using XInputDotNetPure;
 
 public class GameManager : MonoBehaviour {
 
@@ -102,11 +103,16 @@ public class GameManager : MonoBehaviour {
     public void OnHumansWin()
     {
         gameEnd = true;
+
+        VibrateAllHumans(.75f, 1, 1);
     }
 
     public void OnGhostWin()
     {
         gameEnd = true;
+        int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;
+
+        StartCoroutine(InputMapper.Vibration(ghostPlayerNum, .75f, 1, 1));
     }
 
     private void checkIsGameEnd()
@@ -141,6 +147,47 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        CeaseAllVibrations();
+    }
+
+    void VibrateAllHumans(float timeAmt, float leftMotor, float rightMotor)
+    {
+        foreach (GameObject obj in currentPlayers)
+        {
+            if (obj.GetComponent<Human>())
+            {
+                int playerNum = obj.GetComponent<Human>().playerNum;
+                StartCoroutine(InputMapper.Vibration(playerNum, timeAmt, leftMotor, rightMotor));
+            }
+        }
+    }
+
+    void CeaseVibrationHumans()
+    {
+        foreach(GameObject obj in currentPlayers)
+        {
+            if (obj.GetComponent<Human>())
+            {
+                int playerNum = obj.GetComponent<Human>().playerNum;
+                GamePad.SetVibration((PlayerIndex)playerNum, 0, 0);
+            }
+        }
+    }
+
+    void CeaseVibrationGhost()
+    {
+        int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;
+        GamePad.SetVibration((PlayerIndex)ghostPlayerNum, 0, 0);
+    }
+
+    void CeaseAllVibrations()
+    {
+        for (int i = 0; i < playerCount; i++)
+            GamePad.SetVibration((PlayerIndex)i, 0, 0);
     }
 
     //private void oldWinCondition()

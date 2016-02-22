@@ -66,11 +66,15 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>Assets\Plugins\x86_64\XInputDotNetPure.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraBiz\NewCameraBehavior.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectData.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager.cs" />
+    <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectPlayerSpritePositioner.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
     <Compile Include="Assets\Scripts\Furniture\Furniture_FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\Furniture\Furniture_Shoot.cs" />
@@ -82,6 +86,10 @@
     <Compile Include="Assets\Scripts\Mission\MissionObjective_Item.cs" />
     <Compile Include="Assets\Scripts\Mission\MissionObjective_ItemNode.cs" />
     <Compile Include="Assets\Scripts\OffsetScroller.cs" />
+    <Compile Include="Assets\Scripts\PaletteSwap\ColorPalette.cs" />
+    <Compile Include="Assets\Scripts\PaletteSwap\CustomAssetUtil.cs" />
+    <Compile Include="Assets\Scripts\PaletteSwap\OLD\SpriteColorSwapper.cs" />
+    <Compile Include="Assets\Scripts\PaletteSwap\PaletteSwapper.cs" />
     <Compile Include="Assets\Scripts\PlayMainMusic.cs" />
     <Compile Include="Assets\Scripts\Player\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Ghost.cs" />
@@ -97,14 +105,15 @@
     <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
     <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
     <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
-    <Compile Include="Assets\Scripts\SpriteColorSwapper.cs" />
     <Compile Include="Assets\Scripts\ThrowableItem.cs" />
     <Compile Include="Assets\Scripts\UI\HeartComponent.cs" />
     <Compile Include="Assets\Scripts\UI\HeartComponentManager.cs" />
     <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
+    <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\Shader\SpritePaletteSwap.shader" />
+    <None Include="Assets\Scripts\PaletteSwap\OLD\SpritePaletteSwap.shader" />
+    <None Include="Assets\XInputDotNet\MITLicense.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

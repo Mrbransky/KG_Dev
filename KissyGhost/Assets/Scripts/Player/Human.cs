@@ -206,12 +206,14 @@ public class Human : Player
             {
                 GrabItem(col.gameObject);
                 interactButtonPromptSpriteRenderer.enabled = false;
+                StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
             }
 #if UNITY_EDITOR
             else if (Input.GetKeyDown(ItemPickUpKeycode))
             {
                 GrabItem(col.gameObject);
                 interactButtonPromptSpriteRenderer.enabled = false;
+                
             }
 #endif
         }
@@ -231,6 +233,8 @@ public class Human : Player
         {
             timeSinceInvulnerable = invulnerabilityDuration;
             gainHug();
+
+            StartCoroutine(InputMapper.Vibration(playerNum, 1, .55f, .7f));
 
             GetComponent<SpriteRenderer>().color = invulnSpriteColor;
 

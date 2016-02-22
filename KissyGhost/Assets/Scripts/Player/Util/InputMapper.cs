@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
 public enum XBOX360_BUTTONS { A, B, X, Y };
 public enum XBOX360_AXES
@@ -58,5 +59,14 @@ public static class InputMapper
         }
 
         return "P" + playerNum + axisString;
+    }
+
+    public static IEnumerator Vibration(int playerNum, float timeAmt, float leftMotor, float rightMotor)
+    {
+        GamePad.SetVibration((PlayerIndex)playerNum - 1, leftMotor, rightMotor);
+
+        yield return new WaitForSeconds(timeAmt);
+
+        GamePad.SetVibration((PlayerIndex)playerNum - 1, 0, 0);
     }
 }

@@ -62,6 +62,7 @@ public class Ghost : Player
             {
                 timeSinceKiss = timeBetweenKisses;
                 source.PlayOneShot(PickRandomKissSound());
+                StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
             }
         }
     }

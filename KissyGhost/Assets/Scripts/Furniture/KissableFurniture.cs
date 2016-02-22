@@ -151,7 +151,7 @@ public class KissableFurniture : MonoBehaviour
             
             if (humanScript != null)
             {
-                humanScript.HugHuman();
+                humanScript.HugHuman();                
                 UnkissFurniture();
             }
         }
