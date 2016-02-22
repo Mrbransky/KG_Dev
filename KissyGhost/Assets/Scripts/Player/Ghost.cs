@@ -66,7 +66,7 @@ public class Ghost : Player
         }
     }
 
-    void OnTriggerStay2D(Collision2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         
     }

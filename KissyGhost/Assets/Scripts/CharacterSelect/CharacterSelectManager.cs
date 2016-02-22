@@ -14,35 +14,58 @@ public class CharacterSelectManager : MonoBehaviour
     private int playerCount = 0;
 
     // UI
+    public SpriteRenderer[] PlayerSpriteRendererArray;
+    public Text[] ReadyTextArray;
+    public Image[] ButtonImageArray;
+    public GameObject PressToStartTextObject;
+
+    private Text[] buttonTextArray;
+    private Color transparentColor;
+
+    // Debug UI
     public Text CharacterSelectDebugText;
     private string[] debugTextArray;
-    public List<GameObject> playerScreens;
-    public List<GameObject> playerButtons;
 
     void Start()
     {
         initializeVariables();
-        updateUI();
 
+        #region Debug Code
 #if UNITY_EDITOR
+        updateDebugUI();
+
         Debug.Log("Gamepads connected: " + Input.GetJoystickNames().Length);
         foreach (string joystickName in Input.GetJoystickNames())
         {
             Debug.Log(joystickName);
         }
 #endif
+        #endregion
     }
 
     private void initializeVariables()
     {
         isPlayerReadyArray = new bool[MAX_PLAYER_COUNT];
-        debugTextArray = new string[MAX_PLAYER_COUNT];
+        buttonTextArray = new Text[MAX_PLAYER_COUNT];
 
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
             isPlayerReadyArray[i] = false;
+            buttonTextArray[i] = ButtonImageArray[i].GetComponentInChildren<Text>();
+        }
+
+        transparentColor = new Color(0, 0, 0, 0);
+
+        #region Debug Code
+#if UNITY_EDITOR
+        debugTextArray = new string[MAX_PLAYER_COUNT];
+
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
+        {
             debugTextArray[i] = "P" + (i + 1) + ": Not Ready\n";
         }
+#endif
+        #endregion
     }
 
     void Update()
@@ -54,6 +77,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         checkIfPlayerReady();
 
+        #region Debug Code
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
         {
@@ -62,6 +86,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         debugCheckIfPlayerReady();
 #endif
+        #endregion
     }
 
     private void checkIfPlayerReady()
@@ -70,129 +95,60 @@ public class CharacterSelectManager : MonoBehaviour
         {
             if (Input.GetButtonDown("P" + i + "pad_A") && !isPlayerReadyArray[i - 1])
             {
-                // Player ready
-                isPlayerReadyArray[i - 1] = true;
-                playerScreens[i - 1].gameObject.SetActive(true);
-                playerButtons[i - 1].gameObject.SetActive(false);
-                ++playerCount;
+                updateUI_playerReady(i - 1, true);
 
-                // UI
+                #region Debug Code
+#if UNITY_EDITOR
                 debugTextArray[i - 1] = "P" + i + ": Ready\n";
-                updateUI();
+                updateDebugUI();
+#endif
+                #endregion
             }
             else if (Input.GetButtonDown("P" + i + "pad_B") && isPlayerReadyArray[i - 1])
             {
-                // Player cancels ready
-                isPlayerReadyArray[i - 1] = false;
-                playerScreens[i - 1].gameObject.SetActive(false);
-                playerButtons[i - 1].gameObject.SetActive(true);
-                --playerCount;
+                updateUI_playerReady(i - 1, false);
 
-                // UI
-                debugTextArray[i - 1] = "P" + i + ": Not Ready\n";
-                updateUI();
+                #region Debug Code
+#if UNITY_EDITOR
+                debugTextArray[i - 1] = "P" + i + ": Ready\n";
+                updateDebugUI();
+#endif
+                #endregion
             }
         }
     }
 
-    private void debugCheckIfPlayerReady()
+    private void updateUI_playerReady(int playerIndex, bool isPlayerReady)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        isPlayerReadyArray[playerIndex] = isPlayerReady;
+
+        PlayerSpriteRendererArray[playerIndex].enabled = isPlayerReady;
+
+        if (isPlayerReady)
         {
-            isPlayerReadyArray[0] = !isPlayerReadyArray[0];
+            ++playerCount;
 
-            if (isPlayerReadyArray[0])
-            {
-                ++playerCount;
-                debugTextArray[0] = "P1: Ready\n";
-                playerScreens[0].gameObject.SetActive(true);
-                playerButtons[0].gameObject.SetActive(false);
-            }
-            else
-            {
-                --playerCount;
-                debugTextArray[0] = "P1: Not Ready\n";
-                playerScreens[0].gameObject.SetActive(false);
-                playerButtons[0].gameObject.SetActive(true);
-            }
+            ReadyTextArray[playerIndex].color = Color.black;
+            ButtonImageArray[playerIndex].color = transparentColor;
+            buttonTextArray[playerIndex].color = transparentColor;
 
-            updateUI();
+            if (playerCount == MIN_PLAYER_COUNT_TO_START)
+            {
+                PressToStartTextObject.SetActive(true);
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else
         {
-            isPlayerReadyArray[1] = !isPlayerReadyArray[1];
+            --playerCount;
 
-            if (isPlayerReadyArray[1])
+            ReadyTextArray[playerIndex].color = transparentColor;
+            ButtonImageArray[playerIndex].color = Color.white;
+            buttonTextArray[playerIndex].color = Color.black;
+
+            if (playerCount < MIN_PLAYER_COUNT_TO_START)
             {
-                ++playerCount;
-                debugTextArray[1] = "P2: Ready\n";
-                playerScreens[1].gameObject.SetActive(true);
-                playerButtons[1].gameObject.SetActive(false);
+                PressToStartTextObject.SetActive(false);
             }
-            else
-            {
-                --playerCount;
-                debugTextArray[1] = "P2: Not Ready\n";
-                playerScreens[1].gameObject.SetActive(false);
-                playerButtons[1].gameObject.SetActive(true);
-            }
-
-            updateUI();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            isPlayerReadyArray[2] = !isPlayerReadyArray[2];
-
-            if (isPlayerReadyArray[2])
-            {
-                ++playerCount;
-                debugTextArray[2] = "P3: Ready\n";
-                playerScreens[2].gameObject.SetActive(true);
-                playerButtons[2].gameObject.SetActive(false);
-            }
-            else
-            {
-                --playerCount;
-                debugTextArray[2] = "P3: Not Ready\n";
-                playerScreens[2].gameObject.SetActive(false);
-                playerButtons[2].gameObject.SetActive(true);
-            }
-
-            updateUI();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            isPlayerReadyArray[3] = !isPlayerReadyArray[3];
-
-            if (isPlayerReadyArray[3])
-            {
-                ++playerCount;
-                debugTextArray[3] = "P4: Ready\n";
-                playerScreens[3].gameObject.SetActive(true);
-                playerButtons[3].gameObject.SetActive(false);
-            }
-            else
-            {
-                --playerCount;
-                debugTextArray[3] = "P4: Not Ready\n";
-                playerScreens[3].gameObject.SetActive(false);
-                playerButtons[3].gameObject.SetActive(true);
-            }
-
-            updateUI();
-        }
-    }
-
-    private void updateUI()
-    {
-        CharacterSelectDebugText.text = "";
-
-        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
-        {
-            CharacterSelectDebugText.text += debugTextArray[i];
         }
     }
 
@@ -210,4 +166,91 @@ public class CharacterSelectManager : MonoBehaviour
             Debug.LogError("CharacterSelectManager: Could not find game object with tag \"CharacterSelectData\"");
         }
     }
+
+    #region Debug Functions
+    private void debugCheckIfPlayerReady()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            isPlayerReadyArray[0] = !isPlayerReadyArray[0];
+
+            if (isPlayerReadyArray[0])
+            {
+                updateUI_playerReady(0, true);
+                debugTextArray[0] = "P1: Ready\n";
+            }
+            else
+            {
+                updateUI_playerReady(0, false);
+                debugTextArray[0] = "P1: Not Ready\n";
+            }
+
+            updateDebugUI();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            isPlayerReadyArray[1] = !isPlayerReadyArray[1];
+
+            if (isPlayerReadyArray[1])
+            {
+                updateUI_playerReady(1, true);
+                debugTextArray[1] = "P2: Ready\n";
+            }
+            else
+            {
+                updateUI_playerReady(1, false);
+                debugTextArray[1] = "P2: Not Ready\n";
+            }
+
+            updateDebugUI();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            isPlayerReadyArray[2] = !isPlayerReadyArray[2];
+
+            if (isPlayerReadyArray[2])
+            {
+                updateUI_playerReady(2, true);
+                debugTextArray[2] = "P3: Ready\n";
+            }
+            else
+            {
+                updateUI_playerReady(2, false);
+                debugTextArray[2] = "P3: Not Ready\n";
+            }
+
+            updateDebugUI();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            isPlayerReadyArray[3] = !isPlayerReadyArray[3];
+
+            if (isPlayerReadyArray[3])
+            {
+                updateUI_playerReady(3, true);
+                debugTextArray[3] = "P4: Ready\n";
+            }
+            else
+            {
+                updateUI_playerReady(3, false);
+                debugTextArray[3] = "P4: Not Ready\n";
+            }
+
+            updateDebugUI();
+        }
+    }
+
+    private void updateDebugUI()
+    {
+        CharacterSelectDebugText.text = "";
+
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
+        {
+            CharacterSelectDebugText.text += debugTextArray[i];
+        }
+    }
+    #endregion
 }
