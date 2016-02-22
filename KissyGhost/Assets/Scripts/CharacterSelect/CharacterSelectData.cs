@@ -5,6 +5,7 @@ public class CharacterSelectData : MonoBehaviour
 {
     [SerializeField] private bool[] isPlayerReadyArray;
     [SerializeField] private int playerCount = 0;
+    [SerializeField] private int ghostPlayerIndex = -1;
     [SerializeField] private bool isDebugData = false;
     
     public bool[] IsPlayerReadyArray
@@ -17,6 +18,10 @@ public class CharacterSelectData : MonoBehaviour
         get { return playerCount; }
     }
 
+    public int GhostPlayerIndex
+    {
+        get { return ghostPlayerIndex; }
+    }
 
     void Start ()
     {
@@ -28,10 +33,11 @@ public class CharacterSelectData : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 	}
 
-    public void SetIsPlayerReady(bool[] _isPlayerReadyArray, int _playerCount)
+    public void SetIsPlayerReady(bool[] _isPlayerReadyArray, int _playerCount, int _ghostPlayerIndex)
     {
         isPlayerReadyArray = _isPlayerReadyArray;
         playerCount = _playerCount;
+        ghostPlayerIndex = _ghostPlayerIndex;
     }
 
     public bool GetIsPlayerReady(int playerNumber)

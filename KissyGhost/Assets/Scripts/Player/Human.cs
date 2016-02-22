@@ -233,6 +233,11 @@ public class Human : Player
             gainHug();
 
             GetComponent<SpriteRenderer>().color = invulnSpriteColor;
+
+            if (IsCarryingItem)
+            {
+                PutItemDown(HeldItemName);
+            }
         }
     }
 

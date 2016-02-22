@@ -158,13 +158,37 @@ public class CharacterSelectManager : MonoBehaviour
         GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
         if (characterSelectData != null)
         {
-            characterSelectData.GetComponent<CharacterSelectData>().SetIsPlayerReady(isPlayerReadyArray, playerCount);
+
+            characterSelectData.GetComponent<CharacterSelectData>().SetIsPlayerReady(isPlayerReadyArray, playerCount, getGhostPlayerIndex());
             Application.LoadLevel(Application.loadedLevel + 1);
         }
         else
         {
             Debug.LogError("CharacterSelectManager: Could not find game object with tag \"CharacterSelectData\"");
         }
+    }
+
+    private int getGhostPlayerIndex()
+    {
+        int randGhostPlayerNumber = Random.Range(0, playerCount);
+        int ghostPlayer_ForLoopCounter = 0;
+        int ghostPlayerIndex = -1;
+
+        for (int i = 0; i < isPlayerReadyArray.Length; ++i)
+        {
+            if (isPlayerReadyArray[i])
+            {
+                if (ghostPlayer_ForLoopCounter == randGhostPlayerNumber)
+                {
+                    ghostPlayerIndex = i;
+                    return ghostPlayerIndex;
+                }
+
+                ++ghostPlayer_ForLoopCounter;
+            }
+        }
+
+        return ghostPlayerIndex;
     }
 
     #region Debug Functions

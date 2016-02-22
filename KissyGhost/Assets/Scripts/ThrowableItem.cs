@@ -18,7 +18,7 @@ public class ThrowableItem : MonoBehaviour
     private float timeToMinY;
 
     // Other
-    private bool isInitialized = false;
+    private bool isBeingThrown = false;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class ThrowableItem : MonoBehaviour
 
     void Update()
     {
-        if (!isInitialized)
+        if (!isBeingThrown)
         {
             return;
         }
@@ -55,7 +55,7 @@ public class ThrowableItem : MonoBehaviour
         }
         else
         {
-            isInitialized = false;
+            isBeingThrown = false;
             GetComponent<Rigidbody2D>().isKinematic = true;
             this.enabled = false;
         }
@@ -74,12 +74,12 @@ public class ThrowableItem : MonoBehaviour
 
         timeSinceThrow = 0;
         GetComponent<Rigidbody2D>().isKinematic = false;
-        isInitialized = true;
+        isBeingThrown = true;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Room")
+        if (col.tag == "Room" && isBeingThrown)
         {
             GetComponent<Rigidbody2D>().isKinematic = true;
             this.enabled = false;
