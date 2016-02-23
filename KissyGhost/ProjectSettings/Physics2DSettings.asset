@@ -15,7 +15,7 @@ Physics2DSettings:
   m_MinPenetrationForPenalty: .00999999978
   m_BaumgarteScale: .200000003
   m_BaumgarteTimeOfImpactScale: .75
-  m_TimeToSleep: 1
+  m_TimeToSleep: 25
   m_LinearSleepTolerance: .00999999978
   m_AngularSleepTolerance: 2
   m_RaycastsHitTriggers: 1
