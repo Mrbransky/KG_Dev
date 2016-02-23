@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 	public bool gameEnd = false;
 	public GameObject gameWinner;
 
+    public AudioClip[] music;
+
     public List<GameObject> thingsToTurnOffAtGameEnd;
     public List<GameObject> thingsToTurnOnAtGameEnd;
 
@@ -105,6 +107,11 @@ public class GameManager : MonoBehaviour {
         gameEnd = true;
 
         VibrateAllHumans(.75f, 1, 1);
+
+        AudioSource source = this.GetComponent<AudioSource>();
+        source.Stop();
+        source.clip = music[1];
+        source.Play(); 
     }
 
     public void OnGhostWin()
@@ -113,6 +120,11 @@ public class GameManager : MonoBehaviour {
         int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;
 
         StartCoroutine(InputMapper.Vibration(ghostPlayerNum, .75f, 1, 1));
+
+        AudioSource source = this.GetComponent<AudioSource>();
+        source.Stop();
+        source.clip = music[0];
+        source.Play(); 
     }
 
     private void checkIsGameEnd()
@@ -154,6 +166,7 @@ public class GameManager : MonoBehaviour {
         CeaseAllVibrations();
     }
 
+    #region Vibration Methods
     void VibrateAllHumans(float timeAmt, float leftMotor, float rightMotor)
     {
         foreach (GameObject obj in currentPlayers)
@@ -189,6 +202,7 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < playerCount; i++)
             GamePad.SetVibration((PlayerIndex)i, 0, 0);
     }
+    #endregion
 
     //private void oldWinCondition()
     //{
