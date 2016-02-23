@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
     public GameObject currentGhostPlayer;
     public GameObject ghostPrefab;
     private bool[] isPlayerReadyArray;
+    private int ghostPlayerIndex = -1;
 
     void Start()
     {
@@ -33,8 +34,11 @@ public class GameManager : MonoBehaviour {
 
         if (characterSelectData != null)
         {
-            isPlayerReadyArray = characterSelectData.GetComponent<CharacterSelectData>().IsPlayerReadyArray;
-            playerCount = characterSelectData.GetComponent<CharacterSelectData>().PlayerCount;
+            CharacterSelectData _CharacterSelectData = characterSelectData.GetComponent<CharacterSelectData>();
+
+            isPlayerReadyArray = _CharacterSelectData.IsPlayerReadyArray;
+            playerCount = _CharacterSelectData.PlayerCount;
+            ghostPlayerIndex = _CharacterSelectData.GhostPlayerIndex;
             Destroy(characterSelectData);
         }
         else
@@ -48,9 +52,7 @@ public class GameManager : MonoBehaviour {
     {
         currentPlayers = new List<GameObject>();
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
-        int randGhostPlayerIndex = Random.Range(0, playerCount);
-        int ghostPlayer_ForLoopCounter = 0;
+        
         GameObject ghostPlayer = null;
 
         for (int i = 0; i < players.Length; ++i)
@@ -64,7 +66,7 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                if (randGhostPlayerIndex == ghostPlayer_ForLoopCounter)
+                if (playerReadyArrayIndex == ghostPlayerIndex)
                 {
                     ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
                     ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
@@ -76,8 +78,6 @@ public class GameManager : MonoBehaviour {
                 {
                     currentPlayers.Add(players[i]);
                 }
-
-                ++ghostPlayer_ForLoopCounter;
             }
         }
 
