@@ -10,6 +10,5 @@ public class CharacterSelectPlayerSpritePositioner : MonoBehaviour
     {
         playerSpriteReferencePointImage.enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        Destroy(this);
     }
 }

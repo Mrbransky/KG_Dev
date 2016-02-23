@@ -4,6 +4,16 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using XInputDotNetPure;
 
+public enum CharacterSelectStates
+{
+    WaitingForPlayers = 0,
+    SelectingGhost = 1,
+    GhostRevealed = 2,
+    Panic = 3,
+    RunFromGhost = 4,
+    LoadMainScene = 5
+}
+
 public class CharacterSelectManager : MonoBehaviour
 {
     // Constants
@@ -11,21 +21,99 @@ public class CharacterSelectManager : MonoBehaviour
     private const int MIN_PLAYER_COUNT_TO_START = 2;
 
     // General
+    public ScreenFader _ScreenFader;
     private bool[] isPlayerReadyArray;
     private int playerCount = 0;
+    private int ghostPlayerIndex = -1;
+    private CharacterSelectStates currentCharSelectState = CharacterSelectStates.WaitingForPlayers;
+
+    // Game Start Sequence: General
+    public Transform GhostSpriteReferencePointTransform;
+    public float GhostSelectionDuration = 5;
+    public float GhostRevealDuration = 1.5f;
+    public float PanicDuration = 1.5f;
+    public float RunFromGhostDuration = 2;
+
+    // Game Start Sequence: Run from ghost
+    public float PlayerRunSpeed = 10;
+    public float GhostRunSpeed = 7;
+    private int[] runFromGhostDirection;
+
+    // Game Start Sequence: Ghost selection
+    public float initialTimeToNextGhostSelector = 0.05f;
+    public float maxTimeBetweenGhostSelector = 1;
+
+    private float timeSinceGhostSelectingStart = 0;
+    private float timeToNextGhostSelector;
+    private float maxGhostSelectionDuration;
+    private int currentGhostSelectorIndex = 0;
 
     // UI
+    public Transform[] PlayerSpriteReferencePointArray;
     public SpriteRenderer[] PlayerSpriteRendererArray;
     public Text[] ReadyTextArray;
     public Image[] ButtonImageArray;
+    public Image[] GhostSelectorImageArray;
     public GameObject PressToStartTextObject;
 
+    private List<Image> ghostSelectorImageList;
     private Text[] buttonTextArray;
     private Color transparentColor;
 
     // Debug UI
     public Text CharacterSelectDebugText;
     private string[] debugTextArray;
+
+    private CharacterSelectStates CharSelectState
+    {
+        set
+        {
+            if (currentCharSelectState != value)
+            {
+                currentCharSelectState = value;
+
+                switch ((int)currentCharSelectState)
+                {
+                    case (int)CharacterSelectStates.SelectingGhost:
+                        Debug.Log("Starting CharacterSelectStates.SelectingGhost");
+
+                        hideWaitingForPlayerUI();
+                        initializeGhostPlayerIndex();
+                        setRunFromGhostDirection();
+                        setCharacterSelectData();
+                        break;
+
+                    case (int)CharacterSelectStates.GhostRevealed:
+                        Debug.Log("Starting CharacterSelectStates.GhostRevealed");
+
+                        initializeGhostSprite();
+                        setGhostRevealedPlayerDirections();
+                        break;
+
+                    case (int)CharacterSelectStates.Panic:
+                        Debug.Log("Starting CharacterSelectStates.Panic");
+
+                        startPanicAnimations();
+                        break;
+
+                    case (int)CharacterSelectStates.RunFromGhost:
+                        Debug.Log("Starting CharacterSelectStates.RunFromGhost");
+
+                        startRunAnimations();
+                        setRunFromGhostPlayerDirections();
+                        break;
+
+                    case (int)CharacterSelectStates.LoadMainScene:
+                        Debug.Log("Starting CharacterSelectStates.LoadMainScene");
+
+                        _ScreenFader.enabled = true;
+                        _ScreenFader.StartFadeOut(2);
+                        // Application.LoadLevel(Application.loadedLevel + 1);
+                        break;
+                }
+            }
+        }
+    }
 
     void Start()
     {
@@ -48,14 +136,18 @@ public class CharacterSelectManager : MonoBehaviour
     {
         isPlayerReadyArray = new bool[MAX_PLAYER_COUNT];
         buttonTextArray = new Text[MAX_PLAYER_COUNT];
+        runFromGhostDirection = new int[MAX_PLAYER_COUNT];
 
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
             isPlayerReadyArray[i] = false;
             buttonTextArray[i] = ButtonImageArray[i].GetComponentInChildren<Text>();
+            runFromGhostDirection[i] = -1;
         }
 
         transparentColor = new Color(0, 0, 0, 0);
+        maxGhostSelectionDuration = GhostSelectionDuration;
+        timeToNextGhostSelector = initialTimeToNextGhostSelector;
 
         #region Debug Code
 #if UNITY_EDITOR
@@ -71,29 +163,98 @@ public class CharacterSelectManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Start") && playerCount >= MIN_PLAYER_COUNT_TO_START)
+        if (_ScreenFader.enabled)
         {
-            for (int i = 0; i < playerCount; i++)           
-                GamePad.SetVibration((PlayerIndex)i, 0, 0);
-                
-            
-            startGame();
+            return;
         }
 
-        checkIfPlayerReady();
+        switch ((int)currentCharSelectState)
+        {
+            case (int)CharacterSelectStates.WaitingForPlayers:
+                if (Input.GetButtonDown("Start") && playerCount >= MIN_PLAYER_COUNT_TO_START)
+                {
+                    startGame();
+                }
 
-        #region Debug Code
+                checkIfPlayerReady();
+
+                #region Debug Code
 #if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
-        {
-            startGame();
-        }
+                if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
+                {
+                    startGame();
+                }
 
-        debugCheckIfPlayerReady();
+                debugCheckIfPlayerReady();
 #endif
-        #endregion
+                #endregion
+                break;
+
+            case (int)CharacterSelectStates.SelectingGhost:
+                if (GhostSelectionDuration > 0)
+                {
+                    GhostSelectionDuration -= Time.deltaTime;
+                    timeSinceGhostSelectingStart += Time.deltaTime;
+
+                    if (GhostSelectionDuration < maxTimeBetweenGhostSelector)
+                    {
+                        setFinalGhostSelectorImage();
+                    }
+                    else if (timeToNextGhostSelector > 0)
+                    {
+                        timeToNextGhostSelector -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        setNextGhostSelectorImage();
+                        timeToNextGhostSelector = easeInCubic(timeSinceGhostSelectingStart, initialTimeToNextGhostSelector, maxTimeBetweenGhostSelector, maxGhostSelectionDuration);
+                    }
+                }
+                else
+                {
+                    CharSelectState = CharacterSelectStates.GhostRevealed;
+                }
+                break;
+
+            case (int)CharacterSelectStates.GhostRevealed:
+                if (GhostRevealDuration > 0)
+                {
+                    GhostRevealDuration -= Time.deltaTime;
+                }
+                else
+                {
+                    CharSelectState = CharacterSelectStates.Panic;
+                }
+                break;
+
+            case (int)CharacterSelectStates.Panic:
+                if (PanicDuration > 0)
+                {
+                    PanicDuration -= Time.deltaTime;
+                }
+                else
+                {
+                    CharSelectState = CharacterSelectStates.RunFromGhost;
+                }
+                break;
+
+            case (int)CharacterSelectStates.RunFromGhost:
+            case (int)CharacterSelectStates.LoadMainScene:
+                if (RunFromGhostDuration > 0)
+                {
+                    RunFromGhostDuration -= Time.deltaTime;
+                }
+                else
+                {
+                    CharSelectState = CharacterSelectStates.LoadMainScene;
+                }
+                   
+                moveSprites();
+                break;
+        }
     }
 
+    #region CharacterSelectStates.WaitingForPlayers Functions
     private void checkIfPlayerReady()
     {
         for (int i = 1; i <= MAX_PLAYER_COUNT; ++i)
@@ -161,24 +322,29 @@ public class CharacterSelectManager : MonoBehaviour
     private void startGame()
     {
         Debug.Log("Starting game...");
-        GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
-        if (characterSelectData != null)
-        {
 
-            characterSelectData.GetComponent<CharacterSelectData>().SetIsPlayerReady(isPlayerReadyArray, playerCount, getGhostPlayerIndex());
-            Application.LoadLevel(Application.loadedLevel + 1);
-        }
-        else
+        CharSelectState = CharacterSelectStates.SelectingGhost;
+    }
+    #endregion
+
+    #region CharacterSelectStates.SelectingGhost Functions
+    private void hideWaitingForPlayerUI()
+    {
+        PressToStartTextObject.SetActive(false);
+
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
-            Debug.LogError("CharacterSelectManager: Could not find game object with tag \"CharacterSelectData\"");
+            ReadyTextArray[i].color = transparentColor;
+            ButtonImageArray[i].color = transparentColor;
+            buttonTextArray[i].color = transparentColor;
         }
     }
 
-    private int getGhostPlayerIndex()
+    private void initializeGhostPlayerIndex()
     {
+        ghostSelectorImageList = new List<Image>();
         int randGhostPlayerNumber = Random.Range(0, playerCount);
         int ghostPlayer_ForLoopCounter = 0;
-        int ghostPlayerIndex = -1;
 
         for (int i = 0; i < isPlayerReadyArray.Length; ++i)
         {
@@ -187,15 +353,175 @@ public class CharacterSelectManager : MonoBehaviour
                 if (ghostPlayer_ForLoopCounter == randGhostPlayerNumber)
                 {
                     ghostPlayerIndex = i;
-                    return ghostPlayerIndex;
+                }
+                else
+                {
+                    ghostSelectorImageList.Add(GhostSelectorImageArray[i]);
                 }
 
                 ++ghostPlayer_ForLoopCounter;
             }
         }
 
-        return ghostPlayerIndex;
+        ghostSelectorImageList.Add(GhostSelectorImageArray[ghostPlayerIndex]);
     }
+
+    private void setRunFromGhostDirection()
+    {
+        int playersToRightOfGhost = 0;
+        int playersToLeftOfGhost = 0;
+
+        for (int i = MAX_PLAYER_COUNT - 1; i > ghostPlayerIndex; --i)
+        {
+            if (isPlayerReadyArray[i])
+            {
+                runFromGhostDirection[i] = 1;
+                ++playersToRightOfGhost;
+            }
+        }
+
+        playersToLeftOfGhost = playerCount - playersToRightOfGhost - 1;
+
+        if (playersToRightOfGhost > playersToLeftOfGhost)
+        {
+            flipGhostDirection();
+        }
+    }
+
+    private void flipGhostDirection()
+    {
+        runFromGhostDirection[ghostPlayerIndex] = 1;
+
+        Vector3 newScale = GhostSpriteReferencePointTransform.localScale;
+        newScale.x *= -1;
+        GhostSpriteReferencePointTransform.localScale = newScale;
+    }
+
+    private void setCharacterSelectData()
+    {
+        GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
+        if (characterSelectData != null)
+        {
+            characterSelectData.GetComponent<CharacterSelectData>().SetIsPlayerReady(isPlayerReadyArray, playerCount, ghostPlayerIndex);
+        }
+        else
+        {
+            Debug.LogError("CharacterSelectManager: Could not find game object with tag \"CharacterSelectData\"");
+        }
+    }
+
+    private void setNextGhostSelectorImage()
+    {
+        // Disable and move current selector to back of list
+        ghostSelectorImageList[currentGhostSelectorIndex].enabled = false;
+        Image tempImage = ghostSelectorImageList[currentGhostSelectorIndex];
+        ghostSelectorImageList.RemoveAt(currentGhostSelectorIndex);
+        ghostSelectorImageList.Add(tempImage);
+
+        // Enable next selector
+        currentGhostSelectorIndex = Random.Range(0, ghostSelectorImageList.Count - 1);
+        ghostSelectorImageList[currentGhostSelectorIndex].enabled = true;
+    }
+
+    private void setFinalGhostSelectorImage()
+    {
+        ghostSelectorImageList[currentGhostSelectorIndex].enabled = false;
+        GhostSelectorImageArray[ghostPlayerIndex].enabled = true;
+    }
+
+    // t = current, how long into the ease are we
+    // b = initial value, starting value if current were 0
+    // c = total change, total change in the value (not the end value, but the end - start)
+    // d = duration, the total amount of time (when current == duration, the returned value will == initial + totalChange)
+    private float easeInCubic(float t, float b, float c, float d)
+    {
+        t /= d;
+        return (c * t * t * t + b);
+    }
+    #endregion
+
+    #region CharacterSelectStates.GhostRevealed Functions
+    private void initializeGhostSprite()
+    {
+        GhostSelectorImageArray[ghostPlayerIndex].enabled = false;
+        GhostSpriteReferencePointTransform.position = PlayerSpriteRendererArray[ghostPlayerIndex].transform.position;
+        PlayerSpriteRendererArray[ghostPlayerIndex].gameObject.SetActive(false);
+    }
+
+    private void setGhostRevealedPlayerDirections()
+    {
+        for (int i = 0; i < ghostPlayerIndex; ++i)
+        {
+            if (isPlayerReadyArray[i])
+            {
+                flipPlayerDirection(i);
+            }
+        }
+    }
+
+    private void flipPlayerDirection(int index)
+    {
+        Vector3 newScale = PlayerSpriteReferencePointArray[index].localScale;
+        newScale.x *= -1;
+        PlayerSpriteReferencePointArray[index].localScale = newScale;
+    }
+    #endregion
+
+    #region CharacterSelectStates.Panic Functions
+    private void startPanicAnimations()
+    {
+        GhostSpriteReferencePointTransform.GetComponentInChildren<Animator>().enabled = true;
+
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
+        {
+            if (isPlayerReadyArray[i])
+            {
+                PlayerSpriteRendererArray[i].GetComponent<Animator>().SetBool("goToPanic", true);
+            }
+        }
+    }
+    #endregion
+
+    #region CharacterSelectStates.RunFromGhost Functions
+    private void setRunFromGhostPlayerDirections()
+    {
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
+        {
+            if (i != ghostPlayerIndex)
+            {
+                flipPlayerDirection(i);
+            }
+        }
+    }
+
+    private void startRunAnimations()
+    {
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
+        {
+            if (isPlayerReadyArray[i])
+            {
+                PlayerSpriteRendererArray[i].GetComponent<Animator>().SetBool("goToRun", true);
+            }
+        }
+    }
+
+    private void moveSprites()
+    {
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
+        {
+            if (isPlayerReadyArray[i] && i != ghostPlayerIndex)
+            {
+                Vector2 newPosition = PlayerSpriteReferencePointArray[i].transform.position;
+                newPosition += Vector2.right * runFromGhostDirection[i] * PlayerRunSpeed * Time.deltaTime;
+                PlayerSpriteReferencePointArray[i].transform.position = newPosition;
+            }
+        }
+
+        Vector2 newGhostPosition = GhostSpriteReferencePointTransform.position;
+        newGhostPosition += Vector2.right * runFromGhostDirection[ghostPlayerIndex] * GhostRunSpeed * Time.deltaTime;
+        GhostSpriteReferencePointTransform.transform.position = newGhostPosition;
+    }
+    #endregion
 
     #region Debug Functions
     private void debugCheckIfPlayerReady()
