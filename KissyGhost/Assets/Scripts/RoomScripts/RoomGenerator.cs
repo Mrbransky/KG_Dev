@@ -85,10 +85,10 @@ public class RoomGenerator : MonoBehaviour {
                     }
                     break;
                 case"big":
-                    newPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 2f), roomCenterPoint.x + (RoomSize.x - 2f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 2f), roomCenterPoint.y + (RoomSize.y - 3f)));
+                    newPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 2f), roomCenterPoint.x + (RoomSize.x - 2f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 2f), roomCenterPoint.y + (RoomSize.y - 5f)));
                     if (needsSpecialItem == true)
                     {
-                        specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 2f), roomCenterPoint.x + (RoomSize.x - 2f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 2f), roomCenterPoint.y + (RoomSize.y - 3f)));
+                        specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 2f), roomCenterPoint.x + (RoomSize.x - 2f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 2f), roomCenterPoint.y + (RoomSize.y - 6f)));
                         GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[3], specPos, Quaternion.identity);
                         GetComponent<MissionManager>().AddMissionObjective(specialItem);
                         needsSpecialItem = false;
