@@ -21,7 +21,7 @@ public class CharacterSelectManager : MonoBehaviour
     private const int MIN_PLAYER_COUNT_TO_START = 2;
 
     // General
-    public ScreenFader _ScreenFader;
+    public HeartZoomTransition _HeartZoomTransition;
     private bool[] isPlayerReadyArray;
     private int playerCount = 0;
     private int ghostPlayerIndex = -1;
@@ -106,8 +106,8 @@ public class CharacterSelectManager : MonoBehaviour
                     case (int)CharacterSelectStates.LoadMainScene:
                         Debug.Log("Starting CharacterSelectStates.LoadMainScene");
 
-                        _ScreenFader.enabled = true;
-                        _ScreenFader.StartFadeOut(2);
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 1);
                         // Application.LoadLevel(Application.loadedLevel + 1);
                         break;
                 }
@@ -163,8 +163,13 @@ public class CharacterSelectManager : MonoBehaviour
 
     void Update()
     {
-        if (_ScreenFader.enabled)
+        if (_HeartZoomTransition.enabled)
         {
+            if (currentCharSelectState == CharacterSelectStates.LoadMainScene)
+            {
+                moveSprites();
+            }
+
             return;
         }
 

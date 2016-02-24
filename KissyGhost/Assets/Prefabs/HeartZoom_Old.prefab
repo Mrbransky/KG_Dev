@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21253440}
   - 95: {fileID: 9566474}
   m_Layer: 0
-  m_Name: HeartZoom
+  m_Name: HeartZoom_Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
