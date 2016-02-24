@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class MenuSelect : MonoBehaviour
 {
-
+    public HeartZoomTransition _HeartZoomTransition;
     public Image option1, option2, option3;
     public AudioSource audio;
     Transform Controls, Instructions, WinCondition;
@@ -33,6 +33,10 @@ public class MenuSelect : MonoBehaviour
 
     void Update()
     {
+        if (_HeartZoomTransition.enabled)
+        {
+            return;
+        }
 
         DelayMenuSelect();
         HandleInput();
@@ -93,12 +97,13 @@ public class MenuSelect : MonoBehaviour
                 switch (choice)
                 {
                     case 1:
-                      //  HasSelectedPlay = true;
-                      //  heartZoom.SetActive(true);
-                        
-                      //  if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-                       // {
-                            Application.LoadLevel(1);
+                        //  HasSelectedPlay = true;
+                        //  heartZoom.SetActive(true);
+
+                        //  if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                        // {
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 1);
                        // }
                         //WhichInstructScreen = 1;
                         //Controls.gameObject.SetActive(true);
@@ -110,7 +115,8 @@ public class MenuSelect : MonoBehaviour
                         break;
 
                     case 3:
-                        Application.Quit();
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(-1);
                         break;
 
                     default:
@@ -176,7 +182,8 @@ public class MenuSelect : MonoBehaviour
                         break;
 
                     case 3:
-                        Application.LoadLevel(1);
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 1);
                         break;
 
                     default:

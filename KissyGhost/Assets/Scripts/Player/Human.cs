@@ -180,6 +180,7 @@ public class Human : Player
     {
         this.IsCarryingItem = false;
         Transform childTransform = transform.FindChild(itemName);
+        gameObject.GetComponentInChildren<ThrowableItem>().lastParentVector = debugMoveDir;
         childTransform.transform.parent = null;
         childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
 
