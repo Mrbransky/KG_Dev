@@ -23,7 +23,7 @@ public enum SubObjectiveTypes
 public class RoomChangeManager : MonoBehaviour
 {
     public float MaxTimerDuration = 10f;
-    private float currentTimer;
+    public float currentTimer;
     private float DoorFadeIncrement = .02f;
     public Text timerText;
 
@@ -40,6 +40,8 @@ public class RoomChangeManager : MonoBehaviour
 
     private SubObjectiveTypes[] roomSubObjectiveTypeArray;
     private bool[] roomSubObjectiveAccomplishedArray;
+    private bool[] AreDoorsFadingIn = new bool[4];
+    private bool AllDoorsIn;
     private RoomLocations currentRoomLocation = RoomLocations.Center;
 
     private bool StartFadingDoorsIn;
@@ -48,7 +50,7 @@ public class RoomChangeManager : MonoBehaviour
 
     void Start()
     {
-        SetDoorAlphaZero();
+        SetDoorAlphas(0f);
 
         curPlayerCount = GetComponent<GameManager>().playerCount;
 
@@ -65,11 +67,19 @@ public class RoomChangeManager : MonoBehaviour
 
     void Update()
     {
-        if (currentTimer <= .2f)
-            StartFadingDoorsIn = true;
+        if(!AllDoorsIn)
+        {
+            if (currentTimer <= .2f && !AreDoorsFadingIn[(int)currentRoomLocation])
+                AreDoorsFadingIn[(int)currentRoomLocation] = true;
 
-        if (StartFadingDoorsIn && doorSprites[1].GetComponent<SpriteRenderer>().color.a < 1f)
-            FadeInDoors();
+            for (int i = 0; i < AreDoorsFadingIn.Length; i++)
+            {
+                if (AreDoorsFadingIn[i] && (int)currentRoomLocation == i)
+                    FadeInDoors(currentRoomLocation);
+            }
+
+            AllDoorsIn = AreAllDoorsIn();
+        }
 
         if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
         {
@@ -93,16 +103,33 @@ public class RoomChangeManager : MonoBehaviour
     }
 
     #region Door Fading
-    void SetDoorAlphaZero()
+    void SetDoorAlphas(float alphaVal)
     {
         foreach (GameObject obj in doorSprites)
-            obj.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+            obj.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alphaVal);
     }
 
-    void FadeInDoors()
+    bool AreAllDoorsIn()
     {
+        int numDoorsIn = 0;
+
+        foreach (bool b in AreDoorsFadingIn)
+            if (b) numDoorsIn++;
+
+        if (numDoorsIn == AreDoorsFadingIn.Length)
+            return true;
+
+        else
+            return false;
+    }
+
+    void FadeInDoors(RoomLocations currentRoom)
+    {
+        string doorID = "(" + currentRoom.ToString() + ")";       
+
         foreach(GameObject obj in doorSprites)
-            obj.GetComponent<SpriteRenderer>().color += new Color(0f, 0f, 0f, DoorFadeIncrement);
+            if(obj.name.Contains(doorID))
+                obj.GetComponent<SpriteRenderer>().color += new Color(0f, 0f, 0f, DoorFadeIncrement);
     }
     #endregion
 
