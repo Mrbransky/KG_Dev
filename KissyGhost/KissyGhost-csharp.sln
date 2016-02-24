@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{DB5CF468-C18B-61AA-93AC-6AC5266A5A7D}") = "KissyGhost", "Assembly-CSharp-vs.csproj", "{C1F5F9BA-9C6A-5361-4A59-7A64260F1CF7}"
 EndProject
+Project("{DB5CF468-C18B-61AA-93AC-6AC5266A5A7D}") = "KissyGhost", "Assembly-CSharp-Editor-vs.csproj", "{38570323-F39C-9B5C-BE97-01A2FB0DEDB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{C1F5F9BA-9C6A-5361-4A59-7A64260F1CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1F5F9BA-9C6A-5361-4A59-7A64260F1CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1F5F9BA-9C6A-5361-4A59-7A64260F1CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38570323-F39C-9B5C-BE97-01A2FB0DEDB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38570323-F39C-9B5C-BE97-01A2FB0DEDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38570323-F39C-9B5C-BE97-01A2FB0DEDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38570323-F39C-9B5C-BE97-01A2FB0DEDB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																								GlobalSection(MonoDevelopProperties) = preSolution
+																																										GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
