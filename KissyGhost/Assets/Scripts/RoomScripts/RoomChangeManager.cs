@@ -24,12 +24,14 @@ public class RoomChangeManager : MonoBehaviour
 {
     public float MaxTimerDuration = 10f;
     private float currentTimer;
+    private float DoorFadeIncrement = .02f;
     public Text timerText;
 
     public List<GameObject> playersGoingBottom = new List<GameObject>();
     public List<GameObject> playersGoingLeft = new List<GameObject>();
     public List<GameObject> playersGoingRight = new List<GameObject>();
     public List<GameObject> playersGoingBack = new List<GameObject>();
+    public List<GameObject> doorSprites = new List<GameObject>();
 
     public SubObjectiveTypes SubObjective_Center = SubObjectiveTypes.Timer;
     public SubObjectiveTypes SubObjective_Left = SubObjectiveTypes.Timer;
@@ -40,10 +42,14 @@ public class RoomChangeManager : MonoBehaviour
     private bool[] roomSubObjectiveAccomplishedArray;
     private RoomLocations currentRoomLocation = RoomLocations.Center;
 
+    private bool StartFadingDoorsIn;
+
     int curPlayerCount;
 
     void Start()
     {
+        SetDoorAlphaZero();
+
         curPlayerCount = GetComponent<GameManager>().playerCount;
 
         currentTimer = MaxTimerDuration;
@@ -59,6 +65,12 @@ public class RoomChangeManager : MonoBehaviour
 
     void Update()
     {
+        if (currentTimer <= .2f)
+            StartFadingDoorsIn = true;
+
+        if (StartFadingDoorsIn && doorSprites[1].GetComponent<SpriteRenderer>().color.a < 1f)
+            FadeInDoors();
+
         if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
         {
             int currentRoomSubObjective = (int)roomSubObjectiveTypeArray[(int)currentRoomLocation];
@@ -79,6 +91,20 @@ public class RoomChangeManager : MonoBehaviour
             CheckPlayersWaiting();
         }
     }
+
+    #region Door Fading
+    void SetDoorAlphaZero()
+    {
+        foreach (GameObject obj in doorSprites)
+            obj.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+    }
+
+    void FadeInDoors()
+    {
+        foreach(GameObject obj in doorSprites)
+            obj.GetComponent<SpriteRenderer>().color += new Color(0f, 0f, 0f, DoorFadeIncrement);
+    }
+    #endregion
 
     #region Sub Objective Functions
     private void SubObjectiveCheck_OnRoomChanged()
