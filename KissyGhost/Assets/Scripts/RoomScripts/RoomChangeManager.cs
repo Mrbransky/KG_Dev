@@ -128,8 +128,13 @@ public class RoomChangeManager : MonoBehaviour
         string doorID = "(" + currentRoom.ToString() + ")";       
 
         foreach(GameObject obj in doorSprites)
-            if(obj.name.Contains(doorID))
+            if (obj.name.Contains(doorID))
+            {
                 obj.GetComponent<SpriteRenderer>().color += new Color(0f, 0f, 0f, DoorFadeIncrement);
+
+                if (obj.GetComponent<SpriteRenderer>().color.a >= 1f)
+                    obj.GetComponent<EdgeCollider2D>().enabled = false;
+            }
     }
     #endregion
 
