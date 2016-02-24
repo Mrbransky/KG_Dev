@@ -5245,7 +5245,6 @@ MonoBehaviour:
   SubObjective_Left: 0
   SubObjective_Right: 0
   SubObjective_Bottom: 0
-  AreDoorsFadingIn: 00000000
 --- !u!114 &2038403445
 MonoBehaviour:
   m_ObjectHideFlags: 0
