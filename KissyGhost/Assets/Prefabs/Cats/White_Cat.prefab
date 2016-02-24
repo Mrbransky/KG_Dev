@@ -40,15 +40,15 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198978}
-  m_Mass: 9.99999975e-05
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_Mass: 1
+  m_LinearDrag: 2
+  m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6112654
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -95,6 +95,7 @@ MonoBehaviour:
   MaxXOffset: 3.5
   TimeToMaxY: 0
   ThrowDuration: .400000006
+  lastParentVector: {x: 0, y: 0}
 --- !u!114 &11441752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,7 +168,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AngularDrag
+      value: .0500000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

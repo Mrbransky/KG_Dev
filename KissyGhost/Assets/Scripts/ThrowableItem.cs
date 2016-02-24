@@ -20,6 +20,8 @@ public class ThrowableItem : MonoBehaviour
     // Other
     private bool isBeingThrown = false;
 
+    public Vector2 lastParentVector;
+
     void Start()
     {
         timeToMinY = ThrowDuration - TimeToMaxY;
@@ -28,30 +30,15 @@ public class ThrowableItem : MonoBehaviour
 
     void Update()
     {
-        if (!isBeingThrown)
-        {
-            return;
-        }
 
-        Vector2 newPosition = transform.position;
-
-        if (timeSinceThrow < ThrowDuration)
+        if (isBeingThrown)
         {
-            // Y position
-            if (timeSinceThrow < TimeToMaxY)
+            if (timeSinceThrow < ThrowDuration)
             {
-                newPosition.y += MaxYOffset * (Time.deltaTime / TimeToMaxY);
-            }
-            else
-            {
-                newPosition.y -= MinYOffset * (Time.deltaTime / timeToMinY);
+                GetComponent<Rigidbody2D>().AddForce(lastParentVector * 25);
+                timeSinceThrow += Time.deltaTime;
             }
 
-            // X position
-            newPosition.x += MaxXOffset * (Time.deltaTime / ThrowDuration) * xDirection;
-
-            transform.position = newPosition;
-            timeSinceThrow += Time.deltaTime;
         }
         else
         {
@@ -59,6 +46,33 @@ public class ThrowableItem : MonoBehaviour
             GetComponent<Rigidbody2D>().isKinematic = true;
             this.enabled = false;
         }
+
+        //Vector2 newPosition = transform.position;
+
+        //if (timeSinceThrow < ThrowDuration)
+        //{
+        //    // Y position
+        //    if (timeSinceThrow < TimeToMaxY)
+        //    {
+        //        newPosition.y += MaxYOffset * (Time.deltaTime / TimeToMaxY);
+        //    }
+        //    else
+        //    {
+        //        newPosition.y -= MinYOffset * (Time.deltaTime / timeToMinY);
+        //    }
+
+        //    // X position
+        //    newPosition.x += MaxXOffset * (Time.deltaTime / ThrowDuration) * xDirection;
+
+        //    transform.position = newPosition;
+        //    timeSinceThrow += Time.deltaTime;
+        //}
+        //else
+        //{
+        //    isBeingThrown = false;
+        //    GetComponent<Rigidbody2D>().isKinematic = true;
+        //    this.enabled = false;
+        //}
     }
 
     public void ThrowItem(bool isFacingRight)
