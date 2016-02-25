@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using XInputDotNetPure;
 
 public class Human : Player 
 {
@@ -240,7 +241,8 @@ public class Human : Player
             timeSinceInvulnerable = invulnerabilityDuration;
             gainHug();
 
-            StartCoroutine(InputMapper.Vibration(playerNum, 1, .55f, .7f));
+            if(hugPoints > 0)
+                StartCoroutine(InputMapper.Vibration(playerNum, 1, .55f, .7f));
 
             GetComponent<SpriteRenderer>().color = invulnSpriteColor;
 
@@ -268,9 +270,7 @@ public class Human : Player
         Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
 
         if (IsCarryingItem)
-        {
             PutItemDown(HeldItemName);
-        }
 
         Destroy(gameObject);
     }

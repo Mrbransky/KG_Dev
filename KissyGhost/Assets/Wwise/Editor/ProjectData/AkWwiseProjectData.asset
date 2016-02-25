@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}'
-    m_lastTimePsrt1: 931763316
-    m_lastTimePart2: -1999422162
+    m_lastTimePsrt1: -1453720348
+    m_lastTimePart2: -1999421947
     List:
     - Name: Play_cat
       Path: Default Work Unit\Play_cat
@@ -113,22 +113,22 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{239116D2-DA35-4371-B0F2-A5A816F74DEF}'
-    m_lastTimePsrt1: 944243957
-    m_lastTimePart2: -1999422162
+    m_lastTimePsrt1: -1448765535
+    m_lastTimePart2: -1999421947
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{7E120259-2E87-43CA-AEB4-E127F36488C0}'
-    m_lastTimePsrt1: 976065574
-    m_lastTimePart2: -1999422162
+    m_lastTimePsrt1: -1438825813
+    m_lastTimePart2: -1999421947
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{2E66FF9A-72C3-4E44-93F5-E5783E7CA7D5}'
-    m_lastTimePsrt1: 976215575
-    m_lastTimePart2: -1999422162
+    m_lastTimePsrt1: -1438805753
+    m_lastTimePart2: -1999421947
     List:
     - Name: MusicSwitch
       Path: Default Work Unit\MusicSwitch
@@ -163,8 +163,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{4360FEFD-C086-4F90-BDDD-9D1F0EC3DD32}'
-    m_lastTimePsrt1: 975765553
-    m_lastTimePart2: -1999422162
+    m_lastTimePsrt1: -1438855904
+    m_lastTimePart2: -1999421947
     List:
     - Name: KissyGhostBank
       Path: Default Work Unit\KissyGhostBank
@@ -175,14 +175,7 @@ MonoBehaviour:
         ObjectType: 7
       ID: -14602685
       Guid: bc63a94da04fe24d8b069811dce7c0aa
-  ExpandedItems:
-  - /KissyGhostWwise
-  - /KissyGhostWwise/Events
-  - /KissyGhostWwise/Events/Default Work Unit
-  - /KissyGhostWwise/SoundBanks
-  - /KissyGhostWwise/Switches
-  - /KissyGhostWwise/Switches/Default Work Unit
-  - /KissyGhostWwise/Switches/Default Work Unit/MusicSwitch
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
