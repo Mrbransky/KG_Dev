@@ -2717,6 +2717,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1038236459}
   - 212: {fileID: 1038236458}
+  - 68: {fileID: 1038236460}
   m_Layer: 0
   m_Name: SouthDoor_Right(Bottom)
   m_TagString: Untagged
@@ -2762,6 +2763,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173141188}
   m_RootOrder: 1
+--- !u!68 &1038236460
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1038236457}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -.5}
+  m_Points:
+  - {x: -.480000019, y: 0}
+  - {x: .4799999, y: 0}
 --- !u!1 &1074288483
 GameObject:
   m_ObjectHideFlags: 0
@@ -4228,6 +4243,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1652239381}
   - 212: {fileID: 1652239382}
+  - 68: {fileID: 1652239383}
   m_Layer: 0
   m_Name: SouthDoor_Left(Bottom)
   m_TagString: Untagged
@@ -4273,6 +4289,20 @@ SpriteRenderer:
   m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: 3f317020c8164674e87ff013ab7ac1e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!68 &1652239383
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652239380}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -.5}
+  m_Points:
+  - {x: -.479999989, y: 0}
+  - {x: .47999993, y: 0}
 --- !u!1 &1678542492
 GameObject:
   m_ObjectHideFlags: 0
