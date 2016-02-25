@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\StartingCountdown.cs" />
     <Compile Include="Assets\Scripts\ThrowableItem.cs" />
+    <Compile Include="Assets\Scripts\UI\GoToCSelect.cs" />
     <Compile Include="Assets\Scripts\UI\HeartComponent.cs" />
     <Compile Include="Assets\Scripts\UI\HeartComponentManager.cs" />
     <Compile Include="Assets\Scripts\UI\HeartZoomTransition.cs" />

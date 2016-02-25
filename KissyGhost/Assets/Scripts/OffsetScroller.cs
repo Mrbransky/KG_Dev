@@ -6,6 +6,7 @@ public class OffsetScroller : MonoBehaviour
 
     public float scrollSpeed;
     private Vector2 savedOffset;
+    public bool goLeft = false;
 
     void Start()
     {
@@ -18,8 +19,17 @@ public class OffsetScroller : MonoBehaviour
 
         Vector2 offsetY = new Vector2(savedOffset.x, y);
         Vector2 offsetX = new Vector2(y, savedOffset.y);
-        Vector2 combo = offsetX + offsetY;
-        GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", combo);
+        if (goLeft)
+        {
+            Vector2 combo = offsetX - offsetY;
+            GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", combo);
+        }
+        else
+        {
+            Vector2 combo = offsetX + offsetY;
+            GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", combo);
+        }
+        
     }
 
     void OnDisable()
