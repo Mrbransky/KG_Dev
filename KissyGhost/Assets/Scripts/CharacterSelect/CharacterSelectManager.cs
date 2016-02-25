@@ -167,6 +167,9 @@ public class CharacterSelectManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
         if (_HeartZoomTransition.enabled)
         {
             if (currentCharSelectState == CharacterSelectStates.LoadMainScene)
