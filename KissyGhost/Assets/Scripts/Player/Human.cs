@@ -160,6 +160,7 @@ public class Human : Player
         obj.transform.localScale = new Vector3(1, 1, 1);
         obj.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
         obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown = false;
+        obj.GetComponent<Rigidbody2D>().isKinematic = true;
         HeldItemName = obj.name;
 
         timeBetweenItemInteract = 0.1f;
