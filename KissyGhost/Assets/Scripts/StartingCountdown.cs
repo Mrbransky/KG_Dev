@@ -30,7 +30,7 @@ public class StartingCountdown : MonoBehaviour
         if (timer <= 0)
         {
             Time.timeScale = 1;
-            this.gameObject.GetComponent<Image>().CrossFadeAlpha(0f, 1.0f, false);
+            this.gameObject.GetComponent<Image>().CrossFadeAlpha(0f, .5f, false);
             countdown.GetComponent<Text>().CrossFadeAlpha(0f, 1.0f, false);
             downcounting = true;
         }

@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
         if (characterSelectData != null)
         {
             CharacterSelectData _CharacterSelectData = characterSelectData.GetComponent<CharacterSelectData>();
-
+            
             isPlayerReadyArray = _CharacterSelectData.IsPlayerReadyArray;
             playerCount = _CharacterSelectData.PlayerCount;
             ghostPlayerIndex = _CharacterSelectData.GhostPlayerIndex;
@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour {
                     ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
                     ghostPlayer.gameObject.tag = "Ghost";
                     ghostPlayer.GetComponentInChildren<Text>().text = "P" + (ghostPlayerIndex + 1);
+                    ghostPlayer.GetComponentInChildren<FadeOnTimeScale1>().timeScale = .45f;
                     Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
                     Destroy(players[i]);
                 }

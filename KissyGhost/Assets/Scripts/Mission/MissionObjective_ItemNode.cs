@@ -4,6 +4,7 @@ using System.Collections;
 public class MissionObjective_ItemNode : MonoBehaviour
 {
     public bool HasItem = false;
+
     public Vector3 ItemTargetPositionOffset = Vector3.zero;
     private Vector3 itemTargetPosition;
 
@@ -15,5 +16,11 @@ public class MissionObjective_ItemNode : MonoBehaviour
     void Start()
     {
         itemTargetPosition = transform.position + ItemTargetPositionOffset;
+    }
+
+    void Update()
+    {
+        if (HasItem)
+            GetComponent<Animator>().SetBool("HasItem", true);
     }
 }
