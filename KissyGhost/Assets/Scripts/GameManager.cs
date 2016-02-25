@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject heart_splosion;
 	public GameObject heartZoom;
 	public bool gameEnd = false;
-	public GameObject gameWinner;
+    public bool didHumansWin;
+    public Text winnerNameText;
     public HeartZoomTransition _HeartZoomTransition;
 
     public AudioClip[] music;
@@ -113,6 +114,7 @@ public class GameManager : MonoBehaviour {
 
     public void OnHumansWin()
     {
+        didHumansWin = true;
         gameEnd = true;
 
         VibrateAllHumans(.75f, 1, 1);
@@ -128,6 +130,7 @@ public class GameManager : MonoBehaviour {
 
     public void OnGhostWin()
     {
+        didHumansWin = false;
         gameEnd = true;
         int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;
 
@@ -151,6 +154,10 @@ public class GameManager : MonoBehaviour {
 
             if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
+                if (didHumansWin)
+                    winnerNameText.text = "Humans Win!";
+                else
+                    winnerNameText.text = "Ghost Wins!";
                 foreach (GameObject i in thingsToTurnOffAtGameEnd)
                 {
                     i.SetActive(false);
