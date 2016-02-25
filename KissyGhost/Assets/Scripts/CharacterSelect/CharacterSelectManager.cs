@@ -52,6 +52,7 @@ public class CharacterSelectManager : MonoBehaviour
     public Transform[] PlayerSpriteReferencePointArray;
     public SpriteRenderer[] PlayerSpriteRendererArray;
     public Text[] ReadyTextArray;
+    public Text[] PlayerNumTextArray;
     public Image[] ButtonImageArray;
     public Image[] GhostSelectorImageArray;
     public GameObject PressToStartTextObject;
@@ -117,6 +118,7 @@ public class CharacterSelectManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         initializeVariables();
 
         #region Debug Code
@@ -128,6 +130,8 @@ public class CharacterSelectManager : MonoBehaviour
         {
             Debug.Log(joystickName);
         }
+#else
+        CharacterSelectDebugText.enabled = false;
 #endif
         #endregion
     }
@@ -342,6 +346,7 @@ public class CharacterSelectManager : MonoBehaviour
             ReadyTextArray[i].color = transparentColor;
             ButtonImageArray[i].color = transparentColor;
             buttonTextArray[i].color = transparentColor;
+            PlayerNumTextArray[i].enabled = false;
         }
     }
 

@@ -17,14 +17,25 @@ public class HeartZoomTransition : MonoBehaviour
         get { return isZooming; }
     }
 
-    void Start()
+    void Awake()
     {
         _Image = GetComponent<Image>();
         _Animator = GetComponent<Animator>();
+
+        if (!_Image.enabled)
+        {
+            _Image.enabled = true;
+        }
     }
 
     void Update()
     {
+        if (isZoomOut)
+        {
+            float timeSinceLeveLoad = _Animator.GetFloat("timeSinceLevelLoad") + Time.unscaledDeltaTime;
+            _Animator.SetFloat("timeSinceLevelLoad", timeSinceLeveLoad);
+        }
+
         if (isZoomOut && _Animator.GetCurrentAnimatorStateInfo(0).IsName("ZoomOutDone"))
         {
             isZoomOut = false;

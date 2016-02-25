@@ -22,6 +22,8 @@ public class MenuSelect : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
+
         Controls = transform.Find("Controls");
         Instructions = transform.Find("Instructions");
         WinCondition = transform.Find("WinCondition");

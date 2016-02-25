@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using XInputDotNetPure;
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject heartZoom;
 	public bool gameEnd = false;
 	public GameObject gameWinner;
+    public HeartZoomTransition _HeartZoomTransition;
 
     public AudioClip[] music;
 
@@ -68,9 +70,12 @@ public class GameManager : MonoBehaviour {
             {
                 if (playerReadyArrayIndex == ghostPlayerIndex)
                 {
+                    Debug.Log(playerReadyArrayIndex);
+
                     ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
                     ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
                     ghostPlayer.gameObject.tag = "Ghost";
+                    ghostPlayer.GetComponentInChildren<Text>().text = "P" + (ghostPlayerIndex + 1);
                     Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
                     Destroy(players[i]);
                 }
@@ -149,13 +154,15 @@ public class GameManager : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
                 {
                     Time.timeScale = 1;
-                    Application.LoadLevel(0);
+                    _HeartZoomTransition.enabled = true;
+                    _HeartZoomTransition.StartHeartZoomIn(0);
                 }
 
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
                 {
                     Time.timeScale = 1;
-                    Application.LoadLevel(1);
+                    _HeartZoomTransition.enabled = true;
+                    _HeartZoomTransition.StartHeartZoomIn(1);
                 }
             }
         }
