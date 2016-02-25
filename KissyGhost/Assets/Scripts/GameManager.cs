@@ -94,11 +94,11 @@ public class GameManager : MonoBehaviour {
     
 	void Update ()
     {
+        checkIsGameEnd();
+
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
-
-        checkIsGameEnd();
-	}
+    }
 
     public void OnHumanDead(GameObject obj)
     {

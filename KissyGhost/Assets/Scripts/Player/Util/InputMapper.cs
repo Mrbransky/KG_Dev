@@ -17,14 +17,46 @@ public static class InputMapper
 {
     public static bool GrabVal(XBOX360_BUTTONS button, int playerNum)
     {
-        string InputID = CreateInputRequestString(button, playerNum);
-        return Input.GetButtonDown(InputID);
+        //string InputID = CreateInputRequestString(button, playerNum);
+        //return Input.GetButtonDown(InputID);
+
+        GamePadState gamepadState = GamePad.GetState((PlayerIndex)(playerNum - 1));
+        
+        switch ((int)button)
+        {
+            case (int)XBOX360_BUTTONS.A:
+                return (gamepadState.Buttons.A == ButtonState.Pressed);
+            case (int)XBOX360_BUTTONS.B:
+                return (gamepadState.Buttons.B == ButtonState.Pressed);
+            case (int)XBOX360_BUTTONS.X:
+                return (gamepadState.Buttons.X == ButtonState.Pressed);
+            case (int)XBOX360_BUTTONS.Y:
+                return (gamepadState.Buttons.Y == ButtonState.Pressed);
+        }
+
+        return false;
     }
 
     public static float GrabVal(XBOX360_AXES axis, int playerNum)
     {
-        string InputID = CreateInputRequestString(axis, playerNum);
-        return Input.GetAxis(InputID);
+        //string InputID = CreateInputRequestString(axis, playerNum);
+        //return Input.GetAxis(InputID);
+        
+        GamePadState gamepadState = GamePad.GetState((PlayerIndex)(playerNum - 1));
+
+        switch ((int)axis)
+        {
+            case (int)XBOX360_AXES.LeftStick_Horiz:
+                return gamepadState.ThumbSticks.Left.X;
+            case (int)XBOX360_AXES.LeftStick_Vert:
+                return gamepadState.ThumbSticks.Left.Y;
+            case (int)XBOX360_AXES.RightStick_Horiz:
+                return gamepadState.ThumbSticks.Right.X;
+            case (int)XBOX360_AXES.RightStick_Vert:
+                return gamepadState.ThumbSticks.Right.Y;
+        }
+
+        return gamepadState.ThumbSticks.Left.X;        
     }
 
     private static string CreateInputRequestString(XBOX360_BUTTONS button, int playerNum)

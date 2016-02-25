@@ -190,7 +190,7 @@ public class CharacterSelectManager : MonoBehaviour
 
                 checkIfPlayerReady();
 
-                #region Debug Code
+#region Debug Code
 #if UNITY_EDITOR
                 if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
@@ -199,7 +199,7 @@ public class CharacterSelectManager : MonoBehaviour
 
                 debugCheckIfPlayerReady();
 #endif
-                #endregion
+#endregion
                 break;
 
             case (int)CharacterSelectStates.SelectingGhost:
@@ -266,33 +266,33 @@ public class CharacterSelectManager : MonoBehaviour
         }
     }
 
-    #region CharacterSelectStates.WaitingForPlayers Functions
+#region CharacterSelectStates.WaitingForPlayers Functions
     private void checkIfPlayerReady()
     {
         for (int i = 1; i <= MAX_PLAYER_COUNT; ++i)
         {
-            if (Input.GetButtonDown("P" + i + "pad_A") && !isPlayerReadyArray[i - 1])
+            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && !isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, true);
                 StartCoroutine(InputMapper.Vibration(i, .2f, 0, .8f));
 
-                #region Debug Code
+#region Debug Code
 #if UNITY_EDITOR
                 debugTextArray[i - 1] = "P" + i + ": Ready\n";
                 updateDebugUI();
 #endif
-                #endregion
+#endregion
             }
-            else if (Input.GetButtonDown("P" + i + "pad_B") && isPlayerReadyArray[i - 1])
+            else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, i) && isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, false);
 
-                #region Debug Code
+#region Debug Code
 #if UNITY_EDITOR
                 debugTextArray[i - 1] = "P" + i + ": Ready\n";
                 updateDebugUI();
 #endif
-                #endregion
+#endregion
             }
         }
     }
@@ -337,9 +337,9 @@ public class CharacterSelectManager : MonoBehaviour
 
         CharSelectState = CharacterSelectStates.SelectingGhost;
     }
-    #endregion
+#endregion
 
-    #region CharacterSelectStates.SelectingGhost Functions
+#region CharacterSelectStates.SelectingGhost Functions
     private void hideWaitingForPlayerUI()
     {
         PressToStartTextObject.SetActive(false);
@@ -451,9 +451,9 @@ public class CharacterSelectManager : MonoBehaviour
         t /= d;
         return (c * t * t * t + b);
     }
-    #endregion
+#endregion
 
-    #region CharacterSelectStates.GhostRevealed Functions
+#region CharacterSelectStates.GhostRevealed Functions
     private void initializeGhostSprite()
     {
         GhostSelectorImageArray[ghostPlayerIndex].enabled = false;
@@ -478,9 +478,9 @@ public class CharacterSelectManager : MonoBehaviour
         newScale.x *= -1;
         PlayerSpriteReferencePointArray[index].localScale = newScale;
     }
-    #endregion
+#endregion
 
-    #region CharacterSelectStates.Panic Functions
+#region CharacterSelectStates.Panic Functions
     private void startPanicAnimations()
     {
         GhostSpriteReferencePointTransform.GetComponentInChildren<Animator>().enabled = true;
@@ -493,9 +493,9 @@ public class CharacterSelectManager : MonoBehaviour
             }
         }
     }
-    #endregion
+#endregion
 
-    #region CharacterSelectStates.RunFromGhost Functions
+#region CharacterSelectStates.RunFromGhost Functions
     private void setRunFromGhostPlayerDirections()
     {
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
@@ -534,9 +534,9 @@ public class CharacterSelectManager : MonoBehaviour
         newGhostPosition += Vector2.right * runFromGhostDirection[ghostPlayerIndex] * GhostRunSpeed * Time.deltaTime;
         GhostSpriteReferencePointTransform.transform.position = newGhostPosition;
     }
-    #endregion
+#endregion
 
-    #region Debug Functions
+#region Debug Functions
     private void debugCheckIfPlayerReady()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -621,5 +621,5 @@ public class CharacterSelectManager : MonoBehaviour
             CharacterSelectDebugText.text += debugTextArray[i];
         }
     }
-    #endregion
+#endregion
 }
