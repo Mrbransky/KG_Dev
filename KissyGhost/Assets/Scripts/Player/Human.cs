@@ -164,6 +164,9 @@ public class Human : Player
         HeldItemName = obj.name;
 
         timeBetweenItemInteract = 0.1f;
+
+        //Item Pick up Sound
+        soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
     }
     
     void PutItemDown(string itemName)
@@ -176,6 +179,9 @@ public class Human : Player
         HeldItemName = "";
 
         timeBetweenItemInteract = 0.1f;
+
+        //Put Item Down Sound
+        soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
     }
 
     void ThrowItem(string itemName)

@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour {
         source.Play(); 
 
         //Humans Win Music
+        soundManager.SOUND_MAN.switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
     }
 
     public void OnGhostWin()
@@ -138,6 +139,7 @@ public class GameManager : MonoBehaviour {
         source.Play(); 
 
         //Ghost Win Music
+        soundManager.SOUND_MAN.switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
     }
 
     private void checkIsGameEnd()

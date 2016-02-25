@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="70">
-	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2464156150" DateHigh="30502934"/>
+	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="3604571619" DateHigh="30502945"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="2464516437" DateHigh="30502934"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="2464956792" DateHigh="30502934"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Attenuations\Default Work Unit.wwu" DateLow="2464996827" DateHigh="30502934"/>
@@ -23,6 +23,7 @@
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Game Parameters\Default Work Unit.wwu" DateLow="2465527254" DateHigh="30502934"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="2465537262" DateHigh="30502934"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="2470601338" DateHigh="30502934"/>
+	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\KissyGhostWwise.thomas.barrett.wsettings" DateLow="3750310868" DateHigh="30502945"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\KissyGhostWwise.wproj" DateLow="2470741451" DateHigh="30502934"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2470771478" DateHigh="30502934"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\Mixing Sessions\Default Work Unit.wwu" DateLow="2470791491" DateHigh="30502934"/>

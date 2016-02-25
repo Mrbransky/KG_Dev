@@ -68,6 +68,7 @@ public class MenuSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow) || JoystickMove >= .7f && canMove == true && !HasSelectedPlay)
         {
             //Menu Movement Sound
+            soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
 
             if (choice >= 3)
             {
@@ -83,6 +84,7 @@ public class MenuSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) || JoystickMove <= -.7f && canMove == true && !HasSelectedPlay)
         {
             //Menu Movement Sound
+            soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
             if (choice <= 1)
             {
                 canMove = false;
@@ -98,6 +100,7 @@ public class MenuSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
         {
             //Menu Confirm Sound
+            soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
 
             if (!HasSelectedPlay)
             {

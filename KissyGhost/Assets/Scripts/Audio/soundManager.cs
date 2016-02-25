@@ -10,7 +10,7 @@ public class soundManager : MonoBehaviour {
 	void Start () {       
 
 		AkBankManager.LoadBank ("KissyGhostBank");
-		playSound ("Play_Music", gameObject);
+        playSound("Play_Music", gameObject);
 		/*uint busID;
 		busID = AkSoundEngine.GetIDFromString ("toneBusParameter");
 		AkSoundEngine.SetMixer ("toneBusParameter", busID);*/
@@ -23,21 +23,26 @@ public class soundManager : MonoBehaviour {
 			AkSoundEngine.StopAll ();
 		}
 
-		if (Application.loadedLevelName == "MainScene") {
-			switchVoid ("MusicSwitch", "GameplayMusic", gameObject);
-		}
+        if (Application.loadedLevelName == "MainScene")
+        {
+            switchVoid("MusicSwitch", "GameplayMusic", gameObject);
+        }
 
-		if (Application.loadedLevelName == "MainMenu") {
-			switchVoid ("MusicSwitch", "MenuMusic", gameObject);
-		}
+        if (Application.loadedLevelName == "MainMenu")
+        {
+            switchVoid("MusicSwitch", "MenuMusic", gameObject);
+        }
 
-		if (Application.loadedLevelName == "human win scene goes here") {
-			switchVoid ("MusicSwitch", "HumanWinMusic", gameObject);
-		}
+        if (Application.loadedLevelName == "human win scene goes here")
+        {
+            switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
+        }
 
-				if (Application.loadedLevelName == "Ghost win scene goes here") {
-			switchVoid ("MusicSwitch", "GhostWinMusic", gameObject);
-		}
+        if (Application.loadedLevelName == "Ghost win scene goes here")
+        {
+            switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
+        }
+
 	}
 
 	public void playSound(string eventName, GameObject soundObject){

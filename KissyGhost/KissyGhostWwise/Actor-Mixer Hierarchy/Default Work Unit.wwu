@@ -5,6 +5,12 @@
 			<ChildrenList>
 				<RandomSequenceContainer Name="FurnitureMove" ID="{6B3E9BBB-D208-4B20-B5DC-AB0E5E92917C}" ShortID="713917278">
 					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ModifierList>
 								<ModifierInfo>
@@ -23,6 +29,11 @@
 						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.75"/>
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 						<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>5</Value>
@@ -503,7 +514,18 @@
 				</Sound>
 				<SwitchContainer Name="Music" ID="{26BB6E66-9FEB-4C32-AD8A-38D0F202A9B3}" ShortID="713038370">
 					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
 						<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">

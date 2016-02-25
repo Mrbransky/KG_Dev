@@ -20,7 +20,7 @@ public class MissionObjective_ItemNode : MonoBehaviour
 
     void Update()
     {
-        if (HasItem)
+        if (HasItem)        
             GetComponent<Animator>().SetBool("HasItem", true);
     }
 }
