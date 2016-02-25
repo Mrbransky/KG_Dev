@@ -29,7 +29,7 @@ public class Ghost : Player
         }
         else if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && canKissObject())
         {
-            kissObject();
+            kissObject();            
         }
 #region Keyboard Input Related Code (for Debugging)
 #if UNITY_EDITOR
@@ -65,6 +65,8 @@ public class Ghost : Player
                 StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
             }
         }
+
+        soundManager.SOUND_MAN.playSound("Play_Kisses", gameObject);
     }
 
     void OnTriggerStay2D(Collider2D col)

@@ -2,16 +2,20 @@
 using System.Collections;
 
 public class soundManager : MonoBehaviour {
+    static public soundManager SOUND_MAN;
 
 	AkEvent theEvent;
 
 	// Use this for initialization
-	void Start () {
+	void Start () {       
+
 		AkBankManager.LoadBank ("KissyGhostBank");
 		playSound ("Play_Music", gameObject);
 		/*uint busID;
 		busID = AkSoundEngine.GetIDFromString ("toneBusParameter");
 		AkSoundEngine.SetMixer ("toneBusParameter", busID);*/
+
+        SOUND_MAN = this;
 	}
 
 	void Update () {

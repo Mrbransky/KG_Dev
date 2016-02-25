@@ -117,6 +117,8 @@ public class KissableFurniture : MonoBehaviour
                 shootBehavior.enabled = true;
                 break;
         }
+
+        //Start Playing Furniture sliding sound
     }
 
     public void UnkissFurniture()
@@ -141,6 +143,8 @@ public class KissableFurniture : MonoBehaviour
                 shootBehavior.enabled = false;
                 break;
         }
+
+        //Stop Furniture sliding sound
     }
 
     void OnCollisionStay2D(Collision2D col)

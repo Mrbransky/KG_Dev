@@ -121,6 +121,8 @@ public class GameManager : MonoBehaviour {
         source.Stop();
         source.clip = music[1];
         source.Play(); 
+
+        //Humans Win Music
     }
 
     public void OnGhostWin()
@@ -134,6 +136,8 @@ public class GameManager : MonoBehaviour {
         source.Stop();
         source.clip = music[0];
         source.Play(); 
+
+        //Ghost Win Music
     }
 
     private void checkIsGameEnd()

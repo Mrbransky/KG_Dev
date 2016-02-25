@@ -17,6 +17,7 @@ public class MissionObjective_Item : MonoBehaviour
                 itemNodeScript.HasItem = true;
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<MissionManager>().OnMissionObjectiveCompleted(MissionObjectiveListIndex);
                 transform.position = itemNodeScript.ItemTargetPosition;
+                //Item in Heartagram Sound
 
                 if (GetComponent<ThrowableItem>() != null)
                 {
