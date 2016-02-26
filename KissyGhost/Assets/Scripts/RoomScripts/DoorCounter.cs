@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class DoorCounter : MonoBehaviour {
 
     public GameObject roomManager;
@@ -8,7 +8,7 @@ public class DoorCounter : MonoBehaviour {
 
     public enum doorSwitchState { LEFT, RIGHT, BOTTOM, BACK };
     public doorSwitchState curState;
-    
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")

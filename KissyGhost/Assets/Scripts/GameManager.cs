@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
     private bool[] isPlayerReadyArray;
     private int ghostPlayerIndex = -1;
 
+
+    float timer = 2;
     void Start()
     {
         handleCharacterSelectData();
@@ -149,6 +151,8 @@ public class GameManager : MonoBehaviour {
     {
         if (gameEnd)
         {
+
+            timer -= Time.fixedDeltaTime;
             heartZoom.SetActive(true);
             heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
 
@@ -168,18 +172,24 @@ public class GameManager : MonoBehaviour {
                 }
                 Time.timeScale = 0;
 
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
-                {
-                    Time.timeScale = 1;
-                    _HeartZoomTransition.enabled = true;
-                    _HeartZoomTransition.StartHeartZoomIn(0);
-                }
 
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
+                if (timer <= 0)
                 {
-                    Time.timeScale = 1;
-                    _HeartZoomTransition.enabled = true;
-                    _HeartZoomTransition.StartHeartZoomIn(1);
+                    Debug.Log("I'm here");
+                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
+                    {
+                        Time.timeScale = 1;
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(0);
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
+                    {
+                        Time.timeScale = 1;
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(1);
+                    }
+                    timer = -1;
                 }
             }
         }
