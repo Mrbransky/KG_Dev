@@ -49,10 +49,16 @@ public class Furniture_FollowPlayer : MonoBehaviour
     {
         if (isInitialized)
         {
-            furnitureRigidbody2D.velocity = Vector2.zero;
-            Vector3 playVec = closestPlayerTransform.position;
-            closestPlayerTransform.GetComponent<Rigidbody2D>().AddForce((playVec - transform.position).normalized * BounceBackForce);
             isInitialized = false;
+            furnitureRigidbody2D.velocity = Vector2.zero;
+
+            Vector3 furnitureToPlayerDir = closestPlayerTransform.position - transform.position;
+            float distanceToPlayer = furnitureToPlayerDir.magnitude;
+
+            if (distanceToPlayer <= minFollowDistance)
+            {
+                closestPlayerTransform.GetComponent<Rigidbody2D>().AddForce(furnitureToPlayerDir.normalized * BounceBackForce);
+            }
         }
     }
 

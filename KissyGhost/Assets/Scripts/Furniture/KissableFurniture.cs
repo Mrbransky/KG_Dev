@@ -11,7 +11,10 @@ public enum KissedFurnitureBehavior
 public class KissableFurniture : MonoBehaviour
 {
     [SerializeField] private KissedFurnitureBehavior kissedBehavior = KissedFurnitureBehavior.None;
+    public Sprite UnkissedSprite;
+    public Sprite KissedSprite;
     public Color kissedColor = new Color(255.0f / 255.0f, 192.0f / 255.0f, 203.0f / 255.0f);
+    private SpriteRenderer spriteRenderer;
     private bool isKissed = false;
    
     [SerializeField] private float kissedDuration = 3.0f;
@@ -28,6 +31,7 @@ public class KissableFurniture : MonoBehaviour
     void Start()
     {
         _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
         switch ((int)kissedBehavior)
         {
@@ -105,7 +109,14 @@ public class KissableFurniture : MonoBehaviour
             return;
         }
 
-        GetComponent<SpriteRenderer>().color = kissedColor;
+        if (KissedSprite != null)
+        {
+            spriteRenderer.sprite = KissedSprite;
+        }
+        else
+        {
+            spriteRenderer.color = kissedColor;
+        }
 
         switch ((int)kissedBehavior)
         {
@@ -133,7 +144,14 @@ public class KissableFurniture : MonoBehaviour
 
     private void OnFurnitureUnkissed()
     {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        if (UnkissedSprite != null)
+        {
+            spriteRenderer.sprite = UnkissedSprite;
+        }
+        else
+        {
+            spriteRenderer.color = Color.white;
+        }
 
         switch ((int)kissedBehavior)
         {

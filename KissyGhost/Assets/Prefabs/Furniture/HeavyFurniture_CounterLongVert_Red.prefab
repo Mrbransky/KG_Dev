@@ -73,6 +73,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kissedBehavior: 1
+  UnkissedSprite: {fileID: 21300000, guid: 3eb5f8f8155a56a49829bd8012b5368d, type: 3}
+  KissedSprite: {fileID: 21300000, guid: 66073e838be1daa4f9b3a6758fd9bd6a, type: 3}
   kissedColor: {r: 1, g: 0, b: .889655113, a: 1}
   kissedDuration: 3
   KissKey: 48
@@ -175,6 +177,16 @@ Prefab:
       propertyPath: followSpeed
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: UnkissedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3eb5f8f8155a56a49829bd8012b5368d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: KissedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 66073e838be1daa4f9b3a6758fd9bd6a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129090}

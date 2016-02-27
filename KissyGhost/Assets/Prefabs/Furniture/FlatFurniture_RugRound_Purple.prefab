@@ -9,8 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 472566}
   - 212: {fileID: 21256852}
-  - 50: {fileID: 5046290}
-  - 114: {fileID: 11457870}
   m_Layer: 10
   m_Name: FlatFurniture_RugRound_Purple
   m_TagString: Rug
@@ -30,37 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5046290
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111596}
-  m_Mass: 1
-  m_LinearDrag: 3
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &11457870
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35243d7c94597d649960ba7455b77eef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kissedBehavior: 1
-  kissedColor: {r: 1, g: 0, b: .889655113, a: 1}
-  kissedDuration: 3
-  KissKey: 48
 --- !u!212 &21256852
 SpriteRenderer:
   m_ObjectHideFlags: 1

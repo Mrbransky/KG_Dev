@@ -91,7 +91,6 @@ public class MissionManager : MonoBehaviour
         for (int i = 0; i < missionObjectiveCount; ++i)
         {
             missionObjectiveImageList[i].sprite = missionObjectiveList[i].GetComponent<SpriteRenderer>().sprite;
-            missionObjectiveImageList[i].color = Color.grey;
 
             missionObjectiveStateArray[i] = MissionObjectiveState.Neutral;
         }
@@ -100,7 +99,7 @@ public class MissionManager : MonoBehaviour
     public void OnMissionObjectiveCompleted(int missionObjectiveListIndex)
     {
         missionObjectiveStateArray[missionObjectiveListIndex] = MissionObjectiveState.Completed;
-        missionObjectiveImageList[missionObjectiveListIndex].color = Color.green;
+        missionObjectiveImageList[missionObjectiveListIndex].color = Color.white;
 
         foreach (MissionObjectiveState objectiveState in missionObjectiveStateArray)
         {
