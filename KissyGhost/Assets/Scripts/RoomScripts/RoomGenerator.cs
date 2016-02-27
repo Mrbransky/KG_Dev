@@ -2,9 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class RoomGenerator : MonoBehaviour {
+public enum RoomTypes
+{
+    Center = 0, // "Big"
+    Left = 1,   // "Medium Left"
+    Right = 2,  // "Medium Right"
+    Bottom = 3  // "Small"
+}
 
-
+public class RoomGenerator : MonoBehaviour 
+{
 	public GameObject BottomBaseRoomPiece;
 	public GameObject LeftBaseRoomPiece;
     public GameObject RightBaseRoomPiece;
@@ -15,28 +22,15 @@ public class RoomGenerator : MonoBehaviour {
 	public int numberOfFurniture = 3;
     public GameObject[] furnitureOptions;
 
-    //Room zeroing
-    Vector2 curRoomCenter;
-    string roomType;
-    private Vector2 newPos;
-
     //Special Items
     public List<GameObject> AllSpecialItems;
-    List<GameObject> currentSpecialItems = new List<GameObject>();
-    Vector2 specPos;
-
-    void Start()
-    {
-        GenerateInternals(MainBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, MainBaseRoomPiece.transform.position, "big");
-        GenerateInternals(LeftBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, LeftBaseRoomPiece.transform.position, "mediumLeft");
-        GenerateInternals(RightBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, RightBaseRoomPiece.transform.position, "mediumRight");
-        GenerateInternals(BottomBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, BottomBaseRoomPiece.transform.position, "small");
-        
-        initializeMissionManager();
-    }
+    private List<GameObject> currentSpecialItems;
 
     void Awake()
     {
+        currentSpecialItems = new List<GameObject>();
+        currentFurniture = new List<GameObject>();
+
         for (int i = 0; i < 4; i++)
         {
             int rand = Random.Range(0, AllSpecialItems.Count);
@@ -44,72 +38,84 @@ public class RoomGenerator : MonoBehaviour {
         }
     }
 
-	public void GenerateInternals(Vector2 RoomSize, Vector2 roomCenterPoint, string room)
+    void Start()
+    {
+        GenerateInternals(MainBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, MainBaseRoomPiece.transform.position, RoomTypes.Center);
+        GenerateInternals(LeftBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, LeftBaseRoomPiece.transform.position, RoomTypes.Left);
+        GenerateInternals(RightBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, RightBaseRoomPiece.transform.position, RoomTypes.Right);
+        GenerateInternals(BottomBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, BottomBaseRoomPiece.transform.position, RoomTypes.Bottom);
+        
+        initializeMissionManager();
+    }
+
+    public void GenerateInternals(Vector2 RoomSize, Vector2 roomCenterPoint, RoomTypes roomType)
 	{
-        int NoF = numberOfFurniture;
-		currentFurniture = new List<GameObject>();
-        bool needsSpecialItem = true;
+        switch ((int)roomType)
+        {
+            case (int)RoomTypes.Left:
+                spawnSpecItem(0, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
+                spawnFurniture(LeftBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
+                break;
 
-		for(int i = 0; i<NoF; i++)
-		{
-            switch (room)
-            {
-                case "mediumLeft":
-                    newPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 5f), roomCenterPoint.x + (RoomSize.x - 5f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 5f), roomCenterPoint.y + (RoomSize.y - 5f)));
-                    if (needsSpecialItem == true)
-                    {
-                        specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 5f), roomCenterPoint.x + (RoomSize.x - 5f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 5f), roomCenterPoint.y + (RoomSize.y - 5f)));
-                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[0], specPos, Quaternion.identity);
-                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
-                        needsSpecialItem = false;
-                    }
-                    break;
-                case "mediumRight":
-                    newPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 5f), roomCenterPoint.x + (RoomSize.x - 5f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 5f), roomCenterPoint.y + (RoomSize.y - 5f)));
-                    if (needsSpecialItem == true)
-                    {
-                        specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 5f), roomCenterPoint.x + (RoomSize.x - 5f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 5f), roomCenterPoint.y + (RoomSize.y - 5f)));
-                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[1], specPos, Quaternion.identity);
-                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
-                        needsSpecialItem = false;
-                    }
-                    break;
-                case"small":
-                    newPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 8f), roomCenterPoint.x + (RoomSize.x - 8f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 8f), roomCenterPoint.y + (RoomSize.y - 8f)));
-                    if (needsSpecialItem == true)
-                    {
-                        specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 8f), roomCenterPoint.x + (RoomSize.x - 8f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 8f), roomCenterPoint.y + (RoomSize.y - 8f)));
-                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[2], specPos, Quaternion.identity);
-                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
-                        needsSpecialItem = false;
-                    }
-                    break;
-                case"big":
-                    newPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 2f), roomCenterPoint.x + (RoomSize.x - 2f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 2f), roomCenterPoint.y + (RoomSize.y - 5f)));
-                    if (needsSpecialItem == true)
-                    {
-                        specPos = new Vector2(Random.Range(roomCenterPoint.x - (RoomSize.x - 2f), roomCenterPoint.x + (RoomSize.x - 2f)), Random.Range(roomCenterPoint.y - (RoomSize.y - 2f), roomCenterPoint.y + (RoomSize.y - 6f)));
-                        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[3], specPos, Quaternion.identity);
-                        GetComponent<MissionManager>().AddMissionObjective(specialItem);
-                        needsSpecialItem = false;
-                    }                 
-                    break;
-            }
+            case (int)RoomTypes.Right:
+                spawnSpecItem(1, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
+                spawnFurniture(RightBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
+                break;
 
-            GameObject newFurniture = Instantiate(furnitureOptions[Random.Range(0, furnitureOptions.Length)], newPos, Quaternion.identity) as GameObject;
-            
-            if (newFurniture.gameObject.tag == "Furniture")
+            case (int)RoomTypes.Bottom:
+                spawnSpecItem(2, roomCenterPoint, RoomSize.x - 8, RoomSize.y - 8, RoomSize.y - 8);
+                spawnFurniture(BottomBaseRoomPiece, roomCenterPoint, RoomSize.x - 8, RoomSize.y - 8, RoomSize.y - 8);
+                break;
+
+            case (int)RoomTypes.Center:
+                spawnSpecItem(3, roomCenterPoint, RoomSize.x - 2, RoomSize.y - 2, RoomSize.y - 6);
+                spawnFurniture(MainBaseRoomPiece, roomCenterPoint, RoomSize.x - 2, RoomSize.y - 2, RoomSize.y - 5);
+                break;
+        }
+	}
+
+    private void spawnFurniture(GameObject roomObject, Vector2 roomCenterPoint, float newPos_x_delta, float newPos_y_delta1, float newPos_y_delta2)
+    {
+        Vector2 newPos = Vector2.zero;
+
+        for (int i = 0; i < numberOfFurniture; i++)
+        {
+            newPos = getFurniturePos(roomCenterPoint, newPos_x_delta, newPos_y_delta1, newPos_y_delta2);
+            GameObject newFurniture = (GameObject)Instantiate(furnitureOptions[Random.Range(0, furnitureOptions.Length)], newPos, Quaternion.identity);
+
+            if (newFurniture.tag == "Furniture")
             {
                 newFurniture.GetComponent<SpriteRenderer>().sortingOrder = (int)(-newFurniture.transform.localPosition.y);
-                currentFurniture.Add(newFurniture);
             }
-            else 
+            else
             {
                 newFurniture.GetComponent<SpriteRenderer>().sortingOrder = -20;
-                currentFurniture.Add(newFurniture);
             }
-		}
-	}
+
+            currentFurniture.Add(newFurniture);
+            newFurniture.transform.SetParent(roomObject.transform);
+        }
+    }
+
+    private Vector2 getFurniturePos(Vector2 roomCenterPoint, float newPos_x_delta, float newPos_y_delta1, float newPos_y_delta2)
+    {
+        float newPos_x = Random.Range(roomCenterPoint.x - newPos_x_delta, roomCenterPoint.x + newPos_x_delta);
+        float newPos_y = Random.Range(roomCenterPoint.y - newPos_y_delta1, roomCenterPoint.y + newPos_y_delta2);
+        Vector2 newPos = new Vector2(newPos_x, newPos_y);
+
+        return newPos;
+    }
+
+    private void spawnSpecItem(int index, Vector2 roomCenterPoint, float specPos_x_delta, float specPos_y_delta1, float specPos_y_delta2)
+    {
+        float specPos_x = Random.Range(roomCenterPoint.x - specPos_x_delta, roomCenterPoint.x + specPos_x_delta);
+        float specPos_y = Random.Range(roomCenterPoint.y - specPos_y_delta1, roomCenterPoint.y + specPos_y_delta2);
+        Vector2 specPos = new Vector2(specPos_x, specPos_y);
+
+        GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[index], specPos, Quaternion.identity);
+        GetComponent<MissionManager>().AddMissionObjective(specialItem);    
+    }
+
     private void initializeMissionManager()
     {
         GetComponent<MissionManager>().Initialize();

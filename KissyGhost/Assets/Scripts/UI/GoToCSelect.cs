@@ -17,11 +17,17 @@ public class GoToCSelect : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey("joystick button 0"))
+        if (Input.GetKeyDown("joystick button 0"))
         {
             _HeartZoomTransition.enabled = true;
             _HeartZoomTransition.StartHeartZoomIn(2);
         }
-	
+#if UNITY_EDITOR
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _HeartZoomTransition.enabled = true;
+            _HeartZoomTransition.StartHeartZoomIn(2);
+        }
+#endif
 	}
 }

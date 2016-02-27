@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour {
     private bool[] isPlayerReadyArray;
     private int ghostPlayerIndex = -1;
 
+    private float timer = 2;
 
-    float timer = 2;
     void Start()
     {
         handleCharacterSelectData();
@@ -73,8 +73,6 @@ public class GameManager : MonoBehaviour {
             {
                 if (playerReadyArrayIndex == ghostPlayerIndex)
                 {
-                    Debug.Log(playerReadyArrayIndex);
-
                     ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
                     ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
                     ghostPlayer.gameObject.tag = "Ghost";
@@ -151,44 +149,44 @@ public class GameManager : MonoBehaviour {
     {
         if (gameEnd)
         {
-
             timer -= Time.fixedDeltaTime;
-            heartZoom.SetActive(true);
-            heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
+            _HeartZoomTransition.enabled = true;
+            _HeartZoomTransition.StartHeartZoomInHalfway();
 
-            if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            if (_HeartZoomTransition.IsZoomInHalfwayDone())
             {
                 if (didHumansWin)
+                {
                     winnerNameText.text = "Humans Win!";
+                }
                 else
+                {
                     winnerNameText.text = "Ghost Wins!";
+                }
+                
                 foreach (GameObject i in thingsToTurnOffAtGameEnd)
                 {
                     i.SetActive(false);
                 }
+                
                 foreach (GameObject i in thingsToTurnOnAtGameEnd)
                 {
                     i.SetActive(true);
                 }
+                
                 Time.timeScale = 0;
-
 
                 if (timer <= 0)
                 {
-                    Debug.Log("I'm here");
-                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
-                    {
-                        Time.timeScale = 1;
-                        _HeartZoomTransition.enabled = true;
-                        _HeartZoomTransition.StartHeartZoomIn(0);
-                    }
-
                     if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
                     {
-                        Time.timeScale = 1;
-                        _HeartZoomTransition.enabled = true;
-                        _HeartZoomTransition.StartHeartZoomIn(1);
+                        _HeartZoomTransition.StartHeartZoomInFinish(1);
                     }
+                    else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
+                    {
+                        _HeartZoomTransition.StartHeartZoomInFinish(0);
+                    }
+
                     timer = -1;
                 }
             }
@@ -237,44 +235,4 @@ public class GameManager : MonoBehaviour {
             GamePad.SetVibration((PlayerIndex)i, 0, 0);
     }
     #endregion
-
-    //private void oldWinCondition()
-    //{
-    //    if (gameEnd == false)
-    //    {
-    //        Vector3 heartZoomPos = Camera.main.transform.position;
-    //        heartZoomPos.z = 0;
-    //        heartZoom.transform.position = heartZoomPos;
-
-    //        if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-    //        {
-    //            heartZoom.SetActive(false);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        heartZoom.SetActive(true);
-    //        //heartZoom.transform.position = gameWinner.transform.position;
-    //        heartZoom.GetComponent<Animator>().SetBool("gameEndTrig", true);
-
-    //        if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-    //        {
-    //            gameEndPlayAgain.SetActive(true);
-    //            gameEndMainMenu.SetActive(true);
-    //            Time.timeScale = 0;
-
-    //            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
-    //            {
-    //                Time.timeScale = 1;
-    //                Application.LoadLevel(0);
-    //            }
-
-    //            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
-    //            {
-    //                Time.timeScale = 1;
-    //                Application.LoadLevel(1);
-    //            }
-    //        }
-    //    }
-    //}
 }

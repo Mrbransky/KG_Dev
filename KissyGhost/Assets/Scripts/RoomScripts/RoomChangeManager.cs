@@ -70,12 +70,16 @@ public class RoomChangeManager : MonoBehaviour
         if(!AllDoorsIn)
         {
             if (currentTimer <= .2f && !AreDoorsFadingIn[(int)currentRoomLocation])
+            {
                 AreDoorsFadingIn[(int)currentRoomLocation] = true;
+            }
 
             for (int i = 0; i < AreDoorsFadingIn.Length; i++)
             {
                 if (AreDoorsFadingIn[i] && (int)currentRoomLocation == i)
+                {
                     FadeInDoors(currentRoomLocation);
+                }
             }
 
             AllDoorsIn = AreAllDoorsIn();
@@ -161,12 +165,12 @@ public class RoomChangeManager : MonoBehaviour
     private void SubObjectiveUpdate_Timer()
     {
         currentTimer -= Time.deltaTime;
-        timerText.text = ((int)currentTimer).ToString();
+        timerText.text = "DOORS OPEN: " + ((int)currentTimer).ToString();
 
         if (currentTimer <= 0)
         {
             currentTimer = MaxTimerDuration;
-            timerText.enabled = false;
+            timerText.text = "DOORS OPEN!";
 
             SubObjectiveAccomplished();
         }
