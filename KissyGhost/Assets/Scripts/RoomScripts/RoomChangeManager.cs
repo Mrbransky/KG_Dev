@@ -31,6 +31,7 @@ public class RoomChangeManager : MonoBehaviour
     public List<GameObject> playersGoingLeft = new List<GameObject>();
     public List<GameObject> playersGoingRight = new List<GameObject>();
     public List<GameObject> playersGoingBack = new List<GameObject>();
+
     public List<GameObject> doorSprites = new List<GameObject>();
 
     public SubObjectiveTypes SubObjective_Center = SubObjectiveTypes.Timer;
@@ -70,16 +71,12 @@ public class RoomChangeManager : MonoBehaviour
         if(!AllDoorsIn)
         {
             if (currentTimer <= .2f && !AreDoorsFadingIn[(int)currentRoomLocation])
-            {
                 AreDoorsFadingIn[(int)currentRoomLocation] = true;
-            }
 
             for (int i = 0; i < AreDoorsFadingIn.Length; i++)
             {
                 if (AreDoorsFadingIn[i] && (int)currentRoomLocation == i)
-                {
                     FadeInDoors(currentRoomLocation);
-                }
             }
 
             AllDoorsIn = AreAllDoorsIn();
@@ -121,10 +118,17 @@ public class RoomChangeManager : MonoBehaviour
             if (b) numDoorsIn++;
 
         if (numDoorsIn == AreDoorsFadingIn.Length)
+        {
+            foreach (GameObject obj in doorSprites)
+            {
+                if (obj.GetComponent<SpriteRenderer>().color.a != 1)
+                    return false;
+            }
+            
             return true;
-
-        else
-            return false;
+        }
+            
+        return false;
     }
 
     void FadeInDoors(RoomLocations currentRoom)
@@ -220,7 +224,7 @@ public class RoomChangeManager : MonoBehaviour
             Vector3 curRoomPosition = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y + 3);
 
-            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x, curRoomPosition.y - 1);
+            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x, curRoomPosition.y +2);
             player.GetComponent<Rigidbody2D>().AddForce(-Vector2.up * 500);
         }
     }
@@ -232,7 +236,7 @@ public class RoomChangeManager : MonoBehaviour
             Vector3 curRoomPosition = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(curRoomPosition.x + 10, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
 
-            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x + 10, curRoomPosition.y);
+            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x + 8, curRoomPosition.y);
             player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 1000);
         }
     }
@@ -244,7 +248,7 @@ public class RoomChangeManager : MonoBehaviour
             Vector3 curRoomPosition = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(curRoomPosition.x - 10, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
 
-            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x - 10, curRoomPosition.y);
+            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x - 8, curRoomPosition.y);
             player.GetComponent<Rigidbody2D>().AddForce(-Vector2.left * 1000);
         }
     }

@@ -4,9 +4,12 @@ using System.Collections.Generic;
 public class Ghost : Player
 {
     public float timeBetweenKisses = 1.5f;
+    public float SpeedReducePercent = 75;
     private float timeSinceKiss;
     private MoveInteractTrigger _MoveInteractTrigger;
     public AudioClip[] smoochSounds;
+
+    public bool TouchingFurniture;   
 
     private AudioSource source;
 
@@ -21,8 +24,6 @@ public class Ghost : Player
 
     public override void Update()
     {
-        //if(GetComponent<Collider2D>().IsTouching())
-
         if (timeSinceKiss > 0)
         {
             timeSinceKiss -= Time.deltaTime;
@@ -41,6 +42,9 @@ public class Ghost : Player
 #endregion
 
         base.Update();
+
+        if (TouchingFurniture && currentSpeed > 1.5f)
+            currentSpeed = SlowGhostDown(SpeedReducePercent);
 	}
     
     private bool canKissObject()
@@ -50,6 +54,7 @@ public class Ghost : Player
 
     private AudioClip PickRandomKissSound()
     {
+        
         return smoochSounds[Random.Range(0, smoochSounds.Length - 1)];
     }
 
@@ -69,9 +74,15 @@ public class Ghost : Player
         soundManager.SOUND_MAN.playSound("Play_Kisses", gameObject);
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    //float Arguement gets used as a percentage
+    private float SlowGhostDown(float SpeedReduction)
     {
-        
+        if (SpeedReduction > 100) SpeedReduction = 100;
+        else if (SpeedReduction < 0) SpeedReduction = 0;
+
+        SpeedReduction = SpeedReduction/100f;
+
+        return currentSpeed * SpeedReduction;
     }
 
 }
