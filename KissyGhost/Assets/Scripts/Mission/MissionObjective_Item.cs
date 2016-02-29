@@ -18,7 +18,7 @@ public class MissionObjective_Item : MonoBehaviour
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<MissionManager>().OnMissionObjectiveCompleted(MissionObjectiveListIndex);
                 transform.position = itemNodeScript.ItemTargetPosition;
                 //Item in Heartagram Sound
-                soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+                soundManager.SOUND_MAN.playSound("Play_Item_In_Heartagram", gameObject);
 
                 if (GetComponent<ThrowableItem>() != null)
                 {
