@@ -107,21 +107,13 @@ public class MenuSelect : MonoBehaviour
                 switch (choice)
                 {
                     case 1:
-                        //  HasSelectedPlay = true;
-                        //  heartZoom.SetActive(true);
-
-                        //  if (heartZoom.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-                        // {
                         _HeartZoomTransition.enabled = true;
                         _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 1);
-                       // }
-                        //WhichInstructScreen = 1;
-                        //Controls.gameObject.SetActive(true);
-
                         break;
 
                     case 2:
-                        //Application.LoadLevel(3);
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 5);
                         break;
 
                     case 3:

@@ -140,6 +140,8 @@ public class KissableFurniture : MonoBehaviour
             isKissed = false;
             OnFurnitureUnkissed();
         }
+
+        soundManager.SOUND_MAN.stopSound("Play_FurnitureMove", gameObject, 1);
     }
 
     private void OnFurnitureUnkissed()
@@ -164,7 +166,7 @@ public class KissableFurniture : MonoBehaviour
         }
 
         //Stop Furniture sliding sound
-        //soundManager.SOUND_MAN.stopSound("Play_FurnitureMove", gameObject, 0);
+        
     }
 
     void OnCollisionStay2D(Collision2D col)

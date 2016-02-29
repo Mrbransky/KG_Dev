@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectPlayerSpritePositioner.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
+     <Compile Include="Assets\Scripts\CreditInput.cs" />
      <Compile Include="Assets\Scripts\FadeOnTimeScale1.cs" />
      <Compile Include="Assets\Scripts\Furniture\Furniture_FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\Furniture\Furniture_Shoot.cs" />
@@ -82,6 +83,7 @@
      <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
+     <Compile Include="Assets\Scripts\ScrollCredits.cs" />
      <Compile Include="Assets\Scripts\StartingCountdown.cs" />
      <Compile Include="Assets\Scripts\ThrowableItem.cs" />
      <Compile Include="Assets\Scripts\UI\GoToCSelect.cs" />
@@ -92,6 +94,7 @@
      <Compile Include="Assets\Scripts\UI\MenuSelect.cs" />
      <Compile Include="Assets\Scripts\UI\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\UI\VideoOnDelay.cs" />
+     <Compile Include="Assets\Scripts\VerticalScroller.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AKRESULT.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkActionOnEventType.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioFormat.cs" />

@@ -6,16 +6,33 @@ public class soundManager : MonoBehaviour {
 
 	AkEvent theEvent;
 
-	// Use this for initialization
-	void Start () {       
+    public bool MainMenuMusicPlaying;
 
+	// Use this for initialization
+
+    void Awake()
+    {
+        if (SOUND_MAN == null)
+            SOUND_MAN = this;
+
+        else if (SOUND_MAN != this)
+            Destroy(gameObject);
+    }
+
+	void Start () 
+    {
 		AkBankManager.LoadBank ("KissyGhostBank");
-        playSound("Play_Music", gameObject);
+        if (!SOUND_MAN.MainMenuMusicPlaying)
+        {
+            playSound("Play_Music", gameObject);
+            SOUND_MAN.MainMenuMusicPlaying = true;
+        }
 		/*uint busID;
 		busID = AkSoundEngine.GetIDFromString ("toneBusParameter");
 		AkSoundEngine.SetMixer ("toneBusParameter", busID);*/
 
-        SOUND_MAN = this;
+        
+        DontDestroyOnLoad(this.gameObject);
 	}
 
 	void Update () {
@@ -23,14 +40,16 @@ public class soundManager : MonoBehaviour {
 			AkSoundEngine.StopAll ();
 		}
 
-        if (Application.loadedLevelName == "MainScene")
+        if (Application.loadedLevelName == "MainScene" )
         {
             switchVoid("MusicSwitch", "GameplayMusic", gameObject);
+            MainMenuMusicPlaying = false;
         }
 
-        if (Application.loadedLevelName == "MainMenu")
+        if (Application.loadedLevelName == "MainMenu" && !MainMenuMusicPlaying)
         {
             switchVoid("MusicSwitch", "MenuMusic", gameObject);
+            MainMenuMusicPlaying = true;
         }
 
         if (Application.loadedLevelName == "human win scene goes here")
