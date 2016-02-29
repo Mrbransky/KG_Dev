@@ -102,6 +102,72 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Item_Down" ID="{1C56CB17-E27B-4388-99B9-D5F23AF63BA3}">
+					<ChildrenList>
+						<Action Name="Play" ID="{7F9150AE-352D-4E27-8C00-6FB3F328B787}" ShortID="196090146" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{92B29CE8-2DB8-4195-B514-ABE6CA22E934}" Global="false">
+									<ObjectRef Name="Item Down" ID="{2280FCC5-1A64-4EEF-A756-8257E47B0932}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Item_In_Heartagram" ID="{F29ADFCC-4943-4706-8586-8F4ED25B2BAA}">
+					<ChildrenList>
+						<Action Name="Play" ID="{0F5D26FF-0139-49D6-95F6-A9623D8C78F6}" ShortID="599703396" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{8A996750-8558-43CA-A26B-A53A116F2CED}" Global="false">
+									<ObjectRef Name="Item In Heartagram" ID="{26633BCB-C2A3-4C43-BC0C-BBE183191EAB}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Item_Pick_Up" ID="{AC00B676-3127-4593-97CD-1DAE31B9E48E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{FF1EA14F-F230-4AAE-95CA-5928C0805473}" ShortID="795738638" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{5BD02738-DE38-4D41-A406-234580120FD9}" Global="false">
+									<ObjectRef Name="Item Pick Up" ID="{EB8283A8-72F4-4E99-AF97-BD85032DE2BF}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Round_Start_Go" ID="{06E204C6-66E3-43E7-A55E-B1E8B0591C18}">
+					<ChildrenList>
+						<Action Name="Play" ID="{1A12CEDE-3D12-45D7-B5E8-F49F4136E574}" ShortID="815012804" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{E7F671F3-591A-4ED9-9F1B-EE46D0F93550}" Global="false">
+									<ObjectRef Name="Round Start Go" ID="{52D07BEA-76B5-451A-A8C6-4B32B3CDD7BB}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Round_Start" ID="{175F9EF4-3EE2-4C15-99CA-A560D9427333}">
+					<ChildrenList>
+						<Action Name="Play" ID="{4DA77911-B2AE-4D23-820C-A2E0F0B5926E}" ShortID="642839187" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{31A5BA40-A0C2-45E4-AF76-FE072562BA71}" Global="false">
+									<ObjectRef Name="Round Start" ID="{F659FCB7-2699-478B-8277-40B8AC6097C9}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_PlayerJoin" ID="{3F2CB3EB-83F0-4528-BF6D-BF46736A6712}">
+					<ChildrenList>
+						<Action Name="Play" ID="{9C6AD28D-7601-4D5F-AD70-4F4CEACFDDD4}" ShortID="825651482" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F93E4622-7E0D-432D-894F-621829D23B32}" Global="false">
+									<ObjectRef Name="PlayerJoin" ID="{728C8A13-B27F-4043-84B8-2AE9908F26DC}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -166,7 +166,7 @@ public class Human : Player
         timeBetweenItemInteract = 0.1f;
 
         //Item Pick up Sound
-        soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+        soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
     }
     
     void PutItemDown(string itemName)
@@ -181,7 +181,7 @@ public class Human : Player
         timeBetweenItemInteract = 0.1f;
 
         //Put Item Down Sound
-        soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+        soundManager.SOUND_MAN.playSound("Play_Item_Down", gameObject);
     }
 
     void ThrowItem(string itemName)
