@@ -2590,7 +2590,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497388, guid: ca9b47f020cac23499456206a6341ba0, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 166690, guid: ca9b47f020cac23499456206a6341ba0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca9b47f020cac23499456206a6341ba0, type: 2}
@@ -5886,8 +5890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1040263a6ac0048bc22130f8a0b5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 2038403447}
-  clip: {fileID: 8300000, guid: cec2e13fe8a751241a9ecf2b4d4833f5, type: 3}
 --- !u!82 &2038403447
 AudioSource:
   m_ObjectHideFlags: 0

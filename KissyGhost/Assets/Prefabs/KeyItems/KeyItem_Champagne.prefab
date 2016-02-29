@@ -91,6 +91,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MissionObjectiveListIndex: -1
   IsItemPlacedDown: 0
+  isAnimated: 0
+  HighlightedSprite: {fileID: 21300000, guid: ddfbe26715cff1949acf3df2ba3685d5, type: 3}
+  UnhighlightedSprite: {fileID: 21300000, guid: 3b8275315eb7bf04ba8c664a02c9ddc3,
+    type: 3}
 --- !u!212 &21247356
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -168,6 +172,16 @@ Prefab:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ddfbe26715cff1949acf3df2ba3685d5,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ddfbe26715cff1949acf3df2ba3685d5,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: UnhighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b8275315eb7bf04ba8c664a02c9ddc3,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -109,6 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MissionObjectiveListIndex: -1
   IsItemPlacedDown: 0
+  isAnimated: 1
+  HighlightedSprite: {fileID: 0}
+  UnhighlightedSprite: {fileID: 0}
 --- !u!212 &21243064
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -239,6 +242,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 87c3ea168495f0e48a3013b53f9711fb,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: isAnimated
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150008}
