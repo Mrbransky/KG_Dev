@@ -130,7 +130,7 @@ public class KissableFurniture : MonoBehaviour
         }
 
         //Start Playing Furniture sliding sound
-        soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
+        //soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
     }
 
     public void UnkissFurniture()
@@ -141,7 +141,7 @@ public class KissableFurniture : MonoBehaviour
             OnFurnitureUnkissed();
         }
 
-        soundManager.SOUND_MAN.stopSound("Play_FurnitureMove", gameObject, 1);
+        //soundManager.SOUND_MAN.stopSound("Play_FurnitureMove", gameObject, 1);
     }
 
     private void OnFurnitureUnkissed()

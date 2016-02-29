@@ -21,12 +21,14 @@ public class GoToCSelect : MonoBehaviour
         {
             _HeartZoomTransition.enabled = true;
             _HeartZoomTransition.StartHeartZoomIn(2);
+            soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
         }
 #if UNITY_EDITOR
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             _HeartZoomTransition.enabled = true;
             _HeartZoomTransition.StartHeartZoomIn(2);
+            soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
         }
 #endif
 	}

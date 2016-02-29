@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour {
 
         //Humans Win Music
         soundManager.SOUND_MAN.switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
+        //soundManager.SOUND_MAN.playSound("HumanWinMusic", gameObject);
     }
 
     public void OnGhostWin()
@@ -143,6 +144,7 @@ public class GameManager : MonoBehaviour {
 
         //Ghost Win Music
         soundManager.SOUND_MAN.switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
+        //soundManager.SOUND_MAN.playSound("GhostWinMusic", gameObject);
     }
 
     private void checkIsGameEnd()

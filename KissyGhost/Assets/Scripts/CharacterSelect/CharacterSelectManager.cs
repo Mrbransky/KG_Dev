@@ -186,6 +186,7 @@ public class CharacterSelectManager : MonoBehaviour
                 if (Input.GetButtonDown("Start") && playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
                     startGame();
+                    soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
                 }
 
                 checkIfPlayerReady();
@@ -211,6 +212,7 @@ public class CharacterSelectManager : MonoBehaviour
                     if (GhostSelectionDuration < maxTimeBetweenGhostSelector)
                     {
                         setFinalGhostSelectorImage();
+                        soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
                     }
                     else if (timeToNextGhostSelector > 0)
                     {
@@ -219,6 +221,7 @@ public class CharacterSelectManager : MonoBehaviour
                     else
                     {
                         setNextGhostSelectorImage();
+                        soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
                         timeToNextGhostSelector = easeInCubic(timeSinceGhostSelectingStart, initialTimeToNextGhostSelector, maxTimeBetweenGhostSelector, maxGhostSelectionDuration);
                     }
                 }
@@ -275,7 +278,7 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(i - 1, true);
                 StartCoroutine(InputMapper.Vibration(i, .2f, 0, .8f));
-
+                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
 #region Debug Code
 #if UNITY_EDITOR
                 debugTextArray[i - 1] = "P" + i + ": Ready\n";
@@ -286,6 +289,7 @@ public class CharacterSelectManager : MonoBehaviour
             else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, i) && isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, false);
+                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
 
 #region Debug Code
 #if UNITY_EDITOR
@@ -547,11 +551,13 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(0, true);
                 debugTextArray[0] = "P1: Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
             else
             {
                 updateUI_playerReady(0, false);
                 debugTextArray[0] = "P1: Not Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
             }
 
             updateDebugUI();
@@ -565,11 +571,13 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(1, true);
                 debugTextArray[1] = "P2: Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
             else
             {
                 updateUI_playerReady(1, false);
                 debugTextArray[1] = "P2: Not Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
             }
 
             updateDebugUI();
@@ -583,11 +591,13 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(2, true);
                 debugTextArray[2] = "P3: Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
             else
             {
                 updateUI_playerReady(2, false);
                 debugTextArray[2] = "P3: Not Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
             }
 
             updateDebugUI();
@@ -601,11 +611,13 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(3, true);
                 debugTextArray[3] = "P4: Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
             else
             {
                 updateUI_playerReady(3, false);
                 debugTextArray[3] = "P4: Not Ready\n";
+                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
             }
 
             updateDebugUI();
