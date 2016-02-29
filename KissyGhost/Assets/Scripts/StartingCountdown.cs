@@ -49,7 +49,7 @@ public class StartingCountdown : MonoBehaviour
             countdown.text = "Go!";
             hasPlayedStartSound = true;
             gameObject.GetComponent<Image>().CrossFadeAlpha(0, .5f, false);
-            countdown.GetComponent<Text>().CrossFadeAlpha(0, 1.0f, false);
+            countdown.GetComponent<Text>().CrossFadeAlpha(0, .5f, false);
         }
 	}
 }

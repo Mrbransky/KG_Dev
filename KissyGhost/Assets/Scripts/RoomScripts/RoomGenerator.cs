@@ -35,6 +35,26 @@ public class RoomGenerator : MonoBehaviour
         {
             int rand = Random.Range(0, AllSpecialItems.Count);
             currentSpecialItems.Add(AllSpecialItems[rand]);
+            AllSpecialItems.Remove(AllSpecialItems[rand]);
+
+            //if (AllSpecialItems[rand].name.Contains("Cat"))
+            //{
+            //    List<GameObject> CatsToDelete = new List<GameObject>();
+            //    foreach (GameObject obj in AllSpecialItems)
+            //    {
+            //        if (obj.name.Contains("Cat"))
+            //            CatsToDelete.Add(obj);
+            //    }
+
+            //    foreach (GameObject obj in CatsToDelete)
+            //    {
+            //        AllSpecialItems.Remove(obj);
+            //    }
+            //    CatsToDelete.Clear();
+            //    return;
+            //}
+
+            
         }
     }
 

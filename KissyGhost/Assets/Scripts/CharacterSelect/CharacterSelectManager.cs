@@ -212,7 +212,6 @@ public class CharacterSelectManager : MonoBehaviour
                     if (GhostSelectionDuration < maxTimeBetweenGhostSelector)
                     {
                         setFinalGhostSelectorImage();
-                        soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
                     }
                     else if (timeToNextGhostSelector > 0)
                     {
