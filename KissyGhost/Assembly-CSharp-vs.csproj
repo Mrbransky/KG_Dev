@@ -90,6 +90,8 @@
      <Compile Include="Assets\Scripts\UI\OffsetScroller.cs" />
      <Compile Include="Assets\Scripts\UI\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\UI\ScrollCredits.cs" />
+     <Compile Include="Assets\Scripts\UI\UIFlasher.cs" />
+     <Compile Include="Assets\Scripts\UI\UIFlasherReference.cs" />
      <Compile Include="Assets\Scripts\UI\VerticalScroller.cs" />
      <Compile Include="Assets\Scripts\UI\VideoOnDelay.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AKRESULT.cs" />
