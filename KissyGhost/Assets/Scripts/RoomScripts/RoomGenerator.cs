@@ -26,6 +26,7 @@ public class RoomGenerator : MonoBehaviour
     public List<GameObject> AllSpecialItems;
     private List<GameObject> currentSpecialItems;
 
+    public float minDistance = 10;
     void Awake()
     {
         currentSpecialItems = new List<GameObject>();
@@ -70,6 +71,7 @@ public class RoomGenerator : MonoBehaviour
 
     public void GenerateInternals(Vector2 RoomSize, Vector2 roomCenterPoint, RoomTypes roomType)
 	{
+
         switch ((int)roomType)
         {
             case (int)RoomTypes.Left:
@@ -100,8 +102,10 @@ public class RoomGenerator : MonoBehaviour
 
         for (int i = 0; i < numberOfFurniture; i++)
         {
+            GameObject FurnitureToSpawn = furnitureOptions[Random.Range(0, furnitureOptions.Length)];
             newPos = getFurniturePos(roomCenterPoint, newPos_x_delta, newPos_y_delta1, newPos_y_delta2);
-            GameObject newFurniture = (GameObject)Instantiate(furnitureOptions[Random.Range(0, furnitureOptions.Length)], newPos, Quaternion.identity);
+            GameObject newFurniture = (GameObject)Instantiate(FurnitureToSpawn, newPos, Quaternion.identity);
+
 
             if (newFurniture.tag == "Furniture")
             {
@@ -123,6 +127,23 @@ public class RoomGenerator : MonoBehaviour
         float newPos_y = Random.Range(roomCenterPoint.y - newPos_y_delta1, roomCenterPoint.y + newPos_y_delta2);
         Vector2 newPos = new Vector2(newPos_x, newPos_y);
 
+ //Broken for now
+        //Vector2 newPos;
+        //Collider2D[] neighbors;
+        //int tries = 0;
+        //do
+        //{
+        //    float newPos_x = Random.Range(roomCenterPoint.x - newPos_x_delta, roomCenterPoint.x + newPos_x_delta);
+        //    float newPos_y = Random.Range(roomCenterPoint.y - newPos_y_delta1, roomCenterPoint.y + newPos_y_delta2);
+        //    newPos = new Vector2(newPos_x, newPos_y);
+        //    neighbors = Physics2D.OverlapCircleAll(newPos, minDistance);
+        //    tries++;
+        //    if(tries >= 4)
+        //    {
+        //        newPos = new Vector2(50,50);
+        //        System.Array.Clear(neighbors,0,neighbors.Length);
+        //    }
+        //} while (neighbors.Length > 0 || tries < 3);
         return newPos;
     }
 

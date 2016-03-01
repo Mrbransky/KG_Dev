@@ -46,6 +46,7 @@ public class VideoOnDelay : MonoBehaviour
                 
                 MenuTimer = 5;
                 myMovieTexture.Play();
+                myMovieTexture.loop = true;
             }
         }
         

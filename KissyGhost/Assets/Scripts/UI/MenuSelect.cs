@@ -6,10 +6,11 @@ public class MenuSelect : MonoBehaviour
 {
     public VideoOnDelay _VideoOnDelay;
     public HeartZoomTransition _HeartZoomTransition;
-    public Image option1, option2, option3;
+    public Text option1, option2, option3;
     //public AudioSource audio;
     Transform Controls, Instructions, WinCondition;
     public GameObject heartZoom;
+    public Color orgColor;
 
     float menuSelectTimer = 0.2f;
     float instructScreensTimer = 1;
@@ -135,19 +136,19 @@ public class MenuSelect : MonoBehaviour
         {
             case 1:
                 option1.color = Color.black;
-                option2.color = Color.white;
-                option3.color = Color.white;
+                option2.color = orgColor;
+                option3.color = orgColor;
                 break;
 
             case 2:
-                option1.color = Color.white;
+                option1.color = orgColor;
                 option2.color = Color.black;
-                option3.color = Color.white;
+                option3.color = orgColor;
                 break;
 
             case 3:
-                option1.color = Color.white;
-                option2.color = Color.white;
+                option1.color = orgColor;
+                option2.color = orgColor;
                 option3.color = Color.black;
                 break;
 
