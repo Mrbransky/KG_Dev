@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour {
     public int playerCount = 0;
     public List<GameObject> currentPlayers;
     public GameObject currentGhostPlayer;
-    public GameObject ghostPrefab;
+    public GameObject ghostPrefab;    
+
     private bool[] isPlayerReadyArray;
     private int ghostPlayerIndex = -1;
 
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour {
     {
         handleCharacterSelectData();
         initializePlayers();
+
+        
     }
 
     private void handleCharacterSelectData()
@@ -125,7 +128,8 @@ public class GameManager : MonoBehaviour {
         source.Play(); 
 
         //Humans Win Music
-        soundManager.SOUND_MAN.switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
+        //soundManager.SOUND_MAN.switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
+        soundManager.SOUND_MAN.PlayHumanWinMusic();
         //soundManager.SOUND_MAN.playSound("HumanWinMusic", gameObject);
     }
 
@@ -143,7 +147,8 @@ public class GameManager : MonoBehaviour {
         source.Play(); 
 
         //Ghost Win Music
-        soundManager.SOUND_MAN.switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
+        //soundManager.SOUND_MAN.switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
+        soundManager.SOUND_MAN.PlayGhostWinMusic();
         //soundManager.SOUND_MAN.playSound("GhostWinMusic", gameObject);
     }
 

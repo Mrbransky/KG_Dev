@@ -7,6 +7,7 @@ public class soundManager : MonoBehaviour {
 	AkEvent theEvent;
 
     public bool MainMenuMusicPlaying;
+    public bool GameHasEnded;
 
 	// Use this for initialization
 
@@ -21,6 +22,8 @@ public class soundManager : MonoBehaviour {
 
 	void Start () 
     {
+        GameHasEnded = false;
+
 		AkBankManager.LoadBank ("KissyGhostBank");
         if (!SOUND_MAN.MainMenuMusicPlaying)
         {
@@ -31,37 +34,40 @@ public class soundManager : MonoBehaviour {
 		busID = AkSoundEngine.GetIDFromString ("toneBusParameter");
 		AkSoundEngine.SetMixer ("toneBusParameter", busID);*/
 
-        
         DontDestroyOnLoad(this.gameObject);
 	}
 
-	void Update () {
+	void Update () 
+    {
+
+#if UNITY_EDITOR
 		if (Input.GetKeyDown ("p")) {
 			AkSoundEngine.StopAll ();
 		}
+#endif
 
-        if (Application.loadedLevelName == "MainScene" )
+        if (Application.loadedLevelName == "MainScene" && !GameHasEnded)
         {
             switchVoid("MusicSwitch", "GameplayMusic", gameObject);
             MainMenuMusicPlaying = false;
         }
 
-        if (Application.loadedLevelName == "MainMenu" && !MainMenuMusicPlaying)
+        if (Application.loadedLevelName == "MainMenu" || Application.loadedLevelName == "Instructions" && !MainMenuMusicPlaying )
         {
             switchVoid("MusicSwitch", "MenuMusic", gameObject);
+            GameHasEnded = false;
             MainMenuMusicPlaying = true;
         }
 
-        if (Application.loadedLevelName == "human win scene goes here")
-        {
-            switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
-        }
+        //if (GameHasEnded && !WinMusicPlaying)
+        //{
+        //    if(HumansWonGame)
+        //        switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
+        //    else
+        //        switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
 
-        if (Application.loadedLevelName == "Ghost win scene goes here")
-        {
-            switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
-        }
-
+        //    WinMusicPlaying = true;
+        //}
 	}
 
 	public void playSound(string eventName, GameObject soundObject){
@@ -79,6 +85,18 @@ public class soundManager : MonoBehaviour {
 	public void switchVoid(string switchGroup, string switchState, GameObject colObject){
 		AkSoundEngine.SetSwitch (switchGroup, switchState, colObject);
 	}
+
+    public void PlayHumanWinMusic()
+    {
+        GameHasEnded = true;
+        switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
+    }
+
+    public void PlayGhostWinMusic()
+    {
+        GameHasEnded = true;
+        switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
+    }
 
 	public void attenParamSetUp(GameObject otherObj, string parameter){
 		float posX = gameObject.transform.position.x - otherObj.transform.position.x;
