@@ -23,6 +23,7 @@ public class CharacterSelectManager : MonoBehaviour
     // General
     public HeartZoomTransition _HeartZoomTransition;
     private bool[] isPlayerReadyArray;
+    private bool PlayerHasStartedGame;
     private int playerCount = 0;
     private int ghostPlayerIndex = -1;
     private CharacterSelectStates currentCharSelectState = CharacterSelectStates.WaitingForPlayers;
@@ -183,10 +184,17 @@ public class CharacterSelectManager : MonoBehaviour
         switch ((int)currentCharSelectState)
         {
             case (int)CharacterSelectStates.WaitingForPlayers:
-                if (Input.GetButtonDown("Start") && playerCount >= MIN_PLAYER_COUNT_TO_START)
+
+                if (playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
-                    startGame();
-                    soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                    for (int i = 0; i < isPlayerReadyArray.Length; i++)
+                    {
+                        if (isPlayerReadyArray[i] && InputMapper.GrabVal(XBOX360_BUTTONS.X, i + 1))
+                        {
+                            startGame();
+                            soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                        }
+                    }
                 }
 
                 checkIfPlayerReady();
