@@ -107,19 +107,19 @@ public class Human : Player
             {
                 PutItemDown(HeldItemName);
             }
-            else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, this.playerNum))
-            {
-                ThrowItem(HeldItemName);
-            }
+            //else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, this.playerNum))
+            //{
+            //    ThrowItem(HeldItemName);
+            //}
 #if UNITY_EDITOR
             else if (Input.GetKeyDown(ItemPickUpKeycode))
             {
                 PutItemDown(HeldItemName);
             }
-            else if (Input.GetKeyDown(ItemThrowKeycode))
-            {
-                ThrowItem(HeldItemName);
-            }
+            //else if (Input.GetKeyDown(ItemThrowKeycode))
+            //{
+            //    ThrowItem(HeldItemName);
+            //}
 #endif
         }
 
@@ -186,27 +186,27 @@ public class Human : Player
 
     void ThrowItem(string itemName)
     {
-        this.IsCarryingItem = false;
-        Transform childTransform = transform.FindChild(itemName);
-        gameObject.GetComponentInChildren<ThrowableItem>().lastParentVector = moveDir;
-
-#if UNITY_EDITOR
-        gameObject.GetComponentInChildren<ThrowableItem>().lastParentVector = debugMoveDir;
-#endif
-
-        childTransform.transform.parent = null;
-        childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
-
-        ThrowableItem _ThrowableItem = childTransform.GetComponent<ThrowableItem>();
+        ThrowableItem _ThrowableItem = gameObject.GetComponentInChildren<ThrowableItem>();
         if (_ThrowableItem != null)
         {
+            this.IsCarryingItem = false;
+            Transform childTransform = _ThrowableItem.transform;
+            _ThrowableItem.lastParentVector = moveDir;
+
+#if UNITY_EDITOR
+            _ThrowableItem.lastParentVector = debugMoveDir;
+#endif
+
+            childTransform.parent = null;
+            childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
+
             _ThrowableItem.enabled = true;
             _ThrowableItem.ThrowItem(FacingRight);
+
+            HeldItemName = "";
+
+            timeBetweenItemInteract = 1;
         }
-
-        HeldItemName = "";
-
-        timeBetweenItemInteract = 1;
     }
 
     void OnTriggerStay2D(Collider2D col)
