@@ -318,7 +318,9 @@ public class CharacterSelectManager : MonoBehaviour
 
             ReadyTextArray[playerIndex].color = Color.black;
             ButtonImageArray[playerIndex].color = transparentColor;
+            ButtonImageArray[playerIndex].GetComponent<UIFlasher>().enabled = false;
             buttonTextArray[playerIndex].color = transparentColor;
+            buttonTextArray[playerIndex].GetComponent<UIFlasher>().enabled = false;
 
             if (playerCount == MIN_PLAYER_COUNT_TO_START)
             {
@@ -331,7 +333,9 @@ public class CharacterSelectManager : MonoBehaviour
 
             ReadyTextArray[playerIndex].color = transparentColor;
             ButtonImageArray[playerIndex].color = Color.white;
+            ButtonImageArray[playerIndex].GetComponent<UIFlasher>().enabled = true;
             buttonTextArray[playerIndex].color = Color.black;
+            buttonTextArray[playerIndex].GetComponent<UIFlasher>().enabled = true;
 
             if (playerCount < MIN_PLAYER_COUNT_TO_START)
             {

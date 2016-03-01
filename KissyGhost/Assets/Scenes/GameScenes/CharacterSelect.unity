@@ -148,6 +148,45 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15158760}
+--- !u!1 &58917185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 58917187}
+  - 114: {fileID: 58917186}
+  m_Layer: 0
+  m_Name: UIFlasher_Reference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &58917186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58917185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e829b38c0773adb48a08ddfd73788ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &58917187
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58917185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1001 &164098957
 Prefab:
   m_ObjectHideFlags: 0
@@ -643,6 +682,7 @@ GameObject:
   - 224: {fileID: 463970339}
   - 222: {fileID: 463970341}
   - 114: {fileID: 463970340}
+  - 114: {fileID: 463970342}
   m_Layer: 5
   m_Name: ButtonImage_P1
   m_TagString: Untagged
@@ -698,6 +738,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 463970338}
+--- !u!114 &463970342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 463970338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &562283154
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +761,7 @@ GameObject:
   - 224: {fileID: 562283155}
   - 222: {fileID: 562283157}
   - 114: {fileID: 562283156}
+  - 114: {fileID: 562283158}
   m_Layer: 5
   m_Name: PressToStartButton
   m_TagString: Untagged
@@ -764,6 +818,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562283154}
+--- !u!114 &562283158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562283154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &568480208
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +985,7 @@ GameObject:
   - 224: {fileID: 755605793}
   - 222: {fileID: 755605795}
   - 114: {fileID: 755605794}
+  - 114: {fileID: 755605796}
   m_Layer: 5
   m_Name: ButtonText_P1
   m_TagString: Untagged
@@ -974,6 +1042,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 755605792}
+--- !u!114 &755605796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 755605792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &790761038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1367,7 @@ GameObject:
   - 224: {fileID: 1229978349}
   - 222: {fileID: 1229978351}
   - 114: {fileID: 1229978350}
+  - 114: {fileID: 1229978352}
   m_Layer: 5
   m_Name: ButtonText_P4
   m_TagString: Untagged
@@ -1342,6 +1424,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1229978348}
+--- !u!114 &1229978352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229978348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1001 &1236611986
 Prefab:
   m_ObjectHideFlags: 0
@@ -1552,6 +1647,7 @@ GameObject:
   - 224: {fileID: 1334421505}
   - 222: {fileID: 1334421507}
   - 114: {fileID: 1334421506}
+  - 114: {fileID: 1334421508}
   m_Layer: 5
   m_Name: ButtonText_P2
   m_TagString: Untagged
@@ -1608,6 +1704,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334421504}
+--- !u!114 &1334421508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1334421504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &1354559569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,6 +2330,7 @@ GameObject:
   - 224: {fileID: 1727547399}
   - 222: {fileID: 1727547398}
   - 114: {fileID: 1727547397}
+  - 114: {fileID: 1727547400}
   m_Layer: 5
   m_Name: ButtonImage_P2
   m_TagString: Untagged
@@ -2276,6 +2386,19 @@ RectTransform:
   m_AnchoredPosition: {x: 268.5, y: -321.5}
   m_SizeDelta: {x: 34, y: 34}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &1727547400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1727547396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &1737544822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,6 +2409,7 @@ GameObject:
   - 224: {fileID: 1737544823}
   - 222: {fileID: 1737544825}
   - 114: {fileID: 1737544824}
+  - 114: {fileID: 1737544826}
   m_Layer: 5
   m_Name: PressToStartText
   m_TagString: Untagged
@@ -2338,6 +2462,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1737544822}
+--- !u!114 &1737544826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1737544822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &1752853537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2566,7 @@ GameObject:
   - 224: {fileID: 1834165162}
   - 222: {fileID: 1834165164}
   - 114: {fileID: 1834165163}
+  - 114: {fileID: 1834165165}
   m_Layer: 5
   m_Name: ButtonText_P3
   m_TagString: Untagged
@@ -2485,6 +2623,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1834165161}
+--- !u!114 &1834165165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834165161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &1844976847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,6 +2800,7 @@ GameObject:
   - 224: {fileID: 1872256940}
   - 222: {fileID: 1872256942}
   - 114: {fileID: 1872256941}
+  - 114: {fileID: 1872256943}
   m_Layer: 5
   m_Name: ButtonImage_P4
   m_TagString: Untagged
@@ -2704,6 +2856,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1872256939}
+--- !u!114 &1872256943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872256939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!1 &1876254472
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,6 +3260,7 @@ GameObject:
   - 224: {fileID: 2034348372}
   - 222: {fileID: 2034348374}
   - 114: {fileID: 2034348373}
+  - 114: {fileID: 2034348375}
   m_Layer: 5
   m_Name: ButtonImage_P3
   m_TagString: Untagged
@@ -3150,6 +3316,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2034348371}
+--- !u!114 &2034348375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2034348371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030dbd93974b440b45e4254ff63ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UIFlasherReference: {fileID: 58917186}
+  targetAlpha: .5
 --- !u!212 &2099201163 stripped
 SpriteRenderer:
   m_PrefabParentObject: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4,

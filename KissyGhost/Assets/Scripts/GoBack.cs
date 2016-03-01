@@ -14,8 +14,8 @@ public class GoBack : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Escape) || Input.GetKey("joystick button 1"))
         {
+            _HeartZoomTransition.enabled = true;
             _HeartZoomTransition.StartHeartZoomIn(0);
 		}
-
 	}
 }
