@@ -749,6 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c159b97a03837a043a04dcd39dab0e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _VideoOnDelay: {fileID: 1318419809}
   _HeartZoomTransition: {fileID: 1410771319}
   option1: {fileID: 1347978025}
   option2: {fileID: 2146403200}
@@ -1206,7 +1207,7 @@ GameObject:
   - 23: {fileID: 1318419805}
   - 114: {fileID: 1318419809}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: MoviePlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,6 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf20198659d0a874389e07e2e2a232a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _HeartZoomTransition: {fileID: 1410771319}
 --- !u!1 &1323450317
 GameObject:
   m_ObjectHideFlags: 0

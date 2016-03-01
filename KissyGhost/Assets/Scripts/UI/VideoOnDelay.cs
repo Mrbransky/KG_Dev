@@ -1,49 +1,73 @@
 ﻿using UnityEngine;
 using System.Collections;
+using XInputDotNetPure;
 
-public class VideoOnDelay : MonoBehaviour {
+public class VideoOnDelay : MonoBehaviour
+{
+    private const int NUMBER_OF_GAMEPAD_BUTTONS = 20;
 
-    
-    bool noInputAfterTime = false;
-    float MenuTimer = 5;
+    public HeartZoomTransition _HeartZoomTransition;
 
-	void Update () {
+    private Renderer myRenderer;
+    private MovieTexture myMovieTexture;
+    private bool noInputAfterTime = false;
+    private float MenuTimer = 5;
 
-        TimerForVideo();
+    public bool IsMoviePlaying
+    {
+        get { return myMovieTexture.isPlaying; }
+    }
 
-	}
+    void Awake()
+    {
+        myRenderer = GetComponent<Renderer>();
+        myMovieTexture = (MovieTexture)myRenderer.material.mainTexture;
+    }
+
+    void Update()
+    {
+        if (!_HeartZoomTransition.enabled)
+        {
+            TimerForVideo();
+        }
+    }
 
     void TimerForVideo()
     {
-        Renderer r = GetComponent<Renderer>();
-        MovieTexture movie = (MovieTexture)r.material.mainTexture;
-
         if (!noInputAfterTime)
         {
             MenuTimer -= Time.deltaTime;
-            r.enabled = false;
+            myRenderer.enabled = false;
 
             if (MenuTimer <= 0)
             {
                 noInputAfterTime = true;
-                r.enabled = true;
+                myRenderer.enabled = true;
                 
                 MenuTimer = 5;
-
+                myMovieTexture.Play();
             }
         }
-        else
-        {
-            movie.Play();
-        }
-
-
-        if (Input.anyKey)
+        
+        if (Input.anyKeyDown || (noInputAfterTime && !myMovieTexture.isPlaying) || anyGamepadButtonDown())
         {
             noInputAfterTime = false;
             MenuTimer = 5;
-            movie.Stop();
-            r.enabled = false;
+            myMovieTexture.Stop();
+            myRenderer.enabled = false;
         }
+    }
+
+    private bool anyGamepadButtonDown()
+    {
+        for (int i = 0; i < NUMBER_OF_GAMEPAD_BUTTONS; ++i)
+        {
+            if (Input.GetKeyDown("joystick button " + i))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

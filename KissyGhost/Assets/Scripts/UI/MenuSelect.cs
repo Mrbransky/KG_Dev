@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class MenuSelect : MonoBehaviour
 {
+    public VideoOnDelay _VideoOnDelay;
     public HeartZoomTransition _HeartZoomTransition;
     public Image option1, option2, option3;
     //public AudioSource audio;
@@ -35,7 +36,7 @@ public class MenuSelect : MonoBehaviour
 
     void Update()
     {
-        if (_HeartZoomTransition.enabled)
+        if (_HeartZoomTransition.enabled || _VideoOnDelay.IsMoviePlaying)
         {
             return;
         }
@@ -97,7 +98,7 @@ public class MenuSelect : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
         {
             //Menu Confirm Sound
             soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
