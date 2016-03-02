@@ -361,7 +361,9 @@ public class CharacterSelectManager : MonoBehaviour
         {
             ReadyTextArray[i].color = transparentColor;
             ButtonImageArray[i].color = transparentColor;
+            ButtonImageArray[i].GetComponent<UIFlasher>().enabled = false;
             buttonTextArray[i].color = transparentColor;
+            buttonTextArray[i].GetComponent<UIFlasher>().enabled = false;
             PlayerNumTextArray[i].enabled = false;
         }
     }
