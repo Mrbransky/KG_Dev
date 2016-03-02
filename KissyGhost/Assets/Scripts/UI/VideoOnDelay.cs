@@ -13,7 +13,7 @@ public class VideoOnDelay : MonoBehaviour
     private Renderer myRenderer;
     private MovieTexture myMovieTexture;
     private bool noInputAfterTime = false;
-    private float MenuTimer = 5;
+    private float MenuTimer = 20;
 
     public bool IsMoviePlaying
     {

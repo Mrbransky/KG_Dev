@@ -1229,7 +1229,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 235e83c8d9e0ff0459fc40cef4144a6a, type: 2}
+  - {fileID: 2100000, guid: 3b81cec325f57d64e800f24f08276a97, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1269,8 +1269,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1318419804}
   m_LocalRotation: {x: 3.7252903e-08, y: .70710659, z: -.707107008, w: -4.46748984e-08}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -.00999999978, z: -0}
+  m_LocalScale: {x: .884216607, y: 1, z: .666469038}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeartZoomTransition: {fileID: 1410771319}
-  IsMovieEnabled: 0
+  IsMovieEnabled: 1
   IsMovieLoopable: 1
 --- !u!1 &1323450317
 GameObject:
