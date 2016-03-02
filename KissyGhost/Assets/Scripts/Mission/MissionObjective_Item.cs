@@ -4,7 +4,7 @@ using System.Collections;
 public class MissionObjective_Item : MonoBehaviour
 {
     public int MissionObjectiveListIndex = -1;
-    public bool IsItemPlacedDown = false;
+    private bool isItemPlacedDown = false;
 
     public bool isAnimated = false;
     public Sprite HighlightedSprite;
@@ -28,7 +28,7 @@ public class MissionObjective_Item : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (IsItemPlacedDown)
+        if (isItemPlacedDown)
         {
             MissionObjective_ItemNode itemNodeScript = col.GetComponent<MissionObjective_ItemNode>();
 
@@ -50,6 +50,16 @@ public class MissionObjective_Item : MonoBehaviour
                 Destroy(GetComponent<Collider2D>());
             }
         }
+    }
+
+    public void PickItemUp()
+    {
+        isItemPlacedDown = false;
+    }
+
+    public void PlaceItemDown()
+    {
+        isItemPlacedDown = true;
     }
 
     private void turnHighlightOn()

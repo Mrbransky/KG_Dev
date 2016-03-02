@@ -28,7 +28,9 @@ public class Human : Player
     }
     public bool IsPullingSwitch;
 
-    string HeldItemName;
+    private string HeldItemName;
+    private SpriteRenderer mySpriteRenderer;
+    private SpriteRenderer heldItemSpriteRenderer;
 
     public float timeBetweenItemInteract;
     private SpriteRenderer interactButtonPromptSpriteRenderer;
@@ -45,7 +47,8 @@ public class Human : Player
         FacingRight = false;
         IsPullingSwitch = false;
 
-        defaultSpriteColor = GetComponent<SpriteRenderer>().color;
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        defaultSpriteColor = mySpriteRenderer.color;
         invulnSpriteColor = defaultSpriteColor;
         invulnSpriteColor.a /= 2;
 
@@ -100,6 +103,11 @@ public class Human : Player
     {
         // Handling sort order in SpriteSorter.cs
         // gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(-transform.localPosition.y+1);
+
+        if (heldItemSpriteRenderer != null)
+        {
+            heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
+        }
         
         if (IsCarryingItem && timeBetweenItemInteract == 0)
         {
@@ -158,8 +166,9 @@ public class Human : Player
         obj.transform.parent = transform;
         obj.transform.localPosition = new Vector3(0, .75f, 0);
         obj.transform.localScale = new Vector3(1, 1, 1);
-        obj.GetComponent<SpriteRenderer>().sortingOrder = this.gameObject.GetComponent<SpriteRenderer>().sortingOrder + 1;
-        obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown = false;
+        heldItemSpriteRenderer = obj.GetComponent<SpriteRenderer>();
+        heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
+        obj.GetComponent<MissionObjective_Item>().PickItemUp();
         obj.GetComponent<Rigidbody2D>().isKinematic = true;
         HeldItemName = obj.name;
 
@@ -172,11 +181,12 @@ public class Human : Player
     void PutItemDown(string itemName)
     {
         this.IsCarryingItem = false;
-        Transform childTransform = transform.FindChild(itemName);
+        Transform childTransform = heldItemSpriteRenderer.transform;
         childTransform.localPosition = new Vector3(interactTrigger.offset.x, interactTrigger.offset.y, 1);
-        childTransform.transform.parent = null;
-        childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
+        childTransform.parent = null;
+        childTransform.GetComponent<MissionObjective_Item>().PlaceItemDown();
         HeldItemName = "";
+        heldItemSpriteRenderer = null;
 
         timeBetweenItemInteract = 0.1f;
 
@@ -198,7 +208,7 @@ public class Human : Player
 #endif
 
             childTransform.parent = null;
-            childTransform.GetComponent<MissionObjective_Item>().IsItemPlacedDown = true;
+            childTransform.GetComponent<MissionObjective_Item>().PlaceItemDown();
 
             _ThrowableItem.enabled = true;
             _ThrowableItem.ThrowItem(FacingRight);

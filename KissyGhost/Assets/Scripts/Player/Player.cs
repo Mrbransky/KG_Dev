@@ -27,6 +27,7 @@ public class Player : Entity
 
     public BoxCollider2D interactTrigger;
     public CircleCollider2D bodyCol;
+    public MoveInteractTrigger _MoveInteractTrigger;
 
     public int playerNum;
     public bool FacingRight
@@ -55,6 +56,7 @@ public class Player : Entity
 
         interactTrigger = transform.Find("Interact").GetComponent<BoxCollider2D>();
         bodyCol = GetComponent<CircleCollider2D>();
+        _MoveInteractTrigger = interactTrigger.GetComponent<MoveInteractTrigger>();
 
         Canvas playerCanvas = GetComponentInChildren<Canvas>();
         if (playerCanvas != null)
