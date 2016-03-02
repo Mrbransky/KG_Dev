@@ -1,0 +1,51 @@
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: ATI FirePro V (FireGL V) Graphics Adapter (ID=0x6707)
+    Vendor:   ATI
+    VRAM:     2035 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.144 seconds
+desktop: 1280x1024 60Hz; virtual: 2560x1024 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\Managed\System.dll (this message is harmless)
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1715)
+
+WwiseUnity: Initialize sound engine ...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WwiseUnity: Setting base SoundBank path to C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\audiotest_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows\
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WwiseUnity: Sound engine initialized.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
