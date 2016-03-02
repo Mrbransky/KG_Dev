@@ -7,6 +7,8 @@ public class VideoOnDelay : MonoBehaviour
     private const int NUMBER_OF_GAMEPAD_BUTTONS = 20;
 
     public HeartZoomTransition _HeartZoomTransition;
+    public bool IsMovieEnabled = true;
+    public bool IsMovieLoopable = true;
 
     private Renderer myRenderer;
     private MovieTexture myMovieTexture;
@@ -22,11 +24,12 @@ public class VideoOnDelay : MonoBehaviour
     {
         myRenderer = GetComponent<Renderer>();
         myMovieTexture = (MovieTexture)myRenderer.material.mainTexture;
+        myMovieTexture.loop = IsMovieLoopable;
     }
 
     void Update()
     {
-        if (!_HeartZoomTransition.enabled)
+        if (IsMovieEnabled && !_HeartZoomTransition.enabled)
         {
             TimerForVideo();
         }
@@ -46,11 +49,12 @@ public class VideoOnDelay : MonoBehaviour
                 
                 MenuTimer = 5;
                 myMovieTexture.Play();
-                myMovieTexture.loop = true;
             }
         }
         
-        if (Input.anyKeyDown || (noInputAfterTime && !myMovieTexture.isPlaying) || anyGamepadButtonDown())
+        if (Input.anyKeyDown || 
+            (!IsMovieLoopable && noInputAfterTime && !myMovieTexture.isPlaying) || 
+            anyGamepadButtonDown())
         {
             noInputAfterTime = false;
             MenuTimer = 5;
