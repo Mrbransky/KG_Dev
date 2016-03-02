@@ -21,6 +21,8 @@ public class KissableFurniture : MonoBehaviour
     private float timeSinceKiss;
     private GameManager _GameManager;
 
+    private Transform Heart_Fountain;
+
     private Furniture_FollowPlayer followPlayerBehavior;
     private Furniture_Shoot shootBehavior;
 
@@ -52,6 +54,9 @@ public class KissableFurniture : MonoBehaviour
                 }
                 break;
         }
+
+        Heart_Fountain = transform.FindChild("Heart_Fountain");
+        Heart_Fountain.gameObject.SetActive(false);
     }
 
     void Update()
@@ -130,6 +135,7 @@ public class KissableFurniture : MonoBehaviour
         }
 
         //Start Playing Furniture sliding sound
+        Heart_Fountain.gameObject.SetActive(true);
         soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
     }
 
@@ -165,6 +171,8 @@ public class KissableFurniture : MonoBehaviour
                 shootBehavior.enabled = false;
                 break;
         }
+
+        Heart_Fountain.gameObject.SetActive(false);
 
         //Stop Furniture sliding sound
         
