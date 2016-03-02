@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public bool didHumansWin;
     public Text winnerNameText;
     public HeartZoomTransition _HeartZoomTransition;
+    public SpriteSorter _SpriteSorter;
 
     public AudioClip[] music;
 
@@ -88,6 +89,14 @@ public class GameManager : MonoBehaviour {
                 {
                     currentPlayers.Add(players[i]);
                 }
+            }
+        }
+
+        if (_SpriteSorter != null)
+        {
+            foreach (GameObject playerObject in currentPlayers)
+            {
+                _SpriteSorter.AddToAllLists(playerObject.GetComponent<SpriteRenderer>());
             }
         }
 

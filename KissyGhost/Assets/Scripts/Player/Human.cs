@@ -98,8 +98,8 @@ public class Human : Player
 
     public override void Update() 
     {
-
-        gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(-transform.localPosition.y+1);
+        // Handling sort order in SpriteSorter.cs
+        // gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(-transform.localPosition.y+1);
         
         if (IsCarryingItem && timeBetweenItemInteract == 0)
         {

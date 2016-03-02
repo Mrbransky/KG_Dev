@@ -16,6 +16,7 @@ public class RoomGenerator : MonoBehaviour
 	public GameObject LeftBaseRoomPiece;
     public GameObject RightBaseRoomPiece;
 	public GameObject MainBaseRoomPiece;
+    public SpriteSorter _SpriteSorter;
 
     //Furniture list
 	public List<GameObject> currentFurniture;
@@ -67,36 +68,40 @@ public class RoomGenerator : MonoBehaviour
         GenerateInternals(BottomBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, BottomBaseRoomPiece.transform.position, RoomTypes.Bottom);
         
         initializeMissionManager();
+
+        if (_SpriteSorter != null)
+        {
+            _SpriteSorter.isInitialized = true;
+        }
     }
 
     public void GenerateInternals(Vector2 RoomSize, Vector2 roomCenterPoint, RoomTypes roomType)
 	{
-
         switch ((int)roomType)
         {
             case (int)RoomTypes.Left:
                 spawnSpecItem(0, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
-                spawnFurniture(LeftBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
+                spawnFurniture(LeftBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5, roomType);
                 break;
 
             case (int)RoomTypes.Right:
                 spawnSpecItem(1, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
-                spawnFurniture(RightBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
+                spawnFurniture(RightBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5, roomType);
                 break;
 
             case (int)RoomTypes.Bottom:
                 spawnSpecItem(2, roomCenterPoint, RoomSize.x - 8, RoomSize.y - 8, RoomSize.y - 8);
-                spawnFurniture(BottomBaseRoomPiece, roomCenterPoint, RoomSize.x - 8, RoomSize.y - 8, RoomSize.y - 8);
+                spawnFurniture(BottomBaseRoomPiece, roomCenterPoint, RoomSize.x - 8, RoomSize.y - 8, RoomSize.y - 8, roomType);
                 break;
 
             case (int)RoomTypes.Center:
                 spawnSpecItem(3, roomCenterPoint, RoomSize.x - 2, RoomSize.y - 2, RoomSize.y - 6);
-                spawnFurniture(MainBaseRoomPiece, roomCenterPoint, RoomSize.x - 2, RoomSize.y - 2, RoomSize.y - 5);
+                spawnFurniture(MainBaseRoomPiece, roomCenterPoint, RoomSize.x - 2, RoomSize.y - 2, RoomSize.y - 5, roomType);
                 break;
         }
 	}
 
-    private void spawnFurniture(GameObject roomObject, Vector2 roomCenterPoint, float newPos_x_delta, float newPos_y_delta1, float newPos_y_delta2)
+    private void spawnFurniture(GameObject roomObject, Vector2 roomCenterPoint, float newPos_x_delta, float newPos_y_delta1, float newPos_y_delta2, RoomTypes roomType)
     {
         Vector2 newPos = Vector2.zero;
 
@@ -106,10 +111,31 @@ public class RoomGenerator : MonoBehaviour
             newPos = getFurniturePos(roomCenterPoint, newPos_x_delta, newPos_y_delta1, newPos_y_delta2);
             GameObject newFurniture = (GameObject)Instantiate(FurnitureToSpawn, newPos, Quaternion.identity);
 
-
             if (newFurniture.tag == "Furniture")
             {
                 newFurniture.GetComponent<SpriteRenderer>().sortingOrder = (int)(-newFurniture.transform.localPosition.y);
+
+                if (_SpriteSorter != null)
+                {
+                    switch ((int)roomType)
+                    {
+                        case (int)RoomTypes.Left:
+                            _SpriteSorter.LeftRoom_SpriteRendererList.Add(newFurniture.GetComponent<SpriteRenderer>());
+                            break;
+
+                        case (int)RoomTypes.Right:
+                            _SpriteSorter.RightRoom_SpriteRendererList.Add(newFurniture.GetComponent<SpriteRenderer>());
+                            break;
+
+                        case (int)RoomTypes.Bottom:
+                            _SpriteSorter.BottomRoom_SpriteRendererList.Add(newFurniture.GetComponent<SpriteRenderer>());
+                            break;
+
+                        case (int)RoomTypes.Center:
+                            _SpriteSorter.CenterRoom_SpriteRendererList.Add(newFurniture.GetComponent<SpriteRenderer>());
+                            break;
+                    }
+                }
             }
             else
             {
@@ -155,6 +181,11 @@ public class RoomGenerator : MonoBehaviour
 
         GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[index], specPos, Quaternion.identity);
         GetComponent<MissionManager>().AddMissionObjective(specialItem);    
+
+        if (_SpriteSorter != null)
+        {
+            _SpriteSorter.AddToAllLists(specialItem.GetComponent<SpriteRenderer>());
+        }
     }
 
     private void initializeMissionManager()

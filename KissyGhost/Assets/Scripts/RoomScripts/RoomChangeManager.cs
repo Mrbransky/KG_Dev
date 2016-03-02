@@ -49,6 +49,11 @@ public class RoomChangeManager : MonoBehaviour
 
     int curPlayerCount;
 
+    public RoomLocations CurrentRoomLocation
+    {
+        get { return currentRoomLocation; }
+    }
+
     void Start()
     {
         SetDoorAlphas(0f);
