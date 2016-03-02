@@ -279,7 +279,16 @@ public class CharacterSelectManager : MonoBehaviour
     {
         for (int i = 1; i <= MAX_PLAYER_COUNT; ++i)
         {
-            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && !isPlayerReadyArray[i - 1])
+            if(InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && InputMapper.GrabVal(XBOX360_BUTTONS.B, i))
+            {
+                if(isPlayerReadyArray[i-1])
+                {
+                    updateUI_playerReady(i - 1, false);
+                    soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
+                }
+            }
+
+            else if (InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && !isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, true);
                 StartCoroutine(InputMapper.Vibration(i, .2f, 0, .8f));

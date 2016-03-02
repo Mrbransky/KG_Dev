@@ -172,7 +172,7 @@ public class Human : Player
         obj.GetComponent<Rigidbody2D>().isKinematic = true;
         HeldItemName = obj.name;
 
-        timeBetweenItemInteract = 0.1f;
+        timeBetweenItemInteract = 0.25f;
 
         //Item Pick up Sound
         soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
@@ -188,7 +188,7 @@ public class Human : Player
         HeldItemName = "";
         heldItemSpriteRenderer = null;
 
-        timeBetweenItemInteract = 0.1f;
+        timeBetweenItemInteract = 0.25f;
 
         //Put Item Down Sound
         soundManager.SOUND_MAN.playSound("Play_Item_Down", gameObject);

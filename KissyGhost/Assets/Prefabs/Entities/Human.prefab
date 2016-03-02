@@ -803,13 +803,15 @@ MonoBehaviour:
   accelRate: .25
   decelRate: .25
   debugMoveDir: {x: 0, y: 0}
+  debugCurrentSpeed: 0
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
+  _MoveInteractTrigger: {fileID: 0}
   playerNum: 4
   invulnerabilityDuration: 1.5
   IsCarryingItem: 0
   IsPullingSwitch: 0
-  timeBetweenItemInteract: 0
+  timeBetweenItemInteract: .25
   ItemPickUpKeycode: 122
   ItemThrowKeycode: 120
 --- !u!114 &11484480
@@ -1288,6 +1290,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: VertReach
       value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timeBetweenItemInteract
+      value: .25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

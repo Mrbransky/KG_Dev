@@ -141,6 +141,7 @@ public class KissableFurniture : MonoBehaviour
             OnFurnitureUnkissed();
         }
 		AkSoundEngine.PostEvent ("Stop_FurnitureMove", gameObject);
+
         //soundManager.SOUND_MAN.stopSound("Play_FurnitureMove", gameObject, 1);
     }
 
