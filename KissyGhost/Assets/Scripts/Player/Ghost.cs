@@ -89,6 +89,7 @@ public class Ghost : Player
         return currentSpeed * SpeedReduction;
     }
 
+#if UNITY_EDITOR
     private float DebugSlowGhostDown(float SpeedReduction)
     {
         if (SpeedReduction > 100) SpeedReduction = 100;
@@ -98,4 +99,5 @@ public class Ghost : Player
 
         return debugCurrentSpeed * SpeedReduction;
     }
+#endif
 }
