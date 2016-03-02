@@ -22,6 +22,7 @@ public class RoomGenerator : MonoBehaviour
 	public List<GameObject> currentFurniture;
 	public int numberOfFurniture = 3;
     public GameObject[] furnitureOptions;
+    public bool IsRugsEnabledInCenterRoom = true;
 
     //Special Items
     public List<GameObject> AllSpecialItems;
@@ -137,9 +138,15 @@ public class RoomGenerator : MonoBehaviour
                     }
                 }
             }
-            else
+            else if (IsRugsEnabledInCenterRoom || roomType != RoomTypes.Center)
             {
                 newFurniture.GetComponent<SpriteRenderer>().sortingOrder = -20;
+            }
+            else
+            {
+                Destroy(newFurniture);
+                --i;
+                continue;
             }
 
             currentFurniture.Add(newFurniture);

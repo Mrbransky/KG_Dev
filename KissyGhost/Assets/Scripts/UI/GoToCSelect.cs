@@ -23,10 +23,6 @@ public class GoToCSelect : MonoBehaviour
             _HeartZoomTransition.StartHeartZoomIn(2);
             soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
-
 #if UNITY_EDITOR
         else if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -35,5 +31,8 @@ public class GoToCSelect : MonoBehaviour
             soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
         }
 #endif
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
 	}
 }

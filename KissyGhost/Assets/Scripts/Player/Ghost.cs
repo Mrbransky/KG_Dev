@@ -45,7 +45,11 @@ public class Ghost : Player
 
         if (TouchingFurniture && currentSpeed > 1.5f)
             currentSpeed = SlowGhostDown(SpeedReducePercent);
-	}
+#if UNITY_EDITOR
+        else if (TouchingFurniture && debugCurrentSpeed > 1.5f)
+            debugCurrentSpeed = DebugSlowGhostDown(SpeedReducePercent);
+#endif
+    }
     
     private bool canKissObject()
     {
@@ -85,4 +89,13 @@ public class Ghost : Player
         return currentSpeed * SpeedReduction;
     }
 
+    private float DebugSlowGhostDown(float SpeedReduction)
+    {
+        if (SpeedReduction > 100) SpeedReduction = 100;
+        else if (SpeedReduction < 0) SpeedReduction = 0;
+
+        SpeedReduction = SpeedReduction / 100f;
+
+        return debugCurrentSpeed * SpeedReduction;
+    }
 }

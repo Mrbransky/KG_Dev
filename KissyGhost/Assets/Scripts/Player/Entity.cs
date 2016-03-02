@@ -16,7 +16,7 @@ public class Entity : MonoBehaviour
 #region Keyboard Input Related Variables (for Debugging)
 #if UNITY_EDITOR
     public Vector2 debugMoveDir;
-    private float debugCurrentSpeed;
+    public float debugCurrentSpeed;
     private Vector2 debugcachedMoveDir;
 #endif
 #endregion
