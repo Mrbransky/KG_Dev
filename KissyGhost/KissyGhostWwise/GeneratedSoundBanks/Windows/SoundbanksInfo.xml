@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="10" SoundbankVersion="113">
 	<RootPaths>
-		<ProjectRoot>C:\Users\thomas.barrett\Desktop\hub\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\thomas.barrett\Desktop\hub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\thomas.barrett\Desktop\hub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\thomas.barrett\Desktop\hub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
