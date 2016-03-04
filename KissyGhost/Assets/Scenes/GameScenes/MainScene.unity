@@ -4455,7 +4455,8 @@ MonoBehaviour:
   theCamera: {fileID: 1518960077}
   height: 5
   distance: 0
-  speed: 1
+  heightSpeed: 1
+  smoothDampSpeed: .5
   offset: 0
 --- !u!1 &1567667441
 GameObject:

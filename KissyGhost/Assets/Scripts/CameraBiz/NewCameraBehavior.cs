@@ -12,9 +12,12 @@ public class NewCameraBehavior : MonoBehaviour {
     public float height = 5.0f;
     Vector3 avgDistance;
     public float distance = 0.0f;                    // Default Distance 
-    public int speed = 1;
+    public int heightSpeed = 1;
+    public float smoothDampSpeed = 1.0f;
     public float offset;
-    float yVelocity = 0.0f;
+    private float yVelocity = 0.0f;
+    private float xVelocity = 0.0f;
+    private float dVelocity = 0.0f;
 	void Start () {
 	        
         targets.AddRange(GameObject.FindGameObjectsWithTag("Player")); 
@@ -56,24 +59,26 @@ public class NewCameraBehavior : MonoBehaviour {
 
         float largestDifference = returnLargestDifference();
 
-        height = Mathf.Lerp(height, largestDifference, Time.deltaTime * speed);
+        height = Mathf.Lerp(height, largestDifference, Time.deltaTime * heightSpeed);
 
         if (targets.Count > 1)
         {
             if (isOrthographic)
             {
 
-                theCamera.transform.position = new Vector3(avgDistance.x,theCamera.transform.position.y,theCamera.transform.position.z);
-
-                theCamera.orthographicSize = largestDifference;
+                float targetSize = Mathf.SmoothDamp(theCamera.orthographicSize, largestDifference, ref dVelocity, smoothDampSpeed);
+                theCamera.orthographicSize = targetSize;
                 if (theCamera.orthographicSize >= 10f)
                 { theCamera.orthographicSize = 10f; }
                 if (theCamera.orthographicSize <= 3f)
                 { theCamera.orthographicSize = 3f; }
+                float newXDampedPos = Mathf.SmoothDamp(theCamera.transform.position.x, avgDistance.x, ref xVelocity, smoothDampSpeed);
+                float newYDampedPos = Mathf.SmoothDamp(theCamera.transform.position.y, avgDistance.y, ref yVelocity, smoothDampSpeed);
 
-                theCamera.transform.position = new Vector3(theCamera.transform.position.x, avgDistance.y,theCamera.transform.position.z);
+                theCamera.transform.position = new Vector3(newXDampedPos, newYDampedPos, theCamera.transform.position.z);
 
-                theCamera.transform.LookAt(avgDistance);
+
+                //theCamera.transform.LookAt(avgDistance);
 
             }
             else
@@ -102,6 +107,7 @@ public class NewCameraBehavior : MonoBehaviour {
 
         largestDistance = 0.0f;
 
+
         for (int i = 0; i < targets.Count; i++)
         {
 
@@ -112,7 +118,6 @@ public class NewCameraBehavior : MonoBehaviour {
 
                 if (currentDistance > largestDistance)
                 {
-
                     largestDistance = currentDistance;
 
                 }
