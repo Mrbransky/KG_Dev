@@ -191,7 +191,8 @@ public class Human : Player
         timeBetweenItemInteract = 0.25f;
 
         //Put Item Down Sound
-        soundManager.SOUND_MAN.playSound("Play_Item_Down", gameObject);
+        if(!interactTrigger.GetComponent<MoveInteractTrigger>().IsOnItemNode)
+            soundManager.SOUND_MAN.playSound("Play_Item_Down", gameObject);
     }
 
     void ThrowItem(string itemName)

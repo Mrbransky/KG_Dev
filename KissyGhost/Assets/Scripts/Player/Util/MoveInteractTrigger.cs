@@ -17,6 +17,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 
     Transform InteractTransform;
     bool PlayerFacingRight;
+    public bool IsOnItemNode;
 
     public bool isGhostInteractTrigger = false;
     public List<Collider2D> colliderList;
@@ -119,6 +120,12 @@ public class MoveInteractTrigger : MonoBehaviour {
         //}
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.name.Contains("ItemNode"))
+            IsOnItemNode = true;
+    }
+
     void OnTriggerExit2D(Collider2D col)
     {
         if (isGhostInteractTrigger && col.tag == "Furniture" && colliderList.Contains(col))
@@ -130,5 +137,8 @@ public class MoveInteractTrigger : MonoBehaviour {
                 spriteRenderer_InteractButtonPrompt.enabled = false;
             }
         }
+
+        if (col.gameObject.name.Contains("ItemNode"))
+            IsOnItemNode = false;
     }
 }
