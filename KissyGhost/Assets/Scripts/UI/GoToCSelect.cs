@@ -32,7 +32,12 @@ public class GoToCSelect : MonoBehaviour
         }
 #endif
 
+#if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+        {
+            _HeartZoomTransition.enabled = true;
+            _HeartZoomTransition.StartHeartZoomIn(-1);
+        }
+#endif
 	}
 }

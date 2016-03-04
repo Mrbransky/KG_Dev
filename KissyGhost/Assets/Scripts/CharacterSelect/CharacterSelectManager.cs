@@ -20,6 +20,12 @@ public class CharacterSelectManager : MonoBehaviour
     private const int MAX_PLAYER_COUNT = 4;
     private const int MIN_PLAYER_COUNT_TO_START = 2;
 
+    // XInput
+    private bool[] getAButtonDown;
+    private bool[] getBButtonDown;
+    private bool[] wasAButtonPressed;
+    private bool[] wasBButtonPressed;
+
     // General
     public HeartZoomTransition _HeartZoomTransition;
     private bool[] isPlayerReadyArray;
@@ -142,6 +148,11 @@ public class CharacterSelectManager : MonoBehaviour
         buttonTextArray = new Text[MAX_PLAYER_COUNT];
         runFromGhostDirection = new int[MAX_PLAYER_COUNT];
 
+        getAButtonDown = new bool[MAX_PLAYER_COUNT];
+        getBButtonDown = new bool[MAX_PLAYER_COUNT];
+        wasAButtonPressed = new bool[MAX_PLAYER_COUNT];
+        wasBButtonPressed = new bool[MAX_PLAYER_COUNT];
+
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
             isPlayerReadyArray[i] = false;
@@ -167,9 +178,6 @@ public class CharacterSelectManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
-
         if (_HeartZoomTransition.enabled)
         {
             if (currentCharSelectState == CharacterSelectStates.LoadMainScene)
@@ -180,9 +188,19 @@ public class CharacterSelectManager : MonoBehaviour
             return;
         }
 
+#if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _HeartZoomTransition.enabled = true;
+            _HeartZoomTransition.StartHeartZoomIn(-1);
+        }
+#endif
+
         switch ((int)currentCharSelectState)
         {
             case (int)CharacterSelectStates.WaitingForPlayers:
+                updateButtonDownArrays();
+
                 if (playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
                     for (int i = 0; i < isPlayerReadyArray.Length; i++)
@@ -275,20 +293,52 @@ public class CharacterSelectManager : MonoBehaviour
     }
 
 #region CharacterSelectStates.WaitingForPlayers Functions
+    private void updateButtonDownArrays()
+    {
+        for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
+        {
+            bool isAPressed = InputMapper.GrabVal(XBOX360_BUTTONS.A, i + 1);
+            getAButtonDown[i] = false;
+
+            if (isAPressed && !wasAButtonPressed[i])
+            {
+                wasAButtonPressed[i] = true;
+                getAButtonDown[i] = true;
+            }
+            else if (!isAPressed && wasAButtonPressed[i])
+            {
+                wasAButtonPressed[i] = false;
+            }
+
+            bool isBPressed = InputMapper.GrabVal(XBOX360_BUTTONS.B, i + 1);
+            getBButtonDown[i] = false;
+
+            if (isBPressed && !wasBButtonPressed[i])
+            {
+                wasBButtonPressed[i] = true;
+                getBButtonDown[i] = true;
+            }
+            else if (!isBPressed && wasBButtonPressed[i])
+            {
+                wasBButtonPressed[i] = false;
+            }
+        }
+    }
+
     private void checkIfPlayerReady()
     {
         for (int i = 1; i <= MAX_PLAYER_COUNT; ++i)
         {
-            if(InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && InputMapper.GrabVal(XBOX360_BUTTONS.B, i))
-            {
-                if(isPlayerReadyArray[i-1])
-                {
-                    updateUI_playerReady(i - 1, false);
-                    soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-                }
-            }
+            //if(InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && InputMapper.GrabVal(XBOX360_BUTTONS.B, i))
+            //{
+            //    if(isPlayerReadyArray[i-1])
+            //    {
+            //        updateUI_playerReady(i - 1, false);
+            //        soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
+            //    }
+            //}
 
-            else if (InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && !isPlayerReadyArray[i - 1])
+            if (getAButtonDown[i - 1] && !isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, true);
                 StartCoroutine(InputMapper.Vibration(i, .2f, 0, .8f));
@@ -300,7 +350,7 @@ public class CharacterSelectManager : MonoBehaviour
 #endif
 #endregion
             }
-            else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, i) && isPlayerReadyArray[i - 1])
+            else if (getBButtonDown[i - 1] && isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, false);
                 soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);

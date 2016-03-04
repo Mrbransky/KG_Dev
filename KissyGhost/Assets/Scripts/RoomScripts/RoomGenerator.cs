@@ -2,12 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
+public enum RoomLimits
+{
+    Min_X = 0,
+    Max_X = 1,
+    Min_Y = 2,
+    Max_Y = 3,
+    Total = 4
+}
+
 public enum RoomTypes
 {
     Center = 0, // "Big"
     Left = 1,   // "Medium Left"
     Right = 2,  // "Medium Right"
-    Bottom = 3  // "Small"
+    Bottom = 3, // "Small"
+    Total = 4
 }
 
 public class RoomGenerator : MonoBehaviour 
@@ -27,6 +37,11 @@ public class RoomGenerator : MonoBehaviour
     //Special Items
     public List<GameObject> AllSpecialItems;
     private List<GameObject> currentSpecialItems;
+
+    private float[] CenterRoomLimits;
+    private float[] LeftRoomLimits;
+    private float[] RightRoomLimits;
+    private float[] BottomRoomLimits;
 
     public float minDistance = 10;
     void Awake()
@@ -63,10 +78,15 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
-        GenerateInternals(MainBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, MainBaseRoomPiece.transform.position, RoomTypes.Center);
-        GenerateInternals(LeftBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, LeftBaseRoomPiece.transform.position, RoomTypes.Left);
-        GenerateInternals(RightBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, RightBaseRoomPiece.transform.position, RoomTypes.Right);
-        GenerateInternals(BottomBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size, BottomBaseRoomPiece.transform.position, RoomTypes.Bottom);
+        calculateRoomLimits(RoomTypes.Center);
+        calculateRoomLimits(RoomTypes.Left);
+        calculateRoomLimits(RoomTypes.Right);
+        calculateRoomLimits(RoomTypes.Bottom);
+
+        GenerateInternals(RoomTypes.Center);
+        GenerateInternals(RoomTypes.Left);
+        GenerateInternals(RoomTypes.Right);
+        GenerateInternals(RoomTypes.Bottom);
         
         initializeMissionManager();
 
@@ -76,40 +96,93 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    public void GenerateInternals(Vector2 RoomSize, Vector2 roomCenterPoint, RoomTypes roomType)
+    private void calculateRoomLimits(RoomTypes roomType)
+    {
+        Vector2 roomSize = Vector2.zero;
+        Vector2 roomCenterPoint = Vector2.zero;
+
+        switch (roomType)
+        {
+            case RoomTypes.Center:
+                CenterRoomLimits = new float[(int)RoomLimits.Total];
+                roomSize = MainBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size;
+                roomCenterPoint = MainBaseRoomPiece.transform.position;
+
+                CenterRoomLimits[(int)RoomLimits.Min_X] = roomCenterPoint.x - (roomSize.x - 2);
+                CenterRoomLimits[(int)RoomLimits.Max_X] = roomCenterPoint.x + (roomSize.x - 2);
+                CenterRoomLimits[(int)RoomLimits.Min_Y] = roomCenterPoint.y - (roomSize.y - 2);
+                CenterRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 6);
+                break;
+                
+            case RoomTypes.Left:
+                LeftRoomLimits = new float[(int)RoomLimits.Total];
+                roomSize = LeftBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size;
+                roomCenterPoint = LeftBaseRoomPiece.transform.position;
+
+                LeftRoomLimits[(int)RoomLimits.Min_X] = roomCenterPoint.x - (roomSize.x - 5);
+                LeftRoomLimits[(int)RoomLimits.Max_X] = roomCenterPoint.x + (roomSize.x - 5);
+                LeftRoomLimits[(int)RoomLimits.Min_Y] = roomCenterPoint.y - (roomSize.y - 5);
+                LeftRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 5);
+                break;
+
+            case RoomTypes.Right:
+                RightRoomLimits = new float[(int)RoomLimits.Total];
+                roomSize = RightBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size;
+                roomCenterPoint = RightBaseRoomPiece.transform.position;
+
+                RightRoomLimits[(int)RoomLimits.Min_X] = roomCenterPoint.x - (roomSize.x - 5);
+                RightRoomLimits[(int)RoomLimits.Max_X] = roomCenterPoint.x + (roomSize.x - 5);
+                RightRoomLimits[(int)RoomLimits.Min_Y] = roomCenterPoint.y - (roomSize.y - 5);
+                RightRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 5);
+                break;
+
+            case RoomTypes.Bottom:
+                BottomRoomLimits = new float[(int)RoomLimits.Total];
+                roomSize = BottomBaseRoomPiece.GetComponent<SpriteRenderer>().sprite.bounds.size;
+                roomCenterPoint = BottomBaseRoomPiece.transform.position;
+
+                BottomRoomLimits[(int)RoomLimits.Min_X] = roomCenterPoint.x - (roomSize.x - 8);
+                BottomRoomLimits[(int)RoomLimits.Max_X] = roomCenterPoint.x + (roomSize.x - 8);
+                BottomRoomLimits[(int)RoomLimits.Min_Y] = roomCenterPoint.y - (roomSize.y - 8);
+                BottomRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 8);
+                break;
+        }
+    }
+
+    public void GenerateInternals(RoomTypes roomType)
 	{
         switch ((int)roomType)
         {
             case (int)RoomTypes.Left:
-                spawnSpecItem(0, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
-                spawnFurniture(LeftBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5, roomType);
+                spawnSpecItem(0, LeftRoomLimits[(int)RoomLimits.Min_X], LeftRoomLimits[(int)RoomLimits.Max_X], LeftRoomLimits[(int)RoomLimits.Min_Y], LeftRoomLimits[(int)RoomLimits.Max_Y]);
+                spawnFurniture(LeftBaseRoomPiece, LeftRoomLimits[(int)RoomLimits.Min_X], LeftRoomLimits[(int)RoomLimits.Max_X], LeftRoomLimits[(int)RoomLimits.Min_Y], LeftRoomLimits[(int)RoomLimits.Max_Y], roomType);
                 break;
 
             case (int)RoomTypes.Right:
-                spawnSpecItem(1, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5);
-                spawnFurniture(RightBaseRoomPiece, roomCenterPoint, RoomSize.x - 5, RoomSize.y - 5, RoomSize.y - 5, roomType);
+                spawnSpecItem(1, RightRoomLimits[(int)RoomLimits.Min_X], RightRoomLimits[(int)RoomLimits.Max_X], RightRoomLimits[(int)RoomLimits.Min_Y], RightRoomLimits[(int)RoomLimits.Max_Y]);
+                spawnFurniture(RightBaseRoomPiece, RightRoomLimits[(int)RoomLimits.Min_X], RightRoomLimits[(int)RoomLimits.Max_X], RightRoomLimits[(int)RoomLimits.Min_Y], RightRoomLimits[(int)RoomLimits.Max_Y], roomType);
                 break;
 
             case (int)RoomTypes.Bottom:
-                spawnSpecItem(2, roomCenterPoint, RoomSize.x - 8, RoomSize.y - 8, RoomSize.y - 8);
-                spawnFurniture(BottomBaseRoomPiece, roomCenterPoint, RoomSize.x - 8, RoomSize.y - 8, RoomSize.y - 8, roomType);
+                spawnSpecItem(2, BottomRoomLimits[(int)RoomLimits.Min_X], BottomRoomLimits[(int)RoomLimits.Max_X], BottomRoomLimits[(int)RoomLimits.Min_Y], BottomRoomLimits[(int)RoomLimits.Max_Y]);
+                spawnFurniture(BottomBaseRoomPiece, BottomRoomLimits[(int)RoomLimits.Min_X], BottomRoomLimits[(int)RoomLimits.Max_X], BottomRoomLimits[(int)RoomLimits.Min_Y], BottomRoomLimits[(int)RoomLimits.Max_Y], roomType);
                 break;
 
             case (int)RoomTypes.Center:
-                spawnSpecItem(3, roomCenterPoint, RoomSize.x - 2, RoomSize.y - 2, RoomSize.y - 6);
-                spawnFurniture(MainBaseRoomPiece, roomCenterPoint, RoomSize.x - 2, RoomSize.y - 2, RoomSize.y - 5, roomType);
+                spawnSpecItem(3, CenterRoomLimits[(int)RoomLimits.Min_X], CenterRoomLimits[(int)RoomLimits.Max_X], CenterRoomLimits[(int)RoomLimits.Min_Y], CenterRoomLimits[(int)RoomLimits.Max_Y]);
+                spawnFurniture(MainBaseRoomPiece, CenterRoomLimits[(int)RoomLimits.Min_X], CenterRoomLimits[(int)RoomLimits.Max_X], CenterRoomLimits[(int)RoomLimits.Min_Y], CenterRoomLimits[(int)RoomLimits.Max_Y], roomType);
                 break;
         }
 	}
-
-    private void spawnFurniture(GameObject roomObject, Vector2 roomCenterPoint, float newPos_x_delta, float newPos_y_delta1, float newPos_y_delta2, RoomTypes roomType)
+    
+    private void spawnFurniture(GameObject roomObject, float min_x, float max_x, float min_y, float max_y, RoomTypes roomType)
     {
         Vector2 newPos = Vector2.zero;
 
         for (int i = 0; i < numberOfFurniture; i++)
         {
             GameObject FurnitureToSpawn = furnitureOptions[Random.Range(0, furnitureOptions.Length)];
-            newPos = getFurniturePos(roomCenterPoint, newPos_x_delta, newPos_y_delta1, newPos_y_delta2);
+            newPos = getFurniturePos(min_x, max_x, min_y, max_y);
             GameObject newFurniture = (GameObject)Instantiate(FurnitureToSpawn, newPos, Quaternion.identity);
 
             if (newFurniture.tag == "Furniture")
@@ -154,20 +227,20 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    private Vector2 getFurniturePos(Vector2 roomCenterPoint, float newPos_x_delta, float newPos_y_delta1, float newPos_y_delta2)
+    private Vector2 getFurniturePos(float min_x, float max_x, float min_y, float max_y)
     {
-        float newPos_x = Random.Range(roomCenterPoint.x - newPos_x_delta, roomCenterPoint.x + newPos_x_delta);
-        float newPos_y = Random.Range(roomCenterPoint.y - newPos_y_delta1, roomCenterPoint.y + newPos_y_delta2);
+        float newPos_x = Random.Range(min_x, max_x);
+        float newPos_y = Random.Range(min_y, max_y);
         Vector2 newPos = new Vector2(newPos_x, newPos_y);
 
- //Broken for now
+        //Broken for now
         //Vector2 newPos;
         //Collider2D[] neighbors;
         //int tries = 0;
         //do
         //{
-        //    float newPos_x = Random.Range(roomCenterPoint.x - newPos_x_delta, roomCenterPoint.x + newPos_x_delta);
-        //    float newPos_y = Random.Range(roomCenterPoint.y - newPos_y_delta1, roomCenterPoint.y + newPos_y_delta2);
+        //    float newPos_x = Random.Range(min_x, max_x);
+        //    float newPos_y = Random.Range(min_y, max_y);
         //    newPos = new Vector2(newPos_x, newPos_y);
         //    neighbors = Physics2D.OverlapCircleAll(newPos, minDistance);
         //    tries++;
@@ -180,10 +253,10 @@ public class RoomGenerator : MonoBehaviour
         return newPos;
     }
 
-    private void spawnSpecItem(int index, Vector2 roomCenterPoint, float specPos_x_delta, float specPos_y_delta1, float specPos_y_delta2)
+    private void spawnSpecItem(int index, float min_x, float max_x, float min_y, float max_y)
     {
-        float specPos_x = Random.Range(roomCenterPoint.x - specPos_x_delta, roomCenterPoint.x + specPos_x_delta);
-        float specPos_y = Random.Range(roomCenterPoint.y - specPos_y_delta1, roomCenterPoint.y + specPos_y_delta2);
+        float specPos_x = Random.Range(min_x, max_x);
+        float specPos_y = Random.Range(min_y, max_y);
         Vector2 specPos = new Vector2(specPos_x, specPos_y);
 
         GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[index], specPos, Quaternion.identity);
@@ -198,5 +271,65 @@ public class RoomGenerator : MonoBehaviour
     private void initializeMissionManager()
     {
         GetComponent<MissionManager>().Initialize();
+    }
+
+    public Vector2 RepositionItemIfOutOfBounds(RoomLocations currentRoomLocation, Vector2 itemPosition)
+    {
+        Vector2 newPosition = itemPosition;
+        float min_x = 0;
+        float max_x = 0;
+        float min_y = 0;
+        float max_y = 0;
+
+        switch (currentRoomLocation)
+        {
+            case RoomLocations.Center:
+                min_x = CenterRoomLimits[(int)RoomLimits.Min_X];
+                max_x = CenterRoomLimits[(int)RoomLimits.Max_X];
+                min_y = CenterRoomLimits[(int)RoomLimits.Min_Y];
+                max_y = CenterRoomLimits[(int)RoomLimits.Max_Y];
+                break;
+
+            case RoomLocations.Left:
+                min_x = LeftRoomLimits[(int)RoomLimits.Min_X];
+                max_x = LeftRoomLimits[(int)RoomLimits.Max_X];
+                min_y = LeftRoomLimits[(int)RoomLimits.Min_Y];
+                max_y = LeftRoomLimits[(int)RoomLimits.Max_Y];
+                break;
+
+            case RoomLocations.Right:
+                min_x = RightRoomLimits[(int)RoomLimits.Min_X];
+                max_x = RightRoomLimits[(int)RoomLimits.Max_X];
+                min_y = RightRoomLimits[(int)RoomLimits.Min_Y];
+                max_y = RightRoomLimits[(int)RoomLimits.Max_Y];
+                break;
+
+            case RoomLocations.Bottom:
+                min_x = BottomRoomLimits[(int)RoomLimits.Min_X];
+                max_x = BottomRoomLimits[(int)RoomLimits.Max_X];
+                min_y = BottomRoomLimits[(int)RoomLimits.Min_Y];
+                max_y = BottomRoomLimits[(int)RoomLimits.Max_Y];
+                break;
+        }
+
+        if (newPosition.x < min_x)
+        {
+            newPosition.x = min_x;
+        }
+        else if (newPosition.x > max_x)
+        {
+            newPosition.x = max_x;
+        }
+
+        if (newPosition.y < min_y)
+        {
+            newPosition.y = min_y;
+        }
+        else if (newPosition.y > max_y)
+        {
+            newPosition.y = max_y;
+        }
+
+        return newPosition;
     }
 }

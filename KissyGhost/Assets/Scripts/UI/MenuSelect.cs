@@ -119,8 +119,10 @@ public class MenuSelect : MonoBehaviour
                         break;
 
                     case 3:
+#if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
                         _HeartZoomTransition.enabled = true;
                         _HeartZoomTransition.StartHeartZoomIn(-1);
+#endif
                         break;
 
                     default:

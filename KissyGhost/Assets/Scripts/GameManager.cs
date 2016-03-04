@@ -6,9 +6,9 @@ using XInputDotNetPure;
 
 public class GameManager : MonoBehaviour {
 
-	public GameObject heart_splosion;
-	public GameObject heartZoom;
-	public bool gameEnd = false;
+    public GameObject heart_splosion;
+    public GameObject heartZoom;
+    public bool gameEnd = false;
     public bool didHumansWin;
     public Text winnerNameText;
     public HeartZoomTransition _HeartZoomTransition;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
     public int playerCount = 0;
     public List<GameObject> currentPlayers;
     public GameObject currentGhostPlayer;
-    public GameObject ghostPrefab;    
+    public GameObject ghostPrefab;
 
     private bool[] isPlayerReadyArray;
     private int ghostPlayerIndex = -1;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
         handleCharacterSelectData();
         initializePlayers();
 
-        
+
     }
 
     private void handleCharacterSelectData()
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
         if (characterSelectData != null)
         {
             CharacterSelectData _CharacterSelectData = characterSelectData.GetComponent<CharacterSelectData>();
-            
+
             isPlayerReadyArray = _CharacterSelectData.IsPlayerReadyArray;
             playerCount = _CharacterSelectData.PlayerCount;
             ghostPlayerIndex = _CharacterSelectData.GhostPlayerIndex;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
     {
         currentPlayers = new List<GameObject>();
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        
+
         GameObject ghostPlayer = null;
 
         for (int i = 0; i < players.Length; ++i)
@@ -104,13 +104,18 @@ public class GameManager : MonoBehaviour {
         currentGhostPlayer = ghostPlayer;
         Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Add(ghostPlayer);
     }
-    
-	void Update ()
+
+    void Update()
     {
         checkIsGameEnd();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+        
+#if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
+        if (Input.GetKeyDown(KeyCode.Escape) && !_HeartZoomTransition.enabled)
+        {
+            _HeartZoomTransition.enabled = true;
+            _HeartZoomTransition.StartHeartZoomIn(-1);
+        }
+#endif
     }
 
     public void OnHumanDead(GameObject obj)
@@ -214,7 +219,7 @@ public class GameManager : MonoBehaviour {
         CeaseAllVibrations();
     }
 
-    #region Vibration Methods
+#region Vibration Methods
     void VibrateAllHumans(float timeAmt, float leftMotor, float rightMotor)
     {
         foreach (GameObject obj in currentPlayers)
@@ -250,5 +255,5 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < playerCount; i++)
             GamePad.SetVibration((PlayerIndex)i, 0, 0);
     }
-    #endregion
+#endregion
 }
