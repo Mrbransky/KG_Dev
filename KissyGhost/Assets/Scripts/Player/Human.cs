@@ -15,6 +15,9 @@ public class Human : Player
     private Color defaultSpriteColor;
     private Color invulnSpriteColor;
 
+    public bool GetAButtonDown = false;
+    private bool wasAButtonPressed = false;
+
     public bool IsCarryingItem;
     public bool CanGrabItem
     {
@@ -104,6 +107,18 @@ public class Human : Player
         // Handling sort order in SpriteSorter.cs
         // gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(-transform.localPosition.y+1);
 
+        GetAButtonDown = false;
+
+        if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && !wasAButtonPressed)
+        {
+            wasAButtonPressed = true;
+            GetAButtonDown = true;
+        }
+        else if (!InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && wasAButtonPressed)
+        {
+            wasAButtonPressed = false;
+        }
+
         if (heldItemSpriteRenderer != null)
         {
             heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
@@ -111,7 +126,7 @@ public class Human : Player
         
         if (IsCarryingItem && timeBetweenItemInteract == 0)
         {
-            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+            if (GetAButtonDown)
             {
                 PutItemDown(HeldItemName);
             }
@@ -227,7 +242,7 @@ public class Human : Player
             interactButtonPromptSpriteRenderer.enabled = true;
             timeSinceButtonPrompt = interactButtonPromptDurationBuffer;
 
-            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+            if (GetAButtonDown)
             {
                 GrabItem(col.gameObject);
                 interactButtonPromptSpriteRenderer.enabled = false;

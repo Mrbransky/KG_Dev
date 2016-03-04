@@ -9,6 +9,9 @@ public class Ghost : Player
     private MoveInteractTrigger _MoveInteractTrigger;
     public AudioClip[] smoochSounds;
 
+    public bool GetAButtonDown = false;
+    private bool wasAButtonPressed = false;
+
     public bool TouchingFurniture;   
 
     private AudioSource source;
@@ -24,11 +27,23 @@ public class Ghost : Player
 
     public override void Update()
     {
+        GetAButtonDown = false;
+
+        if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && !wasAButtonPressed)
+        {
+            wasAButtonPressed = true;
+            GetAButtonDown = true;
+        }
+        else if (!InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && wasAButtonPressed)
+        {
+            wasAButtonPressed = false;
+        }
+
         if (timeSinceKiss > 0)
         {
             timeSinceKiss -= Time.deltaTime;
         }
-        else if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && canKissObject())
+        else if (GetAButtonDown && canKissObject())
         {
             kissObject();            
         }

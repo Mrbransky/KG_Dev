@@ -357,7 +357,7 @@ public class CharacterSelectManager : MonoBehaviour
 
 #region Debug Code
 #if UNITY_EDITOR
-                debugTextArray[i - 1] = "P" + i + ": Ready\n";
+                debugTextArray[i - 1] = "P" + i + ": Not Ready\n";
                 updateDebugUI();
 #endif
 #endregion

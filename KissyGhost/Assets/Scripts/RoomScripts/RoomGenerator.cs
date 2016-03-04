@@ -291,24 +291,24 @@ public class RoomGenerator : MonoBehaviour
                 break;
 
             case RoomLocations.Left:
-                min_x = LeftRoomLimits[(int)RoomLimits.Min_X];
-                max_x = LeftRoomLimits[(int)RoomLimits.Max_X];
-                min_y = LeftRoomLimits[(int)RoomLimits.Min_Y];
-                max_y = LeftRoomLimits[(int)RoomLimits.Max_Y];
+                min_x = LeftRoomLimits[(int)RoomLimits.Min_X] - 1.3f;
+                max_x = LeftRoomLimits[(int)RoomLimits.Max_X] + 1.3f;
+                min_y = LeftRoomLimits[(int)RoomLimits.Min_Y] - 2.0f;
+                max_y = LeftRoomLimits[(int)RoomLimits.Max_Y] + 0.0f;
                 break;
 
             case RoomLocations.Right:
-                min_x = RightRoomLimits[(int)RoomLimits.Min_X];
-                max_x = RightRoomLimits[(int)RoomLimits.Max_X];
-                min_y = RightRoomLimits[(int)RoomLimits.Min_Y];
-                max_y = RightRoomLimits[(int)RoomLimits.Max_Y];
+                min_x = RightRoomLimits[(int)RoomLimits.Min_X] - 1.3f;
+                max_x = RightRoomLimits[(int)RoomLimits.Max_X] + 1.3f;
+                min_y = RightRoomLimits[(int)RoomLimits.Min_Y] - 2.0f;
+                max_y = RightRoomLimits[(int)RoomLimits.Max_Y] + 0.0f;
                 break;
 
             case RoomLocations.Bottom:
-                min_x = BottomRoomLimits[(int)RoomLimits.Min_X];
-                max_x = BottomRoomLimits[(int)RoomLimits.Max_X];
-                min_y = BottomRoomLimits[(int)RoomLimits.Min_Y];
-                max_y = BottomRoomLimits[(int)RoomLimits.Max_Y];
+                min_x = BottomRoomLimits[(int)RoomLimits.Min_X] - 0.8f;
+                max_x = BottomRoomLimits[(int)RoomLimits.Max_X] + 0.8f;
+                min_y = BottomRoomLimits[(int)RoomLimits.Min_Y] - 2.8f;
+                max_y = BottomRoomLimits[(int)RoomLimits.Max_Y] + 1.0f;
                 break;
         }
 

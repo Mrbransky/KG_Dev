@@ -94,7 +94,7 @@ public class MoveInteractTrigger : MonoBehaviour {
         else if (col.tag == "Cat" && !isGhostInteractTrigger)
         {
             Human player = this.GetComponentInParent<Human>();
-            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, player.playerNum))
+            if (player.GetAButtonDown)
             {
                 if (player.CanGrabItem)
                     player.GrabItem(col.gameObject);
