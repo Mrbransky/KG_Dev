@@ -52,6 +52,14 @@ public class SpriteSorter : MonoBehaviour
         BottomRoom_SpriteRendererList.Add(srToAdd);
     }
 
+    public void RemoveFromAllLists(SpriteRenderer srToRemove)
+    {
+        CenterRoom_SpriteRendererList.Remove(srToRemove);
+        LeftRoom_SpriteRendererList.Remove(srToRemove);
+        RightRoom_SpriteRendererList.Remove(srToRemove);
+        BottomRoom_SpriteRendererList.Remove(srToRemove);
+    }
+
     private void updateSortOrder()
     {
         int listCount = 0;

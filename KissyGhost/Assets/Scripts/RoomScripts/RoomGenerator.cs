@@ -284,10 +284,10 @@ public class RoomGenerator : MonoBehaviour
         switch (currentRoomLocation)
         {
             case RoomLocations.Center:
-                min_x = CenterRoomLimits[(int)RoomLimits.Min_X];
-                max_x = CenterRoomLimits[(int)RoomLimits.Max_X];
-                min_y = CenterRoomLimits[(int)RoomLimits.Min_Y];
-                max_y = CenterRoomLimits[(int)RoomLimits.Max_Y];
+                min_x = CenterRoomLimits[(int)RoomLimits.Min_X] - 1.5f;
+                max_x = CenterRoomLimits[(int)RoomLimits.Max_X] + 1.5f;
+                min_y = CenterRoomLimits[(int)RoomLimits.Min_Y] - 1.5f;
+                max_y = CenterRoomLimits[(int)RoomLimits.Max_Y] + 2.7f;
                 break;
 
             case RoomLocations.Left:

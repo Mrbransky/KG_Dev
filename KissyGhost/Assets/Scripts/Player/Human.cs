@@ -284,7 +284,7 @@ public class Human : Player
 
     private void killSelf()
     {
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().OnHumanDead(gameObject);
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().OnHumanDead(gameObject, gameObject.GetComponent<SpriteRenderer>());
         Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
 
         if (IsCarryingItem)

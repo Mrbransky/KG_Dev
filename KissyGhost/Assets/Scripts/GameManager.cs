@@ -118,8 +118,10 @@ public class GameManager : MonoBehaviour {
 #endif
     }
 
-    public void OnHumanDead(GameObject obj)
+    public void OnHumanDead(GameObject obj, SpriteRenderer sr)
     {
+        _SpriteSorter.RemoveFromAllLists(sr);
+
         currentPlayers.Remove(obj);
         --playerCount;
 

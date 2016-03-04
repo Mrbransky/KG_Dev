@@ -13,6 +13,8 @@ public class MissionObjective_Item : MonoBehaviour
     private bool isHighlighted = true;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private RoomChangeManager _RoomChangeManager;
+    private RoomGenerator _RoomGenerator;
     
     void Start()
     {
@@ -24,6 +26,9 @@ public class MissionObjective_Item : MonoBehaviour
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
+        _RoomChangeManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoomChangeManager>();
+        _RoomGenerator = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoomGenerator>();
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -60,6 +65,7 @@ public class MissionObjective_Item : MonoBehaviour
     public void PlaceItemDown()
     {
         isItemPlacedDown = true;
+        transform.position = _RoomGenerator.RepositionItemIfOutOfBounds(_RoomChangeManager.CurrentRoomLocation, transform.position);
     }
 
     private void turnHighlightOn()
