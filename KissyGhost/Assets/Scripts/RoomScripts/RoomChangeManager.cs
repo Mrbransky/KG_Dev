@@ -177,6 +177,7 @@ public class RoomChangeManager : MonoBehaviour
                     break;
             }
         }
+        AkSoundEngine.PostEvent("Stop_FurnitureMove", gameObject);
     }
 
     private void SubObjectiveUpdate_Timer()
