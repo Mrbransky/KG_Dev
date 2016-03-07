@@ -17,7 +17,7 @@ public class GoToCSelect : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown("joystick button 0"))
+        if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space))
         {
             _HeartZoomTransition.enabled = true;
             _HeartZoomTransition.StartHeartZoomIn(2);
