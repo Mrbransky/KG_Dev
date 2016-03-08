@@ -172,9 +172,15 @@ public class GameManager : MonoBehaviour {
     {
         if (gameEnd)
         {
-            timer -= Time.fixedDeltaTime;
-            _HeartZoomTransition.enabled = true;
-            _HeartZoomTransition.StartHeartZoomInHalfway();
+
+            GhostPullToMiddle();
+            if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 1.6f)
+            {
+                timer -= Time.fixedDeltaTime;
+
+                _HeartZoomTransition.enabled = true;
+                _HeartZoomTransition.StartHeartZoomInHalfway();
+            }
 
             if (_HeartZoomTransition.IsZoomInHalfwayDone())
             {
@@ -215,7 +221,28 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
+    void GhostPullToMiddle()
+    {
+        #if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
+        currentGhostPlayer.GetComponent<Ghost>().debugCurrentSpeed = 0;
+        #endif
 
+        Vector2 roomPos = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
+        currentGhostPlayer.GetComponent<Ghost>().currentSpeed = 0;
+        if (Vector2.Distance(currentGhostPlayer.transform.position, roomPos) > 1.6f)
+        {
+            Vector2 direction = currentGhostPlayer.transform.position - transform.position;
+
+            currentGhostPlayer.GetComponent<Rigidbody2D>().AddForceAtPosition(-direction.normalized * 2, roomPos);
+
+            Debug.Log(Vector2.Distance(currentGhostPlayer.transform.position, roomPos));
+        }
+        else
+        {
+            currentGhostPlayer.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            currentGhostPlayer.transform.FindChild("Heart_Splosion").gameObject.SetActive(true);
+        }
+    }
     void OnApplicationQuit()
     {
         CeaseAllVibrations();
