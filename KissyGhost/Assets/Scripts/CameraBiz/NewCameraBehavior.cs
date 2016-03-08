@@ -72,11 +72,9 @@ public class NewCameraBehavior : MonoBehaviour {
                 { theCamera.orthographicSize = 10f; }
                 if (theCamera.orthographicSize <= 3f)
                 { theCamera.orthographicSize = 3f; }
+				float newYDampedPos = Mathf.SmoothDamp(theCamera.transform.position.y, avgDistance.y, ref yVelocity, smoothDampSpeed);
 				float newXDampedPos = Mathf.SmoothDamp(theCamera.transform.position.x, avgDistance.x, ref xVelocity, smoothDampSpeed);
-				theCamera.transform.position = new Vector3(newXDampedPos, theCamera.transform.position.y, theCamera.transform.position.z);
-
-                float newYDampedPos = Mathf.SmoothDamp(theCamera.transform.position.y, avgDistance.y, ref yVelocity, smoothDampSpeed);
-				theCamera.transform.position = new Vector3(theCamera.transform.position.x, newYDampedPos, theCamera.transform.position.z);
+				theCamera.transform.position = new Vector3(newXDampedPos, newYDampedPos, theCamera.transform.position.z);
                 
 
 

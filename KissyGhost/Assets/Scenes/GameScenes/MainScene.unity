@@ -4563,7 +4563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   currentDistance: 0
-  largestDistance: 0
+  largestDistance: 5
   theCamera: {fileID: 1518960077}
   height: 5
   distance: 0
