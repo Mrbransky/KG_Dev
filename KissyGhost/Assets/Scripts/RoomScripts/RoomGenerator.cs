@@ -27,6 +27,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject RightBaseRoomPiece;
 	public GameObject MainBaseRoomPiece;
     public SpriteSorter _SpriteSorter;
+    private RoomChangeManager _RoomChangeManager;
 
     //Furniture list
 	public List<GameObject> currentFurniture;
@@ -46,6 +47,8 @@ public class RoomGenerator : MonoBehaviour
     public float minDistance = 10;
     void Awake()
     {
+        _RoomChangeManager = GetComponent<RoomChangeManager>();
+
         currentSpecialItems = new List<GameObject>();
         currentFurniture = new List<GameObject>();
 
@@ -273,7 +276,7 @@ public class RoomGenerator : MonoBehaviour
         GetComponent<MissionManager>().Initialize();
     }
 
-    public Vector2 RepositionItemIfOutOfBounds(RoomLocations currentRoomLocation, Vector2 itemPosition)
+    public Vector2 RepositionItemIfOutOfBounds(Vector2 itemPosition)
     {
         Vector2 newPosition = itemPosition;
         float min_x = 0;
@@ -281,7 +284,7 @@ public class RoomGenerator : MonoBehaviour
         float min_y = 0;
         float max_y = 0;
 
-        switch (currentRoomLocation)
+        switch (_RoomChangeManager.CurrentRoomLocation)
         {
             case RoomLocations.Center:
                 min_x = CenterRoomLimits[(int)RoomLimits.Min_X] - 1.5f;
@@ -298,10 +301,10 @@ public class RoomGenerator : MonoBehaviour
                 break;
 
             case RoomLocations.Right:
-                min_x = RightRoomLimits[(int)RoomLimits.Min_X] - 1.3f;
-                max_x = RightRoomLimits[(int)RoomLimits.Max_X] + 1.3f;
+                min_x = RightRoomLimits[(int)RoomLimits.Min_X] - 1.1f;
+                max_x = RightRoomLimits[(int)RoomLimits.Max_X] + 1.1f;
                 min_y = RightRoomLimits[(int)RoomLimits.Min_Y] - 2.0f;
-                max_y = RightRoomLimits[(int)RoomLimits.Max_Y] + 0.0f;
+                max_y = RightRoomLimits[(int)RoomLimits.Max_Y] + 0.1f;
                 break;
 
             case RoomLocations.Bottom:

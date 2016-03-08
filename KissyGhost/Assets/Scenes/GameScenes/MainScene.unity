@@ -135,8 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .5, g: .5, b: .5, a: .529411793}
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .529411793}
+  m_Sprite: {fileID: 21300000, guid: 521eeb8fb0cf1b34bae8cedc7c4113bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -320,7 +320,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478730, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 157822, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_Name
@@ -631,6 +631,14 @@ Prefab:
       propertyPath: m_DynamicPixelsPerUnit
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11482198, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+      propertyPath: ItemPickUpKeycode
+      value: 117
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482198, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+      propertyPath: ItemThrowKeycode
+      value: 111
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
   m_IsPrefabParent: 0
@@ -824,7 +832,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478730, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 157822, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_Name
@@ -987,6 +995,24 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: .0399999991, y: .0399999991}
   m_UseGraphicAlpha: 1
+--- !u!1 &407115395 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 157822, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+  m_PrefabInternal: {fileID: 366807558}
+--- !u!114 &407115404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407115395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2829a1adb26cf748ab3b53e2b66be4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashColorA: {r: 1, g: 1, b: 1, a: .686274529}
+  FlashColorB: {r: 1, g: 1, b: 1, a: .313725501}
 --- !u!1 &434840461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1055,24 @@ EdgeCollider2D:
   m_Points:
   - {x: -.499998927, y: -.946672976}
   - {x: -.471917152, y: 1.03502893}
+--- !u!1 &462095487 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 157822, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+  m_PrefabInternal: {fileID: 886577074}
+--- !u!114 &462095488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462095487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2829a1adb26cf748ab3b53e2b66be4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashColorA: {r: 1, g: 1, b: 1, a: .686274529}
+  FlashColorB: {r: 1, g: 1, b: 1, a: .313725501}
 --- !u!1001 &466525727
 Prefab:
   m_ObjectHideFlags: 0
@@ -1066,7 +1110,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478730, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22367156, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_Camera
@@ -1228,6 +1272,14 @@ Prefab:
     - target: {fileID: 22367156, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_SortingOrder
       value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482198, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+      propertyPath: ItemPickUpKeycode
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482198, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+      propertyPath: ItemThrowKeycode
+      value: 101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
@@ -2315,6 +2367,22 @@ Prefab:
       propertyPath: m_Radius
       value: .400000006
       objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.r
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.g
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.b
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.a
+      value: .490196079
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
   m_IsPrefabParent: 0
@@ -2355,7 +2423,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478730, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 157822, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
       propertyPath: m_Name
@@ -2662,6 +2730,14 @@ Prefab:
       propertyPath: m_DynamicPixelsPerUnit
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11482198, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+      propertyPath: ItemPickUpKeycode
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482198, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+      propertyPath: ItemThrowKeycode
+      value: 121
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
   m_IsPrefabParent: 0
@@ -2736,6 +2812,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 166690, guid: ca9b47f020cac23499456206a6341ba0, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428422, guid: ca9b47f020cac23499456206a6341ba0, type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2956,6 +3036,22 @@ Prefab:
       propertyPath: m_Radius
       value: .400000006
       objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.r
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.g
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.b
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.a
+      value: .490196079
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
   m_IsPrefabParent: 0
@@ -3032,7 +3128,7 @@ GameObject:
   - 114: {fileID: 964617292}
   - 95: {fileID: 964617294}
   m_Layer: 5
-  m_Name: MissionObjective_Background_
+  m_Name: MissionObjective_Background_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3068,8 +3164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .5, g: .5, b: .5, a: .529411793}
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .529411793}
+  m_Sprite: {fileID: 21300000, guid: 521eeb8fb0cf1b34bae8cedc7c4113bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3724,8 +3820,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .5, g: .5, b: .5, a: .529411793}
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .529411793}
+  m_Sprite: {fileID: 21300000, guid: 521eeb8fb0cf1b34bae8cedc7c4113bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4714,8 +4810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .5, g: .5, b: .5, a: .529411793}
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: .529411793}
+  m_Sprite: {fileID: 21300000, guid: 521eeb8fb0cf1b34bae8cedc7c4113bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4953,6 +5049,22 @@ Prefab:
       propertyPath: m_Radius
       value: .400000006
       objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.r
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.g
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.b
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.a
+      value: .490196079
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
   m_IsPrefabParent: 0
@@ -5124,7 +5236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerReadyArray: 01010101
   playerCount: 4
-  ghostPlayerIndex: 0
+  ghostPlayerIndex: 3
   isDebugData: 1
 --- !u!4 &1690912246
 Transform:
@@ -5320,6 +5432,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1800869019 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 157822, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+  m_PrefabInternal: {fileID: 466525727}
+--- !u!114 &1800869028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800869019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2829a1adb26cf748ab3b53e2b66be4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashColorA: {r: 1, g: 1, b: 1, a: .686274529}
+  FlashColorB: {r: 1, g: 1, b: 1, a: .313725501}
 --- !u!1 &1806933094
 GameObject:
   m_ObjectHideFlags: 0
@@ -5906,6 +6036,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1955794089}
+--- !u!1 &1957596418 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 157822, guid: 778d890133af09a4fa9e82bd6ff57406, type: 2}
+  m_PrefabInternal: {fileID: 275512390}
+--- !u!114 &1957596427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1957596418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2829a1adb26cf748ab3b53e2b66be4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashColorA: {r: 1, g: 1, b: 1, a: .686274529}
+  FlashColorB: {r: 1, g: 1, b: 1, a: .313725501}
 --- !u!1001 &1977270411
 Prefab:
   m_ObjectHideFlags: 0
@@ -5960,6 +6108,22 @@ Prefab:
     - target: {fileID: 5887574, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
       propertyPath: m_Radius
       value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.r
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.g
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.b
+      value: .838235259
+      objectReference: {fileID: 0}
+    - target: {fileID: 21283280, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
+      propertyPath: m_Color.a
+      value: .490196079
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79265a9f12d9dc04c9a066c69c24d330, type: 2}
@@ -6174,6 +6338,11 @@ MonoBehaviour:
   - {fileID: 1074288484}
   - {fileID: 1955794091}
   - {fileID: 1096108317}
+  missionObjectiveBackgroundImageList:
+  - {fileID: 61239627}
+  - {fileID: 1587107617}
+  - {fileID: 1288542178}
+  - {fileID: 964617292}
   missionObjectivePanel: {fileID: 293608354}
 --- !u!114 &2038403446
 MonoBehaviour:

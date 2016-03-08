@@ -13,6 +13,7 @@ public enum MissionObjectiveState
 public class MissionManager : MonoBehaviour 
 {
     [SerializeField] private List<Image> missionObjectiveImageList;
+    [SerializeField] private List<Image> missionObjectiveBackgroundImageList;
     [SerializeField] private GameObject missionObjectivePanel;
 
     private List<GameObject> missionObjectiveList;
@@ -100,6 +101,8 @@ public class MissionManager : MonoBehaviour
     {
         missionObjectiveStateArray[missionObjectiveListIndex] = MissionObjectiveState.Completed;
         missionObjectiveImageList[missionObjectiveListIndex].color = Color.white;
+        missionObjectiveBackgroundImageList[missionObjectiveListIndex].color = Color.white;
+        missionObjectiveImageList[missionObjectiveListIndex].sprite = missionObjectiveList[missionObjectiveListIndex].GetComponent<MissionObjective_Item>().UnhighlightedSprite;
 
         foreach (MissionObjectiveState objectiveState in missionObjectiveStateArray)
         {

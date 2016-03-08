@@ -108,10 +108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MissionObjectiveListIndex: -1
-  IsItemPlacedDown: 0
   isAnimated: 1
   HighlightedSprite: {fileID: 0}
-  UnhighlightedSprite: {fileID: 0}
+  UnhighlightedSprite: {fileID: 21300000, guid: fe8d6156054b55f489a2243af2b783b9,
+    type: 3}
 --- !u!212 &21267520
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -210,6 +210,11 @@ Prefab:
       propertyPath: isAnimated
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: UnhighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe8d6156054b55f489a2243af2b783b9,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153258}

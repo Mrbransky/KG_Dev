@@ -12,8 +12,6 @@ public class Human : Player
 
     private GameObject[] heartObjects;
     private float timeSinceInvulnerable = -1;
-    private Color defaultSpriteColor;
-    private Color invulnSpriteColor;
 
     public bool GetAButtonDown = false;
     private bool wasAButtonPressed = false;
@@ -34,6 +32,7 @@ public class Human : Player
     private string HeldItemName;
     private SpriteRenderer mySpriteRenderer;
     private SpriteRenderer heldItemSpriteRenderer;
+    private HumanSpriteFlasher _HumanSpriteFlasher;
 
     public float timeBetweenItemInteract;
     private SpriteRenderer interactButtonPromptSpriteRenderer;
@@ -51,9 +50,7 @@ public class Human : Player
         IsPullingSwitch = false;
 
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        defaultSpriteColor = mySpriteRenderer.color;
-        invulnSpriteColor = defaultSpriteColor;
-        invulnSpriteColor.a /= 2;
+        _HumanSpriteFlasher = GetComponent<HumanSpriteFlasher>();
 
         base.Awake();
 
@@ -157,7 +154,7 @@ public class Human : Player
 
             if (timeSinceInvulnerable <= 0)
             {
-                GetComponent<SpriteRenderer>().color = defaultSpriteColor;
+                _HumanSpriteFlasher.StopFlashing();
             }
         }
 
@@ -237,8 +234,9 @@ public class Human : Player
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (CanGrabItem && col.tag == "Cat")
-        { 
+        if (CanGrabItem && col.tag == "Cat" && 
+            col.GetComponent<MissionObjective_Item>() != null && col.GetComponent<MissionObjective_Item>().IsItemPlacedDown)
+        {
             interactButtonPromptSpriteRenderer.enabled = true;
             timeSinceButtonPrompt = interactButtonPromptDurationBuffer;
 
@@ -274,10 +272,10 @@ public class Human : Player
             timeSinceInvulnerable = invulnerabilityDuration;
             gainHug();
 
+            _HumanSpriteFlasher.StartFlashing();
+
             if(hugPoints > 0)
                 StartCoroutine(InputMapper.Vibration(playerNum, 1, .55f, .7f));
-
-            GetComponent<SpriteRenderer>().color = invulnSpriteColor;
 
             if (IsCarryingItem)
             {
