@@ -239,7 +239,7 @@ public class RoomChangeManager : MonoBehaviour
             player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y + 3);
 
             GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x, curRoomPosition.y +2);
-            player.GetComponent<Rigidbody2D>().AddForce(-Vector2.up * 500);
+            player.GetComponent<Rigidbody2D>().AddForce(-Vector2.up * 200);
         }
     }
 
@@ -251,7 +251,7 @@ public class RoomChangeManager : MonoBehaviour
             player.transform.position = new Vector2(curRoomPosition.x + 10, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
 
             GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x + 8, curRoomPosition.y);
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 1000);
+            player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
         }
     }
 
@@ -263,7 +263,7 @@ public class RoomChangeManager : MonoBehaviour
             player.transform.position = new Vector2(curRoomPosition.x - 10, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
 
             GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x - 8, curRoomPosition.y);
-            player.GetComponent<Rigidbody2D>().AddForce(-Vector2.left * 1000);
+            player.GetComponent<Rigidbody2D>().AddForce(-Vector2.left * 200);
         }
     }
 
@@ -276,15 +276,15 @@ public class RoomChangeManager : MonoBehaviour
             switch(roomPosition){
                 case RoomLocations.Left:
                     player.transform.position = new Vector2(curRoomPosition.x - 10, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
-                    player.GetComponent<Rigidbody2D>().AddForce(-Vector2.left * 1000);
+                    player.GetComponent<Rigidbody2D>().AddForce(-Vector2.left * 300);
                     break;
                 case RoomLocations.Bottom:
                     player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y - 6);
-                    player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000);
+                    player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
                     break;
                 case RoomLocations.Right:
                     player.transform.position = new Vector2(curRoomPosition.x + 10, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
-                    player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 1000);
+                    player.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 300);
                     break;
             }
             
