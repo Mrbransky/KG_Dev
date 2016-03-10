@@ -172,16 +172,22 @@ public class GameManager : MonoBehaviour {
     {
         if (gameEnd)
         {
-
-            GhostPullToMiddle();
-            if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 1.6f)
+            if (didHumansWin)
             {
-                timer -= Time.fixedDeltaTime;
+                GhostPullToMiddle();
+                if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 1.6f)
+                {
+                    timer -= Time.fixedDeltaTime;
 
+                    _HeartZoomTransition.enabled = true;
+                    _HeartZoomTransition.StartHeartZoomInHalfway();
+                }
+            }
+            else
+            {
                 _HeartZoomTransition.enabled = true;
                 _HeartZoomTransition.StartHeartZoomInHalfway();
             }
-
             if (_HeartZoomTransition.IsZoomInHalfwayDone())
             {
                 if (didHumansWin)
@@ -223,7 +229,7 @@ public class GameManager : MonoBehaviour {
     }
     void GhostPullToMiddle()
     {
-#if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE
+        #if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE
         currentGhostPlayer.GetComponent<Ghost>().debugCurrentSpeed = 0;
         #endif
 
@@ -234,8 +240,6 @@ public class GameManager : MonoBehaviour {
             Vector2 direction = currentGhostPlayer.transform.position - transform.position;
 
             currentGhostPlayer.GetComponent<Rigidbody2D>().AddForceAtPosition(-direction.normalized * 2, roomPos);
-
-            Debug.Log(Vector2.Distance(currentGhostPlayer.transform.position, roomPos));
         }
         else
         {

@@ -5764,7 +5764,7 @@ Transform:
   m_LocalScale: {x: -6.47141361, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1518960079
 MonoBehaviour:
   m_ObjectHideFlags: 0
