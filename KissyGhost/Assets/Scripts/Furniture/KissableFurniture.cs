@@ -5,7 +5,8 @@ public enum KissedFurnitureBehavior
 {
     None = 0,
     FollowPlayer = 1,
-    Shoot = 2
+    Shoot = 2,
+    RhinoCharge = 3
 }
 
 public class KissableFurniture : MonoBehaviour
@@ -24,6 +25,7 @@ public class KissableFurniture : MonoBehaviour
     private Transform Heart_Fountain;
 
     private Furniture_FollowPlayer followPlayerBehavior;
+    private Furniture_RhinoCharge rhinoChargeBehavior;
     private Furniture_Shoot shootBehavior;
 
 #if UNITY_EDITOR
@@ -49,6 +51,14 @@ public class KissableFurniture : MonoBehaviour
                 shootBehavior = GetComponent<Furniture_Shoot>();
 
                 if (shootBehavior == null)
+                {
+                    kissedBehavior = KissedFurnitureBehavior.None;
+                }
+                break;
+            case (int)KissedFurnitureBehavior.RhinoCharge:
+                rhinoChargeBehavior = GetComponent<Furniture_RhinoCharge>();
+
+                if (rhinoChargeBehavior == null)
                 {
                     kissedBehavior = KissedFurnitureBehavior.None;
                 }
@@ -132,6 +142,10 @@ public class KissableFurniture : MonoBehaviour
             case (int)KissedFurnitureBehavior.Shoot:
                 shootBehavior.enabled = true;
                 break;
+            case (int)KissedFurnitureBehavior.RhinoCharge:
+                rhinoChargeBehavior.enabled = true;
+                rhinoChargeBehavior.Initialize(getClosestPlayerTransform());
+                break;
         }
 
         //Start Playing Furniture sliding sound
@@ -169,6 +183,9 @@ public class KissableFurniture : MonoBehaviour
                 break;
             case (int)KissedFurnitureBehavior.Shoot:
                 shootBehavior.enabled = false;
+                break;
+            case (int)KissedFurnitureBehavior.RhinoCharge:
+                rhinoChargeBehavior.enabled = false;
                 break;
         }
 
