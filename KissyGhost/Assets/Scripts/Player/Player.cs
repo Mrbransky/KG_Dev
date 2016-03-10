@@ -81,7 +81,7 @@ public class Player : Entity
             MoveAnimation = MoveAnim.Idle;
 
 #region Keyboard Input Related Code (for Debugging)
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
         if (moveDir == Vector2.zero)
         {
             DebugPlayerInput();
@@ -136,7 +136,7 @@ public class Player : Entity
     }
 
 #region Keyboard Input Related Functions (for Debugging)
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
     protected void DebugPlayerInput()
     {
         #region SetDebugMoveDirection

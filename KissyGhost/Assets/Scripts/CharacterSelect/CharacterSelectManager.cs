@@ -215,8 +215,8 @@ public class CharacterSelectManager : MonoBehaviour
 
                 checkIfPlayerReady();
 
-#region Debug Code
-#if UNITY_EDITOR
+                #region Debug Code
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
                 if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
                     startGame();

@@ -23,7 +23,7 @@ public class GoToCSelect : MonoBehaviour
             _HeartZoomTransition.StartHeartZoomIn(2);
             soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
         }
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             _HeartZoomTransition.enabled = true;

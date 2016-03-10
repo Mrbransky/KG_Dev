@@ -13,8 +13,8 @@ public class Entity : MonoBehaviour
 
     public float accelRate, decelRate;
 
-#region Keyboard Input Related Variables (for Debugging)
-#if UNITY_EDITOR
+    #region Keyboard Input Related Variables (for Debugging)
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
     public Vector2 debugMoveDir;
     public float debugCurrentSpeed;
     private Vector2 debugcachedMoveDir;
@@ -35,14 +35,14 @@ public class Entity : MonoBehaviour
         else if (Mathf.Abs(moveDir.magnitude) < .25f && currentSpeed > 0)
             DecelToStop();
 
-#if !UNITY_EDITOR
+#if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_STANDALONE
         topSpeed = moveDir.magnitude * 5;
         if (topSpeed > 5) topSpeed = 5;
 #endif
-        
 
-#region Keyboard Input Related Code (for Debugging)
-#if UNITY_EDITOR
+
+        #region Keyboard Input Related Code (for Debugging)
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
         else if (debugMoveDir != Vector2.zero && topSpeed > 0)
         {
             // AccelCurrentSpeed

@@ -1,4 +1,4 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class soundManager : MonoBehaviour {
@@ -40,8 +40,8 @@ public class soundManager : MonoBehaviour {
 	void Update () 
     {
 
-#if UNITY_EDITOR
-		if (Input.GetKeyDown ("p")) {
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+        if (Input.GetKeyDown ("p")) {
 			AkSoundEngine.StopAll ();
 		}
 #endif
