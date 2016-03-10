@@ -28,7 +28,11 @@ public class SpriteSorter : MonoBehaviour
     
 	void Awake()
     {
-        CenterRoom_SpriteRendererList = new List<SpriteRenderer>();
+        if (CenterRoom_SpriteRendererList == null)
+        {
+            CenterRoom_SpriteRendererList = new List<SpriteRenderer>();
+        }
+        
         LeftRoom_SpriteRendererList = new List<SpriteRenderer>();
         RightRoom_SpriteRendererList = new List<SpriteRenderer>();
         BottomRoom_SpriteRendererList = new List<SpriteRenderer>();

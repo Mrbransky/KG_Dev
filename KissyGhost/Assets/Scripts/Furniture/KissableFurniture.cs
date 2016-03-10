@@ -17,12 +17,14 @@ public class KissableFurniture : MonoBehaviour
     public Color kissedColor = new Color(255.0f / 255.0f, 192.0f / 255.0f, 203.0f / 255.0f);
     private SpriteRenderer spriteRenderer;
     private bool isKissed = false;
+    public int amountKissed = 0;
    
     [SerializeField] private float kissedDuration = 3.0f;
     private float timeSinceKiss;
     private GameManager _GameManager;
 
     private Transform Heart_Fountain;
+    private Transform Smaller_Heart_Fountain;
 
     private Furniture_FollowPlayer followPlayerBehavior;
     private Furniture_RhinoCharge rhinoChargeBehavior;
@@ -41,7 +43,7 @@ public class KissableFurniture : MonoBehaviour
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
                 followPlayerBehavior = GetComponent<Furniture_FollowPlayer>();
-
+                amountKissed = 2;
                 if (followPlayerBehavior == null)
                 {
                     kissedBehavior = KissedFurnitureBehavior.None;
@@ -49,7 +51,7 @@ public class KissableFurniture : MonoBehaviour
                 break;
             case (int)KissedFurnitureBehavior.Shoot:
                 shootBehavior = GetComponent<Furniture_Shoot>();
-
+                amountKissed = 2;
                 if (shootBehavior == null)
                 {
                     kissedBehavior = KissedFurnitureBehavior.None;
@@ -57,7 +59,7 @@ public class KissableFurniture : MonoBehaviour
                 break;
             case (int)KissedFurnitureBehavior.RhinoCharge:
                 rhinoChargeBehavior = GetComponent<Furniture_RhinoCharge>();
-
+                
                 if (rhinoChargeBehavior == null)
                 {
                     kissedBehavior = KissedFurnitureBehavior.None;
@@ -67,6 +69,12 @@ public class KissableFurniture : MonoBehaviour
 
         Heart_Fountain = transform.FindChild("Heart_Fountain");
         Heart_Fountain.gameObject.SetActive(false);
+
+        if((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
+        {
+            Smaller_Heart_Fountain = transform.FindChild("Smaller_Heart_Fountain");
+            Smaller_Heart_Fountain.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -124,13 +132,16 @@ public class KissableFurniture : MonoBehaviour
             return;
         }
 
-        if (KissedSprite != null)
+        if (amountKissed >= 2)
         {
-            spriteRenderer.sprite = KissedSprite;
-        }
-        else
-        {
-            spriteRenderer.color = kissedColor;
+            if (KissedSprite != null)
+            {
+                spriteRenderer.sprite = KissedSprite;
+            }
+            else
+            {
+                spriteRenderer.color = kissedColor;
+            }
         }
 
         switch ((int)kissedBehavior)
@@ -143,13 +154,28 @@ public class KissableFurniture : MonoBehaviour
                 shootBehavior.enabled = true;
                 break;
             case (int)KissedFurnitureBehavior.RhinoCharge:
-                rhinoChargeBehavior.enabled = true;
-                rhinoChargeBehavior.Initialize(getClosestPlayerTransform());
+                if (amountKissed >= 2)
+                {
+                    rhinoChargeBehavior.enabled = true;
+                    rhinoChargeBehavior.Initialize(getClosestPlayerTransform());
+                    
+                }
+                else { amountKissed++; }
                 break;
         }
 
+        switch(amountKissed)
+        {
+            case 1:
+            Smaller_Heart_Fountain.gameObject.SetActive(true);
+            break;
+            case 2:
+            Smaller_Heart_Fountain.gameObject.SetActive(false);
+            Heart_Fountain.gameObject.SetActive(true);
+            break;
+            
+        }
         //Start Playing Furniture sliding sound
-        Heart_Fountain.gameObject.SetActive(true);
         soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
     }
 
@@ -189,8 +215,12 @@ public class KissableFurniture : MonoBehaviour
                 break;
         }
 
-        Heart_Fountain.gameObject.SetActive(false);
-
+      Heart_Fountain.gameObject.SetActive(false);
+      if ((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
+      {
+          Smaller_Heart_Fountain = transform.FindChild("Smaller_Heart_Fountain");
+          Smaller_Heart_Fountain.gameObject.SetActive(false);
+      }
         //Stop Furniture sliding sound
         
     }

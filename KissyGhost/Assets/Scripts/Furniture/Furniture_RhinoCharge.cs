@@ -6,7 +6,7 @@ public class Furniture_RhinoCharge : MonoBehaviour
     [SerializeField]
     private float minFollowDistance = 0.1f;
     [SerializeField]
-    private float followSpeed = 3.5f;
+    private float followSpeed = 0;
     public int BounceBackForce;
 
     private KissableFurniture _KissableFurniture;
@@ -35,9 +35,10 @@ public class Furniture_RhinoCharge : MonoBehaviour
         //Vector2 moveDir = closestPlayerTransform.position - transform.position;
         //moveDir.Normalize();
         //float distanceFromPlayer = moveDir.magnitude;
-        Debug.Log(lastKnownPlayerPosition);
+        followSpeed += Time.deltaTime*2;
         furnitureRigidbody2D.velocity = (lastKnownPlayerPosition - transform.position) * followSpeed;
-
+        if(followSpeed >= 3.5f)
+        { followSpeed = 3.5f; }
         //if (distanceFromPlayer > minFollowDistance)
         //{
         //    furnitureRigidbody2D.velocity = moveDir * followSpeed;
@@ -53,8 +54,9 @@ public class Furniture_RhinoCharge : MonoBehaviour
         if (isInitialized)
         {
             isInitialized = false;
-            furnitureRigidbody2D.velocity = Vector2.zero;
-
+            //furnitureRigidbody2D.velocity = Vector2.zero;
+            followSpeed = 0;
+            _KissableFurniture.amountKissed = 0;
             Vector3 furnitureToPlayerDir = closestPlayerTransform.position - transform.position;
             float distanceToPlayer = furnitureToPlayerDir.magnitude;
 
@@ -66,18 +68,26 @@ public class Furniture_RhinoCharge : MonoBehaviour
     }
 
 
-
+    void OnCollisionEnter2D(Collision2D col) 
+    {
+        if(col.gameObject.tag == "Furniture" && isInitialized == true)
+        {
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce((col.transform.position - transform.position) * (BounceBackForce/2));
+        }
+    }
 
     public void Initialize(Transform _closestPlayerTransform)
     {
         bool temp = true;
         closestPlayerTransform = _closestPlayerTransform;
 
+
         if(temp)
         {
             lastKnownPlayerPosition = _closestPlayerTransform.position;
             temp = false;
         }
+
         isInitialized = true;
     }
 }
