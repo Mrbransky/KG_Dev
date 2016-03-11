@@ -23,12 +23,12 @@ public class NewCameraBehavior : MonoBehaviour {
         targets.AddRange(GameObject.FindGameObjectsWithTag("Player")); 
 
 
-    if(theCamera)
-    {
-    isOrthographic = theCamera.orthographic;
-    }
- 	//var globalControlScript = GameObject.Find("GlobalControl").GetComponent("GlobalControlScript");
- 	theCamera.orthographicSize = 1 + (6f*targets.Count);
+         if(theCamera)
+         {
+            isOrthographic = theCamera.orthographic;
+         }
+ 	        //var globalControlScript = GameObject.Find("GlobalControl").GetComponent("GlobalControlScript");
+ 	        theCamera.orthographicSize = 1 + (6f*targets.Count);
  
 	}
 
@@ -59,7 +59,7 @@ public class NewCameraBehavior : MonoBehaviour {
 
         float largestDifference = returnLargestDifference();
 
-        height = Mathf.Lerp(height, largestDifference, Time.deltaTime * heightSpeed);
+        height = Mathf.Lerp(height, largestDifference, Time.fixedDeltaTime * heightSpeed);
 
         if (targets.Count > 1)
         {
@@ -74,24 +74,13 @@ public class NewCameraBehavior : MonoBehaviour {
                 { theCamera.orthographicSize = 3f; }
 				float newYDampedPos = Mathf.SmoothDamp(theCamera.transform.position.y, avgDistance.y, ref yVelocity, smoothDampSpeed);
 				float newXDampedPos = Mathf.SmoothDamp(theCamera.transform.position.x, avgDistance.x, ref xVelocity, smoothDampSpeed);
-				theCamera.transform.position = new Vector3(newXDampedPos, newYDampedPos, theCamera.transform.position.z);
-                
+                Vector3 tempVec = new Vector3(newXDampedPos, newYDampedPos, theCamera.transform.position.z);
 
-
+                if (!float.IsNaN(tempVec.x))
+                {
+                    theCamera.transform.position = tempVec;
+                }
                 //theCamera.transform.LookAt(avgDistance);
-
-            }
-            else
-            {
-
-                theCamera.transform.position = new Vector3(avgDistance.x, theCamera.transform.position.y, theCamera.transform.position.z);
-
-                theCamera.transform.position = new Vector3(theCamera.transform.position.x, theCamera.transform.position.y, avgDistance.z - distance + largestDifference);
-
-                theCamera.transform.position = new Vector3(theCamera.transform.position.x, height, theCamera.transform.position.z);
-
-                theCamera.transform.LookAt(avgDistance);
-
             }
             //var shakeScript = gameObject.GetComponent("CameraShakeScript");
             //shakeScript.Shake();
