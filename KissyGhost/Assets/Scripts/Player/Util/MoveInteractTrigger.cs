@@ -46,7 +46,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 
         if (PlayerMoveDir.magnitude >= .75)
             SetInteractTrigOffset();
-#if UNITY_EDITOR || UNITY_WEBGL
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
         else if (debugPlayerMoveDir.magnitude >= .75)
             DEBUG_SetInteractTrigOffset();
 #endif

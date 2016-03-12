@@ -52,12 +52,15 @@ public class Furniture_FollowPlayer : MonoBehaviour
             isInitialized = false;
             furnitureRigidbody2D.velocity = Vector2.zero;
 
-            Vector3 furnitureToPlayerDir = closestPlayerTransform.position - transform.position;
-            float distanceToPlayer = furnitureToPlayerDir.magnitude;
-
-            if (distanceToPlayer <= minFollowDistance)
+            if (closestPlayerTransform != null)
             {
-                closestPlayerTransform.GetComponent<Rigidbody2D>().AddForce(furnitureToPlayerDir.normalized * BounceBackForce);
+                Vector3 furnitureToPlayerDir = closestPlayerTransform.position - transform.position;
+                float distanceToPlayer = furnitureToPlayerDir.magnitude;
+
+                if (distanceToPlayer <= minFollowDistance)
+                {
+                    closestPlayerTransform.GetComponent<Rigidbody2D>().AddForce(furnitureToPlayerDir.normalized * BounceBackForce);
+                }
             }
         }
     }

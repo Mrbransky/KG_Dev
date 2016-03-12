@@ -6,7 +6,6 @@ public class Ghost : Player
     public float timeBetweenKisses = 1.5f;
     public float SpeedReducePercent = 75;
     private float timeSinceKiss;
-    private MoveInteractTrigger _MoveInteractTrigger;
     public AudioClip[] smoochSounds;
 
     public bool GetAButtonDown = false;
@@ -21,7 +20,6 @@ public class Ghost : Player
         FacingRight = false;
         base.Awake();
 
-        _MoveInteractTrigger = this.interactTrigger.GetComponent<MoveInteractTrigger>();
         source = this.GetComponent<AudioSource>();
 	}
 
@@ -87,10 +85,10 @@ public class Ghost : Player
                 timeSinceKiss = timeBetweenKisses;
                 source.PlayOneShot(PickRandomKissSound());
                 StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
+
+                soundManager.SOUND_MAN.playSound("Play_Kisses", gameObject);
             }
         }
-
-        soundManager.SOUND_MAN.playSound("Play_Kisses", gameObject);
     }
 
     //float Arguement gets used as a percentage

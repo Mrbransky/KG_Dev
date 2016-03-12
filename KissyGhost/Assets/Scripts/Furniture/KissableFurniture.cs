@@ -142,6 +142,9 @@ public class KissableFurniture : MonoBehaviour
             {
                 spriteRenderer.color = kissedColor;
             }
+
+            //Start Playing Furniture sliding sound
+            soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
         }
 
         switch ((int)kissedBehavior)
@@ -167,16 +170,24 @@ public class KissableFurniture : MonoBehaviour
         switch(amountKissed)
         {
             case 1:
-            Smaller_Heart_Fountain.gameObject.SetActive(true);
+            if (Smaller_Heart_Fountain != null)
+            {
+                Smaller_Heart_Fountain.gameObject.SetActive(true);
+            }
             break;
             case 2:
-            Smaller_Heart_Fountain.gameObject.SetActive(false);
-            Heart_Fountain.gameObject.SetActive(true);
+            if (Smaller_Heart_Fountain != null)
+            { 
+                Smaller_Heart_Fountain.gameObject.SetActive(false);
+            }
+
+            if (Heart_Fountain != null)
+            {
+                Heart_Fountain.gameObject.SetActive(true);
+            }
             break;
             
         }
-        //Start Playing Furniture sliding sound
-        soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
     }
 
     public void UnkissFurniture()

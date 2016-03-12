@@ -185,6 +185,8 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
+                timer = 0;
+
                 _HeartZoomTransition.enabled = true;
                 _HeartZoomTransition.StartHeartZoomInHalfway();
             }

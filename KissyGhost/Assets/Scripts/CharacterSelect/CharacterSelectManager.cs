@@ -164,9 +164,10 @@ public class CharacterSelectManager : MonoBehaviour
         maxGhostSelectionDuration = GhostSelectionDuration;
         timeToNextGhostSelector = initialTimeToNextGhostSelector;
 
+        debugTextArray = new string[MAX_PLAYER_COUNT];
+
         #region Debug Code
 #if UNITY_EDITOR
-        debugTextArray = new string[MAX_PLAYER_COUNT];
 
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
@@ -215,11 +216,12 @@ public class CharacterSelectManager : MonoBehaviour
 
                 checkIfPlayerReady();
 
-                #region Debug Code
+#region Debug Code
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
                 if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
                     startGame();
+                    soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
                 }
 
                 debugCheckIfPlayerReady();
@@ -343,6 +345,7 @@ public class CharacterSelectManager : MonoBehaviour
                 updateUI_playerReady(i - 1, true);
                 StartCoroutine(InputMapper.Vibration(i, .2f, 0, .8f));
                 soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
+
 #region Debug Code
 #if UNITY_EDITOR
                 debugTextArray[i - 1] = "P" + i + ": Ready\n";
@@ -695,13 +698,15 @@ public class CharacterSelectManager : MonoBehaviour
     }
 
     private void updateDebugUI()
-    {
+    {  
+#if UNITY_EDITOR
         CharacterSelectDebugText.text = "";
 
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
             CharacterSelectDebugText.text += debugTextArray[i];
         }
+#endif
     }
 #endregion
 }

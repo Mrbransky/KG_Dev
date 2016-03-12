@@ -1,0 +1,105 @@
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 560 Ti   (ID=0x1200)
+    Vendor:   NVIDIA
+    VRAM:     979 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+- Completed reload, in  0.058 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\Managed\System.dll (this message is harmless)
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1715)
+
+WwiseUnity: Initialize sound engine ...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WwiseUnity: Setting base SoundBank path to C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_KeyboardInput_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows\
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WwiseUnity: Sound engine initialized.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.496102 ms
+
+Unloading 55 unused Assets to reduce memory usage. Loaded Objects now: 475.
+Total: 0.503496 ms (FindLiveObjects: 0.039543 ms CreateObjectMapping: 0.017205 ms MarkObjects: 0.277104 ms  DeleteObjects: 0.168435 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.075816 ms
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 564.
+Total: 0.387583 ms (FindLiveObjects: 0.044674 ms CreateObjectMapping: 0.022941 ms MarkObjects: 0.269859 ms  DeleteObjects: 0.049202 ms)
+
+Starting game...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.SelectingGhost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.GhostRevealed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.Panic
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.RunFromGhost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.LoadMainScene
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.045631 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1378.
+Total: 0.795995 ms (FindLiveObjects: 0.092971 ms CreateObjectMapping: 0.044372 ms MarkObjects: 0.534889 ms  DeleteObjects: 0.122855 ms)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1715)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.192434 ms
+
+Unloading 338 unused Assets to reduce memory usage. Loaded Objects now: 482.
+Total: 0.738341 ms (FindLiveObjects: 0.052523 ms CreateObjectMapping: 0.031091 ms MarkObjects: 0.295215 ms  DeleteObjects: 0.358605 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.804145 ms
+
+Unloading 53 unused Assets to reduce memory usage. Loaded Objects now: 478.
+Total: 0.485687 ms (FindLiveObjects: 0.037128 ms CreateObjectMapping: 0.018715 ms MarkObjects: 0.260804 ms  DeleteObjects: 0.168134 ms)
+
