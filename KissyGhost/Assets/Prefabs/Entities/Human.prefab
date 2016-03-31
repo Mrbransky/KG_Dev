@@ -148,6 +148,8 @@ GameObject:
   - 224: {fileID: 22444246}
   - 222: {fileID: 22211620}
   - 114: {fileID: 11474308}
+  - 114: {fileID: 11435092}
+  - 114: {fileID: 11459020}
   m_Layer: 0
   m_Name: PlayerNumText
   m_TagString: Untagged
@@ -188,6 +190,7 @@ GameObject:
   - 114: {fileID: 11434770}
   - 114: {fileID: 11482198}
   - 114: {fileID: 11484850}
+  - 114: {fileID: 11472898}
   m_Layer: 8
   m_Name: Human
   m_TagString: Player
@@ -319,7 +322,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.75, y: -5, z: 0}
+  m_LocalPosition: {x: -5.75, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 419342}
@@ -558,6 +561,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5045da9420215ca4ea490407367d2749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11435092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d6f6502eb98114abfbcc04df9f7e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: .449999988
 --- !u!114 &11437830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -670,6 +685,7 @@ MonoBehaviour:
   HorizReach: .800000012
   VertReach: .800000012
   TriggerVertOffset: -.100000001
+  IsOnItemNode: 0
   isGhostInteractTrigger: 0
   colliderList: []
 --- !u!114 &11455334
@@ -693,6 +709,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11459020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: .0399999991, y: .0399999991}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11462816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,6 +770,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartNum: 2
   HeartOutline: {fileID: 188956}
+--- !u!114 &11472898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2829a1adb26cf748ab3b53e2b66be4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashColorA: {r: 1, g: 1, b: 1, a: .686274529}
+  FlashColorB: {r: 1, g: 1, b: 1, a: .313725501}
 --- !u!114 &11474308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -752,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .240660414, g: .852941155, b: .17560555, a: 1}
+  m_Color: {r: .917647123, g: .650980413, b: .141176477, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 1
@@ -765,7 +809,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: P4
+  m_Text: P1
 --- !u!114 &11477814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,13 +851,14 @@ MonoBehaviour:
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
-  playerNum: 4
+  playerNum: 1
   invulnerabilityDuration: 1.5
+  GetAButtonDown: 0
   IsCarryingItem: 0
   IsPullingSwitch: 0
   timeBetweenItemInteract: .25
-  ItemPickUpKeycode: 122
-  ItemThrowKeycode: 120
+  ItemPickUpKeycode: 113
+  ItemThrowKeycode: 101
 --- !u!114 &11484480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -850,7 +895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   paletteRandSelection:
-  - {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3, type: 2}
+  - {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa, type: 2}
 --- !u!114 &11487858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1008,7 +1053,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 19
+  m_SortingOrder: 99
 --- !u!224 &22419924
 RectTransform:
   m_ObjectHideFlags: 1
