@@ -30,6 +30,10 @@ public class KissableFurniture : MonoBehaviour
     private Furniture_RhinoCharge rhinoChargeBehavior;
     private Furniture_Shoot shootBehavior;
 
+    public float kickCooldown = 1.0f;
+    private Rigidbody2D myRigidbody;
+    private float timeSinceKick = 0.0f;
+
 #if UNITY_EDITOR
     public KeyCode KissKey = KeyCode.Alpha0;
 #endif
@@ -38,7 +42,9 @@ public class KissableFurniture : MonoBehaviour
     {
         _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        myRigidbody = GetComponent<Rigidbody2D>();
+
+
         switch ((int)kissedBehavior)
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
@@ -104,6 +110,11 @@ public class KissableFurniture : MonoBehaviour
                 UnkissFurniture();
             }
         }
+
+        if (timeSinceKick > 0)
+        {
+            timeSinceKick -= Time.deltaTime;
+        }
     }
 
     // Returns false if the furniture is already kissed
@@ -117,6 +128,7 @@ public class KissableFurniture : MonoBehaviour
         {
             isKissed = true;
             timeSinceKiss = kissedDuration;
+            myRigidbody.velocity = Vector2.zero;
 
             OnFurnitureKissed();
 
@@ -267,5 +279,21 @@ public class KissableFurniture : MonoBehaviour
         }
 
         return closestPlayer.transform;
+    }
+
+    public bool CanKick()
+    {
+        if (!isKissed && timeSinceKick <= 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void Kick(Vector2 kickVector)
+    {
+        myRigidbody.AddForce(kickVector);
+        timeSinceKick = kickCooldown;
     }
 }

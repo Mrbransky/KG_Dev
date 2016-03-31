@@ -15,6 +15,8 @@ public class Human : Player
 
     public bool GetAButtonDown = false;
     private bool wasAButtonPressed = false;
+    public bool GetBButtonDown = false;
+    private bool wasBButtonPressed = false;
 
     public bool IsCarryingItem;
     public bool CanGrabItem
@@ -27,6 +29,16 @@ public class Human : Player
                 return false;
         }
     }
+    public bool CanKickFurniture
+    {
+        get
+        {
+            if (!IsCarryingItem && timeBetweenFurnitureKick == 0)
+                return true;
+            else
+                return false;
+        }
+    }
     public bool IsPullingSwitch;
 
     private string HeldItemName;
@@ -34,10 +46,14 @@ public class Human : Player
     private SpriteRenderer heldItemSpriteRenderer;
     private HumanSpriteFlasher _HumanSpriteFlasher;
 
-    public float timeBetweenItemInteract;
+    public float kickForce = 1000.0f;
+    public float timeBetweenItemInteract = 0;
+    public float timeBetweenFurnitureKick = 0;
     private SpriteRenderer interactButtonPromptSpriteRenderer;
+    private SpriteRenderer kickButtonPromptSpriteRenderer;
     private float interactButtonPromptDurationBuffer = 0.1f;
-    private float timeSinceButtonPrompt = 0.0f;
+    private float timeSinceInteractButtonPrompt = 0.0f;
+    private float timeSinceKickButtonPrompt = 0.0f;
 
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
     public KeyCode ItemPickUpKeycode = KeyCode.Z;
@@ -96,6 +112,10 @@ public class Human : Player
             {
                 interactButtonPromptSpriteRenderer = childSpriteRenderer;
             }
+            else if (childSpriteRenderer.gameObject.name == "KickButtonPrompt")
+            {
+                kickButtonPromptSpriteRenderer = childSpriteRenderer;
+            }
         }
 	}
 
@@ -116,37 +136,57 @@ public class Human : Player
             wasAButtonPressed = false;
         }
 
+        GetBButtonDown = false;
+
+        if (InputMapper.GrabVal(XBOX360_BUTTONS.B, this.playerNum) && !wasBButtonPressed)
+        {
+            wasBButtonPressed = true;
+            GetBButtonDown = true;
+        }
+        else if (!InputMapper.GrabVal(XBOX360_BUTTONS.B, this.playerNum) && wasBButtonPressed)
+        {
+            wasBButtonPressed = false;
+        }
+
         if (heldItemSpriteRenderer != null)
         {
             heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
         }
-        
-        if (IsCarryingItem && timeBetweenItemInteract == 0)
+
+        if (timeBetweenItemInteract == 0)
         {
-            if (GetAButtonDown)
+            if (IsCarryingItem)
             {
-                PutItemDown(HeldItemName);
-            }
-            //else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, this.playerNum))
-            //{
-            //    ThrowItem(HeldItemName);
-            //}
+                if (GetAButtonDown)
+                {
+                    PutItemDown(HeldItemName);
+                }
+                //else if (InputMapper.GrabVal(XBOX360_BUTTONS.B, this.playerNum))
+                //{
+                //    ThrowItem(HeldItemName);
+                //}
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
-            else if (Input.GetKeyDown(ItemPickUpKeycode))
-            {
-                PutItemDown(HeldItemName);
-            }
-            //else if (Input.GetKeyDown(ItemThrowKeycode))
-            //{
-            //    ThrowItem(HeldItemName);
-            //}
+                else if (Input.GetKeyDown(ItemPickUpKeycode))
+                {
+                    PutItemDown(HeldItemName);
+                }
+                //else if (Input.GetKeyDown(ItemThrowKeycode))
+                //{
+                //    ThrowItem(HeldItemName);
+                //}
 #endif
+            }
         }
 
         if (timeBetweenItemInteract > 0)
             timeBetweenItemInteract -= Time.deltaTime;
         else if (timeBetweenItemInteract < 0)
             timeBetweenItemInteract = 0;
+
+        if (timeBetweenFurnitureKick > 0)
+            timeBetweenFurnitureKick -= Time.deltaTime;
+        else if (timeBetweenFurnitureKick < 0)
+            timeBetweenFurnitureKick = 0;
 
         if (timeSinceInvulnerable > 0)
         {
@@ -158,13 +198,23 @@ public class Human : Player
             }
         }
 
-        if (timeSinceButtonPrompt > 0)
+        if (timeSinceInteractButtonPrompt > 0)
         {
-            timeSinceButtonPrompt -= Time.deltaTime;
+            timeSinceInteractButtonPrompt -= Time.deltaTime;
             
-            if (timeSinceButtonPrompt <= 0)
+            if (timeSinceInteractButtonPrompt <= 0)
             {
                 interactButtonPromptSpriteRenderer.enabled = false;
+            }
+        }
+
+        if (timeSinceKickButtonPrompt > 0)
+        {
+            timeSinceKickButtonPrompt -= Time.deltaTime;
+
+            if (timeSinceKickButtonPrompt <= 0)
+            {
+                kickButtonPromptSpriteRenderer.enabled = false;
             }
         }
 
@@ -189,7 +239,18 @@ public class Human : Player
         //Item Pick up Sound
         soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
     }
-    
+
+    public void KickFurniture(KissableFurniture _KissableFurniture)
+    {
+        Vector2 forceDirection = _KissableFurniture.transform.position - transform.position;
+        _KissableFurniture.Kick(forceDirection.normalized * kickForce);
+
+        timeBetweenFurnitureKick = 0.5f;
+
+        //Furniture Kick Sound
+        //soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
+    }
+
     void PutItemDown(string itemName)
     {
         this.IsCarryingItem = false;
@@ -234,24 +295,50 @@ public class Human : Player
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (CanGrabItem && col.tag == "Cat" && 
-            col.GetComponent<MissionObjective_Item>() != null && col.GetComponent<MissionObjective_Item>().IsItemPlacedDown)
+        if (CanGrabItem)
         {
-            interactButtonPromptSpriteRenderer.enabled = true;
-            timeSinceButtonPrompt = interactButtonPromptDurationBuffer;
-
-            if (GetAButtonDown)
+            if (col.tag == "Cat" && 
+                col.GetComponent<MissionObjective_Item>() != null && 
+                col.GetComponent<MissionObjective_Item>().IsItemPlacedDown)
             {
-                GrabItem(col.gameObject);
-                interactButtonPromptSpriteRenderer.enabled = false;
-                StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
+                interactButtonPromptSpriteRenderer.enabled = true;
+                timeSinceInteractButtonPrompt = interactButtonPromptDurationBuffer;
+
+                if (GetAButtonDown)
+                {
+                    GrabItem(col.gameObject);
+                    interactButtonPromptSpriteRenderer.enabled = false;
+                    StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
+                }
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+                else if (Input.GetKeyDown(ItemPickUpKeycode))
+                {
+                    GrabItem(col.gameObject);
+                    interactButtonPromptSpriteRenderer.enabled = false;
+
+                }
+#endif
+            }
+        }
+
+        if (CanKickFurniture && 
+            col.tag == "Furniture" &&
+            col.GetComponent<KissableFurniture>() != null &&
+            col.GetComponent<KissableFurniture>().CanKick())
+        {
+            kickButtonPromptSpriteRenderer.enabled = true;
+            timeSinceKickButtonPrompt = interactButtonPromptDurationBuffer;
+
+            if (GetBButtonDown)
+            {
+                KickFurniture(col.GetComponent<KissableFurniture>());
+                kickButtonPromptSpriteRenderer.enabled = false;
             }
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
-            else if (Input.GetKeyDown(ItemPickUpKeycode))
+            else if (Input.GetKeyDown(ItemThrowKeycode))
             {
-                GrabItem(col.gameObject);
-                interactButtonPromptSpriteRenderer.enabled = false;
-                
+                KickFurniture(col.GetComponent<KissableFurniture>());
+                kickButtonPromptSpriteRenderer.enabled = false;
             }
 #endif
         }
