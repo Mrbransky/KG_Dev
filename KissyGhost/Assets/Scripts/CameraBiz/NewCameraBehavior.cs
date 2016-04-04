@@ -82,8 +82,6 @@ public class NewCameraBehavior : MonoBehaviour {
                 }
                 //theCamera.transform.LookAt(avgDistance);
             }
-            //var shakeScript = gameObject.GetComponent("CameraShakeScript");
-            //shakeScript.Shake();
 
         }
 

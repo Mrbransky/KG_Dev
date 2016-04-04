@@ -9,6 +9,7 @@ public class ScreenShake : MonoBehaviour {
     Vector3 Hvec = Vector3.zero;
 
 	void Update () {
+
 	    if(shake > 0)
         {
             this.transform.localPosition = Vector3.SmoothDamp(transform.position, Random.insideUnitCircle * shakeAmount, ref Hvec,0.5f);
@@ -21,5 +22,6 @@ public class ScreenShake : MonoBehaviour {
         {
             shake = 0.0f;
         }
+
 	}
 }

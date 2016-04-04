@@ -30,12 +30,17 @@ public class RoomGenerator : MonoBehaviour
     private RoomChangeManager _RoomChangeManager;
 
     //Furniture list
+    [Header("Furniture")]
 	public List<GameObject> currentFurniture;
 	public int numberOfFurniture = 3;
     public GameObject[] furnitureOptions;
+    public GameObject[] kitchenFurnitureOptions;
+    public GameObject[] bathroomFurnitureOptions;
+    public GameObject[] bedroomFurnitureOptions;
     public bool IsRugsEnabledInCenterRoom = true;
 
     //Special Items
+    [Header("Special Items")]
     public List<GameObject> AllSpecialItems;
     private List<GameObject> currentSpecialItems;
 
@@ -44,7 +49,7 @@ public class RoomGenerator : MonoBehaviour
     private float[] RightRoomLimits;
     private float[] BottomRoomLimits;
 
-    public float minDistance = 10;
+    //public float minDistance = 10;
     void Awake()
     {
         _RoomChangeManager = GetComponent<RoomChangeManager>();
@@ -135,8 +140,8 @@ public class RoomGenerator : MonoBehaviour
 
                 RightRoomLimits[(int)RoomLimits.Min_X] = roomCenterPoint.x - (roomSize.x - 5);
                 RightRoomLimits[(int)RoomLimits.Max_X] = roomCenterPoint.x + (roomSize.x - 5);
-                RightRoomLimits[(int)RoomLimits.Min_Y] = roomCenterPoint.y - (roomSize.y - 5);
-                RightRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 5);
+                RightRoomLimits[(int)RoomLimits.Min_Y] = roomCenterPoint.y - (roomSize.y - 4);
+                RightRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 9);
                 break;
 
             case RoomTypes.Bottom:
@@ -186,8 +191,27 @@ public class RoomGenerator : MonoBehaviour
         {
             GameObject FurnitureToSpawn = furnitureOptions[Random.Range(0, furnitureOptions.Length)];
             newPos = getFurniturePos(min_x, max_x, min_y, max_y);
-            GameObject newFurniture = (GameObject)Instantiate(FurnitureToSpawn, newPos, Quaternion.identity);
 
+
+            switch ((int)roomType)
+            {
+                case (int)RoomTypes.Left:
+                    //TODO: uncomment when items for these rooms are made
+                    //FurnitureToSpawn = bedroomFurnitureOptions[Random.Range(0, kitchenFurnitureOptions.Length)];
+                    break;
+
+                case (int)RoomTypes.Right:
+                    FurnitureToSpawn = kitchenFurnitureOptions[Random.Range(0, kitchenFurnitureOptions.Length)];
+                    break;
+
+                case (int)RoomTypes.Bottom:
+                    //TODO: uncomment when items for these rooms are made
+                    //FurnitureToSpawn = bathroomFurnitureOptions[Random.Range(0, kitchenFurnitureOptions.Length)];
+                    break;
+            }
+
+            GameObject newFurniture = (GameObject)Instantiate(FurnitureToSpawn, newPos, Quaternion.identity);
+            #region
             if (newFurniture.tag == "Furniture")
             {
                 newFurniture.GetComponent<SpriteRenderer>().sortingOrder = (int)(-newFurniture.transform.localPosition.y);
@@ -224,7 +248,7 @@ public class RoomGenerator : MonoBehaviour
                 --i;
                 continue;
             }
-
+            #endregion
             currentFurniture.Add(newFurniture);
             newFurniture.transform.SetParent(roomObject.transform);
         }
