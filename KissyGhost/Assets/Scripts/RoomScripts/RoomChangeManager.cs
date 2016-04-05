@@ -233,7 +233,7 @@ public class RoomChangeManager : MonoBehaviour
 
     private void SendPlayersToBottomRoom()
     {
-        foreach (GameObject player in playersGoingBottom)
+        foreach (GameObject player in GetComponent<GameManager>().currentPlayers)
         {
             Vector3 curRoomPosition = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y + 3);
@@ -245,7 +245,7 @@ public class RoomChangeManager : MonoBehaviour
 
     private void SendPlayersToLeftRoom()
     {
-        foreach (GameObject player in playersGoingLeft)
+        foreach (GameObject player in GetComponent<GameManager>().currentPlayers)
         {
             Vector3 curRoomPosition = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(curRoomPosition.x + 5, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
@@ -257,7 +257,7 @@ public class RoomChangeManager : MonoBehaviour
 
     private void SendPlayersToRightRoom()
     {
-        foreach (GameObject player in playersGoingRight)
+        foreach (GameObject player in GetComponent<GameManager>().currentPlayers)
         {
             Vector3 curRoomPosition = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(curRoomPosition.x - 5, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
