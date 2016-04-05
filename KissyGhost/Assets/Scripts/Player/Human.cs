@@ -357,9 +357,9 @@ public class Human : Player
         if (timeSinceInvulnerable <= 0)
         {
             timeSinceInvulnerable = invulnerabilityDuration;
-            gainHug();
-
             _HumanSpriteFlasher.StartFlashing();
+
+            gainHug();
 
             if(hugPoints > 0)
                 StartCoroutine(InputMapper.Vibration(playerNum, 1, .55f, .7f));
@@ -374,7 +374,8 @@ public class Human : Player
     private void gainHug()
     {
         --hugPoints;
-        heartObjects[hugPoints].GetComponent<Image>().enabled = false;
+        heartObjects[hugPoints].GetComponent<HeartComponent>().StartShrink();
+        //heartObjects[hugPoints].GetComponent<Image>().enabled = false;
         Camera.main.GetComponent<ScreenShake>().shake = 0.5f;
 
         if (hugPoints <= 0)
@@ -390,8 +391,12 @@ public class Human : Player
 
         if (IsCarryingItem)
             PutItemDown(HeldItemName);
-
-        Destroy(gameObject);
+        
+        _HumanSpriteFlasher.StopFlashing();
+        Destroy(GetComponent<Rigidbody>());
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<HumanDeath>().enabled = true;
+        this.enabled = false;
     }
 
     //public void AttachToPullSwitch(GameObject obj)
