@@ -6,15 +6,17 @@ public class ScreenShake : MonoBehaviour {
     public float shake = 0;
     public float shakeAmount = 0.7f;
     public float decreaseFactor = 1.0f;
+    public float smoothAmount = 0.5f;
     Vector3 Hvec = Vector3.zero;
 
 	void Update () {
 
 	    if(shake > 0)
         {
-            this.transform.localPosition = Vector3.SmoothDamp(transform.position, Random.insideUnitCircle * shakeAmount, ref Hvec,0.5f);
+            Vector2 rand = Random.insideUnitCircle * shakeAmount;
+            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(rand.x, rand.y,10f)+transform.position, ref Hvec, smoothAmount);
             //----
-            this.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -10f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
             //----
             shake -= Time.deltaTime * decreaseFactor;
         }

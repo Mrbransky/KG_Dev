@@ -70,8 +70,8 @@ public class NewCameraBehavior : MonoBehaviour {
                 theCamera.orthographicSize = targetSize;
                 if (theCamera.orthographicSize >= 10f)
                 { theCamera.orthographicSize = 10f; }
-                if (theCamera.orthographicSize <= 3f)
-                { theCamera.orthographicSize = 3f; }
+                if (theCamera.orthographicSize <= 6f)
+                { theCamera.orthographicSize = 6f; }
 				float newYDampedPos = Mathf.SmoothDamp(theCamera.transform.position.y, avgDistance.y, ref yVelocity, smoothDampSpeed);
 				float newXDampedPos = Mathf.SmoothDamp(theCamera.transform.position.x, avgDistance.x, ref xVelocity, smoothDampSpeed);
                 Vector3 tempVec = new Vector3(newXDampedPos, newYDampedPos, theCamera.transform.position.z);

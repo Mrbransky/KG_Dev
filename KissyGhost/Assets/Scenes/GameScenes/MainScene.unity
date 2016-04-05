@@ -5909,14 +5909,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1518960073}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b95b9bb3fd5fac4e9306fc43cb67047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shake: 1
-  shakeAmount: .699999988
+  shake: 0
+  shakeAmount: 2
   decreaseFactor: 1
+  smoothAmount: .200000003
 --- !u!124 &1518960075
 Behaviour:
   m_ObjectHideFlags: 0

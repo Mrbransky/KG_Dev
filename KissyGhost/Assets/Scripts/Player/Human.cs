@@ -375,6 +375,7 @@ public class Human : Player
     {
         --hugPoints;
         heartObjects[hugPoints].GetComponent<Image>().enabled = false;
+        Camera.main.GetComponent<ScreenShake>().shake = 0.5f;
 
         if (hugPoints <= 0)
         {
