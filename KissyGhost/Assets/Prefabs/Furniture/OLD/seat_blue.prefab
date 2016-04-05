@@ -12,7 +12,6 @@ GameObject:
   - 60: {fileID: 6042674}
   - 50: {fileID: 5043350}
   - 114: {fileID: 11438740}
-  - 114: {fileID: 11470480}
   - 114: {fileID: 11407960}
   m_Layer: 10
   m_Name: seat_blue
@@ -113,23 +112,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kissedBehavior: 1
+  UnkissedSprite: {fileID: 0}
+  KissedSprite: {fileID: 0}
   kissedColor: {r: 1, g: 0, b: .889655113, a: 1}
+  amountKissed: 0
   kissedDuration: 3
-  KissKey: 48
---- !u!114 &11470480
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35243d7c94597d649960ba7455b77eef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kissedBehavior: 0
-  kissedColor: {r: 1, g: .752941191, b: .796078444, a: 1}
-  kissedDuration: 3
+  kickCooldown: 1
   KissKey: 48
 --- !u!212 &21205278
 SpriteRenderer:
