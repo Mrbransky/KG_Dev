@@ -16,15 +16,19 @@ public class DoorCounter : MonoBehaviour {
             switch(curState)
             {
                 case doorSwitchState.LEFT:
-                    roomManager.GetComponent<RoomChangeManager>().playersGoingLeft.Add(col.gameObject);
+                    if(!roomManager.GetComponent<RoomChangeManager>().playersGoingLeft.Contains(col.gameObject))
+                        roomManager.GetComponent<RoomChangeManager>().playersGoingLeft.Add(col.gameObject);
                     break;
                 case doorSwitchState.RIGHT:
+                    if(!roomManager.GetComponent<RoomChangeManager>().playersGoingRight.Contains(col.gameObject))
                     roomManager.GetComponent<RoomChangeManager>().playersGoingRight.Add(col.gameObject);
                     break;
                 case doorSwitchState.BOTTOM:
+                    if (!roomManager.GetComponent<RoomChangeManager>().playersGoingRight.Contains(col.gameObject))
                     roomManager.GetComponent<RoomChangeManager>().playersGoingBottom.Add(col.gameObject);
                     break;
                 case doorSwitchState.BACK:
+                    if (!roomManager.GetComponent<RoomChangeManager>().playersGoingRight.Contains(col.gameObject))
                     roomManager.GetComponent<RoomChangeManager>().playersGoingBack.Add(col.gameObject);
                     break;
             }

@@ -265,6 +265,18 @@ public class KissableFurniture : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(isKissed && col.gameObject.tag == "Ghost Barrier")
+        {
+            UnkissFurniture();
+            GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureRigidbodyVelocity() * -1 * 10000);
+            //Getco .AddForce(followPlayerBehavior.GetFurnitureRigidbodyVelocity() * -1 * 500);
+            
+            //Make furniture bounce away from door
+        }
+    }
+
     private Transform getClosestPlayerTransform()
     {
         GameObject closestPlayer = null;

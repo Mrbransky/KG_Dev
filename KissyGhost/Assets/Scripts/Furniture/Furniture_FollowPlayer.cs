@@ -70,4 +70,9 @@ public class Furniture_FollowPlayer : MonoBehaviour
         closestPlayerTransform = _closestPlayerTransform;
         isInitialized = true;
     }
+
+    public Vector2 GetFurnitureRigidbodyVelocity()
+    {
+       return furnitureRigidbody2D.velocity;
+    }
 }

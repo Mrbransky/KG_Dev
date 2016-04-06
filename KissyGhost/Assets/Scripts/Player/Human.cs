@@ -242,7 +242,15 @@ public class Human : Player
 
     public void KickFurniture(KissableFurniture _KissableFurniture)
     {
-        Vector2 forceDirection = _KissableFurniture.transform.position - transform.position;
+        Vector2 forceDirection;
+
+        if(FacingRight)
+            forceDirection = new Vector3(Mathf.Abs(interactTrigger.offset.x), interactTrigger.offset.y, 0);
+
+        else
+            forceDirection = new Vector3(interactTrigger.offset.x, interactTrigger.offset.y, 0);
+
+        forceDirection += ((Vector2)_KissableFurniture.transform.position - (Vector2)transform.position);
         _KissableFurniture.Kick(forceDirection.normalized * kickForce);
 
         timeBetweenFurnitureKick = 0.5f;

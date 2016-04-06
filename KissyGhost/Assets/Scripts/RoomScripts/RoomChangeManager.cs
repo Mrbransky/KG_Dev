@@ -25,6 +25,7 @@ public class RoomChangeManager : MonoBehaviour
     public float MaxTimerDuration = 10f;
     public float currentTimer;
     private float DoorFadeIncrement = .02f;
+    public int NumPlayersIn;
     public Text timerText;
 
     public List<GameObject> playersGoingBottom = new List<GameObject>();
