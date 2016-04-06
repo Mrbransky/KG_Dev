@@ -225,6 +225,9 @@ public class KissableFurniture : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
 
+        if(KissedSprite == null && spriteRenderer.color != Color.white)
+            spriteRenderer.color = Color.white;
+
         switch ((int)kissedBehavior)
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
