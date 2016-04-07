@@ -11,9 +11,11 @@
 						<ObjectRef Name="Play_Kisses" ID="{C9EFD06A-63E9-4CB5-81D2-71D83D1B2DA9}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Item_Pick_Up" ID="{AC00B676-3127-4593-97CD-1DAE31B9E48E}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_MenuBack" ID="{23DAE07D-D010-458D-BF08-4DDEECE3232A}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_DoorOpen" ID="{6912BC8C-A40D-4155-8B39-F52C12FFB833}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_FurnitureMove" ID="{089E129B-3113-463F-8EBE-0A6803FD58D8}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_MenuDown" ID="{C68BA99E-DCC4-4AFE-890D-6FE2A4E2048E}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Stop_FurnitureMove" ID="{A81FAD9F-30C9-4B75-918F-4F06E45920D5}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_StairsMove" ID="{230A0AB6-9E37-4A45-B0B4-E81280898043}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Round_Start_Go" ID="{06E204C6-66E3-43E7-A55E-B1E8B0591C18}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Item_In_Heartagram" ID="{F29ADFCC-4943-4706-8586-8F4ED25B2BAA}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Music" ID="{02D767D1-11F8-4D47-B28F-7067077E250A}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>

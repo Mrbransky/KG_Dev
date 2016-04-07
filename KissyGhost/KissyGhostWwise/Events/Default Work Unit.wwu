@@ -107,7 +107,7 @@
 						<Action Name="Play" ID="{7F9150AE-352D-4E27-8C00-6FB3F328B787}" ShortID="196090146" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{92B29CE8-2DB8-4195-B514-ABE6CA22E934}" Global="false">
-									<ObjectRef Name="Item Down" ID="{2280FCC5-1A64-4EEF-A756-8257E47B0932}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="ItemDown" ID="{7FE3D650-30E7-4758-B576-FBA7822E1F7B}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -129,7 +129,7 @@
 						<Action Name="Play" ID="{FF1EA14F-F230-4AAE-95CA-5928C0805473}" ShortID="795738638" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{5BD02738-DE38-4D41-A406-234580120FD9}" Global="false">
-									<ObjectRef Name="Item Pick Up" ID="{EB8283A8-72F4-4E99-AF97-BD85032DE2BF}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="ItemPickup" ID="{4544A2AC-F0DA-494A-AA98-ECEF15DFB146}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -163,6 +163,28 @@
 							<ElementList>
 								<Element ID="{F93E4622-7E0D-432D-894F-621829D23B32}" Global="false">
 									<ObjectRef Name="PlayerJoin" ID="{728C8A13-B27F-4043-84B8-2AE9908F26DC}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_StairsMove" ID="{230A0AB6-9E37-4A45-B0B4-E81280898043}">
+					<ChildrenList>
+						<Action Name="Play" ID="{D560442C-5F26-4DE5-81F5-A680D301971E}" ShortID="779251816" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{ACE117C2-B185-4C35-B1E2-BFE47117E412}" Global="false">
+									<ObjectRef Name="StairsMove" ID="{18F64AD9-83A8-4576-A684-7CA404717B8E}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_DoorOpen" ID="{6912BC8C-A40D-4155-8B39-F52C12FFB833}">
+					<ChildrenList>
+						<Action Name="Play" ID="{1E4C653D-5D5B-422E-863F-C9CB79E5BCF7}" ShortID="937125412" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{EB5C0003-8ED1-4581-AF64-7986B3D5A6F2}" Global="false">
+									<ObjectRef Name="DoorOpen" ID="{65F2D604-D746-4D5F-B452-19D592690F5A}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
