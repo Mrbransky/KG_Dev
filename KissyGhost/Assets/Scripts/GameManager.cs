@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour {
         {
             Vector2 direction = currentGhostPlayer.transform.position - transform.position;
 
-            currentGhostPlayer.GetComponent<Rigidbody2D>().AddForceAtPosition(-direction.normalized * 2, roomPos);
+            currentGhostPlayer.GetComponent<Rigidbody2D>().AddForceAtPosition(-direction.normalized * 3, roomPos);
         }
         else
         {

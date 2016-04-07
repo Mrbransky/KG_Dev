@@ -30,9 +30,13 @@ public class RoomGenerator : MonoBehaviour
     private RoomChangeManager _RoomChangeManager;
 
     //Furniture list
-    [Header("Furniture")]
+    [Header("Furniture Count")]
 	public List<GameObject> currentFurniture;
-	public int numberOfFurniture = 3;
+	public int numberOfFurnitureForCenter = 15;
+    public int numberOfFurnitureForRight = 10;
+    public int numberOfFurnitureForLeft = 10;
+    public int numberOfFurnitureForBottom = 5;
+    [Header("Furniture Options")]
     public GameObject[] furnitureOptions;
     public GameObject[] kitchenFurnitureOptions;
     public GameObject[] bathroomFurnitureOptions;
@@ -186,7 +190,24 @@ public class RoomGenerator : MonoBehaviour
     private void spawnFurniture(GameObject roomObject, float min_x, float max_x, float min_y, float max_y, RoomTypes roomType)
     {
         Vector2 newPos = Vector2.zero;
+        int numberOfFurniture = 15;
+        switch((int)roomType)
+        {
+            case (int)RoomTypes.Center:
+                numberOfFurniture = numberOfFurnitureForCenter;
+                break;
+            case (int)RoomTypes.Left:
+                numberOfFurniture = numberOfFurnitureForLeft;
+                break;
 
+            case (int)RoomTypes.Right:
+                numberOfFurniture = numberOfFurnitureForRight;
+                break;
+
+            case (int)RoomTypes.Bottom:
+                numberOfFurniture = numberOfFurnitureForBottom;
+                break;
+        }
         for (int i = 0; i < numberOfFurniture; i++)
         {
             GameObject FurnitureToSpawn = furnitureOptions[Random.Range(0, furnitureOptions.Length)];

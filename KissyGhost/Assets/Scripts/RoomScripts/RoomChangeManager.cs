@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -50,6 +50,8 @@ public class RoomChangeManager : MonoBehaviour
 
     int curPlayerCount;
 
+    float testTimer = 1f;
+    bool shouldCountdown = false;
     public RoomLocations CurrentRoomLocation
     {
         get { return currentRoomLocation; }
