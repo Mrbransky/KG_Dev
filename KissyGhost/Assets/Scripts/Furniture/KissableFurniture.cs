@@ -12,6 +12,7 @@ public enum KissedFurnitureBehavior
 public class KissableFurniture : MonoBehaviour
 {
     [SerializeField] private KissedFurnitureBehavior kissedBehavior = KissedFurnitureBehavior.None;
+
     public Sprite UnkissedSprite;
     public Sprite KissedSprite;
     public Color kissedColor = new Color(255.0f / 255.0f, 192.0f / 255.0f, 203.0f / 255.0f);
@@ -26,6 +27,8 @@ public class KissableFurniture : MonoBehaviour
 
     private Transform Heart_Fountain;
     private Transform Smaller_Heart_Fountain;
+
+    private Animator anim;
 
     private Furniture_FollowPlayer followPlayerBehavior;
     private Furniture_RhinoCharge rhinoChargeBehavior;
@@ -44,7 +47,7 @@ public class KissableFurniture : MonoBehaviour
         _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         myRigidbody = GetComponent<Rigidbody2D>();
-
+        anim = GetComponent<Animator>();
 
         switch ((int)kissedBehavior)
         {
@@ -104,12 +107,12 @@ public class KissableFurniture : MonoBehaviour
 
         if (isKissed)
         {
+            CheckMoveDirForSpriteFlip();
+
             timeSinceKiss -= Time.deltaTime;
 
             if (timeSinceKiss <= 0)
-            {
                 UnkissFurniture();
-            }
         }
 
         if (timeSinceKick > 0)
@@ -130,6 +133,9 @@ public class KissableFurniture : MonoBehaviour
             isKissed = true;
             timeSinceKiss = kissedDuration;
             myRigidbody.velocity = Vector2.zero;
+
+            if(anim != null)
+                anim.SetBool("IsAnimated", true);
 
             OnFurnitureKissed();
 
@@ -229,6 +235,9 @@ public class KissableFurniture : MonoBehaviour
         if(KissedSprite == null && spriteRenderer.color != Color.white)
             spriteRenderer.color = Color.white;
 
+        if(anim != null)
+            anim.SetBool("IsAnimated", false);
+
         switch ((int)kissedBehavior)
         {
             case (int)KissedFurnitureBehavior.FollowPlayer:
@@ -312,5 +321,16 @@ public class KissableFurniture : MonoBehaviour
     {
         myRigidbody.AddForce(kickVector);
         timeSinceKick = kickCooldown;
+    }
+
+    private void CheckMoveDirForSpriteFlip()
+    {
+        float MoveDirX = followPlayerBehavior.GetFurnitureMoveDir().x;
+        float ScaleX = transform.localScale.x;
+
+        if (MoveDirX > 0 && ScaleX < 0)
+            transform.localScale = new Vector3(-ScaleX, transform.localScale.y);
+        else if (MoveDirX < 0 && ScaleX > 0)
+            transform.localScale = new Vector3(-ScaleX, transform.localScale.y);
     }
 }
