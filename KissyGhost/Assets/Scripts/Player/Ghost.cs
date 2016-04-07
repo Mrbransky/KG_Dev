@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Ghost : Player
 {
-    public float timeBetweenKisses = 1.5f;
+    public float timeBetweenKisses = 0.2f;
     public float SpeedReducePercent = 75;
     private float timeSinceKiss;
     public AudioClip[] smoochSounds;
@@ -11,7 +11,13 @@ public class Ghost : Player
     public bool GetAButtonDown = false;
     private bool wasAButtonPressed = false;
 
-    public bool TouchingFurniture;   
+    public bool TouchingFurniture;
+
+    public int maxKisses = 3;
+    public float timeToRechargeKiss = 3.0f;
+    private HeartComponent[] heartComponentsArray;
+    private int availableKisses = 3;
+    private float kissRechargeTimer = 0.0f;
 
     private AudioSource source;
 
@@ -21,7 +27,9 @@ public class Ghost : Player
         base.Awake();
 
         source = this.GetComponent<AudioSource>();
-	}
+        heartComponentsArray = GetComponentsInChildren<HeartComponent>();
+        availableKisses = maxKisses;
+    }
 
     public override void Update()
     {
@@ -52,7 +60,20 @@ public class Ghost : Player
             kissObject();
         }
 #endif
-#endregion
+        #endregion
+        
+        if (availableKisses < maxKisses)
+        {
+            kissRechargeTimer += Time.deltaTime;
+            heartComponentsArray[availableKisses].UpdateGrow(kissRechargeTimer / timeToRechargeKiss);
+
+            if (kissRechargeTimer >= timeToRechargeKiss)
+            {
+                kissRechargeTimer = 0.0f;
+                heartComponentsArray[availableKisses].ReEnable();
+                ++availableKisses;
+            }
+        }
 
         base.Update();
 
@@ -66,7 +87,7 @@ public class Ghost : Player
     
     private bool canKissObject()
     {
-        return (_MoveInteractTrigger.colliderList.Count > 0 && timeSinceKiss <= 0);
+        return (_MoveInteractTrigger.colliderList.Count > 0 && timeSinceKiss <= 0 && availableKisses > 0);
     }
 
     private AudioClip PickRandomKissSound()
@@ -82,11 +103,25 @@ public class Ghost : Player
         {
             if (col.GetComponent<KissableFurniture>().KissFurniture())
             {
+                if (availableKisses < maxKisses)
+                {
+                    heartComponentsArray[availableKisses].Hide();
+                }
+
+                --availableKisses;
+
+                if (availableKisses >= 0)
+                {
+                    heartComponentsArray[availableKisses].Hide();
+                }
+
                 timeSinceKiss = timeBetweenKisses;
                 source.PlayOneShot(PickRandomKissSound());
                 StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
 
                 soundManager.SOUND_MAN.playSound("Play_Kisses", gameObject);
+
+                return;
             }
         }
     }

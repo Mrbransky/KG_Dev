@@ -6,13 +6,37 @@ public class HeartComponent : MonoBehaviour
 {
     public int heartNum = 0;
     public GameObject HeartOutline;
-    
+
+    private Image _Image;
+    private Color defaultColor = Color.white;
+    private Color transparentColor = Color.white;
+    private float defaultScale = 1.0f;
+
     private float shrinkSpeed = 1.2f;
     private bool isShrinking = false;
 
+    public bool IsShrinking
+    {
+        get { return isShrinking; }
+    }
+
+    void Start()
+    {
+        defaultScale = transform.localScale.x;
+
+        _Image = GetComponent<Image>();
+        defaultColor = _Image.color;
+        transparentColor = defaultColor;
+        transparentColor.a /= 2;
+    }
+
     public void Disable()
     {
-        HeartOutline.SetActive(false);
+        if (HeartOutline != null)
+        {
+            HeartOutline.SetActive(false);
+        }
+
         gameObject.SetActive(false);
     }
 
@@ -27,6 +51,7 @@ public class HeartComponent : MonoBehaviour
     public void StartShrink()
     {
         isShrinking = true;
+        ReEnable();
     }
 
     private void shrink()
@@ -35,8 +60,27 @@ public class HeartComponent : MonoBehaviour
 
         if (transform.localScale.x <= 0)
         {
-            GetComponent<Image>().enabled = false;
+            _Image.enabled = false;
             isShrinking = false;
         }
+    }
+
+    public void Hide()
+    {
+        _Image.enabled = false;
+    }
+
+    public void ReEnable()
+    {
+        transform.localScale = new Vector3(defaultScale, defaultScale, defaultScale);
+        _Image.enabled = true;
+        _Image.color = defaultColor;
+    }
+    
+    public void UpdateGrow(float scaleFactor)
+    {
+        _Image.enabled = true;
+        _Image.color = transparentColor;
+        transform.localScale = new Vector3(defaultScale * scaleFactor, defaultScale * scaleFactor, defaultScale * scaleFactor);
     }
 }

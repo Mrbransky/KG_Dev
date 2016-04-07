@@ -114,7 +114,7 @@ public class Player : Entity
             if (playerCanvasTransform != null)
             {
                 playerCanvasTransform.localScale =
-                    new Vector3(-xScale, playerCanvasTransform.localScale.y);
+                    new Vector3(-playerCanvasTransform.localScale.x, playerCanvasTransform.localScale.y);
             }
         }
         else
@@ -125,7 +125,7 @@ public class Player : Entity
             if (playerCanvasTransform != null)
             {
                 playerCanvasTransform.localScale =
-                    new Vector3(xScale, playerCanvasTransform.localScale.y);
+                    new Vector3(-playerCanvasTransform.localScale.x, playerCanvasTransform.localScale.y);
             }
         }
     }
