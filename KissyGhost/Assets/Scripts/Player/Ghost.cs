@@ -113,4 +113,9 @@ public class Ghost : Player
         return debugCurrentSpeed * SpeedReduction;
     }
 #endif
+
+    public void SetTimeSinceKiss(float time)
+    {
+        this.timeSinceKiss = time;
+    }
 }

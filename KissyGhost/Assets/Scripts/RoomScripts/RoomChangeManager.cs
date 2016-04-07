@@ -179,6 +179,8 @@ public class RoomChangeManager : MonoBehaviour
             }
         }
         AkSoundEngine.PostEvent("Stop_FurnitureMove", gameObject);
+        GetComponent<GameManager>().currentGhostPlayer.GetComponent<Ghost>().SetTimeSinceKiss(1.85f);
+        
     }
 
     private void SubObjectiveUpdate_Timer()
