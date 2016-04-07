@@ -10,6 +10,7 @@ public class Furniture_FollowPlayer : MonoBehaviour
     private KissableFurniture _KissableFurniture;
     private Transform closestPlayerTransform;
     private Rigidbody2D furnitureRigidbody2D;
+    private Vector3 moveDir;
     private bool isInitialized = false;
 
     void Start()
@@ -31,7 +32,7 @@ public class Furniture_FollowPlayer : MonoBehaviour
             return;
         }
 
-        Vector3 moveDir = closestPlayerTransform.position - transform.position;
+        moveDir = closestPlayerTransform.position - transform.position;
         float distanceFromPlayer = moveDir.magnitude;
         moveDir.Normalize();
 
@@ -71,8 +72,8 @@ public class Furniture_FollowPlayer : MonoBehaviour
         isInitialized = true;
     }
 
-    public Vector2 GetFurnitureRigidbodyVelocity()
+    public Vector2 GetFurnitureMoveDir()
     {
-       return furnitureRigidbody2D.velocity;
+        return moveDir;
     }
 }

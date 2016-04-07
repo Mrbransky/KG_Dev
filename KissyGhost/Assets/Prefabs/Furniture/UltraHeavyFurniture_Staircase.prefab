@@ -242,7 +242,10 @@ MonoBehaviour:
   UnkissedSprite: {fileID: 21300000, guid: 5a2adcd4de2569b4c850a6bd2a85f9b6, type: 3}
   KissedSprite: {fileID: 21300000, guid: 10c7ce464cf894046851d2a4fa3c650a, type: 3}
   kissedColor: {r: 1, g: 0, b: .889655113, a: 1}
+  amountKissed: 0
+  DoorPushMag: 9
   kissedDuration: 6
+  kickCooldown: 1
   KissKey: 48
 --- !u!198 &19832146
 ParticleSystem:
@@ -1368,6 +1371,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: BounceBackForce
       value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: DoorPushMag
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

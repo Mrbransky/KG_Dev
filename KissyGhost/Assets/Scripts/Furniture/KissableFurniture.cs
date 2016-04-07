@@ -18,6 +18,7 @@ public class KissableFurniture : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isKissed = false;
     public int amountKissed = 0;
+    public float DoorPushMag;
    
     [SerializeField] private float kissedDuration = 3.0f;
     private float timeSinceKiss;
@@ -263,17 +264,18 @@ public class KissableFurniture : MonoBehaviour
                 UnkissFurniture();
             }
         }
+
+        if (col.gameObject.tag == "GhostBarrier")
+            GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * 50);
+
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(isKissed && col.gameObject.tag == "Ghost Barrier")
-        {
+        if(isKissed && col.gameObject.tag == "GhostBarrier")
+        {            
+            GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * 100);
             UnkissFurniture();
-            GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureRigidbodyVelocity() * -1 * 10000);
-            //Getco .AddForce(followPlayerBehavior.GetFurnitureRigidbodyVelocity() * -1 * 500);
-            
-            //Make furniture bounce away from door
         }
     }
 

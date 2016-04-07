@@ -13,6 +13,10 @@ GameObject:
   - 50: {fileID: 5024702}
   - 114: {fileID: 11421204}
   - 114: {fileID: 11488242}
+  - 58: {fileID: 5870094}
+  - 58: {fileID: 5834782}
+  - 68: {fileID: 6876860}
+  - 68: {fileID: 6847006}
   m_Layer: 10
   m_Name: LightFurniture_ChairSW_Brown
   m_TagString: Furniture
@@ -44,7 +48,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3118401, y: 3.24368143, z: 0}
+  m_LocalPosition: {x: 10.851368, y: 3.19502616, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 447978}
@@ -78,8 +82,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6162948
-BoxCollider2D:
+--- !u!58 &5834782
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -88,9 +92,63 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
+  m_Offset: {x: -.0799999982, y: -.0399999991}
+  serializedVersion: 2
+  m_Radius: .239999995
+--- !u!58 &5870094
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179786}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .150000006, y: .219999999}
+  serializedVersion: 2
+  m_Radius: .25
+--- !u!61 &6162948
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179786}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
   m_Offset: {x: .109999999, y: .25}
   serializedVersion: 2
   m_Size: {x: .409999996, y: .629999995}
+--- !u!68 &6847006
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179786}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -.265837669, y: .111243725}
+  - {x: -.0365161896, y: .390779018}
+--- !u!68 &6876860
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179786}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: .0749902725, y: -.22431922}
+  - {x: .362431526, y: .0841197968}
 --- !u!114 &11421204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,7 +164,10 @@ MonoBehaviour:
   UnkissedSprite: {fileID: 21300000, guid: 4059ac0e5521e224fa59d786ee2c4f2f, type: 3}
   KissedSprite: {fileID: 21300000, guid: 2b83f21a51fb81648a8e9c98ede51831, type: 3}
   kissedColor: {r: 1, g: 0, b: .889655113, a: 1}
+  amountKissed: 0
+  DoorPushMag: 6.05999994
   kissedDuration: 3
+  kickCooldown: 1
   KissKey: 48
 --- !u!114 &11488242
 MonoBehaviour:
@@ -1301,6 +1362,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 2b83f21a51fb81648a8e9c98ede51831,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: DoorPushMag
+      value: 6.05999994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179786}

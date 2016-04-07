@@ -17,7 +17,7 @@ TagManager:
   - GameManager
   - Room
   - Pull
-  - Ghost Barrier
+  - GhostBarrier
   layers:
   - Default
   - TransparentFX
