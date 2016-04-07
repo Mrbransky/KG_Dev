@@ -2211,7 +2211,7 @@ GameObject:
   - 68: {fileID: 434840464}
   m_Layer: 11
   m_Name: GhostBarrier
-  m_TagString: Ghost Barrier
+  m_TagString: GhostBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3016,7 +3016,7 @@ GameObject:
   - 68: {fileID: 580753207}
   m_Layer: 11
   m_Name: GhostBarrier
-  m_TagString: Ghost Barrier
+  m_TagString: GhostBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4943,7 +4943,7 @@ GameObject:
   - 68: {fileID: 1109317449}
   m_Layer: 11
   m_Name: GhostBarrier
-  m_TagString: Ghost Barrier
+  m_TagString: GhostBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6522,7 +6522,7 @@ GameObject:
   - 68: {fileID: 1578964779}
   m_Layer: 11
   m_Name: GhostBarrier
-  m_TagString: Ghost Barrier
+  m_TagString: GhostBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7587,7 +7587,7 @@ GameObject:
   - 68: {fileID: 1902967080}
   m_Layer: 11
   m_Name: GhostBarrier
-  m_TagString: Ghost Barrier
+  m_TagString: GhostBarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

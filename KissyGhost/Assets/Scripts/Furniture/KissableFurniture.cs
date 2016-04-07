@@ -278,15 +278,26 @@ public class KissableFurniture : MonoBehaviour
         }
 
         if (col.gameObject.tag == "GhostBarrier")
-            GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * 50);
+        {
+            if ((int)kissedBehavior == (int)KissedFurnitureBehavior.FollowPlayer)
+                GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * 50);
+
+            else if ((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
+                GetComponent<Rigidbody2D>().AddForce(rhinoChargeBehavior.GetLastKnownPlayerPosition() * -1 * DoorPushMag * 50);         
+        }
 
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if(isKissed && col.gameObject.tag == "GhostBarrier")
-        {            
-            GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * 100);
+        {
+            if ((int)kissedBehavior == (int)KissedFurnitureBehavior.FollowPlayer)
+                GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * 100);
+
+            else if ((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
+                GetComponent<Rigidbody2D>().AddForce(rhinoChargeBehavior.GetLastKnownPlayerPosition() * -1 * DoorPushMag * 100);
+
             UnkissFurniture();
         }
     }
@@ -328,7 +339,14 @@ public class KissableFurniture : MonoBehaviour
 
     private void CheckMoveDirForSpriteFlip()
     {
-        float MoveDirX = followPlayerBehavior.GetFurnitureMoveDir().x;
+        float MoveDirX = 0;
+
+        if ((int)kissedBehavior == (int)KissedFurnitureBehavior.FollowPlayer)
+            MoveDirX = followPlayerBehavior.GetFurnitureMoveDir().x;
+
+        else if ((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
+            MoveDirX = rhinoChargeBehavior.GetLastKnownPlayerPosition().x;
+
         float ScaleX = transform.localScale.x;
 
         if (MoveDirX > 0 && ScaleX < 0)

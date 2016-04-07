@@ -90,4 +90,9 @@ public class Furniture_RhinoCharge : MonoBehaviour
 
         isInitialized = true;
     }
+
+    public Vector2 GetLastKnownPlayerPosition()
+    {
+        return lastKnownPlayerPosition;
+    }
 }
