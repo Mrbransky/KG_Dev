@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="70">
-	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2730505368" DateHigh="30505359"/>
+	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="375585029" DateHigh="30511384"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="2730875664" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="2731366055" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Attenuations\Default Work Unit.wwu" DateLow="2731386071" DateHigh="30505359"/>
@@ -19,11 +19,11 @@
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Effects\Factory iZotope Multiband Distortion.wwu" DateLow="2731786391" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Effects\Factory iZotope Singleband Distortion.wwu" DateLow="2731826423" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Effects\Factory McDSP Effects.wwu" DateLow="2731606247" DateHigh="30505359"/>
-	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Events\Default Work Unit.wwu" DateLow="2731846439" DateHigh="30505359"/>
+	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Events\Default Work Unit.wwu" DateLow="375494957" DateHigh="30511384"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Game Parameters\Default Work Unit.wwu" DateLow="2731866455" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="2731876463" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="2738261566" DateHigh="30505359"/>
-	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\KissyGhostWwise.thomas.barrett.wsettings" DateLow="2738351638" DateHigh="30505359"/>
+	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\KissyGhostWwise.thomas.barrett.wsettings" DateLow="408341159" DateHigh="30511384"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\KissyGhostWwise.wproj" DateLow="2738421694" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2738441710" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Mixing Sessions\Default Work Unit.wwu" DateLow="2738461726" DateHigh="30505359"/>
@@ -31,7 +31,7 @@
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Presets\Default Work Unit.wwu" DateLow="2750030971" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Queries\Default Work Unit.wwu" DateLow="2750050987" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Queries\Factory Queries.wwu" DateLow="2750071003" DateHigh="30505359"/>
-	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\SoundBanks\Default Work Unit.wwu" DateLow="2750101027" DateHigh="30505359"/>
+	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\SoundBanks\Default Work Unit.wwu" DateLow="375655085" DateHigh="30511384"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="2750111035" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\States\Default Work Unit.wwu" DateLow="2750131051" DateHigh="30505359"/>
 	<ValidationCacheItem File="C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\Switches\Default Work Unit.wwu" DateLow="2750151067" DateHigh="30505359"/>

@@ -180,6 +180,8 @@ public class KissableFurniture : MonoBehaviour
                 {
                     rhinoChargeBehavior.enabled = true;
                     rhinoChargeBehavior.Initialize(getClosestPlayerTransform());
+
+                    //soundManager.SOUND_MAN.playSound("Play_StairsMove", gameObject);
                     
                 }
                 else { amountKissed++; }
@@ -217,6 +219,7 @@ public class KissableFurniture : MonoBehaviour
             OnFurnitureUnkissed();
         }
 		AkSoundEngine.PostEvent ("Stop_FurnitureMove", gameObject);
+        //AkSoundEngine.PostEvent("Stop_StairsMove", gameObject);
 
         //soundManager.SOUND_MAN.stopSound("Play_FurnitureMove", gameObject, 1);
     }

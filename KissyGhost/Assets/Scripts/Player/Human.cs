@@ -386,6 +386,8 @@ public class Human : Player
         //heartObjects[hugPoints].GetComponent<Image>().enabled = false;
         Camera.main.GetComponent<ScreenShake>().shake = 0.5f;
 
+        //GET HURT, SCRUB (Play sound effect here please, tom. Okay, nice, have a good day. 8=====D~~~~~~
+
         if (hugPoints <= 0)
         {
             killSelf();

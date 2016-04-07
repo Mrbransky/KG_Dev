@@ -157,6 +157,8 @@ public class RoomChangeManager : MonoBehaviour
                 if (obj.GetComponent<SpriteRenderer>().color.a >= 1f)
                     obj.GetComponent<EdgeCollider2D>().enabled = false;
             }
+        //DOOR SOUND??? =======D~~~~~~~
+        //soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);
     }
     #endregion
 

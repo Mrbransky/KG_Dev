@@ -36,6 +36,7 @@
 				<Event Id="2801657304" Name="Play_Round_Start_Go"/>
 				<Event Id="1351915383" Name="Play_StairsMove"/>
 				<Event Id="2556250589" Name="Stop_FurnitureMove"/>
+				<Event Id="1003545697" Name="Stop_StairsMove"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="31833784" Language="SFX">

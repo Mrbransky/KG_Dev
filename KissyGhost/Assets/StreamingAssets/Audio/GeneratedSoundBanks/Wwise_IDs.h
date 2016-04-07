@@ -30,6 +30,7 @@ namespace AK
         static const AkUniqueID PLAY_ROUND_START_GO = 2801657304U;
         static const AkUniqueID PLAY_STAIRSMOVE = 1351915383U;
         static const AkUniqueID STOP_FURNITUREMOVE = 2556250589U;
+        static const AkUniqueID STOP_STAIRSMOVE = 1003545697U;
     } // namespace EVENTS
 
     namespace SWITCHES

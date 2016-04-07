@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	250868963	Play_FurnitureMove			\Default Work Unit\Play_FurnitureMove	
 	415713954	Play_Item_Down			\Default Work Unit\Play_Item_Down	
 	529815043	Play_MenuDown			\Default Work Unit\Play_MenuDown	
+	1003545697	Stop_StairsMove			\Default Work Unit\Stop_StairsMove	
 	1113566242	Play_MenuBack			\Default Work Unit\Play_MenuBack	
 	1351915383	Play_StairsMove			\Default Work Unit\Play_StairsMove	
 	1403551666	Play_Item_In_Heartagram			\Default Work Unit\Play_Item_In_Heartagram	

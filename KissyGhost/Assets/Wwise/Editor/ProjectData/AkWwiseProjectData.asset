@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}'
-    m_lastTimePsrt1: -1113556107
-    m_lastTimePart2: -1999413723
+    m_lastTimePsrt1: 745263221
+    m_lastTimePart2: -1999413452
     List:
     - Name: Play_cat
       Path: Default Work Unit\Play_cat
@@ -28,6 +28,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: -1604170146
       Guid: 435c1a284e70db4c84811d5147eec5cd
+      maxAttenuation: 0
+    - Name: Play_DoorOpen
+      Path: Default Work Unit\Play_DoorOpen
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_DoorOpen
+        ObjectType: 3
+      ID: -1097666490
+      Guid: 8cbc12690da455418b39f52c12ffb833
       maxAttenuation: 0
     - Name: Play_FurnitureMove
       Path: Default Work Unit\Play_FurnitureMove
@@ -159,6 +169,16 @@ MonoBehaviour:
       ID: -1493309992
       Guid: c604e206e366e743a55eb1e8b0591c18
       maxAttenuation: 0
+    - Name: Play_StairsMove
+      Path: Default Work Unit\Play_StairsMove
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_StairsMove
+        ObjectType: 3
+      ID: 1351915383
+      Guid: b60a0a23379e454ab0b4e81280898043
+      maxAttenuation: 0
     - Name: Stop_FurnitureMove
       Path: Default Work Unit\Stop_FurnitureMove
       PathAndIcons:
@@ -168,6 +188,16 @@ MonoBehaviour:
         ObjectType: 3
       ID: -1738716707
       Guid: 9fad1fa8c930754b918f4f06e45920d5
+      maxAttenuation: 0
+    - Name: Stop_StairsMove
+      Path: Default Work Unit\Stop_StairsMove
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_StairsMove
+        ObjectType: 3
+      ID: 1003545697
+      Guid: d95a9875763cfb4b94edd978ade963dc
       maxAttenuation: 0
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -223,8 +253,8 @@ MonoBehaviour:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{4360FEFD-C086-4F90-BDDD-9D1F0EC3DD32}'
-    m_lastTimePsrt1: -1085264642
-    m_lastTimePart2: -1999413723
+    m_lastTimePsrt1: 745343282
+    m_lastTimePart2: -1999413452
     List:
     - Name: KissyGhostBank
       Path: Default Work Unit\KissyGhostBank
@@ -235,7 +265,10 @@ MonoBehaviour:
         ObjectType: 7
       ID: -14602685
       Guid: bc63a94da04fe24d8b069811dce7c0aa
-  ExpandedItems: []
+  ExpandedItems:
+  - /KissyGhostWwise
+  - /KissyGhostWwise/Events
+  - /KissyGhostWwise/Events/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1
