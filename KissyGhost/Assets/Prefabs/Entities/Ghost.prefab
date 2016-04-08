@@ -103,6 +103,7 @@ GameObject:
   - 222: {fileID: 22293284}
   - 114: {fileID: 11461890}
   - 114: {fileID: 11447402}
+  - 114: {fileID: 11482430}
   - 114: {fileID: 11480268}
   m_Layer: 0
   m_Name: PlayerNumText
@@ -216,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.52464592, y: .132889152, z: 0}
+  m_LocalPosition: {x: 129.229431, y: 113.912766, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 493550}
@@ -580,7 +581,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .913725555, g: .250980407, b: .458823562, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 695e554916adb3a4592236f62aca03bf, type: 3}
     m_FontSize: 1
     m_FontStyle: 1
     m_BestFit: 0
@@ -617,8 +618,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: .0399999991, y: .0399999991}
+  m_EffectDistance: {x: .0500000007, y: .0500000007}
   m_UseGraphicAlpha: 1
+--- !u!114 &11482430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3a8dadab0fb4444b460443f268c301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spacing: 20
 --- !u!114 &11482564
 MonoBehaviour:
   m_ObjectHideFlags: 1
