@@ -9854,8 +9854,6 @@ GameObject:
   - 50: {fileID: 1559803061}
   - 58: {fileID: 1559803069}
   - 58: {fileID: 1559803068}
-  - 68: {fileID: 1559803067}
-  - 68: {fileID: 1559803064}
   m_Layer: 10
   m_Name: refridge
   m_TagString: Furniture
@@ -9913,20 +9911,6 @@ MonoBehaviour:
   kissedDuration: 3
   kickCooldown: 1
   KissKey: 48
---- !u!68 &1559803064
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1559803060}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -.689023376, y: -1.18269444}
-  - {x: -.683639526, y: -.3125256}
 --- !u!212 &1559803065
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9965,20 +9949,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
---- !u!68 &1559803067
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1559803060}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: .54594171, y: -1.14146757}
-  - {x: .543340087, y: -.300714582}
 --- !u!58 &1559803068
 CircleCollider2D:
   m_ObjectHideFlags: 0

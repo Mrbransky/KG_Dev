@@ -31,10 +31,8 @@ GameObject:
   - 114: {fileID: 11456094}
   - 114: {fileID: 11426348}
   - 58: {fileID: 5840512}
-  - 58: {fileID: 5822866}
-  - 68: {fileID: 6811386}
-  - 68: {fileID: 6819982}
   - 95: {fileID: 9550792}
+  - 58: {fileID: 5833574}
   m_Layer: 10
   m_Name: MediumFurniture_CounterShortHoriz_Red
   m_TagString: Furniture
@@ -49,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.0182238, y: 4.18470383, z: 0}
+  m_LocalPosition: {x: 11.0234251, y: 3.30256057, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408212}
@@ -83,7 +81,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5822866
+--- !u!58 &5833574
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,9 +91,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.49000001, y: .109999999}
+  m_Offset: {x: -.540000021, y: .239999995}
   serializedVersion: 2
-  m_Radius: .460000008
+  m_Radius: .349999994
 --- !u!58 &5840512
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -106,50 +104,22 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .439999998, y: .109999999}
+  m_Offset: {x: .5, y: .239999995}
   serializedVersion: 2
-  m_Radius: .460000008
+  m_Radius: .349999994
 --- !u!61 &6139948
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .310000002}
+  m_Offset: {x: -.0123386383, y: .243369341}
   serializedVersion: 2
-  m_Size: {x: 1.72000003, y: .579999983}
---- !u!68 &6811386
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157222}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -.500628471, y: -.349342346}
-  - {x: .456884384, y: -.356347322}
---- !u!68 &6819982
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157222}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -.499389648, y: .565967083}
-  - {x: .459029198, y: .576926231}
+  m_Size: {x: 1.05369544, y: .693518639}
 --- !u!95 &9550792
 Animator:
   serializedVersion: 3

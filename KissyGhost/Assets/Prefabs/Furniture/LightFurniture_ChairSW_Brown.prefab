@@ -9,14 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 436530}
   - 212: {fileID: 21230258}
-  - 61: {fileID: 6162948}
   - 50: {fileID: 5024702}
   - 114: {fileID: 11421204}
   - 114: {fileID: 11488242}
   - 58: {fileID: 5870094}
   - 58: {fileID: 5834782}
-  - 68: {fileID: 6876860}
-  - 68: {fileID: 6847006}
   m_Layer: 10
   m_Name: LightFurniture_ChairSW_Brown
   m_TagString: Furniture
@@ -48,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.851368, y: 3.19502616, z: 0}
+  m_LocalPosition: {x: 11.2234678, y: 3.46467066, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 447978}
@@ -108,47 +105,6 @@ CircleCollider2D:
   m_Offset: {x: .150000006, y: .219999999}
   serializedVersion: 2
   m_Radius: .25
---- !u!61 &6162948
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179786}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .109999999, y: .25}
-  serializedVersion: 2
-  m_Size: {x: .409999996, y: .629999995}
---- !u!68 &6847006
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179786}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -.265837669, y: .111243725}
-  - {x: -.0365161896, y: .390779018}
---- !u!68 &6876860
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179786}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: .0749902725, y: -.22431922}
-  - {x: .362431526, y: .0841197968}
 --- !u!114 &11421204
 MonoBehaviour:
   m_ObjectHideFlags: 1
