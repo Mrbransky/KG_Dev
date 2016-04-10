@@ -14,17 +14,26 @@ public enum CharacterSelectStates
     LoadMainScene = 5
 }
 
+public enum StickStates
+{
+    Neutral = 0,
+    Left = 1,
+    Right = 2
+}
+
 public class CharacterSelectManager : MonoBehaviour
 {
     // Constants
     private const int MAX_PLAYER_COUNT = 4;
     private const int MIN_PLAYER_COUNT_TO_START = 2;
+    private const float STICK_HORIZ_THRESHOLD = .5f;
 
     // XInput
     private bool[] getAButtonDown;
     private bool[] getBButtonDown;
     private bool[] wasAButtonPressed;
     private bool[] wasBButtonPressed;
+    private StickStates[] playerAnalogStickStates;
 
     // General
     public HeartZoomTransition _HeartZoomTransition;
@@ -57,6 +66,7 @@ public class CharacterSelectManager : MonoBehaviour
     // UI
     public Transform[] PlayerSpriteReferencePointArray;
     public SpriteRenderer[] PlayerSpriteRendererArray;
+    public PaletteSwapper[] PlayerPaletteSwapperArray;
     public Text[] ReadyTextArray;
     public Text[] PlayerNumTextArray;
     public Image[] ButtonImageArray;
@@ -152,6 +162,7 @@ public class CharacterSelectManager : MonoBehaviour
         getBButtonDown = new bool[MAX_PLAYER_COUNT];
         wasAButtonPressed = new bool[MAX_PLAYER_COUNT];
         wasBButtonPressed = new bool[MAX_PLAYER_COUNT];
+        playerAnalogStickStates = new StickStates[MAX_PLAYER_COUNT];
 
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
@@ -201,6 +212,7 @@ public class CharacterSelectManager : MonoBehaviour
         {
             case (int)CharacterSelectStates.WaitingForPlayers:
                 updateButtonDownArrays();
+                updateAnalogStickArray();
 
                 if (playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
@@ -327,6 +339,43 @@ public class CharacterSelectManager : MonoBehaviour
         }
     }
 
+    private void updateAnalogStickArray()
+    {
+        for(int i = 0; i < MAX_PLAYER_COUNT; i++)
+        {
+            if (isPlayerReadyArray[i])
+            {
+                float AnalogXDir = InputMapper.GrabVal(XBOX360_AXES.LeftStick_Horiz, i + 1);
+
+                switch (playerAnalogStickStates[i])
+                {
+                    case StickStates.Neutral:
+                        if (AnalogXDir > STICK_HORIZ_THRESHOLD)
+                            playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+
+                        else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
+                            playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                        break;
+
+                    case StickStates.Left:
+                        if (AnalogXDir > -STICK_HORIZ_THRESHOLD && AnalogXDir < STICK_HORIZ_THRESHOLD)
+                            playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+
+                        else if (AnalogXDir > STICK_HORIZ_THRESHOLD)
+                            playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                        break;
+
+                    case StickStates.Right:
+                        if (AnalogXDir < STICK_HORIZ_THRESHOLD && AnalogXDir > -STICK_HORIZ_THRESHOLD)
+                            playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                        else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
+                            playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                        break;
+                }
+            }
+        }
+    }
+
     private void checkIfPlayerReady()
     {
         for (int i = 1; i <= MAX_PLAYER_COUNT; ++i)
@@ -413,6 +462,21 @@ public class CharacterSelectManager : MonoBehaviour
         CharSelectState = CharacterSelectStates.SelectingGhost;
     }
 #endregion
+
+    StickStates OnAnalogStickStateChange(StickStates newState, int player)
+    {
+        switch(newState)
+        {
+            case StickStates.Right:
+                PlayerPaletteSwapperArray[player].PlayerSwapColors(true);
+                break;
+            case StickStates.Left:
+                PlayerPaletteSwapperArray[player].PlayerSwapColors(false);
+                break;
+        }
+
+        return newState;
+    }
 
 #region CharacterSelectStates.SelectingGhost Functions
     private void hideWaitingForPlayerUI()

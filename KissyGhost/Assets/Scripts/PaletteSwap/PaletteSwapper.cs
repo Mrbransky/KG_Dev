@@ -5,6 +5,7 @@ public class PaletteSwapper : MonoBehaviour {
 
 	public SpriteRenderer spriteRenderer;
 	public ColorPalette[] paletteRandSelection;
+    public int positionInPaletteArray;
 
 	private MaterialPropertyBlock block;
 
@@ -17,7 +18,8 @@ public class PaletteSwapper : MonoBehaviour {
     {
 		if (paletteRandSelection.Length > 0)
         {
-            SwapColors_Custom(paletteRandSelection[Random.Range(0, paletteRandSelection.Length)]);
+            //SwapColors_Custom(paletteRandSelection[Random.Range(0, paletteRandSelection.Length)]);
+            SwapColors_Custom(paletteRandSelection[positionInPaletteArray]);
         }
 	}
 
@@ -85,5 +87,28 @@ public class PaletteSwapper : MonoBehaviour {
 
         block = new MaterialPropertyBlock();
         block.AddTexture("_MainTex", palette.cachedTexture);
+    }
+
+    public void PlayerSwapColors(bool MovedStickRight)
+    {
+        //Increments
+        if(MovedStickRight)
+        {
+            if (positionInPaletteArray == paletteRandSelection.Length - 1)
+                positionInPaletteArray = 0;
+            else
+                positionInPaletteArray++;
+        }
+
+        //Decrements
+        else
+        {
+            if (positionInPaletteArray == 0)
+                positionInPaletteArray = paletteRandSelection.Length - 1;
+            else
+                positionInPaletteArray--;
+        }
+
+        SwapColors_Custom(paletteRandSelection[positionInPaletteArray]);
     }
 }

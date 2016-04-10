@@ -194,6 +194,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 683749102}
     m_Modifications:
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 490686, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -271,6 +275,21 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268,
         type: 3}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
   m_IsPrefabParent: 0
@@ -498,6 +517,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &254472820 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 164098957}
+  m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
 --- !u!1 &288137865
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +1000,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683749101}
+--- !u!114 &728742723 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1522264486}
+  m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
 --- !u!1 &755605792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1245,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1094349245}
     m_Modifications:
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 490686, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1257,7 +1292,7 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: paletteRandSelection.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711,
+      objectReference: {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa,
         type: 2}
     - target: {fileID: 11484048, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: playerSpriteReferencePointTransform
@@ -1287,6 +1322,25 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: positionInPaletteArray
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
   m_IsPrefabParent: 0
@@ -1444,6 +1498,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1876254473}
     m_Modifications:
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 490686, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1487,7 +1545,7 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: paletteRandSelection.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846,
+      objectReference: {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa,
         type: 2}
     - target: {fileID: 11484048, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: playerSpriteReferencePointTransform
@@ -1526,6 +1584,25 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268,
         type: 3}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: positionInPaletteArray
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
   m_IsPrefabParent: 0
@@ -2104,6 +2181,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 185729723}
     m_Modifications:
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 490686, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2147,7 +2228,7 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: paletteRandSelection.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3,
+      objectReference: {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa,
         type: 2}
     - target: {fileID: 11484048, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: playerSpriteReferencePointTransform
@@ -2177,6 +2258,25 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: positionInPaletteArray
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711,
+        type: 2}
+    - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
+      propertyPath: paletteRandSelection.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
   m_IsPrefabParent: 0
@@ -2534,6 +2634,11 @@ MonoBehaviour:
   - {fileID: 2099201163}
   - {fileID: 911338897}
   - {fileID: 1003016877}
+  PlayerPaletteSwapperArray:
+  - {fileID: 254472820}
+  - {fileID: 1900717428}
+  - {fileID: 2087563061}
+  - {fileID: 728742723}
   ReadyTextArray:
   - {fileID: 1358558477}
   - {fileID: 1879663087}
@@ -3193,6 +3298,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1896637393}
+--- !u!114 &1900717428 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1236611986}
+  m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
 --- !u!1 &2027049154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,6 +3440,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UIFlasherReference: {fileID: 58917186}
   targetAlpha: .5
+--- !u!114 &2087563061 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1016834141}
+  m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
 --- !u!212 &2099201163 stripped
 SpriteRenderer:
   m_PrefabParentObject: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4,
