@@ -7,6 +7,7 @@ public class CharacterSelectData : MonoBehaviour
     [SerializeField] private int playerCount = 0;
     [SerializeField] private int ghostPlayerIndex = -1;
     [SerializeField] private bool isDebugData = false;
+    private ColorPalette[] playerPaletteArray;
     
     public bool[] IsPlayerReadyArray
     {
@@ -23,12 +24,19 @@ public class CharacterSelectData : MonoBehaviour
         get { return ghostPlayerIndex; }
     }
 
+    public ColorPalette[] PlayerPaletteArray
+    {
+        get { return playerPaletteArray; }
+    }
+
     void Start ()
     {
         if (isDebugData && GameObject.FindGameObjectsWithTag("CharacterSelectData").Length > 1)
         {
             Destroy(gameObject);
         }
+
+        playerPaletteArray = new ColorPalette[4];
 
         DontDestroyOnLoad(gameObject);
 	}
@@ -53,6 +61,14 @@ public class CharacterSelectData : MonoBehaviour
         {
             Debug.LogError("CharacterSelectData: Array index \"playerNumber\" out of range.");
             return false;
+        }
+    }
+
+    public void LoadPaletteArray(PaletteSwapper[] palettes)
+    {
+        for (int i = 0; i < palettes.Length; i++)
+        {
+            playerPaletteArray[i] = palettes[i].currentPalette;
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PaletteSwapper : MonoBehaviour {
 
 	public SpriteRenderer spriteRenderer;
-	public ColorPalette[] paletteRandSelection;
-    public int positionInPaletteArray;
+	//public ColorPalette[] paletteRandSelection;
+    public ColorPalette currentPalette;
+    public Text playerNumText;
 
 	private MaterialPropertyBlock block;
 
@@ -16,11 +18,14 @@ public class PaletteSwapper : MonoBehaviour {
 
 	void Start () 
     {
-		if (paletteRandSelection.Length > 0)
-        {
+        SwapColors_Custom(currentPalette);
+
+		//if (paletteRandSelection.Length > 0)
+        //{
             //SwapColors_Custom(paletteRandSelection[Random.Range(0, paletteRandSelection.Length)]);
-            SwapColors_Custom(paletteRandSelection[positionInPaletteArray]);
-        }
+            //SwapColors_Custom(paletteRandSelection[positionInPaletteArray]);
+            
+        //}
 	}
 
     void LateUpdate()
@@ -29,7 +34,7 @@ public class PaletteSwapper : MonoBehaviour {
         
     }
 
-    void SwapColors_Custom(ColorPalette palette)
+    public void SwapColors_Custom(ColorPalette palette)
     {
         Texture2D t = spriteRenderer.sprite.texture;
 
@@ -89,26 +94,13 @@ public class PaletteSwapper : MonoBehaviour {
         block.AddTexture("_MainTex", palette.cachedTexture);
     }
 
-    public void PlayerSwapColors(bool MovedStickRight)
+    public void UpdatePlayerNumTextColor()
     {
-        //Increments
-        if(MovedStickRight)
-        {
-            if (positionInPaletteArray == paletteRandSelection.Length - 1)
-                positionInPaletteArray = 0;
-            else
-                positionInPaletteArray++;
-        }
+        playerNumText.color = currentPalette.newPalette[7];
+    }
 
-        //Decrements
-        else
-        {
-            if (positionInPaletteArray == 0)
-                positionInPaletteArray = paletteRandSelection.Length - 1;
-            else
-                positionInPaletteArray--;
-        }
-
-        SwapColors_Custom(paletteRandSelection[positionInPaletteArray]);
+    public void UpdatePlayerNumTextColor(Color col)
+    {
+        playerNumText.color = col;
     }
 }

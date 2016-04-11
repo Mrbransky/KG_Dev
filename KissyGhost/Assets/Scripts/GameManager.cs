@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
 
     private bool[] isPlayerReadyArray;
     private int ghostPlayerIndex = -1;
+    public ColorPalette[] playerColorPalettes = new ColorPalette[4];
 
     private float timer = 2;
 
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour {
             isPlayerReadyArray = _CharacterSelectData.IsPlayerReadyArray;
             playerCount = _CharacterSelectData.PlayerCount;
             ghostPlayerIndex = _CharacterSelectData.GhostPlayerIndex;
+            playerColorPalettes = _CharacterSelectData.PlayerPaletteArray;
             Destroy(characterSelectData);
         }
         else
@@ -88,6 +90,8 @@ public class GameManager : MonoBehaviour {
                 else
                 {
                     currentPlayers.Add(players[i]);
+                    players[i].GetComponent<PaletteSwapper>().currentPalette = playerColorPalettes[i];
+                    players[i].GetComponent<PaletteSwapper>().SwapColors_Custom(playerColorPalettes[i]);
                 }
             }
         }

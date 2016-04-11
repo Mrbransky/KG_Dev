@@ -11,6 +11,7 @@ public class MenuSelect : MonoBehaviour
     Transform Controls, Instructions, WinCondition;
     public GameObject heartZoom;
     public Color orgColor;
+    public Color altColor;
 
     float menuSelectTimer = 0.2f;
     float instructScreensTimer = 1;
@@ -137,21 +138,21 @@ public class MenuSelect : MonoBehaviour
         switch (choice)
         {
             case 1:
-                option1.color = Color.black;
+                option1.color = altColor;
                 option2.color = orgColor;
                 option3.color = orgColor;
                 break;
 
             case 2:
                 option1.color = orgColor;
-                option2.color = Color.black;
+                option2.color = altColor;
                 option3.color = orgColor;
                 break;
 
             case 3:
                 option1.color = orgColor;
                 option2.color = orgColor;
-                option3.color = Color.black;
+                option3.color = altColor;
                 break;
 
             default:

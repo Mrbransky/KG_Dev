@@ -3509,9 +3509,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  paletteRandSelection:
-  - {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3, type: 2}
+  spriteRenderer: {fileID: 407115405}
+  currentPalette: {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3, type: 2}
+  playerNumText: {fileID: 0}
 --- !u!114 &407115399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3951,9 +3951,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  paletteRandSelection:
-  - {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846, type: 2}
+  spriteRenderer: {fileID: 462095497}
+  currentPalette: {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846, type: 2}
+  playerNumText: {fileID: 0}
 --- !u!114 &462095492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11379,9 +11379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  paletteRandSelection:
-  - {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa, type: 2}
+  spriteRenderer: {fileID: 1743649148}
+  currentPalette: {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa, type: 2}
+  playerNumText: {fileID: 0}
 --- !u!114 &1743649143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12423,9 +12423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16148b3b97df494996623dad19bd9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  paletteRandSelection:
-  - {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711, type: 2}
+  spriteRenderer: {fileID: 1957596428}
+  currentPalette: {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711, type: 2}
+  playerNumText: {fileID: 0}
 --- !u!114 &1957596422
 MonoBehaviour:
   m_ObjectHideFlags: 0

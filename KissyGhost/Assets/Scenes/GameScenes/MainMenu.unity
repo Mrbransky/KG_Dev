@@ -761,6 +761,7 @@ MonoBehaviour:
   option3: {fileID: 270175241}
   heartZoom: {fileID: 1615583179}
   orgColor: {r: .92549026, g: .360784322, b: .541176498, a: 1}
+  altColor: {r: .544117689, g: .0760164484, b: .26002872, a: 1}
 --- !u!114 &1015358049
 MonoBehaviour:
   m_ObjectHideFlags: 0
