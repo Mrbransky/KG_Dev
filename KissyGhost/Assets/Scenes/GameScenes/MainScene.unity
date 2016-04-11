@@ -13109,6 +13109,11 @@ MonoBehaviour:
   music:
   - {fileID: 0}
   - {fileID: 0}
+  playerNumText:
+  - {fileID: 669255603}
+  - {fileID: 886577080}
+  - {fileID: 275512396}
+  - {fileID: 366807564}
   thingsToTurnOffAtGameEnd:
   - {fileID: 293608354}
   - {fileID: 1209861675}
@@ -13120,6 +13125,11 @@ MonoBehaviour:
   currentPlayers: []
   currentGhostPlayer: {fileID: 0}
   ghostPrefab: {fileID: 109294, guid: 295ee7ae37d771a47a0e94bd99c74a27, type: 2}
+  playerColorPalettes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &2038403442
 Transform:
   m_ObjectHideFlags: 0

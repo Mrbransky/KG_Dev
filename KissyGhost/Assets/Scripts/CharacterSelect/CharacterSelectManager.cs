@@ -81,6 +81,8 @@ public class CharacterSelectManager : MonoBehaviour
     public Text[] PlayerNumTextArray;
     public Image[] ButtonImageArray;
     public Image[] GhostSelectorImageArray;
+    public Image[] LeftColorArrowArray;
+    public Image[] RightColorArrowArray;
     public GameObject PressToStartTextObject;
 
     private List<Image> ghostSelectorImageList;
@@ -241,8 +243,25 @@ public class CharacterSelectManager : MonoBehaviour
                     {
                         if (isPlayerReadyArray[i] && InputMapper.GrabVal(XBOX360_BUTTONS.X, i + 1))
                         {
-                            startGame();
-                            soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                            bool CanStartGame = false;
+
+                            foreach(PlayerStates state in playerStates)
+                            {
+                                if (state == PlayerStates.PickingColor)
+                                {
+                                    CanStartGame = false;
+                                    break;
+                                }
+
+                                else
+                                    CanStartGame = true;
+                            }
+
+                            if (CanStartGame)
+                            {
+                                startGame();
+                                soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                            }
                         }
                     }
                 }
@@ -486,6 +505,9 @@ public class CharacterSelectManager : MonoBehaviour
             buttonTextArray[playerNum].color = transparentColor;
             buttonTextArray[playerNum].GetComponent<UIFlasher>().enabled = false;
 
+            LeftColorArrowArray[playerNum].color = Color.white;
+            RightColorArrowArray[playerNum].color = Color.white;
+
             #region Debug Code
 #if UNITY_EDITOR
             debugTextArray[playerNum] = "P" + (playerNum + 1) + ": Joined in\n";
@@ -503,7 +525,13 @@ public class CharacterSelectManager : MonoBehaviour
             StartCoroutine(InputMapper.Vibration(playerNum + 1, .2f, 0, .8f));
             soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             playerStates[playerNum] = PlayerStates.Ready;
-            ColorTextArray[playerNum].color = transparentColor;                       
+            ColorTextArray[playerNum].color = transparentColor;
+
+            LeftColorArrowArray[playerNum].color = transparentColor;
+            RightColorArrowArray[playerNum].color = transparentColor;
+
+            RightColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
+            LeftColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
 
             ClaimPaletteColor(playerNum);
 
@@ -526,6 +554,12 @@ public class CharacterSelectManager : MonoBehaviour
             ButtonImageArray[playerNum].GetComponent<UIFlasher>().enabled = true;
             buttonTextArray[playerNum].color = Color.black;
             buttonTextArray[playerNum].GetComponent<UIFlasher>().enabled = true;
+
+            RightColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
+            LeftColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
+
+            LeftColorArrowArray[playerNum].color = transparentColor;
+            RightColorArrowArray[playerNum].color = transparentColor;
         }
     }
 
@@ -540,10 +574,16 @@ public class CharacterSelectManager : MonoBehaviour
             UnclaimPaletteColor(playerNum);
             ColorTextArray[playerNum].color = Color.black;
 
+            LeftColorArrowArray[playerNum].color = Color.white;
+            RightColorArrowArray[playerNum].color = Color.white;
+
             ButtonImageArray[playerNum].color = transparentColor;
             ButtonImageArray[playerNum].GetComponent<UIFlasher>().enabled = false;
             buttonTextArray[playerNum].color = transparentColor;
             buttonTextArray[playerNum].GetComponent<UIFlasher>().enabled = false;
+
+            RightColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
+            LeftColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
 
 #region Debug Code
 #if UNITY_EDITOR
@@ -564,6 +604,9 @@ public class CharacterSelectManager : MonoBehaviour
                     PlayerPosInPaletteList[player] = 0;
                 else
                     PlayerPosInPaletteList[player]++;
+
+                RightColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
+                soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
                 break;
 
             case StickStates.Left:
@@ -571,6 +614,16 @@ public class CharacterSelectManager : MonoBehaviour
                     PlayerPosInPaletteList[player] = AvailablePalettesList.Count - 1;
                 else
                     PlayerPosInPaletteList[player]--;
+
+                LeftColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
+                soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
+                break;    
+
+            case StickStates.Neutral:
+                if (playerAnalogStickStates[player] == StickStates.Right)
+                    RightColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
+                else
+                    LeftColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
                 break;
         }
 

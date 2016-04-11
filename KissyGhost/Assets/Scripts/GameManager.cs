@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using XInputDotNetPure;
+using System.Linq;
 
 public class GameManager : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour {
     public SpriteSorter _SpriteSorter;
 
     public AudioClip[] music;
+
+    public Text[] playerNumText;
 
     public List<GameObject> thingsToTurnOffAtGameEnd;
     public List<GameObject> thingsToTurnOnAtGameEnd;
@@ -34,8 +37,6 @@ public class GameManager : MonoBehaviour {
     {
         handleCharacterSelectData();
         initializePlayers();
-
-
     }
 
     private void handleCharacterSelectData()
@@ -90,21 +91,45 @@ public class GameManager : MonoBehaviour {
                 else
                 {
                     currentPlayers.Add(players[i]);
-                    players[i].GetComponent<PaletteSwapper>().currentPalette = playerColorPalettes[i];
-                    players[i].GetComponent<PaletteSwapper>().SwapColors_Custom(playerColorPalettes[i]);
                 }
             }
         }
 
         if (_SpriteSorter != null)
         {
+            GameObject[]sortedPlayerList = new GameObject[4];
+
             foreach (GameObject playerObject in currentPlayers)
             {
                 _SpriteSorter.AddToAllLists(playerObject.GetComponent<SpriteRenderer>());
+
+                //sorts player list
+                if (playerObject.name.Contains("1"))
+                    sortedPlayerList[0] =  playerObject;
+                else if (playerObject.name.Contains("2"))
+                    sortedPlayerList[1] = playerObject;
+                else if (playerObject.name.Contains("3"))
+                    sortedPlayerList[2] = playerObject;
+                else if (playerObject.name.Contains("4"))
+                    sortedPlayerList[3] = playerObject;
+            }
+
+            currentPlayers = sortedPlayerList.ToList();
+            
+        }
+
+        currentPlayers[ghostPlayerIndex] = ghostPlayer;
+
+        for (int i = 0; i < currentPlayers.Count; i++)
+        {
+            if(currentPlayers[i] != null && currentPlayers[i].gameObject.tag != "Ghost" && playerColorPalettes[i] != null)
+            {
+                currentPlayers[i].GetComponent<PaletteSwapper>().currentPalette = playerColorPalettes[i];
+                currentPlayers[i].GetComponent<PaletteSwapper>().SwapColors_Custom(playerColorPalettes[i]);
+                playerNumText[i].color = currentPlayers[i].GetComponent<PaletteSwapper>().currentPalette.newPalette[7];
             }
         }
 
-        currentPlayers.Add(ghostPlayer);
         currentGhostPlayer = ghostPlayer;
         Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Add(ghostPlayer);
     }

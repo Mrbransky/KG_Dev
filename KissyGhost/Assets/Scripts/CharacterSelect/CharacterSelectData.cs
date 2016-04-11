@@ -69,6 +69,7 @@ public class CharacterSelectData : MonoBehaviour
         for (int i = 0; i < palettes.Length; i++)
         {
             playerPaletteArray[i] = palettes[i].currentPalette;
+            Debug.Log(palettes[i].currentPalette + " loaded");
         }
     }
 }
