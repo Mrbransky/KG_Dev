@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class DoorArrowTracker : MonoBehaviour 
+public class DoorArrowTracker : MonoBehaviour
 {
     public Transform TargetDoorTransform;
     public Transform TextTransform;
@@ -21,7 +21,7 @@ public class DoorArrowTracker : MonoBehaviour
 
     private bool IsTargetOnScreen
     {
-        set 
+        set
         {
             if (isTargetOnScreen != value)
             {
