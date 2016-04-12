@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour {
         }
 
         currentGhostPlayer = ghostPlayer;
+        currentPlayers.RemoveAll(item => item == null);
         Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Add(ghostPlayer);
     }
 
