@@ -240,7 +240,8 @@ public class GameManager : MonoBehaviour {
                 {
                     i.SetActive(true);
                 }
-                
+
+                CeaseAllVibrations();
                 Time.timeScale = 0;
 
                 if (timer <= 0)

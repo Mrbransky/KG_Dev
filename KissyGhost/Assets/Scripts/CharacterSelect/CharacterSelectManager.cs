@@ -116,7 +116,7 @@ public class CharacterSelectManager : MonoBehaviour
 
                     case (int)CharacterSelectStates.GhostRevealed:
                         Debug.Log("Starting CharacterSelectStates.GhostRevealed");
-
+                        StartCoroutine(InputMapper.Vibration(ghostPlayerIndex + 1, .7f, 1f, 1f));
                         initializeGhostSprite();
                         setGhostRevealedPlayerDirections();
                         break;
@@ -626,8 +626,6 @@ public class CharacterSelectManager : MonoBehaviour
                     LeftColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
                 break;
         }
-
-        Debug.Log("Player " + player + " position: " + PlayerPosInPaletteList[player]);
 
         PlayerPaletteSwapperArray[player].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[player]]);
         PlayerPaletteSwapperArray[player].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[player]].newPalette[7]);
