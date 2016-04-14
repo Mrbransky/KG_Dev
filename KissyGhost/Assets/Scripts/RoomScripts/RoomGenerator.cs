@@ -134,7 +134,7 @@ public class RoomGenerator : MonoBehaviour
                 LeftRoomLimits[(int)RoomLimits.Min_X] = roomCenterPoint.x - (roomSize.x - 5);
                 LeftRoomLimits[(int)RoomLimits.Max_X] = roomCenterPoint.x + (roomSize.x - 5);
                 LeftRoomLimits[(int)RoomLimits.Min_Y] = roomCenterPoint.y - (roomSize.y - 5);
-                LeftRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 5);
+                LeftRoomLimits[(int)RoomLimits.Max_Y] = roomCenterPoint.y + (roomSize.y - 7);
                 break;
 
             case RoomTypes.Right:
@@ -217,8 +217,7 @@ public class RoomGenerator : MonoBehaviour
             switch ((int)roomType)
             {
                 case (int)RoomTypes.Left:
-                    //TODO: uncomment when items for these rooms are made
-                    //FurnitureToSpawn = bedroomFurnitureOptions[Random.Range(0, kitchenFurnitureOptions.Length)];
+                    FurnitureToSpawn = bedroomFurnitureOptions[Random.Range(0, kitchenFurnitureOptions.Length)];
                     break;
 
                 case (int)RoomTypes.Right:
