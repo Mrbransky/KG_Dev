@@ -11977,7 +11977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerReadyArray: 01010101
   playerCount: 4
-  ghostPlayerIndex: 3
+  ghostPlayerIndex: 0
   isDebugData: 1
 --- !u!4 &1690912246
 Transform:
