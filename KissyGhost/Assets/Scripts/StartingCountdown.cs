@@ -5,7 +5,7 @@ public class StartingCountdown : MonoBehaviour
 {
     public HeartZoomTransition _HeartZoomTransition;
     public Text countdown;
-
+    public PauseGame pauseGame;
     private bool hasPlayedStartSound
     {
         get{return _hasPlayedStartSound;}
@@ -50,6 +50,8 @@ public class StartingCountdown : MonoBehaviour
             hasPlayedStartSound = true;
             gameObject.GetComponent<Image>().CrossFadeAlpha(0, .5f, false);
             countdown.GetComponent<Text>().CrossFadeAlpha(0, .5f, false);
+            pauseGame.enabled = true;
+            this.enabled = false;
         }
 	}
 }
