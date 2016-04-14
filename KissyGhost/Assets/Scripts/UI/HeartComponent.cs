@@ -7,6 +7,9 @@ public class HeartComponent : MonoBehaviour
     public int heartNum = 0;
     public GameObject HeartOutline;
 
+    private Animator _Animator;
+    private bool isAnimating = false;
+
     private Image _Image;
     private Color defaultColor = Color.white;
     private Color transparentColor = Color.white;
@@ -24,6 +27,7 @@ public class HeartComponent : MonoBehaviour
     {
         defaultScale = transform.localScale.x;
 
+        _Animator = GetComponent<Animator>();
         _Image = GetComponent<Image>();
         defaultColor = _Image.color;
         transparentColor = defaultColor;
@@ -42,10 +46,24 @@ public class HeartComponent : MonoBehaviour
 
     void Update()
     {
+        if (isAnimating && _Animator.GetCurrentAnimatorStateInfo(0).IsName("Heartsplosion_End"))
+        {
+            _Image.enabled = false;
+            _Animator.enabled = false;
+            isAnimating = false;
+            this.enabled = false;
+        }
+
         if (isShrinking)
         {
             shrink();
         }
+    }
+
+    public void StartAnimation()
+    {
+        _Animator.enabled = true;
+        isAnimating = true;
     }
 
     public void StartShrink()

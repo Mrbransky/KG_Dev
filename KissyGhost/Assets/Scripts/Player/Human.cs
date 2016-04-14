@@ -382,7 +382,7 @@ public class Human : Player
     private void gainHug()
     {
         --hugPoints;
-        heartObjects[hugPoints].GetComponent<HeartComponent>().StartShrink();
+        heartObjects[hugPoints].GetComponent<HeartComponent>().StartAnimation();
         //heartObjects[hugPoints].GetComponent<Image>().enabled = false;
         Camera.main.GetComponent<ScreenShake>().shake = 0.5f;
 

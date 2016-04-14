@@ -119,8 +119,10 @@ RectTransform:
   - {fileID: 370611236}
   - {fileID: 57882781}
   - {fileID: 275512393}
+  - {fileID: 529429782}
+  - {fileID: 957881055}
   m_Father: {fileID: 1957596419}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1731,6 +1733,7 @@ GameObject:
   - 222: {fileID: 75444651}
   - 114: {fileID: 75444650}
   - 114: {fileID: 75444649}
+  - 95: {fileID: 75444652}
   m_Layer: 0
   m_Name: Heart_5
   m_TagString: Untagged
@@ -1799,6 +1802,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 75444647}
+--- !u!95 &75444652
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 75444647}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &77611893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,6 +1964,7 @@ GameObject:
   - 222: {fileID: 97138648}
   - 114: {fileID: 97138647}
   - 114: {fileID: 97138646}
+  - 95: {fileID: 97138649}
   m_Layer: 0
   m_Name: Heart_1
   m_TagString: Untagged
@@ -1960,7 +1981,7 @@ RectTransform:
   m_GameObject: {fileID: 97138644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 1167916594}
   m_RootOrder: 0
@@ -2012,6 +2033,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 97138644}
+--- !u!95 &97138649
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 97138644}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &124413472
 Prefab:
   m_ObjectHideFlags: 0
@@ -2129,6 +2167,7 @@ GameObject:
   - 222: {fileID: 146209723}
   - 114: {fileID: 146209722}
   - 114: {fileID: 146209721}
+  - 95: {fileID: 146209724}
   m_Layer: 0
   m_Name: Heart_4
   m_TagString: Untagged
@@ -2197,6 +2236,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 146209719}
+--- !u!95 &146209724
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 146209719}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &156537110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,6 +2328,7 @@ GameObject:
   - 222: {fileID: 159195444}
   - 114: {fileID: 159195443}
   - 114: {fileID: 159195442}
+  - 95: {fileID: 159195445}
   m_Layer: 0
   m_Name: Heart_4
   m_TagString: Untagged
@@ -2340,6 +2397,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159195440}
+--- !u!95 &159195445
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 159195440}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!224 &164619588
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3116,6 +3190,7 @@ GameObject:
   - 222: {fileID: 301725288}
   - 114: {fileID: 301725287}
   - 114: {fileID: 301725286}
+  - 95: {fileID: 301725289}
   m_Layer: 0
   m_Name: Heart_1
   m_TagString: Untagged
@@ -3184,6 +3259,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 301725284}
+--- !u!95 &301725289
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301725284}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &305832136
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,8 +3880,6 @@ Transform:
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 847994452}
-  - {fileID: 1018585875}
-  - {fileID: 1258251236}
   - {fileID: 1406689501}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -4037,6 +4127,7 @@ GameObject:
   - 222: {fileID: 440413130}
   - 114: {fileID: 440413129}
   - 114: {fileID: 440413128}
+  - 95: {fileID: 440413131}
   m_Layer: 0
   m_Name: Heart_1
   m_TagString: Untagged
@@ -4105,6 +4196,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 440413126}
+--- !u!95 &440413131
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 440413126}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &444517754
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,6 +4224,7 @@ GameObject:
   - 222: {fileID: 444517758}
   - 114: {fileID: 444517757}
   - 114: {fileID: 444517756}
+  - 95: {fileID: 444517759}
   m_Layer: 0
   m_Name: Heart_2
   m_TagString: Untagged
@@ -4184,6 +4293,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 444517754}
+--- !u!95 &444517759
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444517754}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &454595907
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,8 +4420,6 @@ Transform:
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 1657105210}
-  - {fileID: 1317900815}
-  - {fileID: 633667247}
   - {fileID: 2006757120}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -4992,11 +5116,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 529429781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.720000029, y: .5, z: 0}
+  m_LocalPosition: {x: -.720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 1957596419}
-  m_RootOrder: 1
+  m_Father: {fileID: 3844442}
+  m_RootOrder: 3
 --- !u!212 &529429783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5447,11 +5571,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 633667246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .720000029, y: .5, z: 0}
+  m_LocalPosition: {x: .720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 462095489}
-  m_RootOrder: 2
+  m_Father: {fileID: 2006757120}
+  m_RootOrder: 4
 --- !u!212 &633667248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6174,11 +6298,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 797007439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.720000029, y: .5, z: 0}
+  m_LocalPosition: {x: -.720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 1773985794}
-  m_RootOrder: 1
+  m_Father: {fileID: 1303623955}
+  m_RootOrder: 3
 --- !u!212 &797007441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6329,6 +6453,7 @@ GameObject:
   - 222: {fileID: 846898413}
   - 114: {fileID: 846898412}
   - 114: {fileID: 846898411}
+  - 95: {fileID: 846898415}
   m_Layer: 0
   m_Name: Heart_2
   m_TagString: Untagged
@@ -6397,6 +6522,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!95 &846898415
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 846898410}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &847994451
 GameObject:
   m_ObjectHideFlags: 0
@@ -7205,11 +7347,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 957881054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .720000029, y: .5, z: 0}
+  m_LocalPosition: {x: .720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 1957596419}
-  m_RootOrder: 2
+  m_Father: {fileID: 3844442}
+  m_RootOrder: 4
 --- !u!212 &957881056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7587,6 +7729,7 @@ GameObject:
   - 222: {fileID: 998176618}
   - 114: {fileID: 998176617}
   - 114: {fileID: 998176616}
+  - 95: {fileID: 998176619}
   m_Layer: 0
   m_Name: Heart_3
   m_TagString: Untagged
@@ -7655,6 +7798,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 998176614}
+--- !u!95 &998176619
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 998176614}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1008940354
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,11 +7902,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1018585874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.720000029, y: .5, z: 0}
+  m_LocalPosition: {x: -.720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 407115396}
-  m_RootOrder: 1
+  m_Father: {fileID: 1406689501}
+  m_RootOrder: 3
 --- !u!212 &1018585876
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8113,6 +8273,7 @@ GameObject:
   - 222: {fileID: 1121720705}
   - 114: {fileID: 1121720704}
   - 114: {fileID: 1121720703}
+  - 95: {fileID: 1121720706}
   m_Layer: 0
   m_Name: Heart_2
   m_TagString: Untagged
@@ -8181,6 +8342,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1121720701}
+--- !u!95 &1121720706
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1121720701}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1150016191
 GameObject:
   m_ObjectHideFlags: 0
@@ -8509,6 +8687,7 @@ GameObject:
   - 222: {fileID: 1190972791}
   - 114: {fileID: 1190972790}
   - 114: {fileID: 1190972789}
+  - 95: {fileID: 1190972792}
   m_Layer: 0
   m_Name: Heart_1
   m_TagString: Untagged
@@ -8577,6 +8756,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1190972787}
+--- !u!95 &1190972792
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190972787}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1209861675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8664,6 +8860,7 @@ GameObject:
   - 222: {fileID: 1237209761}
   - 114: {fileID: 1237209760}
   - 114: {fileID: 1237209759}
+  - 95: {fileID: 1237209762}
   m_Layer: 0
   m_Name: Heart_4
   m_TagString: Untagged
@@ -8732,6 +8929,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1237209757}
+--- !u!95 &1237209762
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1237209757}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1258251235
 GameObject:
   m_ObjectHideFlags: 0
@@ -8755,11 +8969,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1258251235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .720000029, y: .5, z: 0}
+  m_LocalPosition: {x: .720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 407115396}
-  m_RootOrder: 2
+  m_Father: {fileID: 1406689501}
+  m_RootOrder: 4
 --- !u!212 &1258251237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8825,6 +9039,7 @@ GameObject:
   - 222: {fileID: 1287719108}
   - 114: {fileID: 1287719107}
   - 114: {fileID: 1287719106}
+  - 95: {fileID: 1287719109}
   m_Layer: 0
   m_Name: Heart_3
   m_TagString: Untagged
@@ -8893,6 +9108,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287719104}
+--- !u!95 &1287719109
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287719104}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1288542176
 GameObject:
   m_ObjectHideFlags: 0
@@ -9133,8 +9365,10 @@ RectTransform:
   - {fileID: 2068486288}
   - {fileID: 1167916594}
   - {fileID: 669255600}
+  - {fileID: 797007440}
+  - {fileID: 2023184319}
   m_Father: {fileID: 1773985794}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -9361,11 +9595,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317900814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.720000029, y: .5, z: 0}
+  m_LocalPosition: {x: -.720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 462095489}
-  m_RootOrder: 1
+  m_Father: {fileID: 2006757120}
+  m_RootOrder: 3
 --- !u!212 &1317900816
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9695,6 +9929,7 @@ GameObject:
   - 222: {fileID: 1368616146}
   - 114: {fileID: 1368616145}
   - 114: {fileID: 1368616144}
+  - 95: {fileID: 1368616147}
   m_Layer: 0
   m_Name: Heart_2
   m_TagString: Untagged
@@ -9763,6 +9998,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1368616142}
+--- !u!95 &1368616147
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368616142}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1369252264
 Prefab:
   m_ObjectHideFlags: 0
@@ -9985,8 +10237,10 @@ RectTransform:
   - {fileID: 1349461590}
   - {fileID: 1314963786}
   - {fileID: 366807561}
+  - {fileID: 1018585875}
+  - {fileID: 1258251236}
   m_Father: {fileID: 407115396}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -10548,6 +10802,7 @@ GameObject:
   - 222: {fileID: 1510047859}
   - 114: {fileID: 1510047858}
   - 114: {fileID: 1510047857}
+  - 95: {fileID: 1510047860}
   m_Layer: 0
   m_Name: Heart_3
   m_TagString: Untagged
@@ -10616,6 +10871,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1510047855}
+--- !u!95 &1510047860
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1510047855}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1518960073
 GameObject:
   m_ObjectHideFlags: 0
@@ -10897,7 +11169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11245,6 +11517,7 @@ GameObject:
   - 222: {fileID: 1638384476}
   - 114: {fileID: 1638384475}
   - 114: {fileID: 1638384474}
+  - 95: {fileID: 1638384477}
   m_Layer: 0
   m_Name: Heart_5
   m_TagString: Untagged
@@ -11313,6 +11586,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1638384472}
+--- !u!95 &1638384477
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638384472}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1638961764
 GameObject:
   m_ObjectHideFlags: 0
@@ -11543,6 +11833,7 @@ GameObject:
   - 222: {fileID: 1656972259}
   - 114: {fileID: 1656972258}
   - 114: {fileID: 1656972257}
+  - 95: {fileID: 1656972261}
   m_Layer: 0
   m_Name: Heart_4
   m_TagString: Untagged
@@ -11611,6 +11902,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!95 &1656972261
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1656972256}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1657105209
 GameObject:
   m_ObjectHideFlags: 0
@@ -11684,6 +11992,7 @@ GameObject:
   - 222: {fileID: 1663734915}
   - 114: {fileID: 1663734914}
   - 114: {fileID: 1663734913}
+  - 95: {fileID: 1663734916}
   m_Layer: 0
   m_Name: Heart_5
   m_TagString: Untagged
@@ -11752,6 +12061,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663734911}
+--- !u!95 &1663734916
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1663734911}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1678542492
 GameObject:
   m_ObjectHideFlags: 0
@@ -12650,8 +12976,6 @@ Transform:
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 1686124480}
-  - {fileID: 797007440}
-  - {fileID: 2023184319}
   - {fileID: 1303623955}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -13628,8 +13952,6 @@ Transform:
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 1762723610}
-  - {fileID: 529429782}
-  - {fileID: 957881055}
   - {fileID: 3844442}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -14022,8 +14344,10 @@ RectTransform:
   - {fileID: 1547411786}
   - {fileID: 248320499}
   - {fileID: 886577077}
+  - {fileID: 1317900815}
+  - {fileID: 633667247}
   m_Father: {fileID: 462095489}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -14178,8 +14502,8 @@ Transform:
   m_LocalPosition: {x: .720000088, y: .5, z: 0}
   m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
   m_Children: []
-  m_Father: {fileID: 1773985794}
-  m_RootOrder: 2
+  m_Father: {fileID: 1303623955}
+  m_RootOrder: 4
 --- !u!212 &2023184320
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14491,6 +14815,7 @@ GameObject:
   - 222: {fileID: 2052169761}
   - 114: {fileID: 2052169760}
   - 114: {fileID: 2052169759}
+  - 95: {fileID: 2052169762}
   m_Layer: 0
   m_Name: Heart_3
   m_TagString: Untagged
@@ -14559,6 +14884,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2052169757}
+--- !u!95 &2052169762
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052169757}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2062707591
 GameObject:
   m_ObjectHideFlags: 0
@@ -14742,6 +15084,7 @@ GameObject:
   - 222: {fileID: 2093943946}
   - 114: {fileID: 2093943945}
   - 114: {fileID: 2093943944}
+  - 95: {fileID: 2093943947}
   m_Layer: 0
   m_Name: Heart_5
   m_TagString: Untagged
@@ -14810,6 +15153,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2093943942}
+--- !u!95 &2093943947
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093943942}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee99839967dd203429b30e451ed984cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2102822334
 GameObject:
   m_ObjectHideFlags: 0
