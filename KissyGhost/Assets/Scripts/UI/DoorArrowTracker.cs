@@ -13,6 +13,11 @@ public class DoorArrowTracker : MonoBehaviour
     private Text arrowTimerText;
     private Image arrowIconImage;
 
+    private Image[] imageList;
+    private Text[] textList;
+    private float fadeOutValue = 0.02f;
+    private bool isFading = false;
+
     private float distanceThreshold = 0.1f;
     private float textureMidWidth = 0;
     private float textureMidHeight = 0;
@@ -27,7 +32,7 @@ public class DoorArrowTracker : MonoBehaviour
             {
                 isTargetOnScreen = value;
 
-                if (isTargetOnScreen)
+                if (isTargetOnScreen && !isFading)
                 {
                     disableUI();
                 }
@@ -48,17 +53,51 @@ public class DoorArrowTracker : MonoBehaviour
         RectTransform rectTransform = GetComponent<RectTransform>();
         textureMidWidth = rectTransform.rect.width / 2;
         textureMidHeight = rectTransform.rect.height / 2;
+
+        imageList = GetComponentsInChildren<Image>();
+        textList = GetComponentsInChildren<Text>();
     }
 
     void Update()
     {
-        IsTargetOnScreen = updateIsTargetOnScreen();
-
-        if (!isTargetOnScreen)
+        if (!isFading)
         {
-            updatePosition();
-            updateRotation();
-            updateUI();
+            //IsTargetOnScreen = updateIsTargetOnScreen();
+
+            if (!isTargetOnScreen)
+            {
+                updatePosition();
+                updateRotation();
+                updateUI();
+            }
+        }
+        else
+        {
+            Color color = Color.white;
+
+            foreach (Image img in imageList)
+            {
+                color = img.color;
+                color.a -= fadeOutValue;
+                img.color = color;
+
+                if (color.a <= 0)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+
+            foreach (Text txt in textList)
+            {
+                color = txt.color;
+                color.a -= fadeOutValue;
+                txt.color = color;
+
+                if (color.a <= 0)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
         }
     }
 
@@ -116,5 +155,10 @@ public class DoorArrowTracker : MonoBehaviour
         {
             arrowTimerText.text = TimerText.text;
         }
+    }
+
+    public void StartFading()
+    {
+        isFading = true;
     }
 }

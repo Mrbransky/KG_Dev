@@ -186,6 +186,7 @@ public class RoomChangeManager : MonoBehaviour
                 case (int)SubObjectiveTypes.StandOnSwitch:
                     break;
             }
+
         }
         AkSoundEngine.PostEvent("Stop_FurnitureMove", gameObject);
         GetComponent<GameManager>().currentGhostPlayer.GetComponent<Ghost>().SetTimeSinceKiss(1.85f);
@@ -209,6 +210,28 @@ public class RoomChangeManager : MonoBehaviour
     private void SubObjectiveAccomplished()
     {
         roomSubObjectiveAccomplishedArray[(int)currentRoomLocation] = true;
+
+        switch (currentRoomLocation)
+        {
+            case RoomLocations.Center:
+                foreach (GameObject go in CenterRoomDoorArrows)
+                {
+                    go.GetComponent<DoorArrowTracker>().StartFading();
+                }
+                break;
+
+            case RoomLocations.Bottom:
+                BottomRoomDoorArrow.GetComponent<DoorArrowTracker>().StartFading();
+                break;
+
+            case RoomLocations.Left:
+                LeftRoomDoorArrow.GetComponent<DoorArrowTracker>().StartFading();
+                break;
+
+            case RoomLocations.Right:
+                RightRoomDoorArrow.GetComponent<DoorArrowTracker>().StartFading();
+                break;
+        }
     }
     #endregion Sub Objective Functions
 
@@ -223,12 +246,10 @@ public class RoomChangeManager : MonoBehaviour
             currentRoomLocation = RoomLocations.Bottom;
             SubObjectiveCheck_OnRoomChanged();
 
-            foreach (GameObject go in CenterRoomDoorArrows)
+            if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
-                go.SetActive(false);
+                BottomRoomDoorArrow.SetActive(true);
             }
-
-            BottomRoomDoorArrow.SetActive(true);
         }
         else if (playersGoingLeft.Count >= curPlayerCount - 1)
         {
@@ -236,12 +257,10 @@ public class RoomChangeManager : MonoBehaviour
             currentRoomLocation = RoomLocations.Left;
             SubObjectiveCheck_OnRoomChanged();
 
-            foreach (GameObject go in CenterRoomDoorArrows)
+            if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
-                go.SetActive(false);
+                LeftRoomDoorArrow.SetActive(true);
             }
-
-            LeftRoomDoorArrow.SetActive(true);
         }
         else if (playersGoingRight.Count >= curPlayerCount - 1)
         {
@@ -249,12 +268,10 @@ public class RoomChangeManager : MonoBehaviour
             currentRoomLocation = RoomLocations.Right;
             SubObjectiveCheck_OnRoomChanged();
 
-            foreach (GameObject go in CenterRoomDoorArrows)
+            if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
-                go.SetActive(false);
+                RightRoomDoorArrow.SetActive(true);
             }
-
-            RightRoomDoorArrow.SetActive(true);
         }
         else if (playersGoingBack.Count >= curPlayerCount - 1)
         {
@@ -262,14 +279,13 @@ public class RoomChangeManager : MonoBehaviour
             currentRoomLocation = RoomLocations.Center;
             SubObjectiveCheck_OnRoomChanged();
 
-            foreach (GameObject go in CenterRoomDoorArrows)
+            if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
-                go.SetActive(true);
+                foreach (GameObject go in CenterRoomDoorArrows)
+                {
+                    go.SetActive(true);
+                }
             }
-
-            BottomRoomDoorArrow.SetActive(false);
-            LeftRoomDoorArrow.SetActive(false);
-            RightRoomDoorArrow.SetActive(false);
         }
     }
 
