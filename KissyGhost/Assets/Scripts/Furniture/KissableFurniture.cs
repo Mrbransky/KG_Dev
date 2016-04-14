@@ -309,12 +309,15 @@ public class KissableFurniture : MonoBehaviour
 
         for (int i = 0; i < _GameManager.currentPlayers.Count - 1; ++i)
         {
-            float playerDist = Vector3.Distance(_GameManager.currentPlayers[i].transform.position, transform.position);
-
-            if (playerDist < closestPlayerDist)
+            if (_GameManager.currentPlayers[i].gameObject.tag != "Ghost")
             {
-                closestPlayer = _GameManager.currentPlayers[i];
-                closestPlayerDist = playerDist;
+                float playerDist = Vector3.Distance(_GameManager.currentPlayers[i].transform.position, transform.position);
+
+                if (playerDist < closestPlayerDist)
+                {
+                    closestPlayer = _GameManager.currentPlayers[i];
+                    closestPlayerDist = playerDist;
+                }
             }
         }
 
