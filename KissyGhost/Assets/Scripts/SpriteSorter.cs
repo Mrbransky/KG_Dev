@@ -7,11 +7,11 @@ public class SpriteSorter : MonoBehaviour
 {
     public class TransformYComparer : IComparer<SpriteRenderer>
     {
-        int IComparer<SpriteRenderer>.Compare(SpriteRenderer x, SpriteRenderer y)
+        int IComparer<SpriteRenderer>.Compare(SpriteRenderer first, SpriteRenderer second)
         {
             return ((new CaseInsensitiveComparer()).Compare(
-                y.transform.position.y,
-                x.transform.position.y));
+                second.transform.position.y,
+                first.transform.position.y));
         }
     }
 
