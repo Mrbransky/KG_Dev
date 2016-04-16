@@ -9,12 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 440462}
   - 212: {fileID: 21263208}
-  - 61: {fileID: 6111028}
   - 50: {fileID: 5071124}
   - 114: {fileID: 11474608}
   - 114: {fileID: 11471104}
-  - 58: {fileID: 5824952}
-  - 58: {fileID: 5895612}
+  - 60: {fileID: 6025600}
   m_Layer: 10
   m_Name: MediumFurniture_TableRound_White
   m_TagString: Furniture
@@ -46,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.86293983, y: 4.13414192, z: 0}
+  m_LocalPosition: {x: 10.2911243, y: 3.87118316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463564}
@@ -80,8 +78,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5824952
-CircleCollider2D:
+--- !u!60 &6025600
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -90,35 +88,27 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .50999999, y: .270000011}
-  serializedVersion: 2
-  m_Radius: .379999995
---- !u!58 &5895612
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103124}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.460000008, y: .270000011}
-  serializedVersion: 2
-  m_Radius: .379999995
---- !u!61 &6111028
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103124}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .0278024673, y: .272693157}
-  serializedVersion: 2
-  m_Size: {x: .989485323, y: .755746126}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .631399155, y: .00209522247}
+      - {x: .759275436, y: .0944812298}
+      - {x: .83927536, y: .147512674}
+      - {x: .896649361, y: .306192636}
+      - {x: .801944733, y: .476787806}
+      - {x: .63624382, y: .518549681}
+      - {x: .394474983, y: .524642706}
+      - {x: -.342067719, y: .528731585}
+      - {x: -.63624382, y: .518549204}
+      - {x: -.781944275, y: .466606379}
+      - {x: -.84981823, y: .265931368}
+      - {x: -.795700073, y: .127331257}
+      - {x: -.689638138, y: .0398190022}
+      - {x: -.549307823, y: -.0014424324}
+      - {x: -.355880737, y: -.00230622292}
+      - {x: .142849922, y: -.00515604019}
+      - {x: .316425323, y: -.00891232491}
+      - {x: .474067688, y: .000362634659}
 --- !u!114 &11471104
 MonoBehaviour:
   m_ObjectHideFlags: 1

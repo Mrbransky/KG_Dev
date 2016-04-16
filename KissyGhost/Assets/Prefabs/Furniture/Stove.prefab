@@ -12,10 +12,7 @@ GameObject:
   - 50: {fileID: 5041062}
   - 114: {fileID: 11479336}
   - 114: {fileID: 11416564}
-  - 58: {fileID: 5828722}
-  - 58: {fileID: 5811432}
-  - 58: {fileID: 5877004}
-  - 58: {fileID: 5898608}
+  - 60: {fileID: 6030436}
   m_Layer: 10
   m_Name: Stove
   m_TagString: Furniture
@@ -59,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.8540001, y: 4.40999985, z: 0}
+  m_LocalPosition: {x: 10.0423012, y: 2.98746753, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 451692}
@@ -81,8 +78,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5811432
-CircleCollider2D:
+--- !u!60 &6030436
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -91,48 +88,38 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .430000007, y: -.25999999}
-  serializedVersion: 2
-  m_Radius: .540000021
---- !u!58 &5828722
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120100}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.370000005, y: -.25999999}
-  serializedVersion: 2
-  m_Radius: .540000021
---- !u!58 &5877004
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120100}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.370000005, y: .209999993}
-  serializedVersion: 2
-  m_Radius: .540000021
---- !u!58 &5898608
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120100}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .430000007, y: .209999993}
-  serializedVersion: 2
-  m_Radius: .540000021
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .684415817, y: .701919734}
+      - {x: .446276367, y: .757688701}
+      - {x: .22784996, y: .71164465}
+      - {x: .028919857, y: .585427463}
+      - {x: -.114360176, y: .691241741}
+      - {x: -.388834655, y: .759280384}
+      - {x: -.643379867, y: .688200474}
+      - {x: -.812836349, y: .538129985}
+      - {x: -.901596725, y: .312100887}
+      - {x: -.90666455, y: .105201408}
+      - {x: -.861178756, y: -.0177650452}
+      - {x: -.903851211, y: -.146235153}
+      - {x: -.903550506, y: -.379536152}
+      - {x: -.764542937, y: -.643705368}
+      - {x: -.542129517, y: -.779048085}
+      - {x: -.327624649, y: -.806175172}
+      - {x: -.110366821, y: -.738508642}
+      - {x: .0321242027, y: -.634905696}
+      - {x: .186952591, y: -.743842304}
+      - {x: .474880219, y: -.796524882}
+      - {x: .681020737, y: -.736222208}
+      - {x: .851890564, y: -.603213489}
+      - {x: .968000412, y: -.357472271}
+      - {x: .964933395, y: -.139269203}
+      - {x: .925016403, y: -.0241115894}
+      - {x: .965228438, y: .0722982138}
+      - {x: .985548675, y: .245893002}
+      - {x: .924259841, y: .437291324}
+      - {x: .810539246, y: .604135036}
 --- !u!114 &11416564
 MonoBehaviour:
   m_ObjectHideFlags: 1

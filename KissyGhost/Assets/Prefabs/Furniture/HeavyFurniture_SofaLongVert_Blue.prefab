@@ -13,8 +13,6 @@ GameObject:
   - 50: {fileID: 5096818}
   - 114: {fileID: 11454352}
   - 114: {fileID: 11498680}
-  - 58: {fileID: 5803234}
-  - 58: {fileID: 5846632}
   m_Layer: 10
   m_Name: HeavyFurniture_SofaLongVert_Blue
   m_TagString: Furniture
@@ -58,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8636179, y: 3.15502977, z: 0}
+  m_LocalPosition: {x: 9.95796871, y: 3.58330297, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 417248}
@@ -80,53 +78,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5803234
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106262}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .0799999982, y: -.0599999987}
-  serializedVersion: 2
-  m_Radius: .589999974
---- !u!58 &5846632
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106262}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .0799999982, y: .469999999}
-  serializedVersion: 2
-  m_Radius: .589999974
 --- !u!60 &6047598
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106262}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: -.140000001, y: 1.07000005}
-      - {x: -.239999995, y: 1.38}
-      - {x: -.5, y: 1.38}
-      - {x: -.489909828, y: -.535850048}
-      - {x: .125579119, y: -.535850048}
-      - {x: .650090456, y: -.536030531}
-      - {x: .639999986, y: .910000026}
-      - {x: .600000024, y: 1}
+    - - {x: .259297371, y: 1.04321527}
+      - {x: -.015209198, y: 1.06457472}
+      - {x: -.196593285, y: 1.00020266}
+      - {x: -.326377869, y: .886263371}
+      - {x: -.455286026, y: .737477303}
+      - {x: -.497779846, y: .400138855}
+      - {x: -.451381683, y: .194953918}
+      - {x: -.500288963, y: -.187052727}
+      - {x: -.392992973, y: -.437370539}
+      - {x: -.18607235, y: -.584681273}
+      - {x: .076748848, y: -.63893795}
+      - {x: .400760651, y: -.54718399}
+      - {x: .595832825, y: -.356982946}
+      - {x: .670828819, y: .000275611877}
+      - {x: .619951248, y: .205883741}
+      - {x: .684105873, y: .510368824}
+      - {x: .574892044, y: .801486015}
+      - {x: .448081017, y: .951169014}
 --- !u!114 &11454352
 MonoBehaviour:
   m_ObjectHideFlags: 1

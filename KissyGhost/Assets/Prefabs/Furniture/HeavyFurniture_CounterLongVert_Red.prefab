@@ -9,12 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 458244}
   - 212: {fileID: 21257518}
-  - 61: {fileID: 6137564}
   - 50: {fileID: 5078080}
   - 114: {fileID: 11440312}
   - 114: {fileID: 11441784}
-  - 58: {fileID: 5897754}
-  - 58: {fileID: 5819922}
+  - 60: {fileID: 6089244}
   m_Layer: 10
   m_Name: HeavyFurniture_CounterLongVert_Red
   m_TagString: Furniture
@@ -46,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3580656, y: 2.75850987, z: 0}
+  m_LocalPosition: {x: 10.4327927, y: 3.2560184, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463992}
@@ -80,8 +78,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5819922
-CircleCollider2D:
+--- !u!60 &6089244
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -90,35 +88,21 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.0299999993, y: 1.11000001}
-  serializedVersion: 2
-  m_Radius: .289999992
---- !u!58 &5897754
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129090}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.0299999993, y: -.389999986}
-  serializedVersion: 2
-  m_Radius: .289999992
---- !u!61 &6137564
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129090}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.0278635025, y: .353807926}
-  serializedVersion: 2
-  m_Size: {x: .584273517, y: 1.52227736}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .228065491, y: 1.25110459}
+      - {x: .158433914, y: 1.32544684}
+      - {x: .0333051682, y: 1.39366794}
+      - {x: -.148056984, y: 1.37137675}
+      - {x: -.265043259, y: 1.27287507}
+      - {x: -.319999695, y: 1.11757731}
+      - {x: -.32375145, y: -.410035372}
+      - {x: -.234463692, y: -.584074736}
+      - {x: -.0370130539, y: -.675520182}
+      - {x: .192927361, y: -.588447332}
+      - {x: .272789001, y: -.421512127}
+      - {x: .256902695, y: 1.11757731}
 --- !u!114 &11440312
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -29,8 +29,7 @@ GameObject:
   - 114: {fileID: 11461206}
   - 114: {fileID: 11418992}
   - 50: {fileID: 5009380}
-  - 58: {fileID: 5873336}
-  - 58: {fileID: 5801404}
+  - 60: {fileID: 6034230}
   m_Layer: 10
   m_Name: refridge
   m_TagString: Furniture
@@ -45,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.9360008, y: 2.00099993, z: 0}
+  m_LocalPosition: {x: 10.0409603, y: 4.08555889, z: 0}
   m_LocalScale: {x: -1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 486578}
@@ -79,8 +78,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5801404
-CircleCollider2D:
+--- !u!60 &6034230
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -89,22 +88,30 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.0700000003, y: -.310000002}
-  serializedVersion: 2
-  m_Radius: .620000005
---- !u!58 &5873336
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148558}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.0700000003, y: -1.14999998}
-  serializedVersion: 2
-  m_Radius: .620000005
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: -.0722929686, y: .305986732}
+      - {x: -.36229071, y: .235747024}
+      - {x: -.593332946, y: .0235319138}
+      - {x: -.685792923, y: -.252007663}
+      - {x: -.644334197, y: -.556930721}
+      - {x: -.539775252, y: -.723966479}
+      - {x: -.641432464, y: -.882278919}
+      - {x: -.680485427, y: -1.0528177}
+      - {x: -.688569427, y: -1.17717338}
+      - {x: -.568765044, y: -1.48532236}
+      - {x: -.281570435, y: -1.71296155}
+      - {x: -.0583744049, y: -1.7658565}
+      - {x: .291791916, y: -1.6746726}
+      - {x: .476860702, y: -1.47344351}
+      - {x: .547719359, y: -1.20772815}
+      - {x: .50773114, y: -.898238838}
+      - {x: .38466835, y: -.73646611}
+      - {x: .530532241, y: -.520521164}
+      - {x: .53543663, y: -.177177429}
+      - {x: .402667373, y: .0847272873}
+      - {x: .201636642, y: .24260585}
 --- !u!114 &11418992
 MonoBehaviour:
   m_ObjectHideFlags: 1

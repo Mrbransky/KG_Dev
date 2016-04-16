@@ -26,13 +26,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 401442}
   - 212: {fileID: 21220636}
-  - 61: {fileID: 6139948}
   - 50: {fileID: 5017486}
   - 114: {fileID: 11456094}
   - 114: {fileID: 11426348}
-  - 58: {fileID: 5840512}
   - 95: {fileID: 9550792}
-  - 58: {fileID: 5833574}
+  - 60: {fileID: 6046240}
   m_Layer: 10
   m_Name: MediumFurniture_CounterShortHoriz_Red
   m_TagString: Furniture
@@ -47,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.0234251, y: 3.30256057, z: 0}
+  m_LocalPosition: {x: 9.9519825, y: 3.91690588, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408212}
@@ -81,8 +79,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5833574
-CircleCollider2D:
+--- !u!60 &6046240
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -91,35 +89,23 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.540000021, y: .239999995}
-  serializedVersion: 2
-  m_Radius: .349999994
---- !u!58 &5840512
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157222}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .5, y: .239999995}
-  serializedVersion: 2
-  m_Radius: .349999994
---- !u!61 &6139948
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157222}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.0123386383, y: .243369341}
-  serializedVersion: 2
-  m_Size: {x: 1.05369544, y: .693518639}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: .520175934, y: .591025352}
+      - {x: -.535608292, y: .589940548}
+      - {x: -.706721306, y: .556866169}
+      - {x: -.782102585, y: .494060516}
+      - {x: -.875511169, y: .344658852}
+      - {x: -.884381294, y: .161262035}
+      - {x: -.790198326, y: -.0129897594}
+      - {x: -.622328758, y: -.108596563}
+      - {x: .514644623, y: -.108412743}
+      - {x: .673660278, y: -.0541028976}
+      - {x: .804901123, y: .0605607033}
+      - {x: .85558033, y: .226290703}
+      - {x: .797814369, y: .434738636}
+      - {x: .71536541, y: .52210331}
 --- !u!95 &9550792
 Animator:
   serializedVersion: 3
