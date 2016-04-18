@@ -7,6 +7,8 @@ public class ScrollCredits : MonoBehaviour {
     float startingYposition;
     float Yposition;
 
+    public float ResetPosition;
+
     void Awake()
     {
         startingYposition = GetComponent<RectTransform>().localPosition.y;
@@ -18,7 +20,7 @@ public class ScrollCredits : MonoBehaviour {
         Yposition += scrollSpeed * Time.deltaTime;
         this.GetComponent<RectTransform>().localPosition = new Vector3(0, startingYposition + Yposition, 0);
 
-        if (GetComponent<RectTransform>().localPosition.y >= 1950)
+        if (GetComponent<RectTransform>().localPosition.y >= ResetPosition)
         {
             Yposition = 0;
             GetComponent<RectTransform>().localPosition = new Vector3(0, startingYposition, 0);
