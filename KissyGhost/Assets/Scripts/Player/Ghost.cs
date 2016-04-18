@@ -10,6 +10,7 @@ public class Ghost : Player
 
     public bool GetAButtonDown = false;
     private bool wasAButtonPressed = false;
+    private bool hasGameEnded = false;
 
     public bool TouchingFurniture;
 
@@ -87,7 +88,7 @@ public class Ghost : Player
     
     private bool canKissObject()
     {
-        return (_MoveInteractTrigger.colliderList.Count > 0 && timeSinceKiss <= 0 && availableKisses > 0);
+        return (_MoveInteractTrigger.colliderList.Count > 0 && timeSinceKiss <= 0 && availableKisses > 0 && !hasGameEnded);
     }
 
     private AudioClip PickRandomKissSound()
@@ -152,5 +153,10 @@ public class Ghost : Player
     public void SetTimeSinceKiss(float time)
     {
         this.timeSinceKiss = time;
+    }
+
+    public void UpdateGameHasEnded(GameManager gm)
+    {
+        hasGameEnded = gm.gameEnd;
     }
 }

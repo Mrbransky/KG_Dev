@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour {
     {
         didHumansWin = false;
         gameEnd = true;
-        int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;
+        int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;      
 
         StartCoroutine(InputMapper.Vibration(ghostPlayerNum, .75f, 1, 1));
 
@@ -202,6 +202,8 @@ public class GameManager : MonoBehaviour {
     {
         if (gameEnd)
         {
+            currentGhostPlayer.GetComponent<Ghost>().UpdateGameHasEnded(this);
+
             if (didHumansWin)
             {
                 GhostPullToMiddle();

@@ -223,21 +223,24 @@ public class Human : Player
 
     public void GrabItem(GameObject obj)
     {
-        this.IsCarryingItem = true;
-        
-        obj.transform.parent = transform;
-        obj.transform.localPosition = new Vector3(0, .75f, 0);
-        obj.transform.localScale = new Vector3(1, 1, 1);
-        heldItemSpriteRenderer = obj.GetComponent<SpriteRenderer>();
-        heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
-        obj.GetComponent<MissionObjective_Item>().PickItemUp();
-        obj.GetComponent<Rigidbody2D>().isKinematic = true;
-        HeldItemName = obj.name;
+        if (obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown == true)
+        {
+            this.IsCarryingItem = true;
 
-        timeBetweenItemInteract = 0.25f;
+            obj.transform.parent = transform;
+            obj.transform.localPosition = new Vector3(0, .75f, 0);
+            obj.transform.localScale = new Vector3(1, 1, 1);
+            heldItemSpriteRenderer = obj.GetComponent<SpriteRenderer>();
+            heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
+            obj.GetComponent<MissionObjective_Item>().PickItemUp();
+            obj.GetComponent<Rigidbody2D>().isKinematic = true;
+            HeldItemName = obj.name;
 
-        //Item Pick up Sound
-        soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
+            timeBetweenItemInteract = 0.25f;
+
+            //Item Pick up Sound
+            soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
+        }
     }
 
     public void KickFurniture(KissableFurniture _KissableFurniture)

@@ -83,13 +83,13 @@ public class RoomChangeManager : MonoBehaviour
     {
         if(!AllDoorsIn)
         {            
-            foreach(GameObject obj in doorSprites)
-            {
-                if (currentTimer > 9)
-                    obj.GetComponent<EdgeCollider2D>().enabled = false;
-                else
-                    obj.GetComponent<EdgeCollider2D>().enabled = true;
-            }
+            //foreach(GameObject obj in doorSprites)
+            //{
+            //    if (currentTimer > 9)
+            //        obj.GetComponent<EdgeCollider2D>().enabled = false;
+            //    else
+            //        obj.GetComponent<EdgeCollider2D>().enabled = true;
+            //}
 
             if (currentTimer <= .2f && !AreDoorsFadingIn[(int)currentRoomLocation])
                 AreDoorsFadingIn[(int)currentRoomLocation] = true;
