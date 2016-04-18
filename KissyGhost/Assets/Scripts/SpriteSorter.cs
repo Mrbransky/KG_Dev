@@ -32,10 +32,21 @@ public class SpriteSorter : MonoBehaviour
         {
             CenterRoom_SpriteRendererList = new List<SpriteRenderer>();
         }
-        
-        LeftRoom_SpriteRendererList = new List<SpriteRenderer>();
-        RightRoom_SpriteRendererList = new List<SpriteRenderer>();
-        BottomRoom_SpriteRendererList = new List<SpriteRenderer>();
+
+        if (LeftRoom_SpriteRendererList == null)
+        {
+            LeftRoom_SpriteRendererList = new List<SpriteRenderer>();
+        }
+
+        if (RightRoom_SpriteRendererList == null)
+        {
+            RightRoom_SpriteRendererList = new List<SpriteRenderer>();
+        }
+
+        if (BottomRoom_SpriteRendererList == null)
+        {
+            BottomRoom_SpriteRendererList = new List<SpriteRenderer>();
+        }
 
         myComparer = new TransformYComparer();
 	}
