@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &133160
+--- !u!1 &169778
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 420466}
-  - 198: {fileID: 19836486}
-  - 199: {fileID: 19925070}
+  - 4: {fileID: 455876}
+  - 198: {fileID: 19812072}
+  - 199: {fileID: 19912498}
   m_Layer: 0
   m_Name: Heart_Fountain
   m_TagString: Untagged
@@ -17,60 +17,60 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &145766
+--- !u!1 &187254
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 429598}
-  - 212: {fileID: 21287284}
-  - 50: {fileID: 5091460}
-  - 60: {fileID: 6096708}
-  - 114: {fileID: 11461484}
-  - 114: {fileID: 11406794}
+  - 4: {fileID: 434580}
+  - 212: {fileID: 21227824}
+  - 50: {fileID: 5066644}
+  - 114: {fileID: 11426116}
+  - 114: {fileID: 11425814}
+  - 60: {fileID: 6088026}
   m_Layer: 10
-  m_Name: endtable
+  m_Name: bed
   m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &420466
+--- !u!4 &434580
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133160}
+  m_GameObject: {fileID: 187254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .230000004, z: 0}
-  m_LocalScale: {x: .400000006, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 429598}
-  m_RootOrder: 0
---- !u!4 &429598
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.829999983, y: 3.48666668, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -38.3300018, y: 5, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
-  - {fileID: 420466}
+  - {fileID: 455876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5091460
+--- !u!4 &455876
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: .75, z: 1}
+  m_Children: []
+  m_Father: {fileID: 434580}
+  m_RootOrder: 0
+--- !u!50 &5066644
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145766}
-  m_Mass: 1
-  m_LinearDrag: 2
+  m_GameObject: {fileID: 187254}
+  m_Mass: 3
+  m_LinearDrag: 1.5
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_IsKinematic: 0
@@ -78,12 +78,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &6096708
+--- !u!60 &6088026
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145766}
+  m_GameObject: {fileID: 187254}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -91,25 +91,28 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: .143308014, y: -.524228752}
-      - {x: .180920929, y: -.474689484}
-      - {x: .171760559, y: -.198156357}
-      - {x: .261657715, y: -.116665527}
-      - {x: .219996139, y: .0768575668}
-      - {x: .0104827881, y: .132088035}
-      - {x: -.215235397, y: .0800043792}
-      - {x: -.263142914, y: -.116910301}
-      - {x: -.178855896, y: -.203242302}
-      - {x: -.141845703, y: -.521843612}
-      - {x: -.0799999982, y: -.560000002}
-      - {x: .0714467391, y: -.556613624}
-      - {x: .0700000003, y: -.560000002}
---- !u!114 &11406794
+    - - {x: .8786062, y: -.703029811}
+      - {x: .91283673, y: .0105692549}
+      - {x: .898747802, y: .652626991}
+      - {x: .828765869, y: .825160384}
+      - {x: .664548278, y: .900913596}
+      - {x: .0394846611, y: .921759009}
+      - {x: -.600489318, y: .893313408}
+      - {x: -.818206787, y: .817291617}
+      - {x: -.847061157, y: .604697883}
+      - {x: -.879877746, y: .0518347435}
+      - {x: -.855166137, y: -.70298326}
+      - {x: -.807411194, y: -.868764758}
+      - {x: -.661811829, y: -.913633704}
+      - {x: -.00944264792, y: -.933285713}
+      - {x: .679934204, y: -.903455257}
+      - {x: .815478027, y: -.855558753}
+--- !u!114 &11425814
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145766}
+  m_GameObject: {fileID: 187254}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5aa907ff1347b34aa2d243622375b2a, type: 3}
@@ -118,32 +121,32 @@ MonoBehaviour:
   minFollowDistance: .100000001
   followSpeed: 3.5
   BounceBackForce: 0
---- !u!114 &11461484
+--- !u!114 &11426116
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145766}
+  m_GameObject: {fileID: 187254}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35243d7c94597d649960ba7455b77eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   kissedBehavior: 1
-  UnkissedSprite: {fileID: 21300000, guid: 967416519114a494c9fb96e3a86502c7, type: 3}
+  UnkissedSprite: {fileID: 21300000, guid: 6313199b648b1d0488495400ab45d666, type: 3}
   KissedSprite: {fileID: 0}
   kissedColor: {r: 1, g: 0, b: .886274517, a: 1}
   amountKissed: 0
-  DoorPushMag: 4
+  DoorPushMag: 6
   kissedDuration: 3
   kickCooldown: 1
   KissKey: 48
---- !u!198 &19836486
+--- !u!198 &19812072
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133160}
+  m_GameObject: {fileID: 169778}
   lengthInSec: .5
   startDelay: 0
   speed: 1
@@ -305,7 +308,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .25
+      scalar: .349999994
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -391,7 +394,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 5.5
+      scalar: 6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1186,12 +1189,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19925070
+--- !u!199 &19912498
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133160}
+  m_GameObject: {fileID: 169778}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1222,12 +1225,12 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!212 &21287284
+--- !u!212 &21227824
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145766}
+  m_GameObject: {fileID: 187254}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1246,7 +1249,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 967416519114a494c9fb96e3a86502c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6313199b648b1d0488495400ab45d666, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -1254,28 +1257,8 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: Furniture
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: kissedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: kissedColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: kissedColor.b
-      value: .886274517
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 145766}
+  m_RootGameObject: {fileID: 187254}
   m_IsPrefabParent: 1

@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5067380}
   - 60: {fileID: 6042988}
   - 114: {fileID: 11488168}
+  - 114: {fileID: 11470960}
   m_Layer: 10
   m_Name: dresser
   m_TagString: Furniture
@@ -35,7 +36,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &424816
 Transform:
   m_ObjectHideFlags: 1
@@ -55,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.6800003, y: 5.9000001, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 2.87999988, y: 3.60000014, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424816}
   m_Father: {fileID: 0}
@@ -68,15 +69,15 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148086}
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 3
+  m_LinearDrag: 2
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &6042988
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -102,6 +103,20 @@ PolygonCollider2D:
       - {x: .76132077, y: -.384778351}
       - {x: .760648131, y: .10270723}
       - {x: .736119628, y: .158115715}
+--- !u!114 &11470960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aa907ff1347b34aa2d243622375b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minFollowDistance: .100000001
+  followSpeed: 3.5
+  BounceBackForce: 0
 --- !u!114 &11488168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,7 +131,7 @@ MonoBehaviour:
   kissedBehavior: 1
   UnkissedSprite: {fileID: 21300000, guid: 707194fd3c0d4fc47be7bc697e8a41fa, type: 3}
   KissedSprite: {fileID: 0}
-  kissedColor: {r: 1, g: .752941191, b: .796078444, a: 1}
+  kissedColor: {r: 1, g: 0, b: .886274517, a: 1}
   amountKissed: 0
   DoorPushMag: 5
   kissedDuration: 3
@@ -1229,7 +1244,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 707194fd3c0d4fc47be7bc697e8a41fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
@@ -1242,6 +1257,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: kissedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: kissedColor.b
+      value: .886274517
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
