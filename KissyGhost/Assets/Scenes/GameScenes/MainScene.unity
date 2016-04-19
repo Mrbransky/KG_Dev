@@ -7087,6 +7087,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11425814, guid: b498ca601c4a17241ad653738cdc43c7, type: 2}
+      propertyPath: followSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b498ca601c4a17241ad653738cdc43c7, type: 2}
   m_IsPrefabParent: 0
@@ -13851,6 +13855,7 @@ MonoBehaviour:
   minFollowDistance: .100000001
   followSpeed: 0
   BounceBackForce: 800
+  shake: .5
 --- !u!1 &1893980542
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class KissableFurniture : MonoBehaviour
     public int amountKissed = 0;
     public float DoorPushMag;
    
-    [SerializeField] private float kissedDuration = 3.0f;
+    [SerializeField] public float kissedDuration = 3.0f;
     private float timeSinceKiss;
     private GameManager _GameManager;
 
@@ -110,7 +110,7 @@ public class KissableFurniture : MonoBehaviour
             CheckMoveDirForSpriteFlip();
 
             timeSinceKiss -= Time.deltaTime;
-
+            
             if (timeSinceKiss <= 0)
                 UnkissFurniture();
         }
@@ -124,6 +124,7 @@ public class KissableFurniture : MonoBehaviour
     // Returns false if the furniture is already kissed
     public bool KissFurniture()
     {
+
         if (isKissed)
         {
             return false;

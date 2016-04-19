@@ -14,6 +14,10 @@ public class Furniture_RhinoCharge : MonoBehaviour
     private Rigidbody2D furnitureRigidbody2D;
     private bool isInitialized = false;
     private Vector3 lastKnownPlayerPosition;
+
+    public float shake = 0.5f;
+    float shakeAmount = 0.1f;
+    float decreaseFactor = 1.0f;
     void Start()
     {
         _KissableFurniture = GetComponent<KissableFurniture>();
@@ -32,21 +36,14 @@ public class Furniture_RhinoCharge : MonoBehaviour
             _KissableFurniture.UnkissFurniture();
             return;
         }
-        //Vector2 moveDir = closestPlayerTransform.position - transform.position;
-        //moveDir.Normalize();
-        //float distanceFromPlayer = moveDir.magnitude;
-        followSpeed += Time.deltaTime*2;
-        furnitureRigidbody2D.velocity = (lastKnownPlayerPosition - transform.position) * followSpeed;
-        if(followSpeed >= 3.5f)
-        { followSpeed = 3.5f; }
-        //if (distanceFromPlayer > minFollowDistance)
-        //{
-        //    furnitureRigidbody2D.velocity = moveDir * followSpeed;
-        //}
-        //else
-        //{
-        //    furnitureRigidbody2D.velocity = Vector2.zero;
-        //}
+        ShakeyShake();
+        if (shake <= 0)
+        {
+            followSpeed += Time.deltaTime * 2;
+            furnitureRigidbody2D.velocity = (lastKnownPlayerPosition - transform.position) * followSpeed;
+            if (followSpeed >= 3.5f)
+            { followSpeed = 3.5f; }
+        }
     }
 
     void OnDisable()
@@ -54,7 +51,6 @@ public class Furniture_RhinoCharge : MonoBehaviour
         if (isInitialized)
         {
             isInitialized = false;
-            //furnitureRigidbody2D.velocity = Vector2.zero;
             followSpeed = 0;
             _KissableFurniture.amountKissed = 0;
             Vector3 furnitureToPlayerDir = closestPlayerTransform.position - transform.position;
@@ -78,17 +74,32 @@ public class Furniture_RhinoCharge : MonoBehaviour
 
     public void Initialize(Transform _closestPlayerTransform)
     {
-        bool temp = true;
+        bool savePos = true;
         closestPlayerTransform = _closestPlayerTransform;
 
 
-        if(temp)
+        if (savePos)
         {
             lastKnownPlayerPosition = _closestPlayerTransform.position;
-            temp = false;
+            savePos = false;
         }
 
         isInitialized = true;
+    }
+
+    void ShakeyShake()
+    {
+        if (shake > 0)
+        {
+            Vector3 rand = Random.insideUnitCircle * shakeAmount;
+            transform.position = (rand + transform.position);
+            shake -= Time.deltaTime * decreaseFactor;
+            _KissableFurniture.kissedDuration = 3f;
+        }
+        else
+        {
+            shake = 0.0f;
+        }
     }
 
     public Vector2 GetLastKnownPlayerPosition()
