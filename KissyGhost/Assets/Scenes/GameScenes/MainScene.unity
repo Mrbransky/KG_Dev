@@ -2513,9 +2513,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 229183743}
-  - 58: {fileID: 229183746}
-  - 58: {fileID: 229183745}
   - 68: {fileID: 229183744}
+  - 68: {fileID: 229183746}
+  - 68: {fileID: 229183745}
   m_Layer: 11
   m_Name: GhostBarrier
   m_TagString: GhostBarrier
@@ -2547,10 +2547,10 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: -.52780813, y: -.51908797}
-  - {x: -.528906345, y: .505183816}
---- !u!58 &229183745
-CircleCollider2D:
+  - {x: -.472627372, y: -.523686349}
+  - {x: -.478323847, y: .505183816}
+--- !u!68 &229183745
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2559,11 +2559,12 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .5}
-  serializedVersion: 2
-  m_Radius: .529999971
---- !u!58 &229183746
-CircleCollider2D:
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -.473974317, y: -.51010555}
+  - {x: -.187081248, y: -.728722095}
+--- !u!68 &229183746
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -2572,9 +2573,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -.5}
-  serializedVersion: 2
-  m_Radius: .529999971
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -.493742079, y: .500622511}
+  - {x: -.182098493, y: .732160568}
 --- !u!1 &230598102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,16 +3935,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topSpeed: 5
-  currentSpeed: 0
   accelRate: .25
   decelRate: .25
+  topSpeed: 5
+  currentSpeed: 0
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
+  playerNum: 4
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
-  playerNum: 4
   invulnerabilityDuration: 1.5
   GetAButtonDown: 0
   GetBButtonDown: 0
@@ -4478,16 +4480,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topSpeed: 5
-  currentSpeed: 0
   accelRate: .25
   decelRate: .25
+  topSpeed: 5
+  currentSpeed: 0
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
+  playerNum: 2
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
-  playerNum: 2
   invulnerabilityDuration: 1.5
   GetAButtonDown: 0
   GetBButtonDown: 0
@@ -6665,7 +6667,7 @@ MonoBehaviour:
   TriggerVertOffset: -.100000001
   IsOnItemNode: 0
   isGhostInteractTrigger: 0
-  colliderList: []
+  interactColliderList: []
 --- !u!61 &847994454
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12269,7 +12271,7 @@ MonoBehaviour:
   TriggerVertOffset: -.100000001
   IsOnItemNode: 0
   isGhostInteractTrigger: 0
-  colliderList: []
+  interactColliderList: []
 --- !u!61 &1657105212
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12562,7 +12564,7 @@ MonoBehaviour:
   TriggerVertOffset: -.100000001
   IsOnItemNode: 0
   isGhostInteractTrigger: 0
-  colliderList: []
+  interactColliderList: []
 --- !u!61 &1686124482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13087,16 +13089,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topSpeed: 5
-  currentSpeed: 0
   accelRate: .25
   decelRate: .25
+  topSpeed: 5
+  currentSpeed: 0
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
+  playerNum: 1
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
-  playerNum: 1
   invulnerabilityDuration: 1.5
   GetAButtonDown: 0
   GetBButtonDown: 0
@@ -13253,7 +13255,7 @@ MonoBehaviour:
   TriggerVertOffset: -.100000001
   IsOnItemNode: 0
   isGhostInteractTrigger: 0
-  colliderList: []
+  interactColliderList: []
 --- !u!61 &1762723612
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14362,16 +14364,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topSpeed: 5
-  currentSpeed: 0
   accelRate: .25
   decelRate: .25
+  topSpeed: 5
+  currentSpeed: 0
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
+  playerNum: 3
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
-  playerNum: 3
   invulnerabilityDuration: 1.5
   GetAButtonDown: 0
   GetBButtonDown: 0

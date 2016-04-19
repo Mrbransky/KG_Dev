@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 
 public class Ghost : Player
-{
-    public float timeBetweenKisses = 0.2f;
-    public float SpeedReducePercent = 75;
-    private float timeSinceKiss;
-    public AudioClip[] smoochSounds;
-
-    public bool GetAButtonDown = false;
-    private bool wasAButtonPressed = false;
-    private bool hasGameEnded = false;
-
-    public bool TouchingFurniture;
-
-    public int maxKisses = 3;
+{   
+    [Header("Timers")]
     public float timeToRechargeKiss = 3.0f;
-    private HeartComponent[] heartComponentsArray;
-    private int availableKisses = 3;
+    public float timeBetweenKisses = 0.2f;
     private float kissRechargeTimer = 0.0f;
+    private float timeSinceKiss;
 
-    private AudioSource source;
+    [Header("Ghost Misc.")]
+    public bool GetAButtonDown = false;
+    public bool TouchingFurniture;
+    private bool wasAButtonPressed = false;
+    private bool hasGameEnded = false;  
+  
+    private HeartComponent[] heartComponentsArray;
+
+    private int availableKisses = 3;
+    public int maxKisses = 3;
+
+    public float SpeedReducePercent = 75;
+
+    private List<Collider2D> bodyColliderList;
 
     public override void Awake() 
     {
         FacingRight = false;
         base.Awake();
 
-        source = this.GetComponent<AudioSource>();
+        bodyColliderList = new List<Collider2D>();
+
         heartComponentsArray = GetComponentsInChildren<HeartComponent>();
         availableKisses = maxKisses;
     }
@@ -52,13 +55,19 @@ public class Ghost : Player
         }
         else if (GetAButtonDown && canKissObject())
         {
-            kissObject();            
+            if (_MoveInteractTrigger.interactColliderList.Count > 0)
+                kissObject(_MoveInteractTrigger.interactColliderList);
+            else
+                kissObject(bodyColliderList);           
         }
         #region Keyboard Input Related Code (for Debugging)
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
         else if (Input.GetKeyDown(KeyCode.M) && canKissObject())
         {
-            kissObject();
+            if (_MoveInteractTrigger.interactColliderList.Count > 0)
+                kissObject(_MoveInteractTrigger.interactColliderList);
+            else
+                kissObject(bodyColliderList);   
         }
 #endif
         #endregion
@@ -88,19 +97,18 @@ public class Ghost : Player
     
     private bool canKissObject()
     {
-        return (_MoveInteractTrigger.colliderList.Count > 0 && timeSinceKiss <= 0 && availableKisses > 0 && !hasGameEnded);
+        if (_MoveInteractTrigger.interactColliderList.Count > 0 || bodyColliderList.Count > 0)
+            return (timeSinceKiss <= 0 && availableKisses > 0 && !hasGameEnded);
+
+        return false;
+          
+        //return (_MoveInteractTrigger.interactColliderList.Count > 0 && timeSinceKiss <= 0 && availableKisses > 0 && !hasGameEnded);
     }
 
-    private AudioClip PickRandomKissSound()
-    {
-        
-        return smoochSounds[Random.Range(0, smoochSounds.Length - 1)];
-    }
-
-    private void kissObject()
+    private void kissObject(List<Collider2D> furniture)
     {
         // Don't put kiss on cooldown if the furniture is already kissed
-        foreach (Collider2D col in _MoveInteractTrigger.colliderList)
+        foreach (Collider2D col in furniture)
         {
             if (col.GetComponent<KissableFurniture>().KissFurniture())
             {
@@ -117,7 +125,6 @@ public class Ghost : Player
                 }
 
                 timeSinceKiss = timeBetweenKisses;
-                source.PlayOneShot(PickRandomKissSound());
                 StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
 
                 soundManager.SOUND_MAN.playSound("Play_Kisses", gameObject);
@@ -158,5 +165,17 @@ public class Ghost : Player
     public void UpdateGameHasEnded(GameManager gm)
     {
         hasGameEnded = gm.gameEnd;
+    }
+
+    public void AddColliderToList(Collider2D col)
+    {
+        if(!bodyColliderList.Contains(col))
+            bodyColliderList.Add(col);
+    }
+
+    public void RemoveColliderFromList(Collider2D col)
+    {
+        if(bodyColliderList.Contains(col))
+            bodyColliderList.Remove(col);
     }
 }

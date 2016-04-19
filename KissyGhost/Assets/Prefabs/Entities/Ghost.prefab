@@ -32,7 +32,6 @@ GameObject:
   - 58: {fileID: 5820614}
   - 114: {fileID: 11431982}
   - 114: {fileID: 11408240}
-  - 82: {fileID: 8286422}
   m_Layer: 9
   m_Name: Ghost
   m_TagString: Player
@@ -318,75 +317,6 @@ BoxCollider2D:
   m_Offset: {x: -.0700000003, y: -.00999999978}
   serializedVersion: 2
   m_Size: {x: .649999976, y: 1.05999994}
---- !u!82 &8286422
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109294}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!95 &9514442
 Animator:
   serializedVersion: 3
@@ -428,32 +358,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66c235fe7b5646bd089c2df830908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topSpeed: 5
-  currentSpeed: 0
   accelRate: .25
   decelRate: .150000006
+  topSpeed: 5
+  currentSpeed: 0
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
   playerNum: 1
-  timeBetweenKisses: .200000003
-  SpeedReducePercent: 75
-  smoochSounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  timeToRechargeKiss: 3
+  timeBetweenKisses: .550000012
   GetAButtonDown: 0
   TouchingFurniture: 0
   maxKisses: 3
-  timeToRechargeKiss: 3
+  SpeedReducePercent: 75
 --- !u!114 &11410374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -672,7 +592,7 @@ MonoBehaviour:
   TriggerVertOffset: -.100000001
   IsOnItemNode: 0
   isGhostInteractTrigger: 1
-  colliderList: []
+  interactColliderList: []
 --- !u!114 &11493408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2125,7 +2045,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: timeBetweenKisses
-      value: .200000003
+      value: .550000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LinearDrag

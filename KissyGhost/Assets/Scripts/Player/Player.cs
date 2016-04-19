@@ -17,19 +17,20 @@ public class Player : Entity
             }
         }
     }
+    private MoveAnim moveAnimation;
 
     public override Vector2 moveDir
     {
         get { return SetMoveDirection(); }
     }
 
-    private MoveAnim moveAnimation;
+    public int playerNum;
 
+[Header("Colliders/Triggers")]
     public BoxCollider2D interactTrigger;
     public CircleCollider2D bodyCol;
     public MoveInteractTrigger _MoveInteractTrigger;
-
-    public int playerNum;
+    
     public bool FacingRight
     {
         get { return facingRight; }

@@ -30,7 +30,6 @@ GameObject:
   - 50: {fileID: 5012962}
   - 114: {fileID: 11403896}
   - 114: {fileID: 11484398}
-  - 58: {fileID: 5892974}
   - 58: {fileID: 5854580}
   m_Layer: 10
   m_Name: LightFurniture_ChairNE_Brown
@@ -46,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.42368412, y: 3.7192874, z: 0}
+  m_LocalPosition: {x: -.0262920856, y: 3.1802609, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 497604}
@@ -90,22 +89,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .100000001, y: -.0799999982}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .200000003
---- !u!58 &5892974
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 173404}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.180000007, y: .209999993}
-  serializedVersion: 2
-  m_Radius: .200000003
+  m_Radius: .25999999
 --- !u!61 &6194774
 BoxCollider2D:
   m_ObjectHideFlags: 1

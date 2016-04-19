@@ -20,7 +20,7 @@ public class MoveInteractTrigger : MonoBehaviour {
     public bool IsOnItemNode;
 
     public bool isGhostInteractTrigger = false;
-    public List<Collider2D> colliderList;
+    public List<Collider2D> interactColliderList;
     private SpriteRenderer spriteRenderer_InteractButtonPrompt;
 
 	void Awake () 
@@ -30,7 +30,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 
         if (isGhostInteractTrigger)
         {
-            colliderList = new List<Collider2D>();
+            interactColliderList = new List<Collider2D>();
             spriteRenderer_InteractButtonPrompt = GetComponentInChildren<SpriteRenderer>();
         }
 	}
@@ -85,9 +85,9 @@ public class MoveInteractTrigger : MonoBehaviour {
 #endif
     void OnTriggerStay2D(Collider2D col)
     {
-        if (isGhostInteractTrigger && col.tag == "Furniture" && !colliderList.Contains(col))
+        if (isGhostInteractTrigger && col.tag == "Furniture" && !interactColliderList.Contains(col))
         {
-            colliderList.Add(col);
+            interactColliderList.Add(col);
             spriteRenderer_InteractButtonPrompt.enabled = true;
         }
 
@@ -128,11 +128,11 @@ public class MoveInteractTrigger : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (isGhostInteractTrigger && col.tag == "Furniture" && colliderList.Contains(col))
+        if (isGhostInteractTrigger && col.tag == "Furniture" && interactColliderList.Contains(col))
         {
-            colliderList.Remove(col);
+            interactColliderList.Remove(col);
             
-            if (colliderList.Count == 0)
+            if (interactColliderList.Count == 0)
             {
                 spriteRenderer_InteractButtonPrompt.enabled = false;
             }

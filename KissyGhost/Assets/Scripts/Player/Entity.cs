@@ -3,18 +3,21 @@ using System.Collections;
 
 public class Entity : MonoBehaviour 
 {
+    [Header("Movement")]
+    public float accelRate;
+    public float decelRate;
     public virtual Vector2 moveDir { get; set; }
+    public float topSpeed;
+    public float currentSpeed;
+
     protected Rigidbody2D rigidBody;
 
     private Vector2 cachedMoveDir;
 
-    public float topSpeed;
-    public float currentSpeed;
-
-    public float accelRate, decelRate;
 
     #region Keyboard Input Related Variables (for Debugging)
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+    [Header("Debug")]
     public Vector2 debugMoveDir;
     public float debugCurrentSpeed;
     private Vector2 debugcachedMoveDir;

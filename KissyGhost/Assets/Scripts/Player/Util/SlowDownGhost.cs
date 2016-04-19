@@ -12,19 +12,25 @@ public class SlowDownGhost : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Furniture")
+        if (col.tag == "Furniture")
+        {
             parent.TouchingFurniture = true;
+            parent.AddColliderToList(col);
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
         if (col.tag == "Furniture" && !parent.TouchingFurniture)
-            OnTriggerEnter2D(col);
+            parent.TouchingFurniture = true;
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.tag == "Furniture")
+        {
             parent.TouchingFurniture = false;
+            parent.RemoveColliderFromList(col);
+        }
     }
 }
