@@ -49,6 +49,7 @@ public class RoomGenerator : MonoBehaviour
     [Header("Special Items\n-----------------------------")]
     [Space(10f, order = 0)]
     public List<GameObject> AllSpecialItems;
+    public List<GameObject> AiTracker;
     private List<GameObject> currentSpecialItems;
 
     private float[] CenterRoomLimits;
@@ -310,8 +311,8 @@ public class RoomGenerator : MonoBehaviour
         Vector2 specPos = new Vector2(specPos_x, specPos_y);
 
         GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[index], specPos, Quaternion.identity);
-        GetComponent<MissionManager>().AddMissionObjective(specialItem);    
-
+        GetComponent<MissionManager>().AddMissionObjective(specialItem);
+        AiTracker.Add(specialItem);
         if (_SpriteSorter != null)
         {
             _SpriteSorter.AddToAllLists(specialItem.GetComponent<SpriteRenderer>());

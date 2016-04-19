@@ -307,7 +307,7 @@ public class KissableFurniture : MonoBehaviour
         GameObject closestPlayer = null;
         float closestPlayerDist = float.MaxValue;
 
-        for (int i = 0; i < _GameManager.currentPlayers.Count - 1; ++i)
+        for (int i = 0; i < _GameManager.currentPlayers.Count; ++i)
         {
             if (_GameManager.currentPlayers[i].gameObject.tag != "Ghost")
             {
