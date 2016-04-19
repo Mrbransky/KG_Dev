@@ -64,7 +64,8 @@ public class RoomChangeManager : MonoBehaviour
 
     void Start()
     {
-        SetDoorAlphas(0f);
+        SetDoorAlphas(0.1f);
+        disableDoors();
 
         curPlayerCount = GetComponent<GameManager>().playerCount;
 
@@ -82,7 +83,7 @@ public class RoomChangeManager : MonoBehaviour
     void Update()
     {
         if(!AllDoorsIn)
-        {            
+        {
             //foreach(GameObject obj in doorSprites)
             //{
             //    if (currentTimer > 9)
@@ -92,12 +93,16 @@ public class RoomChangeManager : MonoBehaviour
             //}
 
             if (currentTimer <= .2f && !AreDoorsFadingIn[(int)currentRoomLocation])
+            {
                 AreDoorsFadingIn[(int)currentRoomLocation] = true;
+            }
 
             for (int i = 0; i < AreDoorsFadingIn.Length; i++)
             {
                 if (AreDoorsFadingIn[i] && (int)currentRoomLocation == i)
+                {
                     FadeInDoors(currentRoomLocation);
+                }
             }
 
             AllDoorsIn = AreAllDoorsIn();
@@ -125,6 +130,18 @@ public class RoomChangeManager : MonoBehaviour
     }
 
     #region Door Fading
+    void disableDoors()
+    {
+        foreach (GameObject obj in doorSprites)
+            obj.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    void enableDoors()
+    {
+        foreach (GameObject obj in doorSprites)
+            obj.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
     void SetDoorAlphas(float alphaVal)
     {
         foreach (GameObject obj in doorSprites)
@@ -159,6 +176,7 @@ public class RoomChangeManager : MonoBehaviour
         foreach(GameObject obj in doorSprites)
             if (obj.name.Contains(doorID))
             {
+                obj.GetComponent<SpriteRenderer>().enabled = true;
                 obj.GetComponent<SpriteRenderer>().color += new Color(0f, 0f, 0f, DoorFadeIncrement);
 
                 if (obj.GetComponent<SpriteRenderer>().color.a >= 1f)
