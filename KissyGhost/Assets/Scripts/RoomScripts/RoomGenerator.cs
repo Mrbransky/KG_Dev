@@ -30,15 +30,13 @@ public class RoomGenerator : MonoBehaviour
     private RoomChangeManager _RoomChangeManager;
 
     //Furniture list
-    [Header("Furniture Count\n-----------------------------")]
-    [Space(10f, order = 2)]
+    [Header("Furniture Count")]
 	public List<GameObject> currentFurniture;
 	public int numberOfFurnitureForCenter = 15;
     public int numberOfFurnitureForRight = 10;
     public int numberOfFurnitureForLeft = 10;
     public int numberOfFurnitureForBottom = 5;
-    [Header("Furniture Options\n-----------------------------")]
-    [Space(10f, order = 1)]
+    [Header("Furniture Options")]
     public GameObject[] furnitureOptions;
     public GameObject[] kitchenFurnitureOptions;
     public GameObject[] bathroomFurnitureOptions;
@@ -46,8 +44,7 @@ public class RoomGenerator : MonoBehaviour
     public bool IsRugsEnabledInCenterRoom = true;
 
     //Special Items
-    [Header("Special Items\n-----------------------------")]
-    [Space(10f, order = 0)]
+    [Header("Special Items")]
     public List<GameObject> AllSpecialItems;
     public List<GameObject> AiTracker;
     private List<GameObject> currentSpecialItems;

@@ -16,7 +16,7 @@ public class Furniture_RhinoCharge : MonoBehaviour
     private Vector3 lastKnownPlayerPosition;
 
     public float shake = 0.5f;
-    float shakeAmount = 0.1f;
+    float shakeAmount = 0.05f;
     float decreaseFactor = 1.0f;
     void Start()
     {

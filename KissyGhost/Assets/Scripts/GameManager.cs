@@ -16,16 +16,14 @@ public class GameManager : MonoBehaviour {
 
     public Text[] playerNumText;
     
-    [Header("End Game\n-----------------------------")]
-    [Space(10f, order = 4)]
+    [Header("End Game")]
     public List<GameObject> thingsToTurnOffAtGameEnd;
     public List<GameObject> thingsToTurnOnAtGameEnd;
     public bool gameEnd = false;
     public bool didHumansWin;
     public Text winnerNameText;
     
-    [Header("Player Data\n-----------------------------")]
-    [Space(10f, order = 3)]
+    [Header("Player Data")]
     public int playerCount = 0;
     public List<GameObject> currentPlayers;
     public GameObject currentGhostPlayer;
@@ -211,7 +209,7 @@ public class GameManager : MonoBehaviour {
             if (didHumansWin)
             {
                 GhostPullToMiddle();
-                if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 1.6f)
+                if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 0.1f)
                 {
                     timer -= Time.fixedDeltaTime;
 
@@ -223,6 +221,7 @@ public class GameManager : MonoBehaviour {
             {
                 timer = 0;
 
+                Camera.main.transform.position = new Vector3(currentGhostPlayer.transform.position.x,currentGhostPlayer.transform.position.y, Camera.main.transform.position.z);
                 _HeartZoomTransition.enabled = true;
                 _HeartZoomTransition.StartHeartZoomInHalfway();
             }
@@ -272,13 +271,13 @@ public class GameManager : MonoBehaviour {
         currentGhostPlayer.GetComponent<Ghost>().debugCurrentSpeed = 0;
         #endif
 
-        Vector2 roomPos = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
+        Vector3 roomPos = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
         currentGhostPlayer.GetComponent<Ghost>().currentSpeed = 0;
-        if (Vector2.Distance(currentGhostPlayer.transform.position, roomPos) > 1.6f)
+        if (Vector2.Distance(currentGhostPlayer.transform.position, roomPos) > 0.5f)
         {
-            Vector2 direction = currentGhostPlayer.transform.position - transform.position;
+            Vector2 direction = currentGhostPlayer.transform.position - roomPos;
 
-            currentGhostPlayer.GetComponent<Rigidbody2D>().AddForceAtPosition(-direction.normalized * 3, roomPos);
+            currentGhostPlayer.GetComponent<Rigidbody2D>().transform.position -= new Vector3(direction.x, direction.y, 0).normalized * 3 * Time.deltaTime;
         }
         else
         {
