@@ -121,7 +121,7 @@ MonoBehaviour:
   KissedSprite: {fileID: 0}
   kissedColor: {r: 1, g: 0, b: .886274517, a: 1}
   amountKissed: 0
-  DoorPushMag: 4
+  DoorPushMag: 5.5
   kissedDuration: 3
   kickCooldown: 1
   KissKey: 48

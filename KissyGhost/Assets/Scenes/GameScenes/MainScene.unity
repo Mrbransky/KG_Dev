@@ -2089,14 +2089,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 403562, guid: 9bb54841d3981764e9f0a4b36ecfa700, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 403562, guid: 9bb54841d3981764e9f0a4b36ecfa700, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bb54841d3981764e9f0a4b36ecfa700, type: 2}
   m_IsPrefabParent: 0
@@ -7095,17 +7087,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 434580, guid: b498ca601c4a17241ad653738cdc43c7, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 434580, guid: b498ca601c4a17241ad653738cdc43c7, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b498ca601c4a17241ad653738cdc43c7, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &899161122 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 21227824, guid: b498ca601c4a17241ad653738cdc43c7,
+    type: 2}
+  m_PrefabInternal: {fileID: 899161121}
 --- !u!212 &908065078 stripped
 SpriteRenderer:
   m_PrefabParentObject: {fileID: 21220652, guid: 4eb0b831d63e06044895844aec4bbb07,
@@ -7363,6 +7352,10 @@ Prefab:
     - target: {fileID: 429598, guid: ba0357b52173cc242b979cda4688d199, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11461484, guid: ba0357b52173cc242b979cda4688d199, type: 2}
+      propertyPath: DoorPushMag
+      value: 5.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba0357b52173cc242b979cda4688d199, type: 2}
@@ -9711,6 +9704,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11488168, guid: 068419ff7607bb44196ec478ed5ad793, type: 2}
+      propertyPath: DoorPushMag
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 068419ff7607bb44196ec478ed5ad793, type: 2}
   m_IsPrefabParent: 0
@@ -10707,14 +10704,6 @@ Prefab:
     - target: {fileID: 480108, guid: 4eb0b831d63e06044895844aec4bbb07, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 480108, guid: 4eb0b831d63e06044895844aec4bbb07, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 480108, guid: 4eb0b831d63e06044895844aec4bbb07, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4eb0b831d63e06044895844aec4bbb07, type: 2}
@@ -15238,6 +15227,7 @@ MonoBehaviour:
   - {fileID: 1365664666}
   - {fileID: 419026679}
   - {fileID: 1487003973}
+  - {fileID: 899161122}
   RightRoom_SpriteRendererList:
   - {fileID: 908065078}
   - {fileID: 1114059935}
