@@ -164,7 +164,8 @@ public class KissableFurniture : MonoBehaviour
             }
 
             //Start Playing Furniture sliding sound
-            soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
+            if(kissedBehavior == KissedFurnitureBehavior.FollowPlayer)
+                soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
         }
 
         switch ((int)kissedBehavior)
@@ -182,7 +183,8 @@ public class KissableFurniture : MonoBehaviour
                     rhinoChargeBehavior.enabled = true;
                     rhinoChargeBehavior.Initialize(getClosestPlayerTransform());
 
-                    //soundManager.SOUND_MAN.playSound("Play_StairsMove", gameObject);
+                    if(gameObject.name.Contains("Staircase"))
+                        soundManager.SOUND_MAN.playSound("Play_StairsMove", gameObject);
                     
                 }
                 else { amountKissed++; }
@@ -219,10 +221,11 @@ public class KissableFurniture : MonoBehaviour
             isKissed = false;
             OnFurnitureUnkissed();
         }
-		AkSoundEngine.PostEvent ("Stop_FurnitureMove", gameObject);
-        //AkSoundEngine.PostEvent("Stop_StairsMove", gameObject);
 
-        //soundManager.SOUND_MAN.stopSound("Play_FurnitureMove", gameObject, 1);
+        if(kissedBehavior == KissedFurnitureBehavior.FollowPlayer)
+		    AkSoundEngine.PostEvent("Stop_FurnitureMove", gameObject);
+        else if(gameObject.name.Contains("Staircase"))
+            AkSoundEngine.PostEvent("Stop_StairsMove", gameObject);
     }
 
     private void OnFurnitureUnkissed()

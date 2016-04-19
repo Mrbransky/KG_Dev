@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AI\PlayerAI.cs" />
     <Compile Include="Assets\Scripts\Audio\soundManager.cs" />
     <Compile Include="Assets\Scripts\CameraBiz\NewCameraBehavior.cs" />
     <Compile Include="Assets\Scripts\CameraBiz\ScreenShake.cs" />
