@@ -11315,11 +11315,8 @@ MonoBehaviour:
   currentDistance: 0
   largestDistance: 5
   theCamera: {fileID: 1518960077}
-  height: 5
-  distance: 0
   heightSpeed: 1
   smoothDampSpeed: .600000024
-  offset: 0
 --- !u!1 &1533627859
 GameObject:
   m_ObjectHideFlags: 0
@@ -14981,9 +14978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heart_splosion: {fileID: 127656, guid: 56b9634d6d55e0847ad58b0f1f3f01f2, type: 2}
   heartZoom: {fileID: 2102822334}
-  gameEnd: 0
-  didHumansWin: 0
-  winnerNameText: {fileID: 734910989}
   _HeartZoomTransition: {fileID: 879460498}
   _SpriteSorter: {fileID: 2038403448}
   music:
@@ -15001,6 +14995,9 @@ MonoBehaviour:
   - {fileID: 485993857}
   - {fileID: 1483676029}
   - {fileID: 734910986}
+  gameEnd: 0
+  didHumansWin: 0
+  winnerNameText: {fileID: 734910989}
   playerCount: 0
   currentPlayers: []
   currentGhostPlayer: {fileID: 0}

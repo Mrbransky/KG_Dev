@@ -9,19 +9,23 @@ public class GameManager : MonoBehaviour {
 
     public GameObject heart_splosion;
     public GameObject heartZoom;
-    public bool gameEnd = false;
-    public bool didHumansWin;
-    public Text winnerNameText;
     public HeartZoomTransition _HeartZoomTransition;
     public SpriteSorter _SpriteSorter;
 
     public AudioClip[] music;
 
     public Text[] playerNumText;
-
+    
+    [Header("End Game\n-----------------------------")]
+    [Space(10f, order = 4)]
     public List<GameObject> thingsToTurnOffAtGameEnd;
     public List<GameObject> thingsToTurnOnAtGameEnd;
-
+    public bool gameEnd = false;
+    public bool didHumansWin;
+    public Text winnerNameText;
+    
+    [Header("Player Data\n-----------------------------")]
+    [Space(10f, order = 3)]
     public int playerCount = 0;
     public List<GameObject> currentPlayers;
     public GameObject currentGhostPlayer;
