@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class PlayerAI : MonoBehaviour {
 
     public enum HumanStates { Search, Kick, Dodge, PickUp, Place, FindDoor };
@@ -8,8 +8,11 @@ public class PlayerAI : MonoBehaviour {
     private GameManager gm;
     private RoomGenerator rm;
     private RoomChangeManager rcm;
+
+    public  List<GameObject>SpecialItems;
     public GameObject closestItem;
-	void Start () {
+    private GameObject itemToPickUp;
+    void Start () {
         currentState = HumanStates.Search;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rm = GameObject.Find("GameManager").GetComponent<RoomGenerator>();
@@ -18,11 +21,12 @@ public class PlayerAI : MonoBehaviour {
 
 	void Update () {
 
-        closestItem = FindClosestSpecialItem(rm.AiTracker.ToArray());
+        closestItem = FindClosestSpecialItem(SpecialItems);
 
 	    switch(currentState)
         {
             case HumanStates.Search:
+                if(closestItem != null)
                 transform.position = Vector3.MoveTowards(transform.position,closestItem.transform.position,4f*Time.deltaTime);
                 break;
             case HumanStates.Kick:
@@ -30,13 +34,14 @@ public class PlayerAI : MonoBehaviour {
             case HumanStates.Dodge:
                 break;
             case HumanStates.PickUp:
+                PickUpSpecialItem(itemToPickUp);
                 break;
             case HumanStates.Place:
                 break;
         }
 	}
 
-    GameObject FindClosestSpecialItem(GameObject[] specItems)
+    GameObject FindClosestSpecialItem(List<GameObject> specItems)
     {
         GameObject nearestTarget = null;
         float closestDistance = Mathf.Infinity;
@@ -51,7 +56,20 @@ public class PlayerAI : MonoBehaviour {
                 closestDistance = dSqrToTarget;
                 nearestTarget = potentialTarget;
             }
+            if(directionToTarget == Vector3.zero) {
+                itemToPickUp = nearestTarget;
+                currentState = HumanStates.PickUp;
+            }
         }
         return nearestTarget;
+    }
+
+    void PickUpSpecialItem(GameObject item)
+    {
+        item.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+        item.transform.SetParent(this.transform);
+        SpecialItems.Remove(item);
+
+        currentState = HumanStates.Search;
     }
 }

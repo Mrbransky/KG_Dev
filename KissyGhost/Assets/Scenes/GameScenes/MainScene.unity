@@ -5046,6 +5046,26 @@ EdgeCollider2D:
   m_Points:
   - {x: 2.1427145, y: 2.7167151}
   - {x: 4.97790098, y: 2.68807101}
+--- !u!195 &516873622
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516873611}
+  m_Enabled: 1
+  m_Radius: 6.65999985
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 9.92000008
+  m_BaseOffset: 4.96000004
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &518069396
 GameObject:
   m_ObjectHideFlags: 0
@@ -10880,7 +10900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1485490971
 Rigidbody2D:
   serializedVersion: 2
@@ -10908,6 +10928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602129cee51aea0409d187e9954f5471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpecialItems: []
   closestItem: {fileID: 0}
 --- !u!212 &1485490973
 SpriteRenderer:
@@ -10942,7 +10963,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1485490970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5300007, y: 12.0799999, z: 0}
+  m_LocalPosition: {x: .310000002, y: .670000017, z: 0}
   m_LocalScale: {x: 1.29543948, y: 1.29543948, z: 1.29543948}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11554,7 +11575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15424,6 +15445,45 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &2056377742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2056377744}
+  - 114: {fileID: 2056377743}
+  m_Layer: 0
+  m_Name: AIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2056377743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056377742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b489619041a6a4088a0f5f4d268b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2056377744
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2056377742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.0288858, y: .532864153, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!1 &2062707591
 GameObject:
   m_ObjectHideFlags: 0

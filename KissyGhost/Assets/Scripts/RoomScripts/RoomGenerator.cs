@@ -91,6 +91,8 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
+        
+
         calculateRoomLimits(RoomTypes.Center);
         calculateRoomLimits(RoomTypes.Left);
         calculateRoomLimits(RoomTypes.Right);
@@ -310,6 +312,7 @@ public class RoomGenerator : MonoBehaviour
         GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[index], specPos, Quaternion.identity);
         GetComponent<MissionManager>().AddMissionObjective(specialItem);
         AiTracker.Add(specialItem);
+        GameObject.Find("AI_Test").GetComponent<PlayerAI>().SpecialItems = AiTracker;
         if (_SpriteSorter != null)
         {
             _SpriteSorter.AddToAllLists(specialItem.GetComponent<SpriteRenderer>());
