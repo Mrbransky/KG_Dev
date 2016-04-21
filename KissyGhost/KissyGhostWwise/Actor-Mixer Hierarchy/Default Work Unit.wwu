@@ -740,11 +740,11 @@
 				</Folder>
 				<Folder Name="Round Start" ID="{4DC7E26F-6949-4483-AE16-9897A2EAD049}" ShortID="622872759">
 					<ChildrenList>
-						<Sound Name="Round Start Go" ID="{52D07BEA-76B5-451A-A8C6-4B32B3CDD7BB}" ShortID="722785374" Type="SoundFX">
+						<RandomSequenceContainer Name="Round Start" ID="{C30EA751-A2AD-4701-9F3B-CC55780AB126}" ShortID="11283780">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-9</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -757,20 +757,70 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Round Start GO" ID="{E117FB6A-412B-4BA1-B991-6C2057559071}" ShortID="282227202">
-									<Language>SFX</Language>
-									<AudioFile>Round Start GO.wav</AudioFile>
-								</AudioFileSource>
+								<Sound Name="ShortWhistle1" ID="{27C3266E-B790-4439-BA1F-BF0279A7A818}" ShortID="821161135" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B73C2214-B51E-4653-B9FD-C81123D07E65}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{239116D2-DA35-4371-B0F2-A5A816F74DEF}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ShortWhistle1" ID="{FCECF7E9-B215-4F60-B48B-7F8471A47F9D}" ShortID="249660706">
+											<Language>SFX</Language>
+											<AudioFile>ShortWhistle1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ShortWhistle1" ID="{FCECF7E9-B215-4F60-B48B-7F8471A47F9D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ShortWhistle2" ID="{1660290D-804E-481C-A795-482E52299E37}" ShortID="518081751" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B73C2214-B51E-4653-B9FD-C81123D07E65}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{239116D2-DA35-4371-B0F2-A5A816F74DEF}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ShortWhistle2" ID="{FD26DF9E-E5EB-4A0C-A7B9-F0804E465555}" ShortID="219588759">
+											<Language>SFX</Language>
+											<AudioFile>ShortWhistle2.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ShortWhistle2" ID="{FD26DF9E-E5EB-4A0C-A7B9-F0804E465555}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ShortWhistle3" ID="{B2B6F829-1EBE-4AD2-958D-81BA692E27E6}" ShortID="57562180" Type="SoundFX">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B73C2214-B51E-4653-B9FD-C81123D07E65}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{239116D2-DA35-4371-B0F2-A5A816F74DEF}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ShortWhistle3" ID="{DE81B12B-6E66-486C-85B9-7A535E5B18F3}" ShortID="1044931138">
+											<Language>SFX</Language>
+											<AudioFile>ShortWhistle3.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ShortWhistle3" ID="{DE81B12B-6E66-486C-85B9-7A535E5B18F3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Round Start GO" ID="{E117FB6A-412B-4BA1-B991-6C2057559071}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Round Start" ID="{F659FCB7-2699-478B-8277-40B8AC6097C9}" ShortID="207904875" Type="SoundFX">
+						</RandomSequenceContainer>
+						<Sound Name="Round Start Go" ID="{ADCEF676-6654-4F8C-9C3B-964367FA8088}" ShortID="806296213" Type="SoundFX">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-12</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -783,13 +833,13 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="RoundStart1" ID="{E6D94BBF-C865-4C89-A47A-13B64EA340CF}" ShortID="720635156">
+								<AudioFileSource Name="BigWhistle" ID="{C002938C-7B25-4075-8CFF-93DE6B5D0F92}" ShortID="138617315">
 									<Language>SFX</Language>
-									<AudioFile>RoundStart1.wav</AudioFile>
+									<AudioFile>BigWhistle.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="RoundStart1" ID="{E6D94BBF-C865-4C89-A47A-13B64EA340CF}" Platform="Linked"/>
+								<ActiveSource Name="BigWhistle" ID="{C002938C-7B25-4075-8CFF-93DE6B5D0F92}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

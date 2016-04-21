@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="10" SoundbankVersion="113">
 	<RootPaths>
-		<ProjectRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\thomas.barrett\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -63,6 +63,10 @@
 					<ShortName>PutDown2.wav</ShortName>
 					<Path>SFX\PutDown2_9E69E797.wem</Path>
 				</File>
+				<File Id="138617315" Language="SFX">
+					<ShortName>BigWhistle.wav</ShortName>
+					<Path>SFX\BigWhistle_9E69E797.wem</Path>
+				</File>
 				<File Id="200364935" Language="SFX">
 					<ShortName>cat.wav</ShortName>
 					<Path>SFX\cat_9E69E797.wem</Path>
@@ -71,6 +75,14 @@
 					<ShortName>StairsMove5.wav</ShortName>
 					<Path>SFX\StairsMove5_9E69E797.wem</Path>
 				</File>
+				<File Id="219588759" Language="SFX">
+					<ShortName>ShortWhistle2.wav</ShortName>
+					<Path>SFX\ShortWhistle2_9E69E797.wem</Path>
+				</File>
+				<File Id="249660706" Language="SFX">
+					<ShortName>ShortWhistle1.wav</ShortName>
+					<Path>SFX\ShortWhistle1_9E69E797.wem</Path>
+				</File>
 				<File Id="260240409" Language="SFX">
 					<ShortName>Dating - Ghost.wav</ShortName>
 					<Path>SFX\Dating - Ghost_4B8CC0C5.wem</Path>
@@ -78,10 +90,6 @@
 				<File Id="274188847" Language="SFX">
 					<ShortName>Kiss10.wav</ShortName>
 					<Path>SFX\Kiss10_9E69E797.wem</Path>
-				</File>
-				<File Id="282227202" Language="SFX">
-					<ShortName>Round Start GO.wav</ShortName>
-					<Path>SFX\Round Start GO_9E69E797.wem</Path>
 				</File>
 				<File Id="287426362" Language="SFX">
 					<ShortName>Kiss13.wav</ShortName>
@@ -135,10 +143,6 @@
 					<ShortName>ItemInHeartagram.wav</ShortName>
 					<Path>SFX\ItemInHeartagram_9E69E797.wem</Path>
 				</File>
-				<File Id="720635156" Language="SFX">
-					<ShortName>RoundStart1.wav</ShortName>
-					<Path>SFX\RoundStart1_9E69E797.wem</Path>
-				</File>
 				<File Id="751545851" Language="SFX">
 					<ShortName>Kiss4.wav</ShortName>
 					<Path>SFX\Kiss4_9E69E797.wem</Path>
@@ -186,6 +190,10 @@
 				<File Id="1007643226" Language="SFX">
 					<ShortName>Menu Up.wav</ShortName>
 					<Path>SFX\Menu Up_9E69E797.wem</Path>
+				</File>
+				<File Id="1044931138" Language="SFX">
+					<ShortName>ShortWhistle3.wav</ShortName>
+					<Path>SFX\ShortWhistle3_9E69E797.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

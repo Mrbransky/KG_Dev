@@ -265,10 +265,7 @@ MonoBehaviour:
         ObjectType: 7
       ID: -14602685
       Guid: bc63a94da04fe24d8b069811dce7c0aa
-  ExpandedItems:
-  - /KissyGhostWwise
-  - /KissyGhostWwise/Events
-  - /KissyGhostWwise/Events/Default Work Unit
+  ExpandedItems: []
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

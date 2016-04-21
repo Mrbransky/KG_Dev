@@ -140,7 +140,7 @@
 						<Action Name="Play" ID="{1A12CEDE-3D12-45D7-B5E8-F49F4136E574}" ShortID="815012804" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{E7F671F3-591A-4ED9-9F1B-EE46D0F93550}" Global="false">
-									<ObjectRef Name="Round Start Go" ID="{52D07BEA-76B5-451A-A8C6-4B32B3CDD7BB}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="Round Start Go" ID="{ADCEF676-6654-4F8C-9C3B-964367FA8088}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -151,7 +151,7 @@
 						<Action Name="Play" ID="{4DA77911-B2AE-4D23-820C-A2E0F0B5926E}" ShortID="642839187" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{31A5BA40-A0C2-45E4-AF76-FE072562BA71}" Global="false">
-									<ObjectRef Name="Round Start" ID="{F659FCB7-2699-478B-8277-40B8AC6097C9}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="Round Start" ID="{C30EA751-A2AD-4701-9F3B-CC55780AB126}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
