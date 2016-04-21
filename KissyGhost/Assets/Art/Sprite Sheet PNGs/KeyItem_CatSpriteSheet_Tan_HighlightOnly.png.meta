@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 3691c87abd4f3554c8ea84a0c84da323
-timeCreated: 1461100477
-licenseType: Free
+guid: dd3bcdbfe6864c848a64f4ad6eadcf9a
+timeCreated: 1461278174
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: KeyItem_CatSpriteSheet_Tan_HighlightOnly_0
-    21300002: KeyItem_CatSpriteSheet_Tan_HighlightOnly_1
-    21300004: KeyItem_CatSpriteSheet_Tan_HighlightOnly_2
-    21300006: KeyItem_CatSpriteSheet_Tan_HighlightOnly_3
+    21300000: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_0
+    21300002: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_1
+    21300004: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_2
+    21300006: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -30,7 +30,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -53,7 +53,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly_0
+    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -63,7 +63,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly_1
+    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_1
       rect:
         serializedVersion: 2
         x: 68
@@ -73,7 +73,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly_2
+    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_2
       rect:
         serializedVersion: 2
         x: 136
@@ -83,7 +83,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly_3
+    - name: KeyItem_CatSpriteSheet_Tan_HighlightOnly 1_3
       rect:
         serializedVersion: 2
         x: 196
