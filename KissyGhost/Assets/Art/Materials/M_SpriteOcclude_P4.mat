@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_SpriteOcclude_P3
+  m_Name: M_SpriteOcclude_P4
   m_Shader: {fileID: 4800000, guid: 1b2bf1bff4a123c46b2a86a0000e5893, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -43,4 +43,4 @@ Material:
       data:
         first:
           name: _OColor
-        second: {r: .321794778, g: .26913932, b: .963235319, a: 1}
+        second: {r: .0573867001, g: .558823526, b: .00410900032, a: 1}

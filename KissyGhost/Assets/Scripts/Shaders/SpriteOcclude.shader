@@ -72,12 +72,14 @@
 				c.rgb *= c.a;
 				return c;
 			}
+				
 			ENDCG
 		}
-				
+			
 		Pass
 		{
 			ZTest Greater
+			ZWrite Off
 
 			CGPROGRAM
 			#pragma vertex vert
@@ -100,7 +102,6 @@
 			};
 
 			fixed4 _OColor;
-			sampler2D _MainTex;
 
 			v2f vert(appdata_t IN)
 			{
@@ -115,6 +116,8 @@
 
 				return OUT;
 			}
+
+			sampler2D _MainTex;
 
 			fixed4 frag(v2f IN) : SV_Target
 			{

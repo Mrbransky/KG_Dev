@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .898039222, g: .850980401, b: 1, a: 1}
+  m_Color: {r: .560121179, g: .47577852, b: .735294104, a: .515999973}
   m_Sprite: {fileID: 21300000, guid: 76985336c72a62d44807799393a54fe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -6018,7 +6018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .898039222, g: .850980401, b: 1, a: 1}
+  m_Color: {r: .560121179, g: .47577852, b: .735294104, a: .515999973}
   m_Sprite: {fileID: 21300000, guid: 76985336c72a62d44807799393a54fe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -6211,7 +6211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .898039222, g: .850980401, b: 1, a: 1}
+  m_Color: {r: .560121179, g: .47577852, b: .735294104, a: .515999973}
   m_Sprite: {fileID: 21300000, guid: 76985336c72a62d44807799393a54fe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -11386,7 +11386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .900735319, g: .852941155, b: 1, a: 1}
+  m_Color: {r: .560121179, g: .47577852, b: .735294104, a: .515999973}
   m_Sprite: {fileID: 21300000, guid: 76985336c72a62d44807799393a54fe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -11490,7 +11490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12689,7 +12689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .898039222, g: .850980401, b: 1, a: 1}
+  m_Color: {r: .560121179, g: .47577852, b: .735294104, a: .515999973}
   m_Sprite: {fileID: 21300000, guid: 76985336c72a62d44807799393a54fe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -14887,7 +14887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .898039222, g: .850980401, b: 1, a: 1}
+  m_Color: {r: .560121179, g: .47577852, b: .735294104, a: .515999973}
   m_Sprite: {fileID: 21300000, guid: 76985336c72a62d44807799393a54fe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
