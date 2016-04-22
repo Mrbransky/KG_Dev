@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
     public SpriteSorter _SpriteSorter;
 
     public AudioClip[] music;
+    public RuntimeAnimatorController OldDudeAnimController;
+    public RuntimeAnimatorController FemaleWizAnimController;
 
     public Text[] playerNumText;
     public HeartComponentManager[] playerHeartUIManagers;
@@ -125,8 +127,14 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < currentPlayers.Count; i++)
         {
-            if(currentPlayers[i] != null && currentPlayers[i].gameObject.tag != "Ghost" && playerColorPalettes[i] != null)
+            if(currentPlayers[i] != null && currentPlayers[i].gameObject.tag != "Ghost")
             {
+                Debug.Log("get hit");
+                
+
+                if (playerColorPalettes[i] == null)
+                    playerColorPalettes[i] = currentPlayers[i].GetComponent<PaletteSwapper>().currentPalette;
+
                 PaletteSwapper currentPlayer_PS = currentPlayers[i].GetComponent<PaletteSwapper>();
                 currentPlayer_PS.currentPalette = playerColorPalettes[i];
                 currentPlayer_PS.SwapColors_Custom(currentPlayer_PS.currentPalette);
@@ -137,6 +145,22 @@ public class GameManager : MonoBehaviour {
 
                 playerHeartUIManagers[i].heartShaderColor = playerNumText[i].color;
                 playerHeartUIManagers[i].SetHeartOccluderColors();
+
+                Human currentPlayerHumanScript = currentPlayers[i].GetComponent<Human>();
+                RuntimeAnimatorController currentPlayerAnimator = currentPlayers[i].GetComponent<Animator>().runtimeAnimatorController;
+
+
+                Debug.Log(currentPlayerAnimator.name);
+
+                if (currentPlayerHumanScript.IsFemaleWizard && currentPlayerAnimator != FemaleWizAnimController)
+                {
+                    Debug.Log("Also get hit");
+                    currentPlayerAnimator = FemaleWizAnimController;
+                }
+
+                else
+                    currentPlayerAnimator = OldDudeAnimController;
+
             }
         }
 

@@ -3947,6 +3947,7 @@ MonoBehaviour:
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
   invulnerabilityDuration: 1.5
+  IsFemaleWizard: 1
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
@@ -4055,7 +4056,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &419026679 stripped
 SpriteRenderer:
@@ -4496,6 +4497,7 @@ MonoBehaviour:
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
   invulnerabilityDuration: 1.5
+  IsFemaleWizard: 1
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
@@ -13142,6 +13144,7 @@ MonoBehaviour:
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
   invulnerabilityDuration: 1.5
+  IsFemaleWizard: 1
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
@@ -13238,7 +13241,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1743649149
 MonoBehaviour:
@@ -14420,6 +14423,7 @@ MonoBehaviour:
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
   invulnerabilityDuration: 1.5
+  IsFemaleWizard: 1
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
@@ -14466,7 +14470,7 @@ Animator:
   m_GameObject: {fileID: 1957596418}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63d68d5c7f94c3f49aafa8468e6e794a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 616c301e7f7b51047997f630dcf90dd3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -14528,7 +14532,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1958699381
 Prefab:
@@ -15032,6 +15036,10 @@ MonoBehaviour:
   music:
   - {fileID: 0}
   - {fileID: 0}
+  OldDudeAnimController: {fileID: 9100000, guid: 63d68d5c7f94c3f49aafa8468e6e794a,
+    type: 2}
+  FemaleWizAnimController: {fileID: 9100000, guid: 616c301e7f7b51047997f630dcf90dd3,
+    type: 2}
   playerNumText:
   - {fileID: 669255603}
   - {fileID: 886577080}

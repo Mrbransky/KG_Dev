@@ -13,6 +13,7 @@ public class Human : Player
     private GameObject[] heartObjects;
     private float timeSinceInvulnerable = -1;
 
+    public bool IsFemaleWizard;
     public bool GetAButtonDown = false;
     private bool wasAButtonPressed = false;
     public bool GetBButtonDown = false;
