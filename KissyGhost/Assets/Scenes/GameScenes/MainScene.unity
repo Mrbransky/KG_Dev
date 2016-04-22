@@ -1547,6 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04b2deec487a334fac9703a73765af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartShaderColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &57882783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2754,6 +2755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04b2deec487a334fac9703a73765af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartShaderColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &248320501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3952,6 +3954,7 @@ MonoBehaviour:
   kickForce: 1000
   timeBetweenItemInteract: .25
   timeBetweenFurnitureKick: 0
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 122
   ItemThrowKeycode: 120
 --- !u!114 &407115400
@@ -4500,6 +4503,7 @@ MonoBehaviour:
   kickForce: 1000
   timeBetweenItemInteract: .25
   timeBetweenFurnitureKick: 0
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 114
   ItemThrowKeycode: 121
 --- !u!114 &462095493
@@ -4574,7 +4578,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 11c7ce9ab55e98348b39776c656016a0, type: 2}
+  - {fileID: 2100000, guid: 114fa7c4cebab1143b44ae2d478245a2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -8727,6 +8731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04b2deec487a334fac9703a73765af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartShaderColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1167916596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9808,6 +9813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04b2deec487a334fac9703a73765af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartShaderColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1314963788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13143,6 +13149,7 @@ MonoBehaviour:
   kickForce: 1000
   timeBetweenItemInteract: .25
   timeBetweenFurnitureKick: 0
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 113
   ItemThrowKeycode: 101
 --- !u!114 &1743649144
@@ -13217,7 +13224,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0eb93f988259c684dacb09325c1a887a, type: 2}
+  - {fileID: 2100000, guid: 2799791f4faf5f74b91a7055158c768f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -14420,6 +14427,7 @@ MonoBehaviour:
   kickForce: 1000
   timeBetweenItemInteract: .25
   timeBetweenFurnitureKick: 0
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 117
   ItemThrowKeycode: 111
 --- !u!114 &1957596423

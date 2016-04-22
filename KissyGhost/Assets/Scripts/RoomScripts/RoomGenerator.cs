@@ -91,8 +91,6 @@ public class RoomGenerator : MonoBehaviour
 
     void Start()
     {
-        
-
         calculateRoomLimits(RoomTypes.Center);
         calculateRoomLimits(RoomTypes.Left);
         calculateRoomLimits(RoomTypes.Right);

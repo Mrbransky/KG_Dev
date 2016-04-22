@@ -49,6 +49,7 @@ public class Human : Player
     public float kickForce = 1000.0f;
     public float timeBetweenItemInteract = 0;
     public float timeBetweenFurnitureKick = 0;
+    public Color MainColor;
     private SpriteRenderer interactButtonPromptSpriteRenderer;
     private SpriteRenderer kickButtonPromptSpriteRenderer;
     private float interactButtonPromptDurationBuffer = 0.1f;

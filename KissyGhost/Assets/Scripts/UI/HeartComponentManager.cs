@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class HeartComponentManager : MonoBehaviour {
 
+    public Color heartShaderColor;
+
 	// Use this for initialization
-	void Start () {
-	
+	void Awake () 
+    {
+	    //Material[] occludeMats = GetComponentsInChildren<>
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

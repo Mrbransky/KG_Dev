@@ -126,9 +126,13 @@ public class GameManager : MonoBehaviour {
         {
             if(currentPlayers[i] != null && currentPlayers[i].gameObject.tag != "Ghost" && playerColorPalettes[i] != null)
             {
-                currentPlayers[i].GetComponent<PaletteSwapper>().currentPalette = playerColorPalettes[i];
-                currentPlayers[i].GetComponent<PaletteSwapper>().SwapColors_Custom(playerColorPalettes[i]);
-                playerNumText[i].color = currentPlayers[i].GetComponent<PaletteSwapper>().currentPalette.newPalette[7];
+                PaletteSwapper currentPlayer_PS = currentPlayers[i].GetComponent<PaletteSwapper>();
+                currentPlayer_PS.currentPalette = playerColorPalettes[i];
+                currentPlayer_PS.SwapColors_Custom(currentPlayer_PS.currentPalette);
+                currentPlayers[i].GetComponent<Human>().MainColor = currentPlayer_PS.currentPalette.newPalette[7];
+                playerNumText[i].color = currentPlayers[i].GetComponent<Human>().MainColor;
+
+                currentPlayers[i].GetComponent<SpriteRenderer>().material.SetColor("_OColor", playerNumText[i].color);                
             }
         }
 
