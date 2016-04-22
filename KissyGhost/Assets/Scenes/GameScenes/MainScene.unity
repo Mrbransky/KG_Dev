@@ -4458,7 +4458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 462095497}
-  currentPalette: {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846, type: 2}
+  currentPalette: {fileID: 11400000, guid: 514041db5004ba64ca0cd29e1aaac166, type: 2}
   playerNumText: {fileID: 0}
 --- !u!114 &462095492
 MonoBehaviour:
@@ -4528,7 +4528,7 @@ Animator:
   m_GameObject: {fileID: 462095487}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63d68d5c7f94c3f49aafa8468e6e794a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 616c301e7f7b51047997f630dcf90dd3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
