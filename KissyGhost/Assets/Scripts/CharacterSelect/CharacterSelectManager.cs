@@ -43,7 +43,7 @@ public class CharacterSelectManager : MonoBehaviour
     private StickStates[] playerAnalogStickStates;
 
     // General
-    public HeartZoomTransition _HeartZoomTransition;
+    public HeartZoomTransition _HeartZoomTransition;  
     private bool[] isPlayerReadyArray;
     private PlayerStates[] playerStates;
     private int playerCount = 0;
@@ -52,19 +52,19 @@ public class CharacterSelectManager : MonoBehaviour
 
     // Game Start Sequence: General
     public Transform GhostSpriteReferencePointTransform;
-    public float GhostSelectionDuration = 5;
-    public float GhostRevealDuration = 1.5f;
-    public float PanicDuration = 1.5f;
-    public float RunFromGhostDuration = 2;
+    private float GhostSelectionDuration = 5;
+    private float GhostRevealDuration = 1.5f;
+    private float PanicDuration = 1.5f;
+    private float RunFromGhostDuration = 2;
 
     // Game Start Sequence: Run from ghost
-    public float PlayerRunSpeed = 10;
-    public float GhostRunSpeed = 7;
+    private float PlayerRunSpeed = 10;
+    private float GhostRunSpeed = 7;
     private int[] runFromGhostDirection;
 
     // Game Start Sequence: Ghost selection
-    public float initialTimeToNextGhostSelector = 0.05f;
-    public float maxTimeBetweenGhostSelector = 1;
+    private float initialTimeToNextGhostSelector = 0.05f;
+    private float maxTimeBetweenGhostSelector = 1;
 
     private float timeSinceGhostSelectingStart = 0;
     private float timeToNextGhostSelector;
@@ -72,18 +72,22 @@ public class CharacterSelectManager : MonoBehaviour
     private int currentGhostSelectorIndex = 0;
 
     // UI
+    [Header("Player")]
     public Transform[] PlayerSpriteReferencePointArray;
     public SpriteRenderer[] PlayerSpriteRendererArray;
-    public PaletteSwapper[] PlayerPaletteSwapperArray;   
-    public List<ColorPalette> AvailablePalettesList;
+    public PaletteSwapper[] PlayerPaletteSwapperArray;  
+    
+    [Header("Text")]
     public Text[] ReadyTextArray;
     public Text[] ColorTextArray;
     public Text[] PlayerNumTextArray;
+    public GameObject PressToStartTextObject;
+
+    [Header("Images")]
     public Image[] ButtonImageArray;
     public Image[] GhostSelectorImageArray;
     public Image[] LeftColorArrowArray;
-    public Image[] RightColorArrowArray;
-    public GameObject PressToStartTextObject;
+    public Image[] RightColorArrowArray; 
 
     private List<Image> ghostSelectorImageList;
     private List<ColorPalette> PickedPalettesList;
@@ -91,7 +95,12 @@ public class CharacterSelectManager : MonoBehaviour
     private Text[] buttonTextArray;
     private Color transparentColor;
 
+    [Header("Palettes")]
+    public List<ColorPalette> AvailablePalettesList;
+
     // Debug UI
+    [Header("Debug")]
+    
     public Text CharacterSelectDebugText;
     private string[] debugTextArray;
 
@@ -630,6 +639,12 @@ public class CharacterSelectManager : MonoBehaviour
         PlayerPaletteSwapperArray[player].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[player]]);
         PlayerPaletteSwapperArray[player].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[player]].newPalette[7]);
         PlayerPaletteSwapperArray[player].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[player]];
+
+        if (PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && !PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
+            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", true);
+        else if (!PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
+            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", false);
+
         return newState;
     }
 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e0f611a4ab0cf884a84d31f280b9dbf7
-timeCreated: 1461295083
+timeCreated: 1461304341
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,11 @@ TextureImporter:
     21300004: FUCK YOU OLD LADY_2
     21300006: FUCK YOU OLD LADY_3
     21300008: FUCK YOU OLD LADY_4
+    21300010: oldWoman_Run_SpriteSheet_0
+    21300012: oldWoman_Run_SpriteSheet_1
+    21300014: oldWoman_Run_SpriteSheet_2
+    21300016: oldWoman_Run_SpriteSheet_3
+    21300018: oldWoman_Run_SpriteSheet_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,7 +59,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: FUCK YOU OLD LADY_0
+    - name: oldWoman_Run_SpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -64,7 +69,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FUCK YOU OLD LADY_1
+    - name: oldWoman_Run_SpriteSheet_1
       rect:
         serializedVersion: 2
         x: 84
@@ -74,7 +79,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FUCK YOU OLD LADY_2
+    - name: oldWoman_Run_SpriteSheet_2
       rect:
         serializedVersion: 2
         x: 168
@@ -84,7 +89,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FUCK YOU OLD LADY_3
+    - name: oldWoman_Run_SpriteSheet_3
       rect:
         serializedVersion: 2
         x: 252
@@ -94,7 +99,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FUCK YOU OLD LADY_4
+    - name: oldWoman_Run_SpriteSheet_4
       rect:
         serializedVersion: 2
         x: 336

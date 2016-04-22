@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8e8266db716ad3e49a023472768d3468
-timeCreated: 1461297198
+timeCreated: 1461304672
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -145,9 +145,9 @@ TextureImporter:
     - name: Old_Lady_FullSpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 96
+        x: 428
         y: 0
-        width: 80
+        width: 84
         height: 140
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -155,9 +155,9 @@ TextureImporter:
     - name: Old_Lady_FullSpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 184
+        x: 344
         y: 0
-        width: 72
+        width: 84
         height: 140
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -165,9 +165,9 @@ TextureImporter:
     - name: Old_Lady_FullSpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 272
+        x: 260
         y: 0
-        width: 60
+        width: 84
         height: 140
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -175,9 +175,9 @@ TextureImporter:
     - name: Old_Lady_FullSpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 352
+        x: 176
         y: 0
-        width: 72
+        width: 84
         height: 140
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -185,7 +185,7 @@ TextureImporter:
     - name: Old_Lady_FullSpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 428
+        x: 92
         y: 0
         width: 84
         height: 140
