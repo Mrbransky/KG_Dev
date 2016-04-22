@@ -6,11 +6,15 @@ public class HeartComponentManager : MonoBehaviour {
 
     public Color heartShaderColor;
 
-	// Use this for initialization
-	void Awake () 
+    public void SetHeartOccluderColors()
     {
-	    //Material[] occludeMats = GetComponentsInChildren<>
-	}
+        Image[] occludeMats = GetComponentsInChildren<Image>();
+
+        foreach (Image image in occludeMats)
+        {
+            image.material.SetColor("_OColor", heartShaderColor);
+        }
+    }
 	
 
 }

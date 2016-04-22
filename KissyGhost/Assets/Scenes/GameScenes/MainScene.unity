@@ -1506,7 +1506,7 @@ GameObject:
   - 114: {fileID: 57882783}
   - 114: {fileID: 57882782}
   m_Layer: 0
-  m_Name: Heart Component Manager
+  m_Name: Heart Component Manager P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2714,7 +2714,7 @@ GameObject:
   - 114: {fileID: 248320501}
   - 114: {fileID: 248320500}
   m_Layer: 0
-  m_Name: Heart Component Manager
+  m_Name: Heart Component Manager P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8690,7 +8690,7 @@ GameObject:
   - 114: {fileID: 1167916596}
   - 114: {fileID: 1167916595}
   m_Layer: 0
-  m_Name: Heart Component Manager
+  m_Name: Heart Component Manager P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9772,7 +9772,7 @@ GameObject:
   - 114: {fileID: 1314963788}
   - 114: {fileID: 1314963787}
   m_Layer: 0
-  m_Name: Heart Component Manager
+  m_Name: Heart Component Manager P4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15037,6 +15037,11 @@ MonoBehaviour:
   - {fileID: 886577080}
   - {fileID: 275512396}
   - {fileID: 366807564}
+  playerHeartUIManagers:
+  - {fileID: 1167916595}
+  - {fileID: 248320500}
+  - {fileID: 57882782}
+  - {fileID: 1314963787}
   thingsToTurnOffAtGameEnd:
   - {fileID: 293608354}
   - {fileID: 1209861675}

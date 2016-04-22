@@ -43,4 +43,4 @@ Material:
       data:
         first:
           name: _OColor
-        second: {r: .749019623, g: .0196078438, b: 0, a: 1}
+        second: {r: .917647064, g: .650980413, b: .141176477, a: 1}

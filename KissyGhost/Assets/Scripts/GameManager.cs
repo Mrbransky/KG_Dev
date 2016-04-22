@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip[] music;
 
     public Text[] playerNumText;
+    public HeartComponentManager[] playerHeartUIManagers;
     
     [Header("End Game")]
     public List<GameObject> thingsToTurnOffAtGameEnd;
@@ -132,7 +133,10 @@ public class GameManager : MonoBehaviour {
                 currentPlayers[i].GetComponent<Human>().MainColor = currentPlayer_PS.currentPalette.newPalette[7];
                 playerNumText[i].color = currentPlayers[i].GetComponent<Human>().MainColor;
 
-                currentPlayers[i].GetComponent<SpriteRenderer>().material.SetColor("_OColor", playerNumText[i].color);                
+                currentPlayers[i].GetComponent<SpriteRenderer>().material.SetColor("_OColor", playerNumText[i].color);
+
+                playerHeartUIManagers[i].heartShaderColor = playerNumText[i].color;
+                playerHeartUIManagers[i].SetHeartOccluderColors();
             }
         }
 
