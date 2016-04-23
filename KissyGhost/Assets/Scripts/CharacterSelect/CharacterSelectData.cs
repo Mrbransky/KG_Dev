@@ -7,7 +7,9 @@ public class CharacterSelectData : MonoBehaviour
     [SerializeField] private int playerCount = 0;
     [SerializeField] private int ghostPlayerIndex = -1;
     [SerializeField] private bool isDebugData = false;
-    private ColorPalette[] playerPaletteArray;
+    [SerializeField] private ColorPalette[] playerPaletteArray;
+    [SerializeField] private Sprite[] startingSprites;
+    [SerializeField] private bool[] isFemaleCharacter;
     
     public bool[] IsPlayerReadyArray
     {
@@ -29,6 +31,16 @@ public class CharacterSelectData : MonoBehaviour
         get { return playerPaletteArray; }
     }
 
+    public Sprite[] StartingSprites
+    {
+        get { return startingSprites; }
+    }
+
+    public bool[] IsFemaleCharacter
+    {
+        get { return isFemaleCharacter; }
+    }
+
     void Start ()
     {
         if (isDebugData && GameObject.FindGameObjectsWithTag("CharacterSelectData").Length > 1)
@@ -37,6 +49,8 @@ public class CharacterSelectData : MonoBehaviour
         }
 
         playerPaletteArray = new ColorPalette[4];
+        startingSprites = new Sprite[4];
+        isFemaleCharacter = new bool[4];
 
         DontDestroyOnLoad(gameObject);
 	}
@@ -71,5 +85,24 @@ public class CharacterSelectData : MonoBehaviour
             playerPaletteArray[i] = palettes[i].currentPalette;
             Debug.Log(palettes[i].currentPalette + " loaded");
         }
+    }
+
+    public void LoadStartSpritesArray(Sprite[] sprites)
+    {
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            startingSprites[i] = sprites[i];
+        }
+    }
+
+    public void LoadIsFemaleBoolArray(Sprite Oldie, Sprite Woman)
+    {
+        for (int i = 0; i < startingSprites.Length; i++)
+        {
+            if (startingSprites[i] == Oldie)
+                isFemaleCharacter[i] = false;
+            else if (startingSprites[i] == Woman)
+                isFemaleCharacter[i] = true;
+        }   
     }
 }

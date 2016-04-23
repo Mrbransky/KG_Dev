@@ -12,9 +12,10 @@ public class GameManager : MonoBehaviour {
     public HeartZoomTransition _HeartZoomTransition;
     public SpriteSorter _SpriteSorter;
 
+    public Sprite startingWomanSprite;
+    public Sprite startingOldieSprite;
+
     public AudioClip[] music;
-    public RuntimeAnimatorController OldDudeAnimController;
-    public RuntimeAnimatorController FemaleWizAnimController;
 
     public Text[] playerNumText;
     public HeartComponentManager[] playerHeartUIManagers;
@@ -34,9 +35,19 @@ public class GameManager : MonoBehaviour {
 
     private bool[] isPlayerReadyArray;
     private int ghostPlayerIndex = -1;
-    public ColorPalette[] playerColorPalettes = new ColorPalette[4];
+    public ColorPalette[] oldieColorPalettes = new ColorPalette[4];
+    public ColorPalette[] womanColorPalettes = new ColorPalette[4];
+
+    private ColorPalette[] playerColorPalettes = new ColorPalette[4];
+    private Sprite[] startingSprites = new Sprite[4];
+    private bool[] isFemaleCharacter = new bool[4];
+
+    private bool SceneStartedInEditor = false;
 
     private float timer = 2;
+
+    private const string rPath_womanAnimController = "Animations/R_oldWoman_idle_Controller";
+    private const string rPath_oldieAnimController = "Animations/R_oldie_animation_controller";
 
     void Start()
     {
@@ -52,10 +63,15 @@ public class GameManager : MonoBehaviour {
         {
             CharacterSelectData _CharacterSelectData = characterSelectData.GetComponent<CharacterSelectData>();
 
+            if (_CharacterSelectData.gameObject.name.Contains("Debug"))
+                SceneStartedInEditor = true;
+
             isPlayerReadyArray = _CharacterSelectData.IsPlayerReadyArray;
             playerCount = _CharacterSelectData.PlayerCount;
             ghostPlayerIndex = _CharacterSelectData.GhostPlayerIndex;
             playerColorPalettes = _CharacterSelectData.PlayerPaletteArray;
+            startingSprites = _CharacterSelectData.StartingSprites;            
+            isFemaleCharacter = _CharacterSelectData.IsFemaleCharacter;
             Destroy(characterSelectData);
         }
         else
@@ -129,38 +145,32 @@ public class GameManager : MonoBehaviour {
         {
             if(currentPlayers[i] != null && currentPlayers[i].gameObject.tag != "Ghost")
             {
-                Debug.Log("get hit");
-                
+                Human playerHuman = currentPlayers[i].GetComponent<Human>();
+
+                if(!SceneStartedInEditor)
+                    playerHuman.IsFemaleWizard = isFemaleCharacter[i];
 
                 if (playerColorPalettes[i] == null)
-                    playerColorPalettes[i] = currentPlayers[i].GetComponent<PaletteSwapper>().currentPalette;
+                {
+                    if (playerHuman.IsFemaleWizard)
+                        playerColorPalettes[i] = womanColorPalettes[i];
+                    else
+                        playerColorPalettes[i] = oldieColorPalettes[i];
+                }
+
+                VerifyCorrectAnimController(i);
 
                 PaletteSwapper currentPlayer_PS = currentPlayers[i].GetComponent<PaletteSwapper>();
                 currentPlayer_PS.currentPalette = playerColorPalettes[i];
                 currentPlayer_PS.SwapColors_Custom(currentPlayer_PS.currentPalette);
-                currentPlayers[i].GetComponent<Human>().MainColor = currentPlayer_PS.currentPalette.newPalette[7];
-                playerNumText[i].color = currentPlayers[i].GetComponent<Human>().MainColor;
+
+                playerHuman.MainColor = currentPlayer_PS.currentPalette.newPalette[7];
+                playerNumText[i].color = playerHuman.MainColor;
 
                 currentPlayers[i].GetComponent<SpriteRenderer>().material.SetColor("_OColor", playerNumText[i].color);
 
-                playerHeartUIManagers[i].heartShaderColor = playerNumText[i].color;
-                playerHeartUIManagers[i].SetHeartOccluderColors();
-
-                Human currentPlayerHumanScript = currentPlayers[i].GetComponent<Human>();
-                RuntimeAnimatorController currentPlayerAnimator = currentPlayers[i].GetComponent<Animator>().runtimeAnimatorController;
-
-
-                Debug.Log(currentPlayerAnimator.name);
-
-                if (currentPlayerHumanScript.IsFemaleWizard && currentPlayerAnimator != FemaleWizAnimController)
-                {
-                    Debug.Log("Also get hit");
-                    currentPlayerAnimator = FemaleWizAnimController;
-                }
-
-                else
-                    currentPlayerAnimator = OldDudeAnimController;
-
+                playerHeartUIManagers[i].OccludeMat = currentPlayers[i].GetComponent<SpriteRenderer>().material;
+                playerHeartUIManagers[i].SetHeartMaterial();
             }
         }
 
@@ -190,9 +200,7 @@ public class GameManager : MonoBehaviour {
         --playerCount;
 
         if (playerCount == 1)
-        {
             OnGhostWin();
-        }
     }
 
     public void OnHumansWin()
@@ -202,15 +210,7 @@ public class GameManager : MonoBehaviour {
 
         VibrateAllHumans(.75f, 1, 1);
 
-        AudioSource source = this.GetComponent<AudioSource>();
-        source.Stop();
-        source.clip = music[1];
-        source.Play(); 
-
-        //Humans Win Music
-        //soundManager.SOUND_MAN.switchVoid("MusicSwitch", "HumanWinMusic", gameObject);
         soundManager.SOUND_MAN.PlayHumanWinMusic();
-        //soundManager.SOUND_MAN.playSound("HumanWinMusic", gameObject);
     }
 
     public void OnGhostWin()
@@ -221,15 +221,7 @@ public class GameManager : MonoBehaviour {
 
         StartCoroutine(InputMapper.Vibration(ghostPlayerNum, .75f, 1, 1));
 
-        AudioSource source = this.GetComponent<AudioSource>();
-        source.Stop();
-        source.clip = music[0];
-        source.Play(); 
-
-        //Ghost Win Music
-        //soundManager.SOUND_MAN.switchVoid("MusicSwitch", "GhostWinMusic", gameObject);
         soundManager.SOUND_MAN.PlayGhostWinMusic();
-        //soundManager.SOUND_MAN.playSound("GhostWinMusic", gameObject);
     }
 
     private void checkIsGameEnd()
@@ -322,7 +314,47 @@ public class GameManager : MonoBehaviour {
         CeaseAllVibrations();
     }
 
-#region Vibration Methods
+    #region Palette & Spritesheet Methods
+    private void VerifyCorrectAnimController(int playerIndex)
+    {
+        bool IsFemale = currentPlayers[playerIndex].GetComponent<Human>().IsFemaleWizard;
+        Animator anim = currentPlayers[playerIndex].GetComponent<Animator>();
+
+        if (IsFemale && !anim.runtimeAnimatorController.name.Contains("Woman"))
+        {
+            ChangePlayerAnimController(rPath_womanAnimController, anim);
+            //ChangePlayerStartingSprite(playerIndex, IsFemale);
+        }
+
+        else if (!IsFemale && !anim.runtimeAnimatorController.name.Contains("oldie"))
+        {
+            ChangePlayerAnimController(rPath_oldieAnimController, anim);
+            //ChangePlayerStartingSprite(playerIndex, IsFemale);
+        }
+    }
+
+    private void ChangePlayerAnimController(string ResourcePath, Animator anim)
+    {
+        anim.runtimeAnimatorController = Resources.Load(ResourcePath) as RuntimeAnimatorController;
+    }
+
+    private void ChangePlayerAnimController(int playerIndex, string ResourcePath)
+    {
+        Animator anim = currentPlayers[playerIndex].GetComponent<Animator>();
+        anim.runtimeAnimatorController = Resources.Load(ResourcePath) as RuntimeAnimatorController;
+    }
+
+    private void ChangePlayerStartingSprite(int playerIndex, bool IsWoman)
+    {
+        SpriteRenderer spriteRend = currentPlayers[playerIndex].GetComponent<SpriteRenderer>();
+
+        if (IsWoman) spriteRend.sprite = startingWomanSprite;
+        else spriteRend.sprite = startingOldieSprite;
+
+    }
+    #endregion
+
+    #region Vibration Methods
     void VibrateAllHumans(float timeAmt, float leftMotor, float rightMotor)
     {
         foreach (GameObject obj in currentPlayers)

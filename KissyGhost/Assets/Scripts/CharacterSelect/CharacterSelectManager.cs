@@ -43,7 +43,9 @@ public class CharacterSelectManager : MonoBehaviour
     private StickStates[] playerAnalogStickStates;
 
     // General
-    public HeartZoomTransition _HeartZoomTransition;  
+    public HeartZoomTransition _HeartZoomTransition;
+    public Sprite OldieStartSprite;
+    public Sprite WomanStartSprite;
     private bool[] isPlayerReadyArray;
     private PlayerStates[] playerStates;
     private int playerCount = 0;
@@ -97,6 +99,7 @@ public class CharacterSelectManager : MonoBehaviour
 
     [Header("Palettes")]
     public List<ColorPalette> AvailablePalettesList;
+    public Sprite[] startingSprites;
 
     // Debug UI
     [Header("Debug")]
@@ -180,6 +183,7 @@ public class CharacterSelectManager : MonoBehaviour
         isPlayerReadyArray = new bool[MAX_PLAYER_COUNT];
 
         buttonTextArray = new Text[MAX_PLAYER_COUNT];
+        startingSprites = new Sprite[MAX_PLAYER_COUNT];
         runFromGhostDirection = new int[MAX_PLAYER_COUNT];
 
         getAButtonDown = new bool[MAX_PLAYER_COUNT];
@@ -717,9 +721,21 @@ public class CharacterSelectManager : MonoBehaviour
     private void startGame()
     {
         Debug.Log("Starting game...");
-
+        FillStartSpriteArray();
         CharSelectState = CharacterSelectStates.SelectingGhost;
     }
+
+    private void FillStartSpriteArray()
+    {
+        for(int i = 0; i < MAX_PLAYER_COUNT; i++)
+        {
+            if (PlayerPaletteSwapperArray[i].currentPalette.name.Contains("Woman"))
+                startingSprites[i] = WomanStartSprite;
+            else if (PlayerPaletteSwapperArray[i].currentPalette.name.Contains("oldie"))
+                startingSprites[i] = OldieStartSprite;
+        }
+    }
+
 #endregion
 
 #region CharacterSelectStates.SelectingGhost Functions
@@ -800,8 +816,12 @@ public class CharacterSelectManager : MonoBehaviour
         GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
         if (characterSelectData != null)
         {
-            characterSelectData.GetComponent<CharacterSelectData>().SetIsPlayerReady(isPlayerReadyArray, playerCount, ghostPlayerIndex);
-            characterSelectData.GetComponent<CharacterSelectData>().LoadPaletteArray(PlayerPaletteSwapperArray);
+            CharacterSelectData charSelectData = characterSelectData.GetComponent<CharacterSelectData>();
+
+            charSelectData.SetIsPlayerReady(isPlayerReadyArray, playerCount, ghostPlayerIndex);
+            charSelectData.LoadPaletteArray(PlayerPaletteSwapperArray);
+            charSelectData.LoadStartSpritesArray(startingSprites);
+            charSelectData.LoadIsFemaleBoolArray(OldieStartSprite, WomanStartSprite);
         }
         else
         {
