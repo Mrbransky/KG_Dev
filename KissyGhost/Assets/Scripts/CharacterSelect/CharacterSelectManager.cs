@@ -93,7 +93,7 @@ public class CharacterSelectManager : MonoBehaviour
 
     private List<Image> ghostSelectorImageList;
     private List<ColorPalette> PickedPalettesList;
-    private int[] PlayerPosInPaletteList;
+    public int[] PlayerPosInPaletteList;
     private Text[] buttonTextArray;
     private Color transparentColor;
 
@@ -194,14 +194,14 @@ public class CharacterSelectManager : MonoBehaviour
         playerStates = new PlayerStates[MAX_PLAYER_COUNT];
 
         playerAnalogStickStates = new StickStates[MAX_PLAYER_COUNT];
-        PlayerPosInPaletteList = new int[MAX_PLAYER_COUNT];
+        //PlayerPosInPaletteList = new int[MAX_PLAYER_COUNT];
 
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
             isPlayerReadyArray[i] = false;
             buttonTextArray[i] = ButtonImageArray[i].GetComponentInChildren<Text>();
             runFromGhostDirection[i] = -1;
-            PlayerPosInPaletteList[i] = i;
+            //PlayerPosInPaletteList[i] = i;
             //PlayerPaletteSwapperArray[i].currentPalette = AvailablePalettesList[i];
         }
 
@@ -503,10 +503,10 @@ public class CharacterSelectManager : MonoBehaviour
     {
         if (getAButtonDown[playerNum])
         {
-            PlayerPosInPaletteList[playerNum] = 0;
+            //PlayerPosInPaletteList[playerNum] = 0;
             StartCoroutine(InputMapper.Vibration(playerNum + 1, .2f, 0, .8f));
-            PlayerPaletteSwapperArray[playerNum].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[playerNum]];
-            PlayerPaletteSwapperArray[playerNum].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[playerNum]]);
+            //PlayerPaletteSwapperArray[playerNum].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[playerNum]];
+            //PlayerPaletteSwapperArray[playerNum].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[playerNum]]);
             PlayerPaletteSwapperArray[playerNum].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[playerNum]].newPalette[7]);
             soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             PlayerSpriteRendererArray[playerNum].enabled = true;
@@ -640,14 +640,21 @@ public class CharacterSelectManager : MonoBehaviour
                 break;
         }
 
+        if (PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && !PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
+        {
+            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", true);
+            //PlayerSpriteRendererArray[player].sprite = WomanStartSprite;
+        }
+
+        else if (!PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
+        {
+            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", false);
+            //PlayerSpriteRendererArray[player].sprite = OldieStartSprite;
+        }
+
         PlayerPaletteSwapperArray[player].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[player]]);
         PlayerPaletteSwapperArray[player].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[player]].newPalette[7]);
         PlayerPaletteSwapperArray[player].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[player]];
-
-        if (PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && !PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
-            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", true);
-        else if (!PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
-            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", false);
 
         return newState;
     }

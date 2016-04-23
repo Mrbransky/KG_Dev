@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+
 public class PaletteSwapper : MonoBehaviour {
 
 	public SpriteRenderer spriteRenderer;
@@ -18,7 +19,8 @@ public class PaletteSwapper : MonoBehaviour {
 
 	void Start () 
     {
-        SwapColors_Custom(currentPalette);
+        if(currentPalette != null)
+            SwapColors_Custom(currentPalette);
 
 		//if (paletteRandSelection.Length > 0)
         //{

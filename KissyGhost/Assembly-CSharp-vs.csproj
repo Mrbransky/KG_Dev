@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\PaletteSwap\ColorPalette.cs" />
      <Compile Include="Assets\Scripts\PaletteSwap\CustomAssetUtil.cs" />
      <Compile Include="Assets\Scripts\PaletteSwap\OLD\SpriteColorSwapper.cs" />
+     <Compile Include="Assets\Scripts\PaletteSwap\PaletteLoader.cs" />
      <Compile Include="Assets\Scripts\PaletteSwap\PaletteSwapper.cs" />
      <Compile Include="Assets\Scripts\Player\Entity.cs" />
      <Compile Include="Assets\Scripts\Player\Ghost.cs" />
