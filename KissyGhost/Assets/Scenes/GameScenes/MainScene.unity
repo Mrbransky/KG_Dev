@@ -6666,7 +6666,7 @@ GameObject:
   - 114: {fileID: 847994453}
   m_Layer: 0
   m_Name: Interact
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12279,7 +12279,7 @@ GameObject:
   - 114: {fileID: 1657105211}
   m_Layer: 0
   m_Name: Interact
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12573,7 +12573,7 @@ GameObject:
   - 114: {fileID: 1686124481}
   m_Layer: 0
   m_Name: Interact
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13270,7 +13270,7 @@ GameObject:
   - 114: {fileID: 1762723611}
   m_Layer: 0
   m_Name: Interact
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

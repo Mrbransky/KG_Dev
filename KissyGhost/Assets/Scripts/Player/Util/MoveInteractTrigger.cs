@@ -87,8 +87,18 @@ public class MoveInteractTrigger : MonoBehaviour {
     {
         if (isGhostInteractTrigger && col.tag == "Furniture" && !interactColliderList.Contains(col))
         {
+            foreach(Collider2D collider in interactColliderList)
+            {
+                collider.GetComponent<KissableFurniture>().HideOutline();
+            }
+
             interactColliderList.Add(col);
             spriteRenderer_InteractButtonPrompt.enabled = true;
+
+            col.GetComponent<KissableFurniture>().ShowOutline(transform.parent.GetComponent<Ghost>().MainColor);
+
+            if (transform.parent.GetComponent<Ghost>().IsHighlightingFurnitureTouchingBody)
+                transform.parent.GetComponent<Ghost>().HideBodyFurnitureOutline();
         }
 
         else if (col.tag == "Cat" && !isGhostInteractTrigger)
@@ -124,6 +134,7 @@ public class MoveInteractTrigger : MonoBehaviour {
     {
         if (col.gameObject.name.Contains("ItemNode"))
             IsOnItemNode = true;
+
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -131,10 +142,12 @@ public class MoveInteractTrigger : MonoBehaviour {
         if (isGhostInteractTrigger && col.tag == "Furniture" && interactColliderList.Contains(col))
         {
             interactColliderList.Remove(col);
+            col.GetComponent<KissableFurniture>().HideOutline();
             
             if (interactColliderList.Count == 0)
             {
                 spriteRenderer_InteractButtonPrompt.enabled = false;
+                transform.parent.GetComponent<Ghost>().ShowBodyFurnitureOutline();
             }
         }
 

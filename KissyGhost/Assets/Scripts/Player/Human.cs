@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using XInputDotNetPure;
+using System.Collections.Generic;
 
 public class Human : Player 
 {
@@ -57,6 +58,8 @@ public class Human : Player
     private float timeSinceInteractButtonPrompt = 0.0f;
     private float timeSinceKickButtonPrompt = 0.0f;
 
+    private List<Collider2D> furnitureToKick;
+
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
     public KeyCode ItemPickUpKeycode = KeyCode.Z;
     public KeyCode ItemThrowKeycode = KeyCode.X;
@@ -69,6 +72,8 @@ public class Human : Player
 
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         _HumanSpriteFlasher = GetComponent<HumanSpriteFlasher>();
+
+        furnitureToKick = new List<Collider2D>();
 
         base.Awake();
 
@@ -125,6 +130,9 @@ public class Human : Player
     {
         // Handling sort order in SpriteSorter.cs
         // gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(-transform.localPosition.y+1);
+
+        if (furnitureToKick.Count > 0 && CanKickFurniture)
+            furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>().ShowOutline(MainColor);
 
         GetAButtonDown = false;
 
@@ -334,19 +342,30 @@ public class Human : Player
             }
         }
 
-        if (CanKickFurniture && 
-            col.tag == "Furniture" &&
-            col.GetComponent<KissableFurniture>() != null &&
-            col.GetComponent<KissableFurniture>().CanKick())
+        if (CanKickFurniture && col.tag == "Furniture" && col.GetComponent<KissableFurniture>() != null && col.GetComponent<KissableFurniture>().CanKick())
         {
+            if (!furnitureToKick.Contains(col))
+            {
+                foreach (Collider2D collider in furnitureToKick)
+                {
+                    collider.GetComponent<KissableFurniture>().HideOutline();
+                }
+                    furnitureToKick.Add(col);
+                    col.GetComponent<KissableFurniture>().ShowOutline(MainColor);
+            }
+
             kickButtonPromptSpriteRenderer.enabled = true;
             timeSinceKickButtonPrompt = interactButtonPromptDurationBuffer;
 
             if (GetBButtonDown)
             {
-                KickFurniture(col.GetComponent<KissableFurniture>());
+                //KickFurniture(col.GetComponent<KissableFurniture>());
+                KickFurniture(furnitureToKick[furnitureToKick.Count-1].GetComponent<KissableFurniture>());
+                furnitureToKick.Remove(furnitureToKick[furnitureToKick.Count - 1]);
                 kickButtonPromptSpriteRenderer.enabled = false;
+
             }
+
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
             else if (Input.GetKeyDown(ItemThrowKeycode))
             {
@@ -354,6 +373,7 @@ public class Human : Player
                 kickButtonPromptSpriteRenderer.enabled = false;
             }
 #endif
+
         }
 
         //else if (col.tag == "Pull" && !IsPullingSwitch)
@@ -363,6 +383,15 @@ public class Human : Player
         //        AttachToPullSwitch(col.gameObject);
         //    }
         //}
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Furniture")
+        {
+            furnitureToKick.Remove(col);
+            col.GetComponent<KissableFurniture>().HideOutline();
+        }
     }
 
     public void HugHuman()

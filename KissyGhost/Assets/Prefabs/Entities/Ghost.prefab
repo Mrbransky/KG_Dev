@@ -158,7 +158,7 @@ GameObject:
   - 114: {fileID: 11491866}
   m_Layer: 0
   m_Name: Interact
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 129.229431, y: 113.912766, z: 0}
+  m_LocalPosition: {x: 9.74187088, y: 2.92148089, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 493550}
@@ -364,14 +364,15 @@ MonoBehaviour:
   currentSpeed: 0
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
+  playerNum: 1
   interactTrigger: {fileID: 0}
   bodyCol: {fileID: 0}
   _MoveInteractTrigger: {fileID: 0}
-  playerNum: 1
   timeToRechargeKiss: 3
   timeBetweenKisses: .550000012
   GetAButtonDown: 0
   TouchingFurniture: 0
+  MainColor: {r: .894117713, g: .262745112, b: .458823562, a: 1}
   maxKisses: 3
   SpeedReducePercent: 75
 --- !u!114 &11410374

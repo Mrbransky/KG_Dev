@@ -28,6 +28,9 @@ public class KissableFurniture : MonoBehaviour
     private Transform Heart_Fountain;
     private Transform Smaller_Heart_Fountain;
 
+    [SerializeField]
+    private Transform Outline;
+
     private Animator anim;
 
     private Furniture_FollowPlayer followPlayerBehavior;
@@ -37,6 +40,17 @@ public class KissableFurniture : MonoBehaviour
     public float kickCooldown = 1.0f;
     private Rigidbody2D myRigidbody;
     private float timeSinceKick = 0.0f;
+
+    public bool IsShowingOutline
+    {
+        get 
+        {
+            if (Outline == null)
+                return false;
+
+            return Outline.GetComponent<SpriteRenderer>().enabled;
+        }
+    }
 
 #if UNITY_EDITOR
     public KeyCode KissKey = KeyCode.Alpha0;
@@ -48,6 +62,13 @@ public class KissableFurniture : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        Transform[] children = GetComponentsInChildren<Transform>();
+        foreach(Transform t in children)
+        {
+            if (t.name == "Outline")
+                Outline = t;
+        }
 
         switch ((int)kissedBehavior)
         {
@@ -95,15 +116,14 @@ public class KissableFurniture : MonoBehaviour
             isKissed = !isKissed;
 
             if (isKissed)
-            {
                 KissFurniture();
-            }
             else
-            {
                 UnkissFurniture();
-            }
         }
 #endif
+
+        if(IsShowingOutline && ShouldUpdateSortOrder())
+            Outline.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
 
         if (isKissed)
         {
@@ -116,15 +136,58 @@ public class KissableFurniture : MonoBehaviour
         }
 
         if (timeSinceKick > 0)
-        {
             timeSinceKick -= Time.deltaTime;
-        }
     }
+
+    private bool ShouldUpdateSortOrder()
+    {
+        if (Outline.GetComponent<SpriteRenderer>().sortingOrder != GetComponent<SpriteRenderer>().sortingOrder)
+            return true;
+
+        return false;
+    }
+
+    public void ShowOutline(Color playerCol)
+    {
+        if (Outline == null || IsShowingOutline || isKissed)
+            return;
+
+        Outline.GetComponent<SpriteRenderer>().enabled = true;
+        Outline.GetComponent<SpriteRenderer>().color = playerCol;
+    }
+
+    public void HideOutline()
+    {
+        if (Outline == null || !IsShowingOutline)
+            return;
+
+        Outline.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    //void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if (col.tag == "Interact" && Outline != null && !isKissed)
+    //    {
+    //        Debug.Log(col.transform.parent.tag);
+    //        if (col.transform.parent.tag == "Player" && CanKick())
+    //            Outline.GetComponent<SpriteRenderer>().color = col.GetComponentInParent<Human>().MainColor;
+    //        else if (col.transform.parent.tag == "Ghost")
+    //            Outline.GetComponent<SpriteRenderer>().color = col.GetComponentInParent<Ghost>().MainColor;
+
+    //        Outline.GetComponent<SpriteRenderer>().enabled = true;
+    //        Outline.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+    //    }
+    //}
+
+    //void OnTriggerExit2D(Collider2D col)
+    //{
+    //    if (col.tag == "Interact" && Outline != null && !isKissed)
+    //        Outline.GetComponent<SpriteRenderer>().enabled = false;
+    //}
 
     // Returns false if the furniture is already kissed
     public bool KissFurniture()
     {
-
         if (isKissed)
         {
             return false;
@@ -151,6 +214,8 @@ public class KissableFurniture : MonoBehaviour
             UnkissFurniture();
             return;
         }
+
+        HideOutline();
 
         if (amountKissed >= 2)
         {
@@ -342,23 +407,27 @@ public class KissableFurniture : MonoBehaviour
     {
         myRigidbody.AddForce(kickVector);
         timeSinceKick = kickCooldown;
+        HideOutline();
     }
 
     private void CheckMoveDirForSpriteFlip()
     {
-        float MoveDirX = 0;
+        if (!transform.name.Contains("Stair"))
+        {
+            float MoveDirX = 0;
 
-        if ((int)kissedBehavior == (int)KissedFurnitureBehavior.FollowPlayer)
-            MoveDirX = followPlayerBehavior.GetFurnitureMoveDir().x;
+            if ((int)kissedBehavior == (int)KissedFurnitureBehavior.FollowPlayer)
+                MoveDirX = followPlayerBehavior.GetFurnitureMoveDir().x;
 
-        else if ((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
-            MoveDirX = rhinoChargeBehavior.GetLastKnownPlayerPosition().x;
+            else if ((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
+                MoveDirX = rhinoChargeBehavior.GetLastKnownPlayerPosition().x;
 
-        float ScaleX = transform.localScale.x;
+            float ScaleX = transform.localScale.x;
 
-        if (MoveDirX > 0 && ScaleX < 0)
-            transform.localScale = new Vector3(-ScaleX, transform.localScale.y);
-        else if (MoveDirX < 0 && ScaleX > 0)
-            transform.localScale = new Vector3(-ScaleX, transform.localScale.y);
+            if (MoveDirX > 0 && ScaleX < 0)
+                transform.localScale = new Vector3(-ScaleX, transform.localScale.y);
+            else if (MoveDirX < 0 && ScaleX > 0)
+                transform.localScale = new Vector3(-ScaleX, transform.localScale.y);
+        }
     }
 }

@@ -18,6 +18,7 @@ TagManager:
   - Room
   - Pull
   - GhostBarrier
+  - Interact
   layers:
   - Default
   - TransparentFX

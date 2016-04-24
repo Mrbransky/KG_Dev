@@ -12,6 +12,7 @@ public class Ghost : Player
     [Header("Ghost Misc.")]
     public bool GetAButtonDown = false;
     public bool TouchingFurniture;
+    public Color MainColor;
     private bool wasAButtonPressed = false;
     private bool hasGameEnded = false;  
   
@@ -23,6 +24,19 @@ public class Ghost : Player
     public float SpeedReducePercent = 75;
 
     private List<Collider2D> bodyColliderList;
+    public bool IsHighlightingFurnitureTouchingBody
+    {
+        get 
+        {
+            foreach(Collider2D col in bodyColliderList)
+            {
+                if (col.GetComponent<KissableFurniture>().IsShowingOutline)
+                    return true;
+            }
+
+            return false;
+        }
+    }
 
     public override void Awake() 
     {
@@ -108,9 +122,36 @@ public class Ghost : Player
     private void kissObject(List<Collider2D> furniture)
     {
         // Don't put kiss on cooldown if the furniture is already kissed
-        foreach (Collider2D col in furniture)
+        //foreach (Collider2D col in furniture)
+        //{
+        //    if (col.GetComponent<KissableFurniture>().KissFurniture())
+        //    {
+        //        if (availableKisses < maxKisses)
+        //        {
+        //            heartComponentsArray[availableKisses].Hide();
+        //        }
+
+        //        --availableKisses;
+
+        //        if (availableKisses >= 0)
+        //        {
+        //            heartComponentsArray[availableKisses].Hide();
+        //        }
+
+        //        timeSinceKiss = timeBetweenKisses;
+        //        StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
+
+        //        soundManager.SOUND_MAN.playSound("Play_Kisses", gameObject);
+
+        //        return;
+        //    }
+
+
+        //}
+
+        for (int i = furniture.Count - 1; i >= 0; i--)
         {
-            if (col.GetComponent<KissableFurniture>().KissFurniture())
+            if (furniture[i].GetComponent<KissableFurniture>().KissFurniture())
             {
                 if (availableKisses < maxKisses)
                 {
@@ -167,15 +208,40 @@ public class Ghost : Player
         hasGameEnded = gm.gameEnd;
     }
 
+    public void ShowBodyFurnitureOutline()
+    {
+        if(bodyColliderList.Count > 0)
+        {
+            bodyColliderList[bodyColliderList.Count - 1].GetComponent<KissableFurniture>().ShowOutline(MainColor);
+        }
+    }
+
+    public void HideBodyFurnitureOutline()
+    {
+        foreach(Collider2D col in bodyColliderList)
+        {
+            if (col.GetComponent<KissableFurniture>().IsShowingOutline)
+                col.GetComponent<KissableFurniture>().HideOutline();
+        }
+    }
+
     public void AddColliderToList(Collider2D col)
     {
-        if(!bodyColliderList.Contains(col))
+        if (!bodyColliderList.Contains(col))
+        {
             bodyColliderList.Add(col);
+
+            if (GetComponentInChildren<MoveInteractTrigger>().interactColliderList.Count == 0)
+                col.GetComponent<KissableFurniture>().ShowOutline(MainColor);
+        }
     }
 
     public void RemoveColliderFromList(Collider2D col)
     {
-        if(bodyColliderList.Contains(col))
+        if (bodyColliderList.Contains(col))
+        {
             bodyColliderList.Remove(col);
+            col.GetComponent<KissableFurniture>().HideOutline();
+        }
     }
 }
