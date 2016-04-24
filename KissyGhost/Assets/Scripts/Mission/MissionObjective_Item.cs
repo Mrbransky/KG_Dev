@@ -7,12 +7,9 @@ public class MissionObjective_Item : MonoBehaviour
     private bool isItemPlacedDown = true;
     private bool hasBeenPickedUpBefore = false;
 
-    public bool isAnimated = false;
-    public Sprite HighlightedSprite;
-    public Sprite UnhighlightedSprite;
+    public SpriteRenderer Item_Outline;
 
     private bool isHighlighted = true;
-    private SpriteRenderer spriteRenderer;
     private Animator animator;
     private RoomGenerator _RoomGenerator;
     
@@ -23,15 +20,6 @@ public class MissionObjective_Item : MonoBehaviour
 
     void Start()
     {
-        if (isAnimated)
-        {
-            animator = GetComponent<Animator>();
-        }
-        else
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
         _RoomGenerator = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoomGenerator>();
     }
 
@@ -44,7 +32,7 @@ public class MissionObjective_Item : MonoBehaviour
             if (itemNodeScript != null && !itemNodeScript.HasItem)
             {
                 itemNodeScript.HasItem = true;
-                turnHighlightOff();
+                Item_Outline.gameObject.SetActive(false);
                 transform.position = itemNodeScript.ItemTargetPosition;
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<MissionManager>().OnMissionObjectiveCompleted(MissionObjectiveListIndex);
 
@@ -65,37 +53,41 @@ public class MissionObjective_Item : MonoBehaviour
     {
         isItemPlacedDown = false;
         hasBeenPickedUpBefore = true;
+        turnHighlightOff();
     }
 
     public void PlaceItemDown()
     {
         isItemPlacedDown = true;
         transform.position = _RoomGenerator.RepositionItemIfOutOfBounds(transform.position);
+        ResetColor();
+        turnHighlightOn();
     }
 
     private void turnHighlightOn()
     {
-        if (isAnimated)
-        {
-            animator.SetBool("turnHighlightOn", true);
-            animator.SetBool("turnHighlightOff", false);
-        }
-        else
-        {
-            spriteRenderer.sprite = HighlightedSprite;
-        }
+        Item_Outline.color = Color.white;
     }
 
     private void turnHighlightOff()
     {
-        if (isAnimated)
+        Color transparent = Item_Outline.color;
+        transparent.a = 0;
+        Item_Outline.color = transparent;
+    }
+
+    public void SetColor(Color playerColor)
+    {
+        if (Item_Outline.color == Color.white)
         {
-            animator.SetBool("turnHighlightOff", true);
-            animator.SetBool("turnHighlightOn", false);
+            Item_Outline.color = playerColor;
         }
-        else
-        {
-            spriteRenderer.sprite = UnhighlightedSprite;
-        }
+    }
+
+    public void ResetColor()
+    {
+        Color newColor = Color.white;
+        newColor.a = Item_Outline.color.a;
+        Item_Outline.color = newColor;
     }
 }

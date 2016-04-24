@@ -52,11 +52,11 @@ public class Human : Player
     public float timeBetweenItemInteract = 0;
     public float timeBetweenFurnitureKick = 0;
     public Color MainColor;
-    private SpriteRenderer interactButtonPromptSpriteRenderer;
-    private SpriteRenderer kickButtonPromptSpriteRenderer;
-    private float interactButtonPromptDurationBuffer = 0.1f;
-    private float timeSinceInteractButtonPrompt = 0.0f;
-    private float timeSinceKickButtonPrompt = 0.0f;
+    //private SpriteRenderer interactButtonPromptSpriteRenderer;
+    //private SpriteRenderer kickButtonPromptSpriteRenderer;
+    //private float interactButtonPromptDurationBuffer = 0.1f;
+    //private float timeSinceInteractButtonPrompt = 0.0f;
+    //private float timeSinceKickButtonPrompt = 0.0f;
 
     private List<Collider2D> furnitureToKick;
 
@@ -113,17 +113,17 @@ public class Human : Player
             }
         }
 
-        foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
-        {
-            if (childSpriteRenderer.gameObject.name == "InteractButtonPrompt")
-            {
-                interactButtonPromptSpriteRenderer = childSpriteRenderer;
-            }
-            else if (childSpriteRenderer.gameObject.name == "KickButtonPrompt")
-            {
-                kickButtonPromptSpriteRenderer = childSpriteRenderer;
-            }
-        }
+        //foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
+        //{
+        //    if (childSpriteRenderer.gameObject.name == "InteractButtonPrompt")
+        //    {
+        //        interactButtonPromptSpriteRenderer = childSpriteRenderer;
+        //    }
+        //    else if (childSpriteRenderer.gameObject.name == "KickButtonPrompt")
+        //    {
+        //        kickButtonPromptSpriteRenderer = childSpriteRenderer;
+        //    }
+        //}
 	}
 
     public override void Update() 
@@ -208,25 +208,25 @@ public class Human : Player
             }
         }
 
-        if (timeSinceInteractButtonPrompt > 0)
-        {
-            timeSinceInteractButtonPrompt -= Time.deltaTime;
+        //if (timeSinceInteractButtonPrompt > 0)
+        //{
+        //    timeSinceInteractButtonPrompt -= Time.deltaTime;
             
-            if (timeSinceInteractButtonPrompt <= 0)
-            {
-                interactButtonPromptSpriteRenderer.enabled = false;
-            }
-        }
+        //    if (timeSinceInteractButtonPrompt <= 0)
+        //    {
+        //        interactButtonPromptSpriteRenderer.enabled = false;
+        //    }
+        //}
 
-        if (timeSinceKickButtonPrompt > 0)
-        {
-            timeSinceKickButtonPrompt -= Time.deltaTime;
+        //if (timeSinceKickButtonPrompt > 0)
+        //{
+        //    timeSinceKickButtonPrompt -= Time.deltaTime;
 
-            if (timeSinceKickButtonPrompt <= 0)
-            {
-                kickButtonPromptSpriteRenderer.enabled = false;
-            }
-        }
+        //    if (timeSinceKickButtonPrompt <= 0)
+        //    {
+        //        kickButtonPromptSpriteRenderer.enabled = false;
+        //    }
+        //}
 
         if (furnitureToKick.Count > 0)
         {
@@ -234,14 +234,14 @@ public class Human : Player
             {
                 KickFurniture(furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>());
                 furnitureToKick.Remove(furnitureToKick[furnitureToKick.Count - 1]);
-                kickButtonPromptSpriteRenderer.enabled = false;
+                //kickButtonPromptSpriteRenderer.enabled = false;
             }
 
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
             else if (Input.GetKeyDown(ItemThrowKeycode))
             {
                 KickFurniture(furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>());
-                kickButtonPromptSpriteRenderer.enabled = false;
+                //kickButtonPromptSpriteRenderer.enabled = false;
             }
 #endif
         }
@@ -257,24 +257,21 @@ public class Human : Player
 
     public void GrabItem(GameObject obj)
     {
-        if (obj.GetComponent<MissionObjective_Item>().IsItemPlacedDown == true)
-        {
-            this.IsCarryingItem = true;
+        this.IsCarryingItem = true;
 
-            obj.transform.parent = transform;
-            obj.transform.localPosition = new Vector3(0, .75f, 0);
-            obj.transform.localScale = new Vector3(1, 1, 1);
-            heldItemSpriteRenderer = obj.GetComponent<SpriteRenderer>();
-            heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
-            obj.GetComponent<MissionObjective_Item>().PickItemUp();
-            obj.GetComponent<Rigidbody2D>().isKinematic = true;
-            HeldItemName = obj.name;
+        obj.transform.parent = transform;
+        obj.transform.localPosition = new Vector3(0, .75f, 0);
+        obj.transform.localScale = new Vector3(1, 1, 1);
+        heldItemSpriteRenderer = obj.GetComponent<SpriteRenderer>();
+        heldItemSpriteRenderer.sortingOrder = mySpriteRenderer.sortingOrder + 1;
+        obj.GetComponent<MissionObjective_Item>().PickItemUp();
+        obj.GetComponent<Rigidbody2D>().isKinematic = true;
+        HeldItemName = obj.name;
 
-            timeBetweenItemInteract = 0.25f;
+        timeBetweenItemInteract = 0.25f;
 
-            //Item Pick up Sound
-            soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
-        }
+        //Item Pick up Sound
+        soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
     }
 
     public void KickFurniture(KissableFurniture _KissableFurniture)
@@ -346,20 +343,20 @@ public class Human : Player
                 col.GetComponent<MissionObjective_Item>() != null && 
                 col.GetComponent<MissionObjective_Item>().IsItemPlacedDown)
             {
-                interactButtonPromptSpriteRenderer.enabled = true;
-                timeSinceInteractButtonPrompt = interactButtonPromptDurationBuffer;
+                //interactButtonPromptSpriteRenderer.enabled = true;
+                //timeSinceInteractButtonPrompt = interactButtonPromptDurationBuffer;
 
                 if (GetAButtonDown)
                 {
                     GrabItem(col.gameObject);
-                    interactButtonPromptSpriteRenderer.enabled = false;
+                    //interactButtonPromptSpriteRenderer.enabled = false;
                     StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
                 }
 #if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
                 else if (Input.GetKeyDown(ItemPickUpKeycode))
                 {
                     GrabItem(col.gameObject);
-                    interactButtonPromptSpriteRenderer.enabled = false;
+                    //interactButtonPromptSpriteRenderer.enabled = false;
 
                 }
 #endif
@@ -378,8 +375,8 @@ public class Human : Player
                     col.GetComponent<KissableFurniture>().ShowOutline(MainColor);
             }
 
-            kickButtonPromptSpriteRenderer.enabled = true;
-            timeSinceKickButtonPrompt = interactButtonPromptDurationBuffer;
+            //kickButtonPromptSpriteRenderer.enabled = true;
+            //timeSinceKickButtonPrompt = interactButtonPromptDurationBuffer;
 
         }
 

@@ -102,7 +102,7 @@ public class MissionManager : MonoBehaviour
         missionObjectiveStateArray[missionObjectiveListIndex] = MissionObjectiveState.Completed;
         missionObjectiveImageList[missionObjectiveListIndex].color = Color.white;
         missionObjectiveBackgroundImageList[missionObjectiveListIndex].color = Color.white;
-        missionObjectiveImageList[missionObjectiveListIndex].sprite = missionObjectiveList[missionObjectiveListIndex].GetComponent<MissionObjective_Item>().UnhighlightedSprite;
+        //missionObjectiveImageList[missionObjectiveListIndex].sprite = missionObjectiveList[missionObjectiveListIndex].GetComponent<MissionObjective_Item>().UnhighlightedSprite;
 
         foreach (MissionObjectiveState objectiveState in missionObjectiveStateArray)
         {

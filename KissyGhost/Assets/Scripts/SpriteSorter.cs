@@ -10,8 +10,8 @@ public class SpriteSorter : MonoBehaviour
         int IComparer<SpriteRenderer>.Compare(SpriteRenderer first, SpriteRenderer second)
         {
             return ((new CaseInsensitiveComparer()).Compare(
-                second.transform.position.y,
-                first.transform.position.y));
+                second.transform.position.y - second.sprite.bounds.extents.y / 2,
+                first.transform.position.y - first.sprite.bounds.extents.y / 2));
         }
     }
 

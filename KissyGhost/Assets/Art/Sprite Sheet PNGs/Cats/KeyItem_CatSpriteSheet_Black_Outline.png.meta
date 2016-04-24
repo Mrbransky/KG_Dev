@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: fa2e9f4635b58f544aaac35c0d88287b
-timeCreated: 1461281202
-licenseType: Pro
+timeCreated: 1461528463
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: KeyItem_CatSpriteSheet_Black_Outline_0
+    21300002: KeyItem_CatSpriteSheet_Black_Outline_1
+    21300004: KeyItem_CatSpriteSheet_Black_Outline_2
+    21300006: KeyItem_CatSpriteSheet_Black_Outline_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: KeyItem_CatSpriteSheet_Black_Outline_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 60
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KeyItem_CatSpriteSheet_Black_Outline_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 60
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KeyItem_CatSpriteSheet_Black_Outline_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 0
+        width: 68
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KeyItem_CatSpriteSheet_Black_Outline_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 0
+        width: 60
+        height: 96
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

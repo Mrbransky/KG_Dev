@@ -21,7 +21,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 
     public bool isGhostInteractTrigger = false;
     public List<Collider2D> interactColliderList;
-    private SpriteRenderer spriteRenderer_InteractButtonPrompt;
+    //private SpriteRenderer spriteRenderer_InteractButtonPrompt;
 
 	void Awake () 
     {
@@ -31,7 +31,7 @@ public class MoveInteractTrigger : MonoBehaviour {
         if (isGhostInteractTrigger)
         {
             interactColliderList = new List<Collider2D>();
-            spriteRenderer_InteractButtonPrompt = GetComponentInChildren<SpriteRenderer>();
+            //spriteRenderer_InteractButtonPrompt = GetComponentInChildren<SpriteRenderer>();
         }
 	}
 	
@@ -93,7 +93,7 @@ public class MoveInteractTrigger : MonoBehaviour {
             }
 
             interactColliderList.Add(col);
-            spriteRenderer_InteractButtonPrompt.enabled = true;
+            //spriteRenderer_InteractButtonPrompt.enabled = true;
 
             col.GetComponent<KissableFurniture>().ShowOutline(transform.parent.GetComponent<Ghost>().MainColor);
 
@@ -104,19 +104,22 @@ public class MoveInteractTrigger : MonoBehaviour {
         else if (col.tag == "Cat" && !isGhostInteractTrigger)
         {
             Human player = this.GetComponentInParent<Human>();
-            if (player.GetAButtonDown)
-            {
-                if (player.CanGrabItem)
-                    player.GrabItem(col.gameObject);
-            }
 
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
-            else if (Input.GetKeyDown(player.ItemPickUpKeycode))
+            if (player.CanGrabItem && col.GetComponent<MissionObjective_Item>().IsItemPlacedDown)
             {
-                if (player.CanGrabItem)
+                col.GetComponent<MissionObjective_Item>().SetColor(player.MainColor);
+
+                if (player.GetAButtonDown)
+                {
                     player.GrabItem(col.gameObject);
-            }
+                }
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+                else if (Input.GetKeyDown(player.ItemPickUpKeycode))
+                {
+                    player.GrabItem(col.gameObject);
+                }
 #endif
+            }
         }
 
         //else if (col.tag == "Pull")
@@ -146,9 +149,13 @@ public class MoveInteractTrigger : MonoBehaviour {
             
             if (interactColliderList.Count == 0)
             {
-                spriteRenderer_InteractButtonPrompt.enabled = false;
+                //spriteRenderer_InteractButtonPrompt.enabled = false;
                 transform.parent.GetComponent<Ghost>().ShowBodyFurnitureOutline();
             }
+        }
+        else if (col.tag == "Cat" && !isGhostInteractTrigger)
+        {
+            col.GetComponent<MissionObjective_Item>().ResetColor();
         }
 
         if (col.gameObject.name.Contains("ItemNode"))

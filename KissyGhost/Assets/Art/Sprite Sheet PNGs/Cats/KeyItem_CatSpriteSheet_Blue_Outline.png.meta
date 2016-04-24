@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 4b315ad3090347845a3200f9e779ecb7
-timeCreated: 1461281202
-licenseType: Pro
+timeCreated: 1461528564
+licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: KeyItem_CatSpriteSheet_Blue_Outline_0
+    21300002: KeyItem_CatSpriteSheet_Blue_Outline_1
+    21300004: KeyItem_CatSpriteSheet_Blue_Outline_2
+    21300006: KeyItem_CatSpriteSheet_Blue_Outline_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: KeyItem_CatSpriteSheet_Blue_Outline_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 84
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KeyItem_CatSpriteSheet_Blue_Outline_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 92
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KeyItem_CatSpriteSheet_Blue_Outline_2
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 0
+        width: 92
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KeyItem_CatSpriteSheet_Blue_Outline_3
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 0
+        width: 92
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
