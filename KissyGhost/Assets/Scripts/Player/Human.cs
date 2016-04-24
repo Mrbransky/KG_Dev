@@ -228,6 +228,30 @@ public class Human : Player
             }
         }
 
+        if (furnitureToKick.Count > 0)
+        {
+            if (GetBButtonDown)
+            {
+                KickFurniture(furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>());
+                furnitureToKick.Remove(furnitureToKick[furnitureToKick.Count - 1]);
+                kickButtonPromptSpriteRenderer.enabled = false;
+            }
+
+#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+            else if (Input.GetKeyDown(ItemThrowKeycode))
+            {
+                KickFurniture(furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>());
+                kickButtonPromptSpriteRenderer.enabled = false;
+            }
+#endif
+        }
+
+        foreach(Collider2D collider in furnitureToKick)
+        {
+            if (!collider.GetComponent<KissableFurniture>().CanKick())
+                collider.GetComponent<KissableFurniture>().HideOutline();
+        }
+
         base.Update();
 	}
 
@@ -356,23 +380,6 @@ public class Human : Player
 
             kickButtonPromptSpriteRenderer.enabled = true;
             timeSinceKickButtonPrompt = interactButtonPromptDurationBuffer;
-
-            if (GetBButtonDown)
-            {
-                //KickFurniture(col.GetComponent<KissableFurniture>());
-                KickFurniture(furnitureToKick[furnitureToKick.Count-1].GetComponent<KissableFurniture>());
-                furnitureToKick.Remove(furnitureToKick[furnitureToKick.Count - 1]);
-                kickButtonPromptSpriteRenderer.enabled = false;
-
-            }
-
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
-            else if (Input.GetKeyDown(ItemThrowKeycode))
-            {
-                KickFurniture(col.GetComponent<KissableFurniture>());
-                kickButtonPromptSpriteRenderer.enabled = false;
-            }
-#endif
 
         }
 

@@ -149,11 +149,18 @@ public class KissableFurniture : MonoBehaviour
 
     public void ShowOutline(Color playerCol)
     {
-        if (Outline == null || IsShowingOutline || isKissed)
+        if (Outline == null || isKissed)
             return;
 
-        Outline.GetComponent<SpriteRenderer>().enabled = true;
-        Outline.GetComponent<SpriteRenderer>().color = playerCol;
+        if (IsShowingOutline && Outline.GetComponent<SpriteRenderer>().color != playerCol)
+                Outline.GetComponent<SpriteRenderer>().color = playerCol;
+
+        else
+        {
+            Outline.GetComponent<SpriteRenderer>().enabled = true;
+            Outline.GetComponent<SpriteRenderer>().color = playerCol;
+        }
+        
     }
 
     public void HideOutline()
@@ -359,15 +366,29 @@ public class KissableFurniture : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(isKissed && col.gameObject.tag == "GhostBarrier")
+        if(col.gameObject.tag == "GhostBarrier")
         {
+            int additionalMag;
+
+            if (isKissed)
+            {
+                UnkissFurniture();
+                additionalMag = 100;
+
             if ((int)kissedBehavior == (int)KissedFurnitureBehavior.FollowPlayer)
-                GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * 100);
+                GetComponent<Rigidbody2D>().AddForce(followPlayerBehavior.GetFurnitureMoveDir() * -1 * DoorPushMag * additionalMag);
 
             else if ((int)kissedBehavior == (int)KissedFurnitureBehavior.RhinoCharge)
-                GetComponent<Rigidbody2D>().AddForce(rhinoChargeBehavior.GetLastKnownPlayerPosition() * -1 * DoorPushMag * 100);
+                GetComponent<Rigidbody2D>().AddForce(rhinoChargeBehavior.GetLastKnownPlayerPosition() * -1 * DoorPushMag * additionalMag);
+            }
 
-            UnkissFurniture();
+            else
+            {
+                additionalMag = 50;
+                GetComponent<Rigidbody2D>().AddForce((col.transform.position * -1 * DoorPushMag * additionalMag)/10);
+            }
+
+                
         }
     }
 
