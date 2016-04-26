@@ -164,6 +164,7 @@ public class RoomChangeManager : MonoBehaviour
             }
             
             return true;
+            //Doors Unlock Sound
         }
             
         return false;
@@ -190,6 +191,8 @@ public class RoomChangeManager : MonoBehaviour
     #region Sub Objective Functions
     private void SubObjectiveCheck_OnRoomChanged()
     {
+        //ROOM CHANGE SOUND :D
+
         if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
         {
             int currentRoomSubObjective = (int)roomSubObjectiveTypeArray[(int)currentRoomLocation];

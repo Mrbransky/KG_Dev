@@ -350,6 +350,7 @@ public class KissableFurniture : MonoBehaviour
             {
                 humanScript.HugHuman();                
                 UnkissFurniture();
+                //Human Get Hit Sound
             }
         }
 
