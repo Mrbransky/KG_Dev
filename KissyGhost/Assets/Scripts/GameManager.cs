@@ -293,7 +293,7 @@ public class GameManager : MonoBehaviour {
     }
     void GhostPullToMiddle()
     {
-        #if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE
+        #if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
         currentGhostPlayer.GetComponent<Ghost>().debugCurrentSpeed = 0;
         #endif
 

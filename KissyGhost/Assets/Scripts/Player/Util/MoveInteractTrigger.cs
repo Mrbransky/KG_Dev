@@ -8,7 +8,7 @@ public class MoveInteractTrigger : MonoBehaviour {
     public BoxCollider2D InteractTrigger;
     private Vector2 PlayerMoveDir;
 
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
     private Vector2 debugPlayerMoveDir;
 #endif
 
@@ -38,7 +38,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 	void Update () 
     {
         PlayerMoveDir = this.GetComponentInParent<Player>().moveDir;
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
         debugPlayerMoveDir = this.GetComponentInParent<Player>().debugMoveDir;
 #endif
 
@@ -46,7 +46,7 @@ public class MoveInteractTrigger : MonoBehaviour {
 
         if (PlayerMoveDir.magnitude >= .75)
             SetInteractTrigOffset();
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
         else if (debugPlayerMoveDir.magnitude >= .75)
             DEBUG_SetInteractTrigOffset();
 #endif
@@ -73,7 +73,7 @@ public class MoveInteractTrigger : MonoBehaviour {
         else InteractTrigger.offset = 
             new Vector2(PlayerMoveDir.x * HorizReach, (PlayerMoveDir.y * VertReach) + TriggerVertOffset);
     }
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
     void DEBUG_SetInteractTrigOffset()
     {
         if (PlayerFacingRight) InteractTrigger.offset =
@@ -113,7 +113,7 @@ public class MoveInteractTrigger : MonoBehaviour {
                 {
                     player.GrabItem(col.gameObject);
                 }
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
                 else if (Input.GetKeyDown(player.ItemPickUpKeycode))
                 {
                     player.GrabItem(col.gameObject);

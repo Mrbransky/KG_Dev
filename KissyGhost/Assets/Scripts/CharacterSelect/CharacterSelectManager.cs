@@ -282,7 +282,7 @@ public class CharacterSelectManager : MonoBehaviour
                 //checkIfPlayerReady();
 
 #region Debug Code
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
                 if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
                     startGame();
@@ -405,9 +405,56 @@ public class CharacterSelectManager : MonoBehaviour
                     case StickStates.Neutral:
                         if (AnalogXDir > STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
-
                         else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
+                        else
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    if (Input.GetKeyDown(KeyCode.D))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.A))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                                case 1:
+                                    if (Input.GetKeyDown(KeyCode.H))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.F))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                                case 2:
+                                    if (Input.GetKeyDown(KeyCode.L))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.J))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                                case 3:
+                                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                            }
+                        }
+#endif
                         break;
 
                     case StickStates.Left:
@@ -416,6 +463,54 @@ public class CharacterSelectManager : MonoBehaviour
 
                         else if (AnalogXDir > STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
+                        else
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.D))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    break;
+                                case 1:
+                                    if (!Input.GetKey(KeyCode.H) && !Input.GetKey(KeyCode.F))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.H))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    break;
+                                case 2:
+                                    if (!Input.GetKey(KeyCode.L) && !Input.GetKey(KeyCode.J))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.L))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    break;
+                                case 3:
+                                    if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.RightArrow))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
+                                    }
+                                    break;
+                            }
+                        }
+#endif
                         break;
 
                     case StickStates.Right:
@@ -423,6 +518,54 @@ public class CharacterSelectManager : MonoBehaviour
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
                         else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
+                        else
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                                    if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.A))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                                case 1:
+                                    if (!Input.GetKey(KeyCode.H) && !Input.GetKey(KeyCode.F))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.F))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                                case 2:
+                                    if (!Input.GetKey(KeyCode.L) && !Input.GetKey(KeyCode.J))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.J))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                                case 3:
+                                    if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
+                                    }
+                                    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                                    {
+                                        playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
+                                    }
+                                    break;
+                            }
+                        }
+#endif
                         break;
                 }
             }

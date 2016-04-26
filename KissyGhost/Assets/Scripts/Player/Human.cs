@@ -60,7 +60,7 @@ public class Human : Player
 
     private List<Collider2D> furnitureToKick;
 
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
     public KeyCode ItemPickUpKeycode = KeyCode.Z;
     public KeyCode ItemThrowKeycode = KeyCode.X;
 #endif
@@ -175,7 +175,7 @@ public class Human : Player
                 //{
                 //    ThrowItem(HeldItemName);
                 //}
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
                 else if (Input.GetKeyDown(ItemPickUpKeycode))
                 {
                     PutItemDown(HeldItemName);
@@ -237,7 +237,7 @@ public class Human : Player
                 //kickButtonPromptSpriteRenderer.enabled = false;
             }
 
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
             else if (Input.GetKeyDown(ItemThrowKeycode))
             {
                 KickFurniture(furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>());
@@ -319,7 +319,7 @@ public class Human : Player
             Transform childTransform = _ThrowableItem.transform;
             _ThrowableItem.lastParentVector = moveDir;
 
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
             _ThrowableItem.lastParentVector = debugMoveDir;
 #endif
 
@@ -352,7 +352,7 @@ public class Human : Player
                     //interactButtonPromptSpriteRenderer.enabled = false;
                     StartCoroutine(InputMapper.Vibration(playerNum, .2f, .15f, .5f));
                 }
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
                 else if (Input.GetKeyDown(ItemPickUpKeycode))
                 {
                     GrabItem(col.gameObject);

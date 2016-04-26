@@ -75,7 +75,7 @@ public class Ghost : Player
                 kissObject(bodyColliderList);           
         }
         #region Keyboard Input Related Code (for Debugging)
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
         else if (Input.GetKeyDown(KeyCode.M) && canKissObject())
         {
             if (_MoveInteractTrigger.interactColliderList.Count > 0)
@@ -103,7 +103,7 @@ public class Ghost : Player
 
         if (TouchingFurniture && currentSpeed > 1.5f)
             currentSpeed = SlowGhostDown(SpeedReducePercent);
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
         else if (TouchingFurniture && debugCurrentSpeed > 1.5f)
             debugCurrentSpeed = DebugSlowGhostDown(SpeedReducePercent);
 #endif
@@ -186,7 +186,7 @@ public class Ghost : Player
         return currentSpeed * SpeedReduction;
     }
 
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
     private float DebugSlowGhostDown(float SpeedReduction)
     {
         if (SpeedReduction > 100) SpeedReduction = 100;

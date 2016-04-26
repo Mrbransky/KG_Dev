@@ -16,7 +16,7 @@ public class Entity : MonoBehaviour
 
 
     #region Keyboard Input Related Variables (for Debugging)
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
     [Header("Debug")]
     public Vector2 debugMoveDir;
     public float debugCurrentSpeed;
@@ -45,7 +45,7 @@ public class Entity : MonoBehaviour
 
 
         #region Keyboard Input Related Code (for Debugging)
-#if UNITY_EDITOR || UNITY_WEBGL //|| UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
         else if (debugMoveDir != Vector2.zero && topSpeed > 0)
         {
             // AccelCurrentSpeed
