@@ -24,6 +24,7 @@ public class HeartComponentManager : MonoBehaviour {
         foreach (Image image in occludeMats)
         {
             image.material = OccludeMat;
+            image.color = OccludeMat.GetColor("_OColor");
         }
     }
 	
