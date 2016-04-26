@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MissionObjective_Item : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class MissionObjective_Item : MonoBehaviour
     private bool hasBeenPickedUpBefore = false;
 
     public SpriteRenderer Item_Outline;
+    private List<int> playerNumOrder;
 
     private bool isHighlighted = true;
     private Animator animator;
@@ -21,6 +23,7 @@ public class MissionObjective_Item : MonoBehaviour
     void Start()
     {
         _RoomGenerator = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoomGenerator>();
+        playerNumOrder = new List<int>();
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -76,9 +79,24 @@ public class MissionObjective_Item : MonoBehaviour
         Item_Outline.color = transparent;
     }
 
-    public void SetColor(Color playerColor)
+    public void AddPlayerNum(int playerNum)
     {
-        if (Item_Outline.color == Color.white)
+        playerNumOrder.Add(playerNum);
+    }
+
+    public void RemovePlayerNum(int playerNum)
+    {
+        playerNumOrder.Remove(playerNum);
+
+        if (playerNumOrder.Count <= 0)
+        {
+            ResetColor();
+        }
+    }
+
+    public void SetColor(Color playerColor, int playerNum)
+    {
+        if ((playerNumOrder.Count > 0 && playerNumOrder[playerNumOrder.Count - 1] == playerNum) || Item_Outline.color == Color.white)
         {
             Item_Outline.color = playerColor;
         }

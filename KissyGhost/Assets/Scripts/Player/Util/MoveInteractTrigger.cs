@@ -21,6 +21,9 @@ public class MoveInteractTrigger : MonoBehaviour {
 
     public bool isGhostInteractTrigger = false;
     public List<Collider2D> interactColliderList;
+
+    private Human _Human;
+
     //private SpriteRenderer spriteRenderer_InteractButtonPrompt;
 
 	void Awake () 
@@ -32,6 +35,10 @@ public class MoveInteractTrigger : MonoBehaviour {
         {
             interactColliderList = new List<Collider2D>();
             //spriteRenderer_InteractButtonPrompt = GetComponentInChildren<SpriteRenderer>();
+        }
+        else
+        {
+            _Human = this.GetComponentInParent<Human>();
         }
 	}
 	
@@ -103,20 +110,18 @@ public class MoveInteractTrigger : MonoBehaviour {
 
         else if (col.tag == "Cat" && !isGhostInteractTrigger)
         {
-            Human player = this.GetComponentInParent<Human>();
-
-            if (player.CanGrabItem && col.GetComponent<MissionObjective_Item>().IsItemPlacedDown)
+            if (_Human.CanGrabItem && col.GetComponent<MissionObjective_Item>().IsItemPlacedDown)
             {
-                col.GetComponent<MissionObjective_Item>().SetColor(player.MainColor);
+                col.GetComponent<MissionObjective_Item>().SetColor(_Human.MainColor, _Human.playerNum);
 
-                if (player.GetAButtonDown)
+                if (_Human.GetAButtonDown)
                 {
-                    player.GrabItem(col.gameObject);
+                    _Human.GrabItem(col.gameObject);
                 }
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
-                else if (Input.GetKeyDown(player.ItemPickUpKeycode))
+                else if (Input.GetKeyDown(_Human.ItemPickUpKeycode))
                 {
-                    player.GrabItem(col.gameObject);
+                    _Human.GrabItem(col.gameObject);
                 }
 #endif
             }
@@ -135,9 +140,13 @@ public class MoveInteractTrigger : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.tag == "Cat" && !isGhostInteractTrigger)
+        {
+            col.GetComponent<MissionObjective_Item>().AddPlayerNum(_Human.playerNum);
+        }
+
         if (col.gameObject.name.Contains("ItemNode"))
             IsOnItemNode = true;
-
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -153,9 +162,9 @@ public class MoveInteractTrigger : MonoBehaviour {
                 transform.parent.GetComponent<Ghost>().ShowBodyFurnitureOutline();
             }
         }
-        else if (col.tag == "Cat" && !isGhostInteractTrigger)
+        else if (!isGhostInteractTrigger && col.tag == "Cat")
         {
-            col.GetComponent<MissionObjective_Item>().ResetColor();
+            col.GetComponent<MissionObjective_Item>().RemovePlayerNum(_Human.playerNum);
         }
 
         if (col.gameObject.name.Contains("ItemNode"))
