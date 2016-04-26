@@ -434,17 +434,21 @@ public class Human : Player
 
     private void killSelf()
     {
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().OnHumanDead(gameObject, gameObject.GetComponent<SpriteRenderer>());
-        Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
+        GameManager gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        if (gm.gameEnd == false)
+        {
+            gm.OnHumanDead(gameObject, gameObject.GetComponent<SpriteRenderer>());
+            Camera.main.GetComponent<NewCameraBehavior>().targets.Remove(gameObject);
 
-        if (IsCarryingItem)
-            PutItemDown(HeldItemName);
-        
-        _HumanSpriteFlasher.StopFlashing();
-        Destroy(GetComponent<Rigidbody>());
-        GetComponent<Collider2D>().enabled = false;
-        GetComponent<HumanDeath>().enabled = true;
-        this.enabled = false;
+            if (IsCarryingItem)
+                PutItemDown(HeldItemName);
+
+            _HumanSpriteFlasher.StopFlashing();
+            Destroy(GetComponent<Rigidbody>());
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<HumanDeath>().enabled = true;
+            this.enabled = false;
+        }
     }
 
     //public void AttachToPullSwitch(GameObject obj)

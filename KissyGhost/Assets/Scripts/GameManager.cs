@@ -233,7 +233,7 @@ public class GameManager : MonoBehaviour {
             if (didHumansWin)
             {
                 GhostPullToMiddle();
-                if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 0.1f)
+                if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 1f)
                 {
                     timer -= Time.fixedDeltaTime;
 
