@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c38325d11935ec49810174689f94158, type: 3}
   m_Name: Woman_fullspritesheet-color-palette_p3
   m_EditorClassIdentifier: 
-  source: {fileID: 2800000, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
+  source: {fileID: 2800000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
   palette:
   - {r: .796078444, g: .662745118, b: .603921592, a: 1}
   - {r: .282352954, g: .0666666701, b: .0666666701, a: 1}

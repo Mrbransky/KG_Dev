@@ -407,7 +407,7 @@ public class CharacterSelectManager : MonoBehaviour
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
                         else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
-#if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
+#if  UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE || UNITY_EDITOR 
                         else
                         {
                             switch (i)
@@ -463,7 +463,7 @@ public class CharacterSelectManager : MonoBehaviour
 
                         else if (AnalogXDir > STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
-#if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
+#if  UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE || UNITY_EDITOR
                         else
                         {
                             switch (i)
@@ -518,7 +518,7 @@ public class CharacterSelectManager : MonoBehaviour
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
                         else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
-#if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
+#if UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE || UNITY_EDITOR
                         else
                         {
                             switch (i)

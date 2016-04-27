@@ -4056,7 +4056,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &419026679 stripped
 SpriteRenderer:
@@ -4594,7 +4594,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &485993857
 GameObject:
@@ -14535,7 +14535,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1958699381
 Prefab:
@@ -15036,7 +15036,7 @@ MonoBehaviour:
   heartZoom: {fileID: 2102822334}
   _HeartZoomTransition: {fileID: 879460498}
   _SpriteSorter: {fileID: 2038403448}
-  startingWomanSprite: {fileID: 21300000, guid: 8e8266db716ad3e49a023472768d3468,
+  startingWomanSprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
     type: 3}
   startingOldieSprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268,
     type: 3}

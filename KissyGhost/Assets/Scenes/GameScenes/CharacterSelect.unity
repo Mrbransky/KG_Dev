@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   palSwap: {fileID: 14586036}
   OldieStartSprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
-  WomanStartSprite: {fileID: 21300000, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
+  WomanStartSprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
 --- !u!114 &14586036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ Prefab:
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468,
+      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
         type: 3}
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: paletteRandSelection.Array.data[1]
@@ -381,7 +381,8 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: currentPalette
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 514041db5004ba64ca0cd29e1aaac166,
+        type: 2}
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: spriteRenderer
       value: 
@@ -1763,7 +1764,7 @@ Prefab:
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468,
+      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
@@ -2080,7 +2081,7 @@ Prefab:
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468,
+      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
         type: 3}
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: paletteRandSelection.Array.data[1]
@@ -2924,7 +2925,7 @@ Prefab:
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300006, guid: 8e8266db716ad3e49a023472768d3468,
+      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
@@ -3502,7 +3503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _HeartZoomTransition: {fileID: 1866526308}
   OldieStartSprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
-  WomanStartSprite: {fileID: 21300000, guid: 8e8266db716ad3e49a023472768d3468, type: 3}
+  WomanStartSprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
   GhostSpriteReferencePointTransform: {fileID: 2132573626}
   PlayerSpriteReferencePointArray:
   - {fileID: 683749102}
