@@ -111,6 +111,7 @@
     <Compile Include="Assets\Scripts\SpriteSorter.cs" />
     <Compile Include="Assets\Scripts\StartingCountdown.cs" />
     <Compile Include="Assets\Scripts\ThrowableItem.cs" />
+    <Compile Include="Assets\Scripts\UI\AnimaticPlayer.cs" />
     <Compile Include="Assets\Scripts\UI\CreditInput.cs" />
     <Compile Include="Assets\Scripts\UI\DoorArrowTracker.cs" />
     <Compile Include="Assets\Scripts\UI\FadeOnTimeScale1.cs" />
