@@ -5,7 +5,7 @@ public class GoBack : MonoBehaviour {
 
     public HeartZoomTransition _HeartZoomTransition;
 
-    public int sceneToGoBackToo = 0;
+    public int sceneToGoBackToo = 1;
 	void Update ()
     {
 	    if (_HeartZoomTransition.enabled)

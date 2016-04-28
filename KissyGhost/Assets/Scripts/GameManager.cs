@@ -279,11 +279,11 @@ public class GameManager : MonoBehaviour {
                 {
                     if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
                     {
-                        _HeartZoomTransition.StartHeartZoomInFinish(1);
+                        _HeartZoomTransition.StartHeartZoomInFinish(2);
                     }
                     else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKey("joystick button 1"))
                     {
-                        _HeartZoomTransition.StartHeartZoomInFinish(0);
+                        _HeartZoomTransition.StartHeartZoomInFinish(1);
                     }
 
                     timer = -1;
