@@ -77,7 +77,8 @@ public class CharacterSelectManager : MonoBehaviour
     [Header("Player")]
     public Transform[] PlayerSpriteReferencePointArray;
     public SpriteRenderer[] PlayerSpriteRendererArray;
-    public PaletteSwapper[] PlayerPaletteSwapperArray;  
+    public PaletteSwapper[] PlayerPaletteSwapperArray;
+    public GoBack goBackScript;
     
     [Header("Text")]
     public Text[] ReadyTextArray;
@@ -236,6 +237,16 @@ public class CharacterSelectManager : MonoBehaviour
             return;
         }
 
+        for (int i = 0; i < MAX_PLAYER_COUNT; i++)
+        {
+            if (InputMapper.GrabVal(XBOX360_BUTTONS.B, i + 1) && CanGoBackToInstructions() && !wasBButtonPressed[i])
+            {
+                goBackScript.GoBackToInstructions();
+                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
+            }
+
+        }
+
 #if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -357,6 +368,17 @@ public class CharacterSelectManager : MonoBehaviour
                 moveSprites();
                 break;
         }
+    }
+
+    private bool CanGoBackToInstructions()
+    {
+        for (int i = 0; i < MAX_PLAYER_COUNT; i++)
+        {
+            if (playerStates[i] != PlayerStates.Inactive)
+                return false;
+        }
+
+        return true;
     }
 
 #region CharacterSelectStates.WaitingForPlayers Functions

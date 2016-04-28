@@ -2736,7 +2736,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -309.999939, y: -240.000046}
+  m_AnchoredPosition: {x: -314.100006, y: -240.479996}
   m_SizeDelta: {x: 100, y: 35}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1379216941
@@ -3696,6 +3696,7 @@ MonoBehaviour:
   - {fileID: 1900717428}
   - {fileID: 2087563061}
   - {fileID: 728742723}
+  goBackScript: {fileID: 1379216941}
   ReadyTextArray:
   - {fileID: 1358558477}
   - {fileID: 1879663087}

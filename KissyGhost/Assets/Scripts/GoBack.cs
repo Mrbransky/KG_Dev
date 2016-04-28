@@ -13,11 +13,10 @@ public class GoBack : MonoBehaviour {
             return;
         }
 
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKey("joystick button 1"))
-        {
-            _HeartZoomTransition.enabled = true;
-            _HeartZoomTransition.StartHeartZoomIn(sceneToGoBackToo);
-        }
+        //if (Input.GetKeyDown (KeyCode.Space) || Input.GetKey("joystick button 1"))
+        //{
+
+        //}
 
 #if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -26,5 +25,11 @@ public class GoBack : MonoBehaviour {
             _HeartZoomTransition.StartHeartZoomIn(-1);
         }
 #endif
+    }
+
+    public void GoBackToInstructions()
+    {
+        _HeartZoomTransition.enabled = true;
+        _HeartZoomTransition.StartHeartZoomIn(sceneToGoBackToo);
     }
 }
