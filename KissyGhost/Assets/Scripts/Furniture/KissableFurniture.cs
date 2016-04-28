@@ -351,6 +351,7 @@ public class KissableFurniture : MonoBehaviour
                 humanScript.HugHuman();                
                 UnkissFurniture();
                 //Human Get Hit Sound
+				soundManager.SOUND_MAN.playSound("Play_PlayerHit", gameObject);
             }
         }
 

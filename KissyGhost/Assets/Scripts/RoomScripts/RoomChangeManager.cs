@@ -162,9 +162,10 @@ public class RoomChangeManager : MonoBehaviour
                 if (obj.GetComponent<SpriteRenderer>().color.a != 1)
                     return false;
             }
-            
+
             return true;
-            //Doors Unlock Sound
+            //Doors Unlock Sound DOES NOT WORK HERE ZAKHARRY WHAT THE HELL
+			soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);
         }
             
         return false;
@@ -192,6 +193,7 @@ public class RoomChangeManager : MonoBehaviour
     private void SubObjectiveCheck_OnRoomChanged()
     {
         //ROOM CHANGE SOUND :D
+		soundManager.SOUND_MAN.playSound("Play_RoomTransition", gameObject);
 
         if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
         {

@@ -107,7 +107,7 @@
 						<Action Name="Play" ID="{7F9150AE-352D-4E27-8C00-6FB3F328B787}" ShortID="196090146" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{92B29CE8-2DB8-4195-B514-ABE6CA22E934}" Global="false">
-									<ObjectRef Name="ItemDown" ID="{7FE3D650-30E7-4758-B576-FBA7822E1F7B}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="ItemDown" ID="{06835B2E-79A2-4C66-B503-64299B8691C5}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -129,7 +129,7 @@
 						<Action Name="Play" ID="{FF1EA14F-F230-4AAE-95CA-5928C0805473}" ShortID="795738638" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{5BD02738-DE38-4D41-A406-234580120FD9}" Global="false">
-									<ObjectRef Name="ItemPickup" ID="{4544A2AC-F0DA-494A-AA98-ECEF15DFB146}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="ItemPickup" ID="{B4CEA8C9-E288-4149-A13A-3C5D92B1C6F1}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -184,7 +184,7 @@
 						<Action Name="Play" ID="{1E4C653D-5D5B-422E-863F-C9CB79E5BCF7}" ShortID="937125412" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{EB5C0003-8ED1-4581-AF64-7986B3D5A6F2}" Global="false">
-									<ObjectRef Name="DoorOpen" ID="{65F2D604-D746-4D5F-B452-19D592690F5A}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="DoorUnlock" ID="{C0E54083-DC2A-4570-A9A2-E5ECBFB0AC0F}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -196,6 +196,28 @@
 							<ElementList>
 								<Element ID="{BC54978D-F148-4053-823C-E533188D20E5}" Global="false">
 									<ObjectRef Name="StairsMove" ID="{18F64AD9-83A8-4576-A684-7CA404717B8E}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_RoomTransition" ID="{30CE0AF5-2D1B-423A-991D-EE3CCCF61B89}">
+					<ChildrenList>
+						<Action Name="Play" ID="{1E96C8AA-26C0-4639-9F59-E3E11A56529E}" ShortID="215511183" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{9667E923-8BC7-4587-81AC-3C683A117895}" Global="false">
+									<ObjectRef Name="RoomTransition" ID="{2531F3F1-4D27-4A8B-B374-0D4F3D3981CC}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_PlayerHit" ID="{666292DF-C1E8-4624-A14E-287C4E0679B1}">
+					<ChildrenList>
+						<Action Name="Play" ID="{685254F6-1685-4200-A040-3D49B762E143}" ShortID="550970029" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{A176EF23-D55F-42A3-B5EF-D0E414FE7411}" Global="false">
+									<ObjectRef Name="PlayerHit" ID="{D45F0BAE-38A4-4BF2-ACC5-94F37888F19B}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>

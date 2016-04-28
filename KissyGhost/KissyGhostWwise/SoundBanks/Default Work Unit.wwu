@@ -20,9 +20,11 @@
 						<ObjectRef Name="Play_Item_In_Heartagram" ID="{F29ADFCC-4943-4706-8586-8F4ED25B2BAA}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Music" ID="{02D767D1-11F8-4D47-B28F-7067077E250A}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Stop_StairsMove" ID="{75985AD9-3C76-4BFB-94ED-D978ADE963DC}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_PlayerHit" ID="{666292DF-C1E8-4624-A14E-287C4E0679B1}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Menu_Up" ID="{3E6618E0-2B36-45C7-8F55-D72CCCDB49E2}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_PlayerJoin" ID="{3F2CB3EB-83F0-4528-BF6D-BF46736A6712}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Round_Start" ID="{175F9EF4-3EE2-4C15-99CA-A560D9427333}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_RoomTransition" ID="{30CE0AF5-2D1B-423A-991D-EE3CCCF61B89}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
