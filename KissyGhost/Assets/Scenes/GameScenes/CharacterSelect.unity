@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palSwap: {fileID: 14586036}
-  OldieStartSprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
-  WomanStartSprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
+  OldieStartSprite: {fileID: 21300000, guid: a6f5914f6b30a8049b3fdd2146984478, type: 3}
+  WomanStartSprite: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc, type: 3}
 --- !u!114 &14586036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ Prefab:
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
+      objectReference: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc,
         type: 3}
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: paletteRandSelection.Array.data[1]
@@ -381,7 +381,7 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: currentPalette
       value: 
-      objectReference: {fileID: 11400000, guid: 514041db5004ba64ca0cd29e1aaac166,
+      objectReference: {fileID: 11400000, guid: 9bb9fffe6841a0c4eb58e237dbfc950e,
         type: 2}
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: spriteRenderer
@@ -1838,12 +1838,12 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: currentPalette
       value: 
-      objectReference: {fileID: 11400000, guid: 627ac5cce34e711469d29d6182e0a8a7,
+      objectReference: {fileID: 11400000, guid: 2dba9db8d08fa1248bf9499d413653d3,
         type: 2}
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
+      objectReference: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
@@ -2160,7 +2160,7 @@ Prefab:
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
+      objectReference: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc,
         type: 3}
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: paletteRandSelection.Array.data[1]
@@ -2192,7 +2192,7 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: currentPalette
       value: 
-      objectReference: {fileID: 11400000, guid: e5b7d26fc01934d4f9a67f8b9e66fecb,
+      objectReference: {fileID: 11400000, guid: 86a3daf3157cb024ba9db83b1a894c89,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
@@ -3092,7 +3092,7 @@ Prefab:
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: currentPalette
       value: 
-      objectReference: {fileID: 11400000, guid: 679a676e55e4e514da13c74562bab797,
+      objectReference: {fileID: 11400000, guid: 3eaa786df404917469b0556526ae1608,
         type: 2}
     - target: {fileID: 11407768, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: spriteRenderer
@@ -3101,7 +3101,7 @@ Prefab:
     - target: {fileID: 21244518, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
+      objectReference: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5481349f13be2ea449b7b0a4f91abba4, type: 2}
@@ -3735,14 +3735,14 @@ MonoBehaviour:
   - {fileID: 855355684}
   PlayerPosInPaletteList: 00000000000000000000000000000000
   AvailablePalettesList:
-  - {fileID: 11400000, guid: 514041db5004ba64ca0cd29e1aaac166, type: 2}
-  - {fileID: 11400000, guid: e5b7d26fc01934d4f9a67f8b9e66fecb, type: 2}
-  - {fileID: 11400000, guid: 627ac5cce34e711469d29d6182e0a8a7, type: 2}
-  - {fileID: 11400000, guid: 679a676e55e4e514da13c74562bab797, type: 2}
-  - {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa, type: 2}
-  - {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846, type: 2}
-  - {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711, type: 2}
-  - {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3, type: 2}
+  - {fileID: 11400000, guid: 9bb9fffe6841a0c4eb58e237dbfc950e, type: 2}
+  - {fileID: 11400000, guid: 86a3daf3157cb024ba9db83b1a894c89, type: 2}
+  - {fileID: 11400000, guid: 2dba9db8d08fa1248bf9499d413653d3, type: 2}
+  - {fileID: 11400000, guid: 3eaa786df404917469b0556526ae1608, type: 2}
+  - {fileID: 11400000, guid: 7d47f9cba6e86414a958e72c0e72b78f, type: 2}
+  - {fileID: 11400000, guid: 0e079f795adca9949b901f5299677b7c, type: 2}
+  - {fileID: 11400000, guid: 2cd1220b494ee3f44adfff4550b0d9bd, type: 2}
+  - {fileID: 11400000, guid: 0391027353be1304e84395033b05fefc, type: 2}
   startingSprites: []
   CharacterSelectDebugText: {fileID: 407634818}
 --- !u!1 &1834165161

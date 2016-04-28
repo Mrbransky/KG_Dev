@@ -675,7 +675,8 @@ public class CharacterSelectManager : MonoBehaviour
             StartCoroutine(InputMapper.Vibration(playerNum + 1, .2f, 0, .8f));
             //PlayerPaletteSwapperArray[playerNum].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[playerNum]];
             //PlayerPaletteSwapperArray[playerNum].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[playerNum]]);
-            PlayerPaletteSwapperArray[playerNum].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[playerNum]].newPalette[7]);
+            int targetPaletteIndex = (int)char.GetNumericValue(AvailablePalettesList[PlayerPosInPaletteList[playerNum]].name[0]);
+            PlayerPaletteSwapperArray[playerNum].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[playerNum]].newPalette[targetPaletteIndex]);
             soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             PlayerSpriteRendererArray[playerNum].enabled = true;
             playerStates[playerNum] = PlayerStates.PickingColor;

@@ -1,25 +1,24 @@
 fileFormatVersion: 2
-guid: c68f56e4553b2af47aab73708f941268
-timeCreated: 1461882405
+guid: a6f5914f6b30a8049b3fdd2146984478
+timeCreated: 1461882427
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: oldie_fullspritesheet_0
-    21300002: oldie_fullspritesheet_1
-    21300004: oldie_fullspritesheet_2
-    21300006: oldie_fullspritesheet_3
-    21300008: oldie_fullspritesheet_4
-    21300010: oldie_fullspritesheet_5
-    21300012: oldie_fullspritesheet_6
-    21300014: oldie_fullspritesheet_7
-    21300016: oldie_fullspritesheet_8
-    21300018: oldie_fullspritesheet_9
-    21300020: oldie_fullspritesheet_10
-    21300022: oldie_fullspritesheet_11
-    21300024: oldie_fullspritesheet_12
-    21300026: oldie_fullspritesheet_13
-    21300028: oldie_fullspritesheet_14
-    21300030: oldie_fullspritesheet_15
+    21300000: Old_Man_FullSpriteSheetRecolored_0
+    21300002: Old_Man_FullSpriteSheetRecolored_1
+    21300004: Old_Man_FullSpriteSheetRecolored_2
+    21300006: Old_Man_FullSpriteSheetRecolored_3
+    21300008: Old_Man_FullSpriteSheetRecolored_4
+    21300010: Old_Man_FullSpriteSheetRecolored_5
+    21300012: Old_Man_FullSpriteSheetRecolored_6
+    21300014: Old_Man_FullSpriteSheetRecolored_7
+    21300016: Old_Man_FullSpriteSheetRecolored_8
+    21300018: Old_Man_FullSpriteSheetRecolored_9
+    21300020: Old_Man_FullSpriteSheetRecolored_10
+    21300022: Old_Man_FullSpriteSheetRecolored_11
+    21300024: Old_Man_FullSpriteSheetRecolored_12
+    21300026: Old_Man_FullSpriteSheetRecolored_13
+    21300028: Old_Man_FullSpriteSheetRecolored_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,7 +64,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: oldie_fullspritesheet_0
+    - name: Old_Man_FullSpriteSheetRecolored_0
       rect:
         serializedVersion: 2
         x: 0
@@ -75,7 +74,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_1
+    - name: Old_Man_FullSpriteSheetRecolored_1
       rect:
         serializedVersion: 2
         x: 76
@@ -85,7 +84,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_2
+    - name: Old_Man_FullSpriteSheetRecolored_2
       rect:
         serializedVersion: 2
         x: 152
@@ -95,7 +94,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_3
+    - name: Old_Man_FullSpriteSheetRecolored_3
       rect:
         serializedVersion: 2
         x: 228
@@ -105,7 +104,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_4
+    - name: Old_Man_FullSpriteSheetRecolored_4
       rect:
         serializedVersion: 2
         x: 304
@@ -115,7 +114,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_5
+    - name: Old_Man_FullSpriteSheetRecolored_5
       rect:
         serializedVersion: 2
         x: 380
@@ -125,7 +124,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_6
+    - name: Old_Man_FullSpriteSheetRecolored_6
       rect:
         serializedVersion: 2
         x: 456
@@ -135,7 +134,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_7
+    - name: Old_Man_FullSpriteSheetRecolored_7
       rect:
         serializedVersion: 2
         x: 532
@@ -145,7 +144,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_8
+    - name: Old_Man_FullSpriteSheetRecolored_8
       rect:
         serializedVersion: 2
         x: 0
@@ -155,7 +154,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_9
+    - name: Old_Man_FullSpriteSheetRecolored_9
       rect:
         serializedVersion: 2
         x: 88
@@ -165,7 +164,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_10
+    - name: Old_Man_FullSpriteSheetRecolored_10
       rect:
         serializedVersion: 2
         x: 172
@@ -175,7 +174,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_11
+    - name: Old_Man_FullSpriteSheetRecolored_11
       rect:
         serializedVersion: 2
         x: 256
@@ -185,7 +184,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_12
+    - name: Old_Man_FullSpriteSheetRecolored_12
       rect:
         serializedVersion: 2
         x: 332
@@ -195,7 +194,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_13
+    - name: Old_Man_FullSpriteSheetRecolored_13
       rect:
         serializedVersion: 2
         x: 416
@@ -205,7 +204,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: oldie_fullspritesheet_14
+    - name: Old_Man_FullSpriteSheetRecolored_14
       rect:
         serializedVersion: 2
         x: 509

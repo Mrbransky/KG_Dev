@@ -3922,7 +3922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 407115405}
-  currentPalette: {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3, type: 2}
+  currentPalette: {fileID: 11400000, guid: 3eaa786df404917469b0556526ae1608, type: 2}
   playerNumText: {fileID: 0}
 --- !u!114 &407115399
 MonoBehaviour:
@@ -4056,7 +4056,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &419026679 stripped
 SpriteRenderer:
@@ -4472,7 +4472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 462095497}
-  currentPalette: {fileID: 11400000, guid: e5b7d26fc01934d4f9a67f8b9e66fecb, type: 2}
+  currentPalette: {fileID: 11400000, guid: 86a3daf3157cb024ba9db83b1a894c89, type: 2}
   playerNumText: {fileID: 0}
 --- !u!114 &462095492
 MonoBehaviour:
@@ -4594,7 +4594,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &485993857
 GameObject:
@@ -13122,7 +13122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1743649148}
-  currentPalette: {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa, type: 2}
+  currentPalette: {fileID: 11400000, guid: 7d47f9cba6e86414a958e72c0e72b78f, type: 2}
   playerNumText: {fileID: 0}
 --- !u!114 &1743649143
 MonoBehaviour:
@@ -13244,7 +13244,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6f5914f6b30a8049b3fdd2146984478, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1743649149
 MonoBehaviour:
@@ -14401,7 +14401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1957596428}
-  currentPalette: {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711, type: 2}
+  currentPalette: {fileID: 11400000, guid: 2dba9db8d08fa1248bf9499d413653d3, type: 2}
   playerNumText: {fileID: 0}
 --- !u!114 &1957596422
 MonoBehaviour:
@@ -14535,7 +14535,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1958699381
 Prefab:
@@ -15036,9 +15036,9 @@ MonoBehaviour:
   heartZoom: {fileID: 2102822334}
   _HeartZoomTransition: {fileID: 879460498}
   _SpriteSorter: {fileID: 2038403448}
-  startingWomanSprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc,
+  startingWomanSprite: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc,
     type: 3}
-  startingOldieSprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268,
+  startingOldieSprite: {fileID: 21300000, guid: a6f5914f6b30a8049b3fdd2146984478,
     type: 3}
   music:
   - {fileID: 0}
@@ -15068,15 +15068,15 @@ MonoBehaviour:
   currentGhostPlayer: {fileID: 0}
   ghostPrefab: {fileID: 109294, guid: 295ee7ae37d771a47a0e94bd99c74a27, type: 2}
   oldieColorPalettes:
-  - {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa, type: 2}
-  - {fileID: 11400000, guid: b207c1f68f02aef458ad0a3bce5f1846, type: 2}
-  - {fileID: 11400000, guid: 91127bd649c201341a365a22f201f711, type: 2}
-  - {fileID: 11400000, guid: dec279395da9c954595df639b165a0c3, type: 2}
+  - {fileID: 11400000, guid: 7d47f9cba6e86414a958e72c0e72b78f, type: 2}
+  - {fileID: 11400000, guid: 0e079f795adca9949b901f5299677b7c, type: 2}
+  - {fileID: 11400000, guid: 2cd1220b494ee3f44adfff4550b0d9bd, type: 2}
+  - {fileID: 11400000, guid: 0391027353be1304e84395033b05fefc, type: 2}
   womanColorPalettes:
-  - {fileID: 11400000, guid: 514041db5004ba64ca0cd29e1aaac166, type: 2}
-  - {fileID: 11400000, guid: e5b7d26fc01934d4f9a67f8b9e66fecb, type: 2}
-  - {fileID: 11400000, guid: 627ac5cce34e711469d29d6182e0a8a7, type: 2}
-  - {fileID: 11400000, guid: 679a676e55e4e514da13c74562bab797, type: 2}
+  - {fileID: 11400000, guid: 9bb9fffe6841a0c4eb58e237dbfc950e, type: 2}
+  - {fileID: 11400000, guid: 86a3daf3157cb024ba9db83b1a894c89, type: 2}
+  - {fileID: 11400000, guid: 2dba9db8d08fa1248bf9499d413653d3, type: 2}
+  - {fileID: 11400000, guid: 3eaa786df404917469b0556526ae1608, type: 2}
 --- !u!4 &2038403442
 Transform:
   m_ObjectHideFlags: 0

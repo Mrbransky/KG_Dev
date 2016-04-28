@@ -98,7 +98,8 @@ public class PaletteSwapper : MonoBehaviour {
 
     public void UpdatePlayerNumTextColor()
     {
-        playerNumText.color = currentPalette.newPalette[7];
+        int targetPaletteIndex = (int)char.GetNumericValue(currentPalette.name[0]);
+        playerNumText.color = currentPalette.newPalette[targetPaletteIndex];
     }
 
     public void UpdatePlayerNumTextColor(Color col)

@@ -23,7 +23,11 @@ public class MissionObjective_Item : MonoBehaviour
     void Start()
     {
         _RoomGenerator = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoomGenerator>();
-        playerNumOrder = new List<int>();
+
+        if (playerNumOrder == null)
+        {
+            playerNumOrder = new List<int>();
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -81,6 +85,11 @@ public class MissionObjective_Item : MonoBehaviour
 
     public void AddPlayerNum(int playerNum)
     {
+        if (playerNumOrder == null)
+        {
+            playerNumOrder = new List<int>();
+        }
+
         playerNumOrder.Add(playerNum);
     }
 

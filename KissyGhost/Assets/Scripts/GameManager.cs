@@ -164,7 +164,8 @@ public class GameManager : MonoBehaviour {
                 currentPlayer_PS.currentPalette = playerColorPalettes[i];
                 currentPlayer_PS.SwapColors_Custom(currentPlayer_PS.currentPalette);
 
-                playerHuman.MainColor = currentPlayer_PS.currentPalette.newPalette[7];
+                int targetPaletteIndex = (int)char.GetNumericValue(currentPlayer_PS.currentPalette.name[0]);
+                playerHuman.MainColor = currentPlayer_PS.currentPalette.newPalette[targetPaletteIndex];
                 playerNumText[i].color = playerHuman.MainColor;
 
                 currentPlayers[i].GetComponent<SpriteRenderer>().material.SetColor("_OColor", playerNumText[i].color);
