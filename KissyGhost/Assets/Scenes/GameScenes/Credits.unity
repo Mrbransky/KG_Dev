@@ -553,6 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeartZoomTransition: {fileID: 397849929}
+  sceneToGoBackToo: 0
 --- !u!82 &98296059
 AudioSource:
   m_ObjectHideFlags: 0

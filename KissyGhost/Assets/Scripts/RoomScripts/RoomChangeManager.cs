@@ -163,9 +163,10 @@ public class RoomChangeManager : MonoBehaviour
                     return false;
             }
 
+            soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);
             return true;
             //Doors Unlock Sound DOES NOT WORK HERE ZAKHARRY WHAT THE HELL
-			soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);
+			
         }
             
         return false;
