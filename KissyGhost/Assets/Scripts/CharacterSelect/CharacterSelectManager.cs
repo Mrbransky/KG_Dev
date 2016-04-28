@@ -429,7 +429,7 @@ public class CharacterSelectManager : MonoBehaviour
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
                         else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
-#if  UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE || UNITY_EDITOR 
+#if  UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE || UNITY_EDITOR 
                         else
                         {
                             switch (i)
@@ -480,12 +480,13 @@ public class CharacterSelectManager : MonoBehaviour
                         break;
 
                     case StickStates.Left:
-                        if (AnalogXDir > -STICK_HORIZ_THRESHOLD && AnalogXDir < STICK_HORIZ_THRESHOLD)
+                        if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
+                            return;
+                        else if (AnalogXDir > -STICK_HORIZ_THRESHOLD && AnalogXDir < STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
-
                         else if (AnalogXDir > STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Right, i);
-#if  UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE || UNITY_EDITOR
+#if  UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE || UNITY_EDITOR
                         else
                         {
                             switch (i)
@@ -536,11 +537,13 @@ public class CharacterSelectManager : MonoBehaviour
                         break;
 
                     case StickStates.Right:
-                        if (AnalogXDir < STICK_HORIZ_THRESHOLD && AnalogXDir > -STICK_HORIZ_THRESHOLD)
+                        if (AnalogXDir > STICK_HORIZ_THRESHOLD)
+                            return;
+                        else if (AnalogXDir < STICK_HORIZ_THRESHOLD && AnalogXDir > -STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Neutral, i);
                         else if (AnalogXDir < -STICK_HORIZ_THRESHOLD)
                             playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
-#if UNITY_WEBGL || UNITY_WEBPLAYER //|| UNITY_STANDALONE || UNITY_EDITOR
+#if UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE || UNITY_EDITOR
                         else
                         {
                             switch (i)
