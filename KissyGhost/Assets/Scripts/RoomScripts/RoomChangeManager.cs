@@ -48,7 +48,9 @@ public class RoomChangeManager : MonoBehaviour
     private SubObjectiveTypes[] roomSubObjectiveTypeArray;
     private bool[] roomSubObjectiveAccomplishedArray;
     private bool[] AreDoorsFadingIn = new bool[4];
+    private bool[] HasMadeRoomSound = new bool[4];
     private bool AllDoorsIn;
+
     private RoomLocations currentRoomLocation = RoomLocations.Center;
 
     private bool StartFadingDoorsIn;
@@ -95,13 +97,14 @@ public class RoomChangeManager : MonoBehaviour
             if (currentTimer <= .2f && !AreDoorsFadingIn[(int)currentRoomLocation])
             {
                 AreDoorsFadingIn[(int)currentRoomLocation] = true;
+                EnableGhostBarriers(currentRoomLocation);
             }
 
             for (int i = 0; i < AreDoorsFadingIn.Length; i++)
             {
                 if (AreDoorsFadingIn[i] && (int)currentRoomLocation == i)
                 {
-                    FadeInDoors(currentRoomLocation);
+                    FadeInDoors(currentRoomLocation);    
                 }
             }
 
@@ -140,12 +143,61 @@ public class RoomChangeManager : MonoBehaviour
     {
         foreach (GameObject obj in doorSprites)
             obj.GetComponent<SpriteRenderer>().enabled = true;
+
+        soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);
     }
 
     void SetDoorAlphas(float alphaVal)
     {
         foreach (GameObject obj in doorSprites)
             obj.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, alphaVal);
+    }
+
+    void EnableGhostBarriers(RoomLocations room)
+    {
+        string searchString = "";
+
+        switch(room)
+        {
+            case RoomLocations.Bottom:
+                searchString = "Bottom";
+                break;
+
+            case RoomLocations.Center:
+                searchString = "Center";
+                break;
+
+            case RoomLocations.Left:
+                searchString = "Left";
+                break;
+
+            case RoomLocations.Right:
+                searchString = "Right";
+                break;
+            
+            default:
+                break;
+        }
+
+        foreach(GameObject door in doorSprites)
+        {
+            if (door.name.Contains(searchString))
+            {
+                if (door.name != "SouthDoor_Left(Center)" && door.name != "SouthDoor_Left(Bottom)")
+                {
+                    Transform ghostbarrier = door.transform.Find("GhostBarrier").GetComponent<Transform>();
+
+                    if (ghostbarrier != null)
+                    {
+                        EdgeCollider2D[] edges = ghostbarrier.GetComponents<EdgeCollider2D>();
+
+                        foreach (EdgeCollider2D edge in edges)
+                            edge.enabled = true;
+                    }
+                }
+            }
+        }
+
     }
 
     bool AreAllDoorsIn()
@@ -162,11 +214,7 @@ public class RoomChangeManager : MonoBehaviour
                 if (obj.GetComponent<SpriteRenderer>().color.a != 1)
                     return false;
             }
-
-            soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);
-            return true;
-            //Doors Unlock Sound DOES NOT WORK HERE ZAKHARRY WHAT THE HELL
-			
+            return true;			
         }
             
         return false;
@@ -174,9 +222,10 @@ public class RoomChangeManager : MonoBehaviour
 
     void FadeInDoors(RoomLocations currentRoom)
     {
-        string doorID = "(" + currentRoom.ToString() + ")";       
+        string doorID = "(" + currentRoom.ToString() + ")";
 
-        foreach(GameObject obj in doorSprites)
+        foreach (GameObject obj in doorSprites)
+        {
             if (obj.name.Contains(doorID))
             {
                 obj.GetComponent<SpriteRenderer>().enabled = true;
@@ -185,8 +234,13 @@ public class RoomChangeManager : MonoBehaviour
                 if (obj.GetComponent<SpriteRenderer>().color.a >= 1f)
                     obj.GetComponent<EdgeCollider2D>().enabled = false;
             }
-        //DOOR SOUND??? =======D~~~~~~~
-        //soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);
+        }
+
+        if (!HasMadeRoomSound[(int)currentRoom])
+        {
+            HasMadeRoomSound[(int)currentRoom] = true;
+            soundManager.SOUND_MAN.playSound("Play_DoorOpen", gameObject);           
+        }
     }
     #endregion
 
