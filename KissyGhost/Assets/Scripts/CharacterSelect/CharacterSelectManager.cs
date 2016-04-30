@@ -809,21 +809,23 @@ public class CharacterSelectManager : MonoBehaviour
                 break;
         }
 
-        if (PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && !PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
-        {
-            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", true);
-            //PlayerSpriteRendererArray[player].sprite = WomanStartSprite;
-        }
-
-        else if (!PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Woman") && PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
-        {
-            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", false);
-            //PlayerSpriteRendererArray[player].sprite = OldieStartSprite;
-        }
-
         PlayerPaletteSwapperArray[player].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[player]]);
-        PlayerPaletteSwapperArray[player].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[player]].newPalette[7]);
         PlayerPaletteSwapperArray[player].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[player]];
+
+        int paletteColorIndex;
+
+        if (PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Lady") && !PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
+            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", true);
+
+        else if (!PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Lady") && PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
+            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", false);
+
+        if (PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
+            paletteColorIndex = 6;
+        else
+            paletteColorIndex = 7;
+
+        PlayerPaletteSwapperArray[player].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[player]].newPalette[paletteColorIndex]);
 
         return newState;
     }
@@ -905,9 +907,9 @@ public class CharacterSelectManager : MonoBehaviour
     {
         for(int i = 0; i < MAX_PLAYER_COUNT; i++)
         {
-            if (PlayerPaletteSwapperArray[i].currentPalette.name.Contains("Woman"))
+            if (PlayerPaletteSwapperArray[i].currentPalette.name.Contains("Lady"))
                 startingSprites[i] = WomanStartSprite;
-            else if (PlayerPaletteSwapperArray[i].currentPalette.name.Contains("oldie"))
+            else if (PlayerPaletteSwapperArray[i].currentPalette.name.Contains("Man"))
                 startingSprites[i] = OldieStartSprite;
         }
     }

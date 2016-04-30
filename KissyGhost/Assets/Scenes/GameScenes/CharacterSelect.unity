@@ -3678,8 +3678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeartZoomTransition: {fileID: 1866526308}
-  OldieStartSprite: {fileID: 21300000, guid: c68f56e4553b2af47aab73708f941268, type: 3}
-  WomanStartSprite: {fileID: 21300000, guid: 45a42accf57273a4f81e452fc80bfebc, type: 3}
+  OldieStartSprite: {fileID: 21300000, guid: a6f5914f6b30a8049b3fdd2146984478, type: 3}
+  WomanStartSprite: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc, type: 3}
   GhostSpriteReferencePointTransform: {fileID: 2132573626}
   PlayerSpriteReferencePointArray:
   - {fileID: 683749102}

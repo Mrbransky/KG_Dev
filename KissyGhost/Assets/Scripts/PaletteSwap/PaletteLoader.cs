@@ -22,10 +22,10 @@ public class PaletteLoader : MonoBehaviour {
 
         foreach(ColorPalette colPal in palettesToLoad)
         {
-            if(colPal.name.Contains("Woman") && palSwap.spriteRenderer.sprite != WomanStartSprite)
+            if(colPal.name.Contains("Lady") && palSwap.spriteRenderer.sprite != WomanStartSprite)
                 palSwap.spriteRenderer.sprite = WomanStartSprite;
 
-            else if(colPal.name.Contains("oldie") && palSwap.spriteRenderer.sprite != OldieStartSprite)
+            else if(colPal.name.Contains("Man") && palSwap.spriteRenderer.sprite != OldieStartSprite)
                 palSwap.spriteRenderer.sprite = OldieStartSprite;
 
             palSwap.SwapColors_Custom(colPal);
@@ -47,10 +47,10 @@ public class PaletteLoader : MonoBehaviour {
 
             playerPosInPalettesList[i] = palettesToLoad.FindIndex(a => a == randomPalette);
 
-            if (playerPaletteSwappers[i].currentPalette.name.Contains("Woman") && !playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
+            if (playerPaletteSwappers[i].currentPalette.name.Contains("Lady") && !playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
                 playerPaletteSwappers[i].GetComponent<Animator>().SetBool("IsWoman", true);
 
-            if (!playerPaletteSwappers[i].currentPalette.name.Contains("Woman") && playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
+            if (!playerPaletteSwappers[i].currentPalette.name.Contains("Lady") && playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
                 playerPaletteSwappers[i].GetComponent<Animator>().SetBool("IsWoman", false);
 
             tempPalettes.Remove(randomPalette);

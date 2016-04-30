@@ -10,7 +10,7 @@ public class CreditInput : MonoBehaviour
 	    if(Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 0"))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey("joystick button 1"))
         {
             if (heartZoomTrans.enabled == false)
             {
