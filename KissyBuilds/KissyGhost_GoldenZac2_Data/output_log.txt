@@ -2,58 +2,27 @@ Initialize engine version: 5.1.2f1 (afd2369b692a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 560 Ti   (ID=0x1200)
+    Renderer: NVIDIA GeForce GTX 950 (ID=0x1402)
     Vendor:   NVIDIA
-    VRAM:     979 MB
+    VRAM:     1969 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
-- Completed reload, in  1.123 seconds
-desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenZac2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+- Completed reload, in  0.242 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\Managed\System.dll (this message is harmless)
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1715)
-
-WwiseUnity: Initialize sound engine ...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WwiseUnity: Setting base SoundBank path to C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenZac2_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows\
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WwiseUnity: Sound engine initialized.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 28.363949 ms
-
-Unloading 53 unused Assets to reduce memory usage. Loaded Objects now: 478.
-Total: 0.499572 ms (FindLiveObjects: 0.038335 ms CreateObjectMapping: 0.017809 ms MarkObjects: 0.277406 ms  DeleteObjects: 0.164813 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.070383 ms
-
-Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 565.
-Total: 0.453690 ms (FindLiveObjects: 0.057050 ms CreateObjectMapping: 0.022639 ms MarkObjects: 0.319062 ms  DeleteObjects: 0.054032 ms)
-

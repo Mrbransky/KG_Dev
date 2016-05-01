@@ -2,74 +2,27 @@ Initialize engine version: 5.1.2f1 (afd2369b692a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 560 Ti   (ID=0x1200)
+    Renderer: NVIDIA GeForce GTX 950 (ID=0x1402)
     Vendor:   NVIDIA
-    VRAM:     979 MB
+    VRAM:     1969 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
-Loading C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
-- Completed reload, in  0.252 seconds
-desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading D:\Documents\GitHub\Kissy_Ghost\KissyBuilds\KissyGhost_GoldenMaster2_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+- Completed reload, in  0.229 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\Managed\System.dll (this message is harmless)
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1715)
-
-WwiseUnity: Initialize sound engine ...
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WwiseUnity: Setting base SoundBank path to C:\Users\Owner\Documents\CCC\Semester 11\IndieTeam\NewKissySVN\trunk\KissyGhost\KissyGhost_GoldenMaster2_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows\
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-WwiseUnity: Sound engine initialized.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.289381 ms
-
-Unloading 55 unused Assets to reduce memory usage. Loaded Objects now: 441.
-Total: 0.498365 ms (FindLiveObjects: 0.034411 ms CreateObjectMapping: 0.016300 ms MarkObjects: 0.273482 ms  DeleteObjects: 0.173265 ms)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1715)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.179353 ms
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 479.
-Total: 0.330834 ms (FindLiveObjects: 0.039543 ms CreateObjectMapping: 0.016602 ms MarkObjects: 0.245711 ms  DeleteObjects: 0.028374 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.567188 ms
-
-Unloading 53 unused Assets to reduce memory usage. Loaded Objects now: 478.
-Total: 0.636011 ms (FindLiveObjects: 0.056145 ms CreateObjectMapping: 0.019922 ms MarkObjects: 0.355888 ms  DeleteObjects: 0.202847 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.955074 ms
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 567.
-Total: 0.410223 ms (FindLiveObjects: 0.042863 ms CreateObjectMapping: 0.023544 ms MarkObjects: 0.291593 ms  DeleteObjects: 0.051315 ms)
-

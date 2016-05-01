@@ -195,15 +195,12 @@ public class CharacterSelectManager : MonoBehaviour
         playerStates = new PlayerStates[MAX_PLAYER_COUNT];
 
         playerAnalogStickStates = new StickStates[MAX_PLAYER_COUNT];
-        //PlayerPosInPaletteList = new int[MAX_PLAYER_COUNT];
 
         for (int i = 0; i < MAX_PLAYER_COUNT; ++i)
         {
             isPlayerReadyArray[i] = false;
             buttonTextArray[i] = ButtonImageArray[i].GetComponentInChildren<Text>();
             runFromGhostDirection[i] = -1;
-            //PlayerPosInPaletteList[i] = i;
-            //PlayerPaletteSwapperArray[i].currentPalette = AvailablePalettesList[i];
         }
 
         PickedPalettesList = new List<ColorPalette>();
@@ -289,8 +286,7 @@ public class CharacterSelectManager : MonoBehaviour
                         }
                     }
                 }
-                checkPlayerStates();
-                //checkIfPlayerReady();
+                CheckForPlayerStateChanges();
 
 #region Debug Code
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
@@ -603,15 +599,6 @@ public class CharacterSelectManager : MonoBehaviour
     {
         for (int i = 1; i <= MAX_PLAYER_COUNT; ++i)
         {
-            //if(InputMapper.GrabVal(XBOX360_BUTTONS.A, i) && InputMapper.GrabVal(XBOX360_BUTTONS.B, i))
-            //{
-            //    if(isPlayerReadyArray[i-1])
-            //    {
-            //        updateUI_playerReady(i - 1, false);
-            //        soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-            //    }
-            //}
-
             if (getAButtonDown[i - 1] && !isPlayerReadyArray[i - 1])
             {
                 updateUI_playerReady(i - 1, true);
@@ -646,78 +633,51 @@ public class CharacterSelectManager : MonoBehaviour
 
     #region PlayerStateChecks
 
-    private void checkPlayerStates()
+    private void CheckForPlayerStateChanges()
     {
         for (int i = 0; i < MAX_PLAYER_COUNT; i++)
         {
             switch (playerStates[i])
             {
                 case PlayerStates.Inactive:
-                    checkIfPlayerJoinedIn(i);
+                    if(CheckPlayerJoinedIn(i))
+                        playerStates[i] = ChangePlayerState(PlayerStates.PickingColor, i);
                     break;
 
                 case PlayerStates.PickingColor:
-                    checkIfPlayerPickedColor(i);
+                      playerStates[i] = ChangePlayerState(CheckPlayerPickedColor(i), i);
                     break;
 
                 case PlayerStates.Ready:
-                    checkIfPlayerOptedOut(i);
+                    if (CheckPlayerOptedOut(i))
+                        playerStates[i] = ChangePlayerState(PlayerStates.PickingColor, i);
                     break;
             }
         }
     }
 
-    private void checkIfPlayerJoinedIn(int playerNum)
+    private bool CheckPlayerJoinedIn(int playerNum)
     {
         if (getAButtonDown[playerNum])
         {
-            //PlayerPosInPaletteList[playerNum] = 0;
-            StartCoroutine(InputMapper.Vibration(playerNum + 1, .2f, 0, .8f));
-            //PlayerPaletteSwapperArray[playerNum].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[playerNum]];
-            //PlayerPaletteSwapperArray[playerNum].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[playerNum]]);
-            int targetPaletteIndex = (int)char.GetNumericValue(AvailablePalettesList[PlayerPosInPaletteList[playerNum]].name[0]);
-            PlayerPaletteSwapperArray[playerNum].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[playerNum]].newPalette[targetPaletteIndex]);
-            soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
-            PlayerSpriteRendererArray[playerNum].enabled = true;
-            playerStates[playerNum] = PlayerStates.PickingColor;
-            ColorTextArray[playerNum].color = Color.black;
-
-            ButtonImageArray[playerNum].color = transparentColor;
-            ButtonImageArray[playerNum].GetComponent<UIFlasher>().enabled = false;
-            buttonTextArray[playerNum].color = transparentColor;
-            buttonTextArray[playerNum].GetComponent<UIFlasher>().enabled = false;
-
-            LeftColorArrowArray[playerNum].color = Color.white;
-            RightColorArrowArray[playerNum].color = Color.white;
-
             #region Debug Code
 #if UNITY_EDITOR
             debugTextArray[playerNum] = "P" + (playerNum + 1) + ": Joined in\n";
             updateDebugUI();
 #endif
             #endregion
+            return true;
         }
+
+        return false;
     }
 
-    private void checkIfPlayerPickedColor(int playerNum)
+    private PlayerStates CheckPlayerPickedColor(int playerNum)
     {
         if(getAButtonDown[playerNum] && CanClaimPaletteColor(playerNum))
         {
-            updateUI_playerReady(playerNum, true);
-            StartCoroutine(InputMapper.Vibration(playerNum + 1, .2f, 0, .8f));
-            soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
-            playerStates[playerNum] = PlayerStates.Ready;
-            ColorTextArray[playerNum].color = transparentColor;
-
-            LeftColorArrowArray[playerNum].color = transparentColor;
-            RightColorArrowArray[playerNum].color = transparentColor;
-
-            RightColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
-            LeftColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
-
-            ClaimPaletteColor(playerNum);
-
-#region Debug Code
+            return PlayerStates.Ready;
+            #region Debug Code
 #if UNITY_EDITOR
             debugTextArray[playerNum] = "P" + (playerNum + 1) + ": Ready\n";
             updateDebugUI();
@@ -726,54 +686,25 @@ public class CharacterSelectManager : MonoBehaviour
         }
 
         else if(getBButtonDown[playerNum])
-        {
-            soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-            PlayerPaletteSwapperArray[playerNum].UpdatePlayerNumTextColor(Color.white);
-            playerStates[playerNum] = PlayerStates.Inactive;
-            PlayerSpriteRendererArray[playerNum].enabled = false;
-            ColorTextArray[playerNum].color = transparentColor;
-            ButtonImageArray[playerNum].color = Color.white;
-            ButtonImageArray[playerNum].GetComponent<UIFlasher>().enabled = true;
-            buttonTextArray[playerNum].color = Color.black;
-            buttonTextArray[playerNum].GetComponent<UIFlasher>().enabled = true;
+            return PlayerStates.Inactive;
 
-            RightColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
-            LeftColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
-
-            LeftColorArrowArray[playerNum].color = transparentColor;
-            RightColorArrowArray[playerNum].color = transparentColor;
-        }
+        return PlayerStates.PickingColor;
     }
 
-    private void checkIfPlayerOptedOut(int playerNum)
+    private bool CheckPlayerOptedOut(int playerNum)
     {
         if(getBButtonDown[playerNum])
         {
-            updateUI_playerReady(playerNum, false);
-            PlayerSpriteRendererArray[playerNum].enabled = true;
-            soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-            playerStates[playerNum] = PlayerStates.PickingColor;
-            UnclaimPaletteColor(playerNum);
-            ColorTextArray[playerNum].color = Color.black;
-
-            LeftColorArrowArray[playerNum].color = Color.white;
-            RightColorArrowArray[playerNum].color = Color.white;
-
-            ButtonImageArray[playerNum].color = transparentColor;
-            ButtonImageArray[playerNum].GetComponent<UIFlasher>().enabled = false;
-            buttonTextArray[playerNum].color = transparentColor;
-            buttonTextArray[playerNum].GetComponent<UIFlasher>().enabled = false;
-
-            RightColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
-            LeftColorArrowArray[playerNum].transform.localScale = new Vector3(.5f, .5f, 1);
-
-#region Debug Code
+            #region Debug Code
 #if UNITY_EDITOR
             debugTextArray[playerNum] = "P" + (playerNum + 1) + ": Un-Ready\n";
             updateDebugUI();
 #endif
-#endregion
+            #endregion
+            return true;
         }
+
+        return false;
     }
     #endregion
 
@@ -869,10 +800,7 @@ public class CharacterSelectManager : MonoBehaviour
             ++playerCount;
 
             ReadyTextArray[playerIndex].color = Color.black;
-            ButtonImageArray[playerIndex].color = transparentColor;
-            ButtonImageArray[playerIndex].GetComponent<UIFlasher>().enabled = false;
-            buttonTextArray[playerIndex].color = transparentColor;
-            buttonTextArray[playerIndex].GetComponent<UIFlasher>().enabled = false;
+            HideTextPrompt(playerIndex);
 
             if (playerCount == MIN_PLAYER_COUNT_TO_START)
             {
@@ -884,10 +812,7 @@ public class CharacterSelectManager : MonoBehaviour
             --playerCount;
 
             ReadyTextArray[playerIndex].color = transparentColor;
-            ButtonImageArray[playerIndex].color = Color.white;
-            ButtonImageArray[playerIndex].GetComponent<UIFlasher>().enabled = true;
-            buttonTextArray[playerIndex].color = Color.black;
-            buttonTextArray[playerIndex].GetComponent<UIFlasher>().enabled = true;
+            ShowTextPrompt(playerIndex);
 
             if (playerCount < MIN_PLAYER_COUNT_TO_START)
             {
@@ -914,7 +839,137 @@ public class CharacterSelectManager : MonoBehaviour
         }
     }
 
-#endregion
+    private PlayerStates ChangePlayerState(PlayerStates newState, int playerIndex)
+    {
+        PlayerStates currentState = playerStates[playerIndex];
+
+        if (newState == currentState)
+            return currentState;
+
+        switch(currentState)
+        {
+            case PlayerStates.Inactive:
+                if (newState == PlayerStates.Ready)
+                    return currentState;
+
+                else if(newState == PlayerStates.PickingColor)
+                {
+                    StartCoroutine(InputMapper.Vibration(playerIndex + 1, .2f, 0, .8f));
+                    soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
+
+                    ShowSpriteAndSetPalette(playerIndex);
+                    ColorTextArray[playerIndex].color = Color.black;
+
+                    HideTextPrompt(playerIndex);
+                    ShowArrowSprites(playerIndex);
+                }
+                break;
+
+            case PlayerStates.PickingColor:
+                if (newState == PlayerStates.PickingColor)
+                    return currentState;
+
+                else if(newState == PlayerStates.Inactive)
+                {
+                    soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
+                    PlayerPaletteSwapperArray[playerIndex].UpdatePlayerNumTextColor(Color.white);
+                    playerStates[playerIndex] = PlayerStates.Inactive;
+                    PlayerSpriteRendererArray[playerIndex].enabled = false;
+                    ColorTextArray[playerIndex].color = transparentColor;
+
+                    ShowTextPrompt(playerIndex);
+                    ResetArrowSizes(playerIndex);
+
+                    HideArrowSprites(playerIndex);
+                }
+
+                else //state must be PlayerStates.Ready
+                {
+                    updateUI_playerReady(playerIndex, true);
+                    StartCoroutine(InputMapper.Vibration(playerIndex + 1, .2f, 0, .8f));
+                    soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
+                    playerStates[playerIndex] = PlayerStates.Ready;
+                    ColorTextArray[playerIndex].color = transparentColor;
+
+                    HideArrowSprites(playerIndex);
+                    ResetArrowSizes(playerIndex);
+
+                    ClaimPaletteColor(playerIndex);
+                }
+
+                break;
+
+            case PlayerStates.Ready:
+                if (newState == PlayerStates.Inactive)
+                    return currentState;
+
+                else if(newState == PlayerStates.PickingColor)
+                {
+                    updateUI_playerReady(playerIndex, false);
+                    PlayerSpriteRendererArray[playerIndex].enabled = true;
+                    soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
+                    playerStates[playerIndex] = PlayerStates.PickingColor;
+                    UnclaimPaletteColor(playerIndex);
+                    ColorTextArray[playerIndex].color = Color.black;
+
+                    ShowArrowSprites(playerIndex);
+                    HideTextPrompt(playerIndex);
+                    ResetArrowSizes(playerIndex);
+                }
+                break;
+        }
+
+        return newState;
+    }
+
+    #endregion
+
+#region UI Functions
+
+    void ShowTextPrompt(int playerIndex)
+    {
+        ButtonImageArray[playerIndex].color = Color.white;
+        ButtonImageArray[playerIndex].GetComponent<UIFlasher>().enabled = true;
+        buttonTextArray[playerIndex].color = Color.black;
+        buttonTextArray[playerIndex].GetComponent<UIFlasher>().enabled = true;
+    }
+
+    void HideTextPrompt(int playerIndex)
+    {
+        ButtonImageArray[playerIndex].color = transparentColor;
+        ButtonImageArray[playerIndex].GetComponent<UIFlasher>().enabled = false;
+        buttonTextArray[playerIndex].color = transparentColor;
+        buttonTextArray[playerIndex].GetComponent<UIFlasher>().enabled = false;
+    }
+
+    void ShowArrowSprites(int playerIndex)
+    {
+        LeftColorArrowArray[playerIndex].color = Color.white;
+        RightColorArrowArray[playerIndex].color = Color.white;
+    }
+
+    void HideArrowSprites(int playerIndex)
+    {
+        LeftColorArrowArray[playerIndex].color = transparentColor;
+        RightColorArrowArray[playerIndex].color = transparentColor;
+    }
+
+    void ResetArrowSizes(int playerIndex)
+    {
+        RightColorArrowArray[playerIndex].transform.localScale = new Vector3(.5f, .5f, 1);
+        LeftColorArrowArray[playerIndex].transform.localScale = new Vector3(.5f, .5f, 1);
+    }
+
+    void ShowSpriteAndSetPalette(int playerIndex)
+    {
+        int targetPaletteIndex = (int)char.GetNumericValue(AvailablePalettesList[PlayerPosInPaletteList[playerIndex]].name[0]);
+        PlayerPaletteSwapperArray[playerIndex].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[playerIndex]].newPalette[targetPaletteIndex]);
+        PlayerSpriteRendererArray[playerIndex].enabled = true;
+    }
+
+
+
+    #endregion
 
 #region CharacterSelectStates.SelectingGhost Functions
     private void hideWaitingForPlayerUI()
@@ -1132,7 +1187,7 @@ public class CharacterSelectManager : MonoBehaviour
                 updateUI_playerReady(0, true);
                 debugTextArray[0] = "P1: Ready\n";
                 PlayerPaletteSwapperArray[0].UpdatePlayerNumTextColor();
-                playerStates[0] = PlayerStates.Ready;
+                playerStates[0] = PlayerStates.PickingColor;
                 soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
             else
@@ -1155,7 +1210,7 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(1, true);
                 debugTextArray[1] = "P2: Ready\n";
-                playerStates[1] = PlayerStates.Ready;
+                playerStates[1] = PlayerStates.PickingColor;
                 PlayerPaletteSwapperArray[1].UpdatePlayerNumTextColor();
                 soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
@@ -1179,7 +1234,7 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(2, true);
                 debugTextArray[2] = "P3: Ready\n";
-                playerStates[2] = PlayerStates.Ready;
+                playerStates[2] = PlayerStates.PickingColor;
                 PlayerPaletteSwapperArray[2].UpdatePlayerNumTextColor();
                 soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
@@ -1203,7 +1258,7 @@ public class CharacterSelectManager : MonoBehaviour
             {
                 updateUI_playerReady(3, true);
                 debugTextArray[3] = "P4: Ready\n";
-                playerStates[3] = PlayerStates.Ready;
+                playerStates[3] = PlayerStates.PickingColor;
                 PlayerPaletteSwapperArray[3].UpdatePlayerNumTextColor();
                 soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
             }
