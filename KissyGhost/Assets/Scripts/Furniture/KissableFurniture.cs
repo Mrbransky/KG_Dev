@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public enum KissedFurnitureBehavior
 {
@@ -41,6 +41,8 @@ public class KissableFurniture : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private float timeSinceKick = 0.0f;
 
+    private List<Collider2D> PlayerInteractColliders;
+
     public bool IsShowingOutline
     {
         get 
@@ -62,6 +64,8 @@ public class KissableFurniture : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        PlayerInteractColliders = new List<Collider2D>();
 
         Transform[] children = GetComponentsInChildren<Transform>();
         foreach(Transform t in children)
@@ -121,8 +125,19 @@ public class KissableFurniture : MonoBehaviour
                 UnkissFurniture();
         }
 #endif
+        //if (PlayerInteractColliders.Count > 0)
+        //{
+        //    Collider2D col = PlayerInteractColliders[PlayerInteractColliders.Count - 1];
 
-        if(IsShowingOutline && ShouldUpdateSortOrder())
+        //    if (col.transform.parent.tag == "Ghost")
+        //        ShowOutline(col.transform.parent.GetComponent<Ghost>().MainColor);
+
+        //    else if (col.transform.parent.tag == "Human")
+        //        ShowOutline(col.transform.parent.GetComponent<Human>().MainColor);
+        //}
+
+
+        if (IsShowingOutline && ShouldUpdateSortOrder())
             Outline.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
 
         if (isKissed)
@@ -151,7 +166,7 @@ public class KissableFurniture : MonoBehaviour
     {
         if (Outline == null || isKissed)
             return;
-
+        
         if (IsShowingOutline && Outline.GetComponent<SpriteRenderer>().color != playerCol)
                 Outline.GetComponent<SpriteRenderer>().color = playerCol;
 
@@ -185,6 +200,28 @@ public class KissableFurniture : MonoBehaviour
     //        Outline.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
     //    }
     //}
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        //if(col.tag == "Interact" && !PlayerInteractColliders.Contains(col))
+        //{
+        //    PlayerInteractColliders.Add(col);     
+            
+        //    if(col.transform.parent.tag == "Ghost")
+        //        ShowOutline(col.transform.parent.GetComponent<Ghost>().MainColor);  
+            
+        //    else if(col.transform.parent.tag == "Human")
+        //        ShowOutline(col.transform.parent.GetComponent<Human>().MainColor);   
+        //}
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if(col.tag == "Interact" && PlayerInteractColliders.Contains(col))
+        {
+            PlayerInteractColliders.Remove(col);
+        }
+    }
 
     //void OnTriggerExit2D(Collider2D col)
     //{
