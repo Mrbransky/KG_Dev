@@ -2751,7 +2751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeartZoomTransition: {fileID: 1866526308}
-  sceneToGoBackToo: 2
+  sceneToGoBackToo: 1
 --- !u!114 &1379216942
 MonoBehaviour:
   m_ObjectHideFlags: 0

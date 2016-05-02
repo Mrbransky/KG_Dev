@@ -264,21 +264,7 @@ public class CharacterSelectManager : MonoBehaviour
                     {
                         if (isPlayerReadyArray[i] && InputMapper.GrabVal(XBOX360_BUTTONS.X, i + 1))
                         {
-                            bool CanStartGame = false;
-
-                            foreach(PlayerStates state in playerStates)
-                            {
-                                if (state == PlayerStates.PickingColor)
-                                {
-                                    CanStartGame = false;
-                                    break;
-                                }
-
-                                else
-                                    CanStartGame = true;
-                            }
-
-                            if (CanStartGame)
+                            if (CanStartGame())
                             {
                                 startGame();
                                 soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
@@ -292,11 +278,14 @@ public class CharacterSelectManager : MonoBehaviour
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
                 if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
-                    startGame();
-                    soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                    if (CanStartGame())
+                    {
+                        startGame();
+                        soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                    }
                 }
 
-                debugCheckIfPlayerReady();
+                KeysCheckIfPlayerReady();
 #endif
 #endregion
                 break;
@@ -439,6 +428,7 @@ public class CharacterSelectManager : MonoBehaviour
                                     {
                                         playerAnalogStickStates[i] = OnAnalogStickStateChange(StickStates.Left, i);
                                     }
+                                
                                     break;
                                 case 1:
                                     if (Input.GetKeyDown(KeyCode.H))
@@ -629,6 +619,17 @@ public class CharacterSelectManager : MonoBehaviour
         }
     }
 
+    private bool CanStartGame()
+    {
+        foreach (PlayerStates state in playerStates)
+        {
+            if (state == PlayerStates.PickingColor)
+                return false;
+        }
+
+        return true;
+    }
+
     //Zero-based, P1 = 0
 
     #region PlayerStateChecks
@@ -740,54 +741,12 @@ public class CharacterSelectManager : MonoBehaviour
                 break;
         }
 
-        PlayerPaletteSwapperArray[player].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[player]]);
-        PlayerPaletteSwapperArray[player].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[player]];
-
-        int paletteColorIndex;
-
-        if (PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Lady") && !PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
-            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", true);
-
-        else if (!PlayerPaletteSwapperArray[player].currentPalette.name.Contains("Lady") && PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
-            PlayerSpriteRendererArray[player].GetComponent<Animator>().SetBool("IsWoman", false);
-
-        if (PlayerSpriteRendererArray[player].GetComponent<Animator>().GetBool("IsWoman"))
-            paletteColorIndex = 6;
-        else
-            paletteColorIndex = 7;
-
-        PlayerPaletteSwapperArray[player].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[player]].newPalette[paletteColorIndex]);
+        SwapAndUpdatePalette(player);
+        VerifyCharacterSprite(player);
+        SetCorrectPlayerNumTextColor(player);
 
         return newState;
     }
-
-    #region PaletteSwapping
-    private bool CanClaimPaletteColor(int playerNum)
-    {
-        if (PickedPalettesList.Contains(PlayerPaletteSwapperArray[playerNum].currentPalette))
-        {
-            Debug.Log("Cannot claim " + PlayerPaletteSwapperArray[playerNum].currentPalette);
-            return false;
-        }
-            
-
-        return true;
-    }
-
-    private void ClaimPaletteColor(int playerNum)
-    {
-        PickedPalettesList.Add(PlayerPaletteSwapperArray[playerNum].currentPalette);
-        AvailablePalettesList.Remove(PlayerPaletteSwapperArray[playerNum].currentPalette);
-        Debug.Log("Claimed " + PlayerPaletteSwapperArray[playerNum].currentPalette);
-    }
-
-    private void UnclaimPaletteColor(int playerNum)
-    {
-        AvailablePalettesList.Add(PlayerPaletteSwapperArray[playerNum].currentPalette);
-        PickedPalettesList.Remove(PlayerPaletteSwapperArray[playerNum].currentPalette);
-        Debug.Log("Removed " + PlayerPaletteSwapperArray[playerNum].currentPalette);
-    }
-    #endregion
 
     private void updateUI_playerReady(int playerIndex, bool isPlayerReady)
     {
@@ -854,6 +813,8 @@ public class CharacterSelectManager : MonoBehaviour
 
                 else if(newState == PlayerStates.PickingColor)
                 {
+                    SetCorrectPlayerNumTextColor(playerIndex);
+
                     StartCoroutine(InputMapper.Vibration(playerIndex + 1, .2f, 0, .8f));
                     soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
 
@@ -862,6 +823,10 @@ public class CharacterSelectManager : MonoBehaviour
 
                     HideTextPrompt(playerIndex);
                     ShowArrowSprites(playerIndex);
+
+                    SwapAndUpdatePalette(playerIndex);
+                    VerifyCharacterSprite(playerIndex);
+                    SetCorrectPlayerNumTextColor(playerIndex);
                 }
                 break;
 
@@ -873,7 +838,7 @@ public class CharacterSelectManager : MonoBehaviour
                 {
                     soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
                     PlayerPaletteSwapperArray[playerIndex].UpdatePlayerNumTextColor(Color.white);
-                    playerStates[playerIndex] = PlayerStates.Inactive;
+
                     PlayerSpriteRendererArray[playerIndex].enabled = false;
                     ColorTextArray[playerIndex].color = transparentColor;
 
@@ -888,7 +853,7 @@ public class CharacterSelectManager : MonoBehaviour
                     updateUI_playerReady(playerIndex, true);
                     StartCoroutine(InputMapper.Vibration(playerIndex + 1, .2f, 0, .8f));
                     soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
-                    playerStates[playerIndex] = PlayerStates.Ready;
+
                     ColorTextArray[playerIndex].color = transparentColor;
 
                     HideArrowSprites(playerIndex);
@@ -908,13 +873,20 @@ public class CharacterSelectManager : MonoBehaviour
                     updateUI_playerReady(playerIndex, false);
                     PlayerSpriteRendererArray[playerIndex].enabled = true;
                     soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-                    playerStates[playerIndex] = PlayerStates.PickingColor;
-                    UnclaimPaletteColor(playerIndex);
+                   
                     ColorTextArray[playerIndex].color = Color.black;
 
                     ShowArrowSprites(playerIndex);
                     HideTextPrompt(playerIndex);
                     ResetArrowSizes(playerIndex);
+
+                    UnclaimPaletteColor(playerIndex);
+
+                    PlayerPosInPaletteList[playerIndex] = AvailablePalettesList.Count - 1;
+
+                    SwapAndUpdatePalette(playerIndex);
+                    VerifyCharacterSprite(playerIndex);
+                    SetCorrectPlayerNumTextColor(playerIndex);
                 }
                 break;
         }
@@ -960,6 +932,10 @@ public class CharacterSelectManager : MonoBehaviour
         LeftColorArrowArray[playerIndex].transform.localScale = new Vector3(.5f, .5f, 1);
     }
 
+    #endregion
+
+#region Palette Functions
+
     void ShowSpriteAndSetPalette(int playerIndex)
     {
         int targetPaletteIndex = (int)char.GetNumericValue(AvailablePalettesList[PlayerPosInPaletteList[playerIndex]].name[0]);
@@ -967,11 +943,59 @@ public class CharacterSelectManager : MonoBehaviour
         PlayerSpriteRendererArray[playerIndex].enabled = true;
     }
 
+    void VerifyCharacterSprite(int playerIndex)
+    {
+        if (PlayerPaletteSwapperArray[playerIndex].currentPalette.name.Contains("Lady") && !PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().GetBool("IsWoman"))
+            PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().SetBool("IsWoman", true);
 
+        else if (!PlayerPaletteSwapperArray[playerIndex].currentPalette.name.Contains("Lady") && PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().GetBool("IsWoman"))
+            PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().SetBool("IsWoman", false);
+    }
+
+    void SetCorrectPlayerNumTextColor(int playerIndex)
+    {
+        int paletteColorIndex;
+        if (PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().GetBool("IsWoman"))
+            paletteColorIndex = 6;
+        else
+            paletteColorIndex = 7;
+
+        PlayerPaletteSwapperArray[playerIndex].UpdatePlayerNumTextColor(AvailablePalettesList[PlayerPosInPaletteList[playerIndex]].newPalette[paletteColorIndex]);
+    }
+
+    void SwapAndUpdatePalette(int playerIndex)
+    {
+        PlayerPaletteSwapperArray[playerIndex].SwapColors_Custom(AvailablePalettesList[PlayerPosInPaletteList[playerIndex]]);
+        PlayerPaletteSwapperArray[playerIndex].currentPalette = AvailablePalettesList[PlayerPosInPaletteList[playerIndex]];
+    }
+
+    private bool CanClaimPaletteColor(int playerNum)
+    {
+        if (PickedPalettesList.Contains(PlayerPaletteSwapperArray[playerNum].currentPalette))
+        {
+            Debug.Log("Cannot claim " + PlayerPaletteSwapperArray[playerNum].currentPalette);
+            return false;
+        }
+        return true;
+    }
+
+    private void ClaimPaletteColor(int playerNum)
+    {
+        PickedPalettesList.Add(PlayerPaletteSwapperArray[playerNum].currentPalette);
+        AvailablePalettesList.Remove(PlayerPaletteSwapperArray[playerNum].currentPalette);
+        Debug.Log("Claimed " + PlayerPaletteSwapperArray[playerNum].currentPalette);
+    }
+
+    private void UnclaimPaletteColor(int playerNum)
+    {
+        AvailablePalettesList.Add(PlayerPaletteSwapperArray[playerNum].currentPalette);
+        PickedPalettesList.Remove(PlayerPaletteSwapperArray[playerNum].currentPalette);
+        Debug.Log("Removed " + PlayerPaletteSwapperArray[playerNum].currentPalette);
+    }
 
     #endregion
 
-#region CharacterSelectStates.SelectingGhost Functions
+    #region CharacterSelectStates.SelectingGhost Functions
     private void hideWaitingForPlayerUI()
     {
         PressToStartTextObject.SetActive(false);
@@ -1176,102 +1200,32 @@ public class CharacterSelectManager : MonoBehaviour
 #endregion
 
 #region Debug Functions
-    private void debugCheckIfPlayerReady()
+    private void KeysCheckIfPlayerReady()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        CheckPlayerStateViaKeys(0, KeyCode.W, KeyCode.S);
+        CheckPlayerStateViaKeys(1, KeyCode.T, KeyCode.G);
+        CheckPlayerStateViaKeys(2, KeyCode.I, KeyCode.K);
+        CheckPlayerStateViaKeys(3, KeyCode.UpArrow, KeyCode.DownArrow);
+    }
+
+    void CheckPlayerStateViaKeys(int playerIndex, KeyCode OptIn, KeyCode OptOut)
+    {
+        if (Input.GetKeyDown(OptIn))
         {
-            isPlayerReadyArray[0] = !isPlayerReadyArray[0];
+            if (playerStates[playerIndex] == PlayerStates.Inactive)
+                playerStates[playerIndex] = ChangePlayerState(PlayerStates.PickingColor, playerIndex);
 
-            if (isPlayerReadyArray[0])
-            {
-                updateUI_playerReady(0, true);
-                debugTextArray[0] = "P1: Ready\n";
-                PlayerPaletteSwapperArray[0].UpdatePlayerNumTextColor();
-                playerStates[0] = PlayerStates.PickingColor;
-                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
-            }
-            else
-            {
-                updateUI_playerReady(0, false);
-                debugTextArray[0] = "P1: Not Ready\n";
-                playerStates[0] = PlayerStates.Inactive;
-                PlayerPaletteSwapperArray[0].UpdatePlayerNumTextColor(Color.white);
-                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-            }
-
-            updateDebugUI();
+            else if (playerStates[playerIndex] == PlayerStates.PickingColor && CanClaimPaletteColor(playerIndex))
+                playerStates[playerIndex] = ChangePlayerState(PlayerStates.Ready, playerIndex);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(OptOut))
         {
-            isPlayerReadyArray[1] = !isPlayerReadyArray[1];
+            if (playerStates[playerIndex] == PlayerStates.Ready)
+                playerStates[playerIndex] = ChangePlayerState(PlayerStates.PickingColor, playerIndex);
 
-            if (isPlayerReadyArray[1])
-            {
-                updateUI_playerReady(1, true);
-                debugTextArray[1] = "P2: Ready\n";
-                playerStates[1] = PlayerStates.PickingColor;
-                PlayerPaletteSwapperArray[1].UpdatePlayerNumTextColor();
-                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
-            }
-            else
-            {
-                updateUI_playerReady(1, false);
-                debugTextArray[1] = "P2: Not Ready\n";
-                playerStates[1] = PlayerStates.Inactive;
-                PlayerPaletteSwapperArray[1].UpdatePlayerNumTextColor(Color.white);
-                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-            }
-
-            updateDebugUI();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            isPlayerReadyArray[2] = !isPlayerReadyArray[2];
-
-            if (isPlayerReadyArray[2])
-            {
-                updateUI_playerReady(2, true);
-                debugTextArray[2] = "P3: Ready\n";
-                playerStates[2] = PlayerStates.PickingColor;
-                PlayerPaletteSwapperArray[2].UpdatePlayerNumTextColor();
-                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
-            }
-            else
-            {
-                updateUI_playerReady(2, false);
-                debugTextArray[2] = "P3: Not Ready\n";
-                playerStates[2] = PlayerStates.Inactive;
-                PlayerPaletteSwapperArray[2].UpdatePlayerNumTextColor(Color.white);
-                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-            }
-
-            updateDebugUI();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            isPlayerReadyArray[3] = !isPlayerReadyArray[3];
-
-            if (isPlayerReadyArray[3])
-            {
-                updateUI_playerReady(3, true);
-                debugTextArray[3] = "P4: Ready\n";
-                playerStates[3] = PlayerStates.PickingColor;
-                PlayerPaletteSwapperArray[3].UpdatePlayerNumTextColor();
-                soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
-            }
-            else
-            {
-                updateUI_playerReady(3, false);
-                debugTextArray[3] = "P4: Not Ready\n";
-                playerStates[3] = PlayerStates.Inactive;
-                PlayerPaletteSwapperArray[3].UpdatePlayerNumTextColor(Color.white);
-                soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
-            }
-
-            updateDebugUI();
+            else if(playerStates[playerIndex] == PlayerStates.PickingColor)
+                playerStates[playerIndex] = ChangePlayerState(PlayerStates.Inactive, playerIndex);
         }
     }
 

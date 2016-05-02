@@ -25,14 +25,14 @@ public class GoToCSelect : MonoBehaviour
         if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space))
         {
             _HeartZoomTransition.enabled = true;
-            _HeartZoomTransition.StartHeartZoomIn(3);
+            _HeartZoomTransition.StartHeartZoomIn(2);
             soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
         }
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             _HeartZoomTransition.enabled = true;
-            _HeartZoomTransition.StartHeartZoomIn(3);
+            _HeartZoomTransition.StartHeartZoomIn(2);
             soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
         }
 #endif
