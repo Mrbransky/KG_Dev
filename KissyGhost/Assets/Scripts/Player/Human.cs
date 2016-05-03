@@ -131,8 +131,8 @@ public class Human : Player
         // Handling sort order in SpriteSorter.cs
         // gameObject.GetComponent<SpriteRenderer>().sortingOrder = (int)(-transform.localPosition.y+1);
 
-        if (furnitureToKick.Count > 0 && CanKickFurniture)
-            furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>().ShowOutline(MainColor);
+        //if (furnitureToKick.Count > 0 && CanKickFurniture)
+        //    furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>().ShowOutline(MainColor);
 
         GetAButtonDown = false;
 

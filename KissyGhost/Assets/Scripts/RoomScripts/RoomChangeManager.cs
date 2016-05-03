@@ -372,9 +372,9 @@ public class RoomChangeManager : MonoBehaviour
         foreach (GameObject player in playersGoingBottom)
         {
             Vector3 curRoomPosition = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
-            player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y + 3);
+            player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y + 1);
 
-            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x, curRoomPosition.y +2);
+            GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x, curRoomPosition.y);
             player.GetComponent<Rigidbody2D>().AddForce(-Vector2.up * 200);
         }
     }

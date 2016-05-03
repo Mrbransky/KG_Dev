@@ -58,14 +58,17 @@ public class KissableFurniture : MonoBehaviour
     public KeyCode KissKey = KeyCode.Alpha0;
 #endif
 
+    void Awake()
+    {
+        PlayerInteractColliders = new List<Collider2D>();
+    }
+
     void Start()
     {
         _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-        PlayerInteractColliders = new List<Collider2D>();
 
         Transform[] children = GetComponentsInChildren<Transform>();
         foreach(Transform t in children)
@@ -203,31 +206,36 @@ public class KissableFurniture : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //if(col.tag == "Interact" && !PlayerInteractColliders.Contains(col))
-        //{
-        //    PlayerInteractColliders.Add(col);     
-            
-        //    if(col.transform.parent.tag == "Ghost")
-        //        ShowOutline(col.transform.parent.GetComponent<Ghost>().MainColor);  
-            
-        //    else if(col.transform.parent.tag == "Human")
-        //        ShowOutline(col.transform.parent.GetComponent<Human>().MainColor);   
-        //}
+        if (col.tag == "Interact" && !PlayerInteractColliders.Contains(col) && Outline != null && !isKissed)
+        {
+            PlayerInteractColliders.Add(col);
+
+            if (col.transform.parent.tag == "Ghost")
+                ShowOutline(col.transform.parent.GetComponent<Ghost>().MainColor);
+
+            else if (col.transform.parent.tag == "Player")
+                ShowOutline(col.transform.parent.GetComponent<Human>().MainColor);
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if(col.tag == "Interact" && PlayerInteractColliders.Contains(col))
+        if (col.tag == "Interact" && Outline != null && !isKissed && PlayerInteractColliders.Contains(col))
         {
             PlayerInteractColliders.Remove(col);
+            if (PlayerInteractColliders.Count == 0)
+                HideOutline();
+            else
+            {
+                Collider2D colliderColorToShow = PlayerInteractColliders[PlayerInteractColliders.Count - 1];
+
+                if (colliderColorToShow.transform.parent.tag == "Ghost")
+                    ShowOutline(colliderColorToShow.transform.parent.GetComponent<Ghost>().MainColor);
+                else if (colliderColorToShow.transform.parent.tag == "Player")
+                    ShowOutline(colliderColorToShow.transform.parent.GetComponent<Human>().MainColor);
+            }
         }
     }
-
-    //void OnTriggerExit2D(Collider2D col)
-    //{
-    //    if (col.tag == "Interact" && Outline != null && !isKissed)
-    //        Outline.GetComponent<SpriteRenderer>().enabled = false;
-    //}
 
     // Returns false if the furniture is already kissed
     public bool KissFurniture()
