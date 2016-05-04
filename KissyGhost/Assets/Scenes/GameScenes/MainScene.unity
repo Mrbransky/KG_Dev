@@ -9786,9 +9786,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -.641662776, y: .270000666}
+  m_Offset: {x: .00412166119, y: .539078712}
   serializedVersion: 2
-  m_Size: {x: 1.17228901, y: 2.26999998}
+  m_Size: {x: 2.07638717, y: 1.73184967}
 --- !u!114 &1304336068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10044,7 +10044,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1001 &1343787779
 Prefab:
   m_ObjectHideFlags: 0
@@ -11601,7 +11601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0

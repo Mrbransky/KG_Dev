@@ -225,6 +225,8 @@ public class GameManager : MonoBehaviour {
 
         VibrateAllHumans(.75f, 1, 1);
 
+		AkSoundEngine.PostEvent("Stop_FurnitureMove", gameObject);
+
         soundManager.SOUND_MAN.PlayHumanWinMusic();
     }
 
@@ -232,7 +234,9 @@ public class GameManager : MonoBehaviour {
     {
         didHumansWin = false;
         gameEnd = true;
-        int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;      
+        int ghostPlayerNum = currentGhostPlayer.GetComponent<Ghost>().playerNum;   
+
+		AkSoundEngine.PostEvent("Stop_FurnitureMove", gameObject);
 
         StartCoroutine(InputMapper.Vibration(ghostPlayerNum, .75f, 1, 1));
 
