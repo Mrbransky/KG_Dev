@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> currentPlayers;
     public GameObject currentGhostPlayer;
     public GameObject ghostPrefab;
+    public GameObject ghostAIPrefab;
 
     private bool[] isPlayerReadyArray;
     private int ghostPlayerIndex = -1;
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour {
 
     private const string rPath_womanAnimController = "Animations/R_oldWoman_idle_Controller";
     private const string rPath_oldieAnimController = "Animations/R_oldie_animation_controller";
+
+    public bool isGhostAI = false;
 
     void Start()
     {
@@ -101,13 +104,22 @@ public class GameManager : MonoBehaviour {
             {
                 if (playerReadyArrayIndex == ghostPlayerIndex)
                 {
-                    ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
-                    ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
-                    ghostPlayer.gameObject.tag = "Ghost";
-                    ghostPlayer.GetComponentInChildren<Text>().text = "P" + (ghostPlayerIndex + 1);
-                    ghostPlayer.GetComponentInChildren<FadeOnTimeScale1>().timeScale = .45f;
-                    Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
-                    Destroy(players[i]);
+                    if (!isGhostAI)
+                    {
+                        ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
+                        ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
+                        ghostPlayer.gameObject.tag = "Ghost";
+                        ghostPlayer.GetComponentInChildren<Text>().text = "P" + (ghostPlayerIndex + 1);
+                        ghostPlayer.GetComponentInChildren<FadeOnTimeScale1>().timeScale = .45f;
+                        Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
+                        Destroy(players[i]);
+                    }
+                    else
+                    {
+                        ghostPlayer = (GameObject)GameObject.Instantiate(ghostAIPrefab, players[i].transform.position, players[i].transform.rotation);
+                        Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
+                        Destroy(players[i]);
+                    }
                 }
                 else
                 {

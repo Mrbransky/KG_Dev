@@ -4019,6 +4019,7 @@ MonoBehaviour:
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
+  priority: 0
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
@@ -4569,6 +4570,7 @@ MonoBehaviour:
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
+  priority: 0
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
@@ -10042,7 +10044,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1001 &1343787779
 Prefab:
   m_ObjectHideFlags: 0
@@ -11599,7 +11601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13208,6 +13210,7 @@ MonoBehaviour:
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
+  priority: 0
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
@@ -14524,7 +14527,7 @@ Transform:
   - {fileID: 1762723610}
   - {fileID: 3844442}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &1957596420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14582,6 +14585,7 @@ MonoBehaviour:
   GetAButtonDown: 0
   GetBButtonDown: 0
   IsCarryingItem: 0
+  priority: 0
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
@@ -15219,6 +15223,7 @@ MonoBehaviour:
   currentPlayers: []
   currentGhostPlayer: {fileID: 0}
   ghostPrefab: {fileID: 109294, guid: 295ee7ae37d771a47a0e94bd99c74a27, type: 2}
+  ghostAIPrefab: {fileID: 114204, guid: 36c9246c7eee28845a44bb1f161f7e63, type: 2}
   oldieColorPalettes:
   - {fileID: 11400000, guid: 7d47f9cba6e86414a958e72c0e72b78f, type: 2}
   - {fileID: 11400000, guid: 0e079f795adca9949b901f5299677b7c, type: 2}
@@ -15229,6 +15234,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 86a3daf3157cb024ba9db83b1a894c89, type: 2}
   - {fileID: 11400000, guid: 2dba9db8d08fa1248bf9499d413653d3, type: 2}
   - {fileID: 11400000, guid: 3eaa786df404917469b0556526ae1608, type: 2}
+  isGhostAI: 0
 --- !u!4 &2038403442
 Transform:
   m_ObjectHideFlags: 0
@@ -15257,7 +15263,8 @@ MonoBehaviour:
   RightBaseRoomPiece: {fileID: 1369252265}
   MainBaseRoomPiece: {fileID: 516873611}
   _SpriteSorter: {fileID: 2038403448}
-  currentFurniture: []
+  currentFurniture:
+  - {fileID: 1487003972}
   numberOfFurnitureForCenter: 15
   numberOfFurnitureForRight: 10
   numberOfFurnitureForLeft: 10

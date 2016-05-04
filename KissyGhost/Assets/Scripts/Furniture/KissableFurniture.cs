@@ -17,7 +17,7 @@ public class KissableFurniture : MonoBehaviour
     public Sprite KissedSprite;
     public Color kissedColor = new Color(255.0f / 255.0f, 192.0f / 255.0f, 203.0f / 255.0f);
     private SpriteRenderer spriteRenderer;
-    private bool isKissed = false;
+    public bool isKissed = false;
     public int amountKissed = 0;
     public float DoorPushMag;
    

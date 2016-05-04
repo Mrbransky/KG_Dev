@@ -21,6 +21,7 @@ public class Human : Player
     private bool wasBButtonPressed = false;
 
     public bool IsCarryingItem;
+    public float priority;
     public bool CanGrabItem
     {
         get
@@ -133,6 +134,8 @@ public class Human : Player
 
         //if (furnitureToKick.Count > 0 && CanKickFurniture)
         //    furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>().ShowOutline(MainColor);
+
+        priority = Mathf.Clamp(priority, 0f, 1f);
 
         GetAButtonDown = false;
 

@@ -57,6 +57,8 @@ public class RoomChangeManager : MonoBehaviour
 
     int curPlayerCount;
 
+    GameObject GhostAI;
+
     float testTimer = 1f;
     bool shouldCountdown = false;
     public RoomLocations CurrentRoomLocation
@@ -80,6 +82,8 @@ public class RoomChangeManager : MonoBehaviour
         roomSubObjectiveTypeArray[(int)RoomLocations.Left] = SubObjective_Left;
         roomSubObjectiveTypeArray[(int)RoomLocations.Right] = SubObjective_Right;
         roomSubObjectiveTypeArray[(int)RoomLocations.Bottom] = SubObjective_Bottom;
+
+        GhostAI = GameObject.Find("AI_Ghost(Clone)");
     }
 
     void Update()
