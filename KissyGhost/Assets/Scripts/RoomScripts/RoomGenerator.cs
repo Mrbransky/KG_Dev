@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Linq;
 public enum RoomLimits
 {
     Min_X = 0,
@@ -68,6 +68,7 @@ public class RoomGenerator : MonoBehaviour
             currentSpecialItems.Add(AllSpecialItems[rand]);
             AllSpecialItems.Remove(AllSpecialItems[rand]);
 
+            //DON'T YOU DARE TRY AND USE THIS
             //if (AllSpecialItems[rand].name.Contains("Cat"))
             //{
             //    List<GameObject> CatsToDelete = new List<GameObject>();
@@ -108,7 +109,10 @@ public class RoomGenerator : MonoBehaviour
             _SpriteSorter.isInitialized = true;
         }
     }
-
+    void Update()
+    {
+        currentFurniture = GameObject.FindGameObjectsWithTag("Furniture").ToList();
+    }
     private void calculateRoomLimits(RoomTypes roomType)
     {
         Vector2 roomSize = Vector2.zero;
@@ -270,7 +274,7 @@ public class RoomGenerator : MonoBehaviour
                 continue;
             }
             #endregion
-            currentFurniture.Add(newFurniture);
+            //currentFurniture.Add(newFurniture);
             newFurniture.transform.SetParent(roomObject.transform);
         }
     }
@@ -310,7 +314,6 @@ public class RoomGenerator : MonoBehaviour
         GameObject specialItem = (GameObject)Instantiate(currentSpecialItems[index], specPos, Quaternion.identity);
         GetComponent<MissionManager>().AddMissionObjective(specialItem);
         AiTracker.Add(specialItem);
-        //GameObject.Find("AI_Test").GetComponent<PlayerAI>().SpecialItems = AiTracker;
         if (_SpriteSorter != null)
         {
             _SpriteSorter.AddToAllLists(specialItem.GetComponent<SpriteRenderer>());

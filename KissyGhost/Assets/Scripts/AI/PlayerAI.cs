@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 public class PlayerAI : MonoBehaviour {
 
     public enum HumanStates { Search, Kick, Dodge, PickUp, Place, FindDoor };
-    HumanStates currentState;
+    public HumanStates currentState;
     private GameManager gm;
     private RoomGenerator rm;
     private RoomChangeManager rcm;
 
     public  List<GameObject>SpecialItems;
+    private List<GameObject> ItemGoalPlacement;
     public GameObject closestItem;
     private GameObject itemToPickUp;
     void Start () {
@@ -17,6 +19,9 @@ public class PlayerAI : MonoBehaviour {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rm = GameObject.Find("GameManager").GetComponent<RoomGenerator>();
         rcm = GameObject.Find("GameManager").GetComponent<RoomChangeManager>();
+
+        SpecialItems = rm.AiTracker;
+        ItemGoalPlacement = GameObject.FindGameObjectsWithTag("Heartagram").ToList();
 	}
 
 	void Update () {
@@ -37,6 +42,7 @@ public class PlayerAI : MonoBehaviour {
                 PickUpSpecialItem(itemToPickUp);
                 break;
             case HumanStates.Place:
+                GoToPlaceItem(itemToPickUp);
                 break;
         }
 	}
@@ -70,6 +76,20 @@ public class PlayerAI : MonoBehaviour {
         item.transform.SetParent(this.transform);
         SpecialItems.Remove(item);
 
-        currentState = HumanStates.Search;
+        currentState = HumanStates.Place;
+    }
+
+    void GoToPlaceItem(GameObject item)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, ItemGoalPlacement[0].transform.position, 4f * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, ItemGoalPlacement[0].transform.position) <= 0)
+        { 
+            currentState = HumanStates.Search;
+            ItemGoalPlacement[0].GetComponent<MissionObjective_ItemNode>().HasItem = true;
+            item.transform.SetParent(null);
+            ItemGoalPlacement.Remove(ItemGoalPlacement[0]);
+        }
+        
     }
 }

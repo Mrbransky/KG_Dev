@@ -32,17 +32,14 @@ public class GhostAI : MonoBehaviour {
         switch(currentState)
         {
             case GhostState.Find:
-                //Debug.Log("I am Finding");
                 furnToKiss = FindClosestUnkissed();
                 closestPlayer = FindClosestPlayer();
                 transform.position = Vector3.MoveTowards(transform.position, furnToKiss.transform.position, ghostSpeed * Time.deltaTime);
                 break;
             case GhostState.Kiss:
-                //Debug.Log("I am Kissing");
                 Kiss();
                 break;
             case GhostState.Wander:
-                //Debug.Log("I am Wandering");
                 Wander();
                 break;
             default:
@@ -114,7 +111,7 @@ public class GhostAI : MonoBehaviour {
         else
         {
             currentState = GhostState.Wander;
-            waypoint = Random.insideUnitCircle * 50;
+            waypoint = Random.insideUnitCircle * 25;
         }
         }
     void Wander()
