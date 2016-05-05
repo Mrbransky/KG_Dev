@@ -362,8 +362,8 @@ MonoBehaviour:
   decelRate: .150000006
   NormalTopSpeed: 5.5
   currentSpeed: 0
-  currentAcelRate: 0
-  currentTopSpeed: 0
+  currentAcelRate: .25
+  currentTopSpeed: 5.5
   AccelWhileHoldingItem: 0
   TopSpeedWhileHoldingItem: 0
   debugMoveDir: {x: 0, y: 0}
@@ -2079,6 +2079,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: timeToRechargeKiss
       value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentTopSpeed
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentAcelRate
+      value: .25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

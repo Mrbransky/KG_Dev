@@ -1,0 +1,131 @@
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: ATI FirePro V (FireGL V) Graphics Adapter (ID=0x6707)
+    Vendor:   ATI
+    VRAM:     2031 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\XInputDotNetPure.dll (this message is harmless)
+Loading C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\XInputDotNetPure.dll into Unity Child Domain
+- Completed reload, in  0.056 seconds
+desktop: 1920x1200 60Hz; virtual: 1920x1200 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\Managed\System.dll (this message is harmless)
+WwiseUnity: Initialize sound engine ...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WwiseUnity: Setting base SoundBank path to C:\Users\zachary.bruin\Desktop\GitHub\Kissy_Ghost\KissyGhost\KissyGhost_May5_Data\StreamingAssets\Audio\GeneratedSoundBanks\Windows\
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+WwiseUnity: Sound engine initialized.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1715)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.278087 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 481.
+Total: 0.246100 ms (FindLiveObjects: 0.026180 ms CreateObjectMapping: 0.032464 ms MarkObjects: 0.171746 ms  DeleteObjects: 0.014661 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.872457 ms
+
+Unloading 53 unused Assets to reduce memory usage. Loaded Objects now: 574.
+Total: 0.417148 ms (FindLiveObjects: 0.041191 ms CreateObjectMapping: 0.049918 ms MarkObjects: 0.201767 ms  DeleteObjects: 0.123922 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.955079 ms
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 681.
+Total: 0.335813 ms (FindLiveObjects: 0.030369 ms CreateObjectMapping: 0.028624 ms MarkObjects: 0.256572 ms  DeleteObjects: 0.019897 ms)
+
+Claimed 6Old_Lady_FullSpriteSheetRecolored-color-palette_p4 (ColorPalette)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Claimed 7Old_Man_FullSpriteSheetRecolored-color-palette_p2 (ColorPalette)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Claimed 6Old_Lady_FullSpriteSheetRecolored-color-palette_p2 (ColorPalette)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Claimed 6Old_Lady_FullSpriteSheetRecolored-color-palette_p1 (ColorPalette)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting game...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.SelectingGhost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+6Old_Lady_FullSpriteSheetRecolored-color-palette_p4 (ColorPalette) loaded
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+7Old_Man_FullSpriteSheetRecolored-color-palette_p2 (ColorPalette) loaded
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+6Old_Lady_FullSpriteSheetRecolored-color-palette_p2 (ColorPalette) loaded
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+6Old_Lady_FullSpriteSheetRecolored-color-palette_p1 (ColorPalette) loaded
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.GhostRevealed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.Panic
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.RunFromGhost
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Starting CharacterSelectStates.LoadMainScene
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.062246 ms
+Failed to create agent because there is no valid NavMesh
+ 
+(Filename:  Line: 497)
+
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 1956.
+Total: 0.801484 ms (FindLiveObjects: 0.099487 ms CreateObjectMapping: 0.063532 ms MarkObjects: 0.537581 ms  DeleteObjects: 0.099836 ms)
+
