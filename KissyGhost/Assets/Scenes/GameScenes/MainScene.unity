@@ -4004,16 +4004,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelRate: .25
+  NormalAccelRate: .25
   decelRate: .25
-  topSpeed: 5
+  NormalTopSpeed: 5
   currentSpeed: 0
+  currentAcelRate: 0
+  currentTopSpeed: 0
+  AccelWhileHoldingItem: .200000003
+  TopSpeedWhileHoldingItem: 3.79999995
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
   playerNum: 4
-  interactTrigger: {fileID: 0}
-  bodyCol: {fileID: 0}
-  _MoveInteractTrigger: {fileID: 0}
+  interactTrigger: {fileID: 847994454}
+  bodyCol: {fileID: 407115401}
+  _MoveInteractTrigger: {fileID: 847994453}
   invulnerabilityDuration: 1.5
   IsFemaleWizard: 1
   GetAButtonDown: 0
@@ -4023,7 +4027,7 @@ MonoBehaviour:
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
-  timeBetweenFurnitureKick: 0
+  timeBetweenFurnitureKick: .75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 122
   ItemThrowKeycode: 120
@@ -4555,16 +4559,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelRate: .25
+  NormalAccelRate: .25
   decelRate: .25
-  topSpeed: 5
+  NormalTopSpeed: 5
   currentSpeed: 0
+  currentAcelRate: 0
+  currentTopSpeed: 0
+  AccelWhileHoldingItem: .200000003
+  TopSpeedWhileHoldingItem: 3.79999995
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
   playerNum: 2
-  interactTrigger: {fileID: 0}
-  bodyCol: {fileID: 0}
-  _MoveInteractTrigger: {fileID: 0}
+  interactTrigger: {fileID: 1657105212}
+  bodyCol: {fileID: 462095494}
+  _MoveInteractTrigger: {fileID: 1657105211}
   invulnerabilityDuration: 1.5
   IsFemaleWizard: 1
   GetAButtonDown: 0
@@ -4574,7 +4582,7 @@ MonoBehaviour:
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
-  timeBetweenFurnitureKick: 0
+  timeBetweenFurnitureKick: .75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 114
   ItemThrowKeycode: 121
@@ -11661,7 +11669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13255,16 +13263,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelRate: .25
+  NormalAccelRate: .25
   decelRate: .25
-  topSpeed: 5
+  NormalTopSpeed: 5
   currentSpeed: 0
+  currentAcelRate: 0
+  currentTopSpeed: 0
+  AccelWhileHoldingItem: .200000003
+  TopSpeedWhileHoldingItem: 3.79999995
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
   playerNum: 1
-  interactTrigger: {fileID: 0}
-  bodyCol: {fileID: 0}
-  _MoveInteractTrigger: {fileID: 0}
+  interactTrigger: {fileID: 1686124482}
+  bodyCol: {fileID: 1743649145}
+  _MoveInteractTrigger: {fileID: 1686124481}
   invulnerabilityDuration: 1.5
   IsFemaleWizard: 0
   GetAButtonDown: 0
@@ -13274,7 +13286,7 @@ MonoBehaviour:
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
-  timeBetweenFurnitureKick: 0
+  timeBetweenFurnitureKick: .75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 113
   ItemThrowKeycode: 101
@@ -14630,16 +14642,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelRate: .25
+  NormalAccelRate: .25
   decelRate: .25
-  topSpeed: 5
+  NormalTopSpeed: 5
   currentSpeed: 0
+  currentAcelRate: 0
+  currentTopSpeed: 0
+  AccelWhileHoldingItem: .200000003
+  TopSpeedWhileHoldingItem: 3.79999995
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
   playerNum: 3
-  interactTrigger: {fileID: 0}
-  bodyCol: {fileID: 0}
-  _MoveInteractTrigger: {fileID: 0}
+  interactTrigger: {fileID: 1762723612}
+  bodyCol: {fileID: 1957596424}
+  _MoveInteractTrigger: {fileID: 1762723611}
   invulnerabilityDuration: 1.5
   IsFemaleWizard: 1
   GetAButtonDown: 0
@@ -14649,7 +14665,7 @@ MonoBehaviour:
   IsPullingSwitch: 0
   kickForce: 1000
   timeBetweenItemInteract: .25
-  timeBetweenFurnitureKick: 0
+  timeBetweenFurnitureKick: .75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 117
   ItemThrowKeycode: 111

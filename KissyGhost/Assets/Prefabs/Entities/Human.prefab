@@ -687,7 +687,7 @@ MonoBehaviour:
   TriggerVertOffset: -.100000001
   IsOnItemNode: 0
   isGhostInteractTrigger: 0
-  colliderList: []
+  interactColliderList: []
 --- !u!114 &11455334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -842,21 +842,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb20ea6ec8a6743a528ba38506d492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topSpeed: 5
-  currentSpeed: 0
-  accelRate: .25
+  NormalAccelRate: .25
   decelRate: .25
+  NormalTopSpeed: 5
+  currentSpeed: 0
+  currentAcelRate: 0
+  currentTopSpeed: 0
+  AccelWhileHoldingItem: .200000003
+  TopSpeedWhileHoldingItem: 4
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
-  interactTrigger: {fileID: 0}
-  bodyCol: {fileID: 0}
-  _MoveInteractTrigger: {fileID: 0}
   playerNum: 1
+  interactTrigger: {fileID: 6127628}
+  bodyCol: {fileID: 5812286}
+  _MoveInteractTrigger: {fileID: 11452944}
   invulnerabilityDuration: 1.5
+  IsFemaleWizard: 0
   GetAButtonDown: 0
+  GetBButtonDown: 0
   IsCarryingItem: 0
+  priority: 0
   IsPullingSwitch: 0
+  kickForce: 1000
   timeBetweenItemInteract: .25
+  timeBetweenFurnitureKick: .5
+  MainColor: {r: 0, g: 0, b: 0, a: 0}
   ItemPickUpKeycode: 113
   ItemThrowKeycode: 101
 --- !u!114 &11484480
@@ -894,8 +904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
-  paletteRandSelection:
-  - {fileID: 11400000, guid: 3f5e326505b897d4d92663c48bd004fa, type: 2}
+  currentPalette: {fileID: 0}
+  playerNumText: {fileID: 0}
 --- !u!114 &11487858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -907,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04b2deec487a334fac9703a73765af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OccludeMat: {fileID: 0}
 --- !u!212 &21254394
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1339,6 +1350,38 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: timeBetweenItemInteract
       value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: NormalAccelRate
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: NormalTopSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AccelWhileHoldingItem
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: TopSpeedWhileHoldingItem
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bodyCol
+      value: 
+      objectReference: {fileID: 5812286}
+    - target: {fileID: 0}
+      propertyPath: _MoveInteractTrigger
+      value: 
+      objectReference: {fileID: 11452944}
+    - target: {fileID: 0}
+      propertyPath: interactTrigger
+      value: 
+      objectReference: {fileID: 6127628}
+    - target: {fileID: 0}
+      propertyPath: timeBetweenFurnitureKick
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

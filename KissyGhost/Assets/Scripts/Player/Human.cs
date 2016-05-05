@@ -68,6 +68,9 @@ public class Human : Player
 
     public override void Awake() 
     {
+        currentAcelRate = NormalAccelRate;
+        currentTopSpeed = NormalTopSpeed;
+
         FacingRight = false;
         IsPullingSwitch = false;
 
@@ -231,7 +234,7 @@ public class Human : Player
         //    }
         //}
 
-        if (furnitureToKick.Count > 0)
+        if (furnitureToKick.Count > 0 && timeBetweenFurnitureKick <= 0)
         {
             if (GetBButtonDown)
             {
@@ -273,6 +276,9 @@ public class Human : Player
 
         timeBetweenItemInteract = 0.25f;
 
+        currentTopSpeed = TopSpeedWhileHoldingItem;
+        currentAcelRate = AccelWhileHoldingItem;
+
         //Item Pick up Sound
         soundManager.SOUND_MAN.playSound("Play_Item_Pick_Up", gameObject);
     }
@@ -305,6 +311,9 @@ public class Human : Player
         childTransform.GetComponent<MissionObjective_Item>().PlaceItemDown();
         HeldItemName = "";
         heldItemSpriteRenderer = null;
+
+        currentTopSpeed = NormalTopSpeed;
+        currentAcelRate = AccelWhileHoldingItem;
 
         timeBetweenItemInteract = 0.25f;
 

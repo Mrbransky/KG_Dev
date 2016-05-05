@@ -2423,7 +2423,7 @@ MonoBehaviour:
   - {fileID: 80318191}
   - {fileID: 382978412}
   - {fileID: 335466577}
-  ResetPosition: 3400
+  ResetPosition: 3500
 --- !u!1001 &1477894261
 Prefab:
   m_ObjectHideFlags: 0

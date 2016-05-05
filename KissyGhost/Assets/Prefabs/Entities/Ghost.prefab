@@ -358,17 +358,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66c235fe7b5646bd089c2df830908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelRate: .25
+  NormalAccelRate: .25
   decelRate: .150000006
-  topSpeed: 5
+  NormalTopSpeed: 5.5
   currentSpeed: 0
+  currentAcelRate: 0
+  currentTopSpeed: 0
+  AccelWhileHoldingItem: 0
+  TopSpeedWhileHoldingItem: 0
   debugMoveDir: {x: 0, y: 0}
   debugCurrentSpeed: 0
   playerNum: 1
-  interactTrigger: {fileID: 0}
-  bodyCol: {fileID: 0}
-  _MoveInteractTrigger: {fileID: 0}
-  timeToRechargeKiss: 3
+  interactTrigger: {fileID: 6120758}
+  bodyCol: {fileID: 5820614}
+  _MoveInteractTrigger: {fileID: 11491866}
+  timeToRechargeKiss: 2.25
   timeBetweenKisses: .550000012
   GetAButtonDown: 0
   TouchingFurniture: 0
@@ -2051,6 +2055,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LinearDrag
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: NormalAccelRate
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bodyCol
+      value: 
+      objectReference: {fileID: 5820614}
+    - target: {fileID: 0}
+      propertyPath: interactTrigger
+      value: 
+      objectReference: {fileID: 6120758}
+    - target: {fileID: 0}
+      propertyPath: _MoveInteractTrigger
+      value: 
+      objectReference: {fileID: 11491866}
+    - target: {fileID: 0}
+      propertyPath: NormalTopSpeed
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: timeToRechargeKiss
+      value: 2.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

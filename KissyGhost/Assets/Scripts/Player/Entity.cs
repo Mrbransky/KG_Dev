@@ -4,16 +4,21 @@ using System.Collections;
 public class Entity : MonoBehaviour 
 {
     [Header("Movement")]
-    public float accelRate;
+    public float NormalAccelRate;
     public float decelRate;
     public virtual Vector2 moveDir { get; set; }
-    public float topSpeed;
+    public float NormalTopSpeed;
+    
     public float currentSpeed;
+    public float currentAcelRate;
+    public float currentTopSpeed;
+
+    public float AccelWhileHoldingItem;
+    public float TopSpeedWhileHoldingItem;
 
     protected Rigidbody2D rigidBody;
 
     private Vector2 cachedMoveDir;
-
 
     #region Keyboard Input Related Variables (for Debugging)
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
@@ -46,16 +51,16 @@ public class Entity : MonoBehaviour
 
         #region Keyboard Input Related Code (for Debugging)
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
-        else if (debugMoveDir != Vector2.zero && topSpeed > 0)
+        else if (debugMoveDir != Vector2.zero && currentTopSpeed > 0)
         {
             // AccelCurrentSpeed
-            if (debugCurrentSpeed < topSpeed)
+            if (debugCurrentSpeed < currentTopSpeed)
             {
-                debugCurrentSpeed += accelRate;
+                debugCurrentSpeed += currentAcelRate;
             }
-            else if (debugCurrentSpeed > topSpeed)
+            else if (debugCurrentSpeed > currentTopSpeed)
             {
-                debugCurrentSpeed = topSpeed;
+                debugCurrentSpeed = currentTopSpeed;
             }
 
             // ApplyMovement
@@ -105,11 +110,11 @@ public class Entity : MonoBehaviour
 
     protected float AccelCurrentSpeed()
     {
-        if (currentSpeed < topSpeed)  
-            return currentSpeed += accelRate;
+        if (currentSpeed < currentTopSpeed)
+            return currentSpeed += currentAcelRate;
 
-        else if (currentSpeed > topSpeed)
-            currentSpeed = topSpeed;
+        else if (currentSpeed > currentTopSpeed)
+            currentSpeed = currentTopSpeed;
 
         return currentSpeed;
     }
