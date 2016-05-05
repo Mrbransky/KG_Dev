@@ -14,6 +14,8 @@ public class AnimaticPlayer : MonoBehaviour {
     private bool noInputAfterTime = false;
     private float MenuTimer = 20;
 
+	private bool HasBeenSkipped;
+
     public bool IsMoviePlaying
     {
         get { return myMovieTexture.isPlaying; }
@@ -29,15 +31,19 @@ public class AnimaticPlayer : MonoBehaviour {
 
     void Update()
     {
-
-        if(anyGamepadButtonDown() == true || Input.anyKey)
-        {
-            Application.LoadLevel(1);
-        }
-        if (myMovieTexture.isPlaying == false)
-        {
-            Application.LoadLevel(1);
-        }
+		if (!HasBeenSkipped) 
+		{
+			if (anyGamepadButtonDown () == true || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter)) 
+			{
+				HasBeenSkipped = true;
+				Application.LoadLevel (1);
+			}
+			if (myMovieTexture.isPlaying == false) 
+			{
+				HasBeenSkipped = true;
+				Application.LoadLevel (1);
+			}
+		}
     }
 
     private bool anyGamepadButtonDown()
