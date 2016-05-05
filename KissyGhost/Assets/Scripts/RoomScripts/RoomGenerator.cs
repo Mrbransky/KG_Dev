@@ -222,7 +222,7 @@ public class RoomGenerator : MonoBehaviour
             switch ((int)roomType)
             {
                 case (int)RoomTypes.Left:
-                    FurnitureToSpawn = bedroomFurnitureOptions[Random.Range(0, kitchenFurnitureOptions.Length)];
+                    FurnitureToSpawn = bedroomFurnitureOptions[Random.Range(0, bedroomFurnitureOptions.Length)];
                     break;
 
                 case (int)RoomTypes.Right:
@@ -231,7 +231,7 @@ public class RoomGenerator : MonoBehaviour
 
                 case (int)RoomTypes.Bottom:
                     //TODO: uncomment when items for these rooms are made
-                    //FurnitureToSpawn = bathroomFurnitureOptions[Random.Range(0, kitchenFurnitureOptions.Length)];
+                    FurnitureToSpawn = bathroomFurnitureOptions[Random.Range(0, bathroomFurnitureOptions.Length)];
                     break;
             }
 

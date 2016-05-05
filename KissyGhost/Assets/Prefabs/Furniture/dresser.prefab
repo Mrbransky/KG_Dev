@@ -159,8 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kissedBehavior: 1
   UnkissedSprite: {fileID: 21300000, guid: 707194fd3c0d4fc47be7bc697e8a41fa, type: 3}
-  KissedSprite: {fileID: 0}
+  KissedSprite: {fileID: 21300000, guid: b7af12af6a7cf3944a5cfdd78e4cbb70, type: 3}
   kissedColor: {r: 1, g: 0, b: .886274517, a: 1}
+  isKissed: 0
   amountKissed: 0
   DoorPushMag: 5
   kissedDuration: 3
@@ -1326,6 +1327,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: KissedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b7af12af6a7cf3944a5cfdd78e4cbb70,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148086}
