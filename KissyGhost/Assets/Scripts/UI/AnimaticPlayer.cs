@@ -27,6 +27,12 @@ public class AnimaticPlayer : MonoBehaviour {
         myMovieTexture = (MovieTexture)myRenderer.material.mainTexture;
         myMovieTexture.loop = IsMovieLoopable;
         myMovieTexture.Play();
+
+        //PLAY THE TRACK HERE TOM
+        //OKAY, THANK YOU
+        //HOPE YOU HAD A GOOD MOTHER'S DAY
+        //LIKE, YOUR MOM, NOT U
+        //LOL
     }
 
     void Update()

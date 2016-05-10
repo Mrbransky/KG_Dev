@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
+     <Compile Include="Assets\Scripts\STUPIDCATS.cs" />
      <Compile Include="Assets\Scripts\SpriteSorter.cs" />
      <Compile Include="Assets\Scripts\StartingCountdown.cs" />
      <Compile Include="Assets\Scripts\ThrowableItem.cs" />
