@@ -9,6 +9,7 @@
 						<Switch Name="GameplayMusic" ID="{6859B305-CAB5-4418-98BA-8B9A350036D7}"/>
 						<Switch Name="GhostWinMusic" ID="{9B9022AE-0FDA-4341-8BE9-CFB8C94664E5}"/>
 						<Switch Name="HumanWinMusic" ID="{CCE0F782-C9CA-4E89-8440-B229543F4DE7}"/>
+						<Switch Name="Animatic" ID="{A22C1269-E29E-472A-86D4-6D39FFDA53EE}"/>
 					</ChildrenList>
 				</SwitchGroup>
 			</ChildrenList>

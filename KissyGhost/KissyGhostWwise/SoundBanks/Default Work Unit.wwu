@@ -25,6 +25,7 @@
 						<ObjectRef Name="Play_PlayerJoin" ID="{3F2CB3EB-83F0-4528-BF6D-BF46736A6712}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Round_Start" ID="{175F9EF4-3EE2-4C15-99CA-A560D9427333}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_RoomTransition" ID="{30CE0AF5-2D1B-423A-991D-EE3CCCF61B89}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_AnimaticMusic" ID="{4D52B1F5-7113-4BB1-B769-FBEF27491D05}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

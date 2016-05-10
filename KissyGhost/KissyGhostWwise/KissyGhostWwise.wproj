@@ -3,17 +3,20 @@
 	<ProjectInfo>
 		<Project Name="KissyGhostWwise" ID="{F5D20C7C-1DFF-461D-87E2-8E3952E6625C}">
 			<Platforms>
+				<Platform Name="Mac" ReferencePlatform="Mac" ID="{9A591026-9D3B-42EF-93B9-BEEFF86B888A}"/>
 				<Platform Name="Windows" ReferencePlatform="Windows" ID="{116792B6-46F9-4711-86B2-4D47F3A60B70}"/>
 			</Platforms>
 			<PropertyList>
 				<Property Name="DefaultLanguage" Type="int32" Value="12"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
+						<Value Platform="Mac"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="ExternalSourcesOutputPath" Type="string">
 					<ValueList>
+						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
 					</ValueList>
 				</Property>
@@ -23,26 +26,31 @@
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\Assets\StreamingAssets\Audio\GeneratedSoundBanks"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
+						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
 					<ValueList>
+						<Value Platform="Mac">Copy Streamed Files</Value>
 						<Value Platform="Windows">Copy Streamed Files</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdLines" Type="string">
 					<ValueList>
+						<Value Platform="Mac">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
 						<Value Platform="Windows">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdDescription" Type="string">
 					<ValueList>
+						<Value Platform="Mac"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdLines" Type="string">
 					<ValueList>
+						<Value Platform="Mac"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>

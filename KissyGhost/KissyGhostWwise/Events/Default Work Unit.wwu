@@ -96,7 +96,7 @@
 						<Action Name="Play" ID="{BF3D2F5D-D166-4D4A-8176-CEE23EA589A2}" ShortID="633417324" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{4F09FBFD-1D97-494D-AA1C-3DA43EE5BAAC}" Global="false">
-									<ObjectRef Name="Music" ID="{26BB6E66-9FEB-4C32-AD8A-38D0F202A9B3}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+									<ObjectRef Name="MainMusicSwitch" ID="{26BB6E66-9FEB-4C32-AD8A-38D0F202A9B3}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -218,6 +218,17 @@
 							<ElementList>
 								<Element ID="{A176EF23-D55F-42A3-B5EF-D0E414FE7411}" Global="false">
 									<ObjectRef Name="PlayerHit" ID="{D45F0BAE-38A4-4BF2-ACC5-94F37888F19B}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AnimaticMusic" ID="{4D52B1F5-7113-4BB1-B769-FBEF27491D05}">
+					<ChildrenList>
+						<Action Name="Play" ID="{BD0FB548-7D0D-48ED-A580-0B79B6F1E236}" ShortID="722385169" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{CE95F709-5E6C-47D0-A96D-6B94CFEE3D73}" Global="false">
+									<ObjectRef Name="AnimaticMusic" ID="{2E3B04A3-E762-4E39-9CF0-E9BF9C2EE869}" WorkUnitID="{0C518CFF-6B6F-4F61-9057-06FE06C27B4B}"/>
 								</Element>
 							</ElementList>
 						</Action>

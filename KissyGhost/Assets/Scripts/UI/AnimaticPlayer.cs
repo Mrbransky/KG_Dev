@@ -33,6 +33,16 @@ public class AnimaticPlayer : MonoBehaviour {
         //HOPE YOU HAD A GOOD MOTHER'S DAY
         //LIKE, YOUR MOM, NOT U
         //LOL
+		//soundManager.SOUND_MAN.playSound("Play_AnimaticMusic", gameObject);
+		//This is wrong u r worst progremmer 
+		//got him
+		//I h8 u
+		//but seriously it's been fun working on this game
+		//and working with all of you, I'm proud of what it is
+		//Oh shit I'm not being mean... um defense mechanism GO!
+		//Fuck you Zac
+		//you're a pooface
+		//got him again boi
     }
 
     void Update()
