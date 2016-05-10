@@ -12778,7 +12778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerReadyArray: 01000001
-  playerCount: 1
+  playerCount: 2
   ghostPlayerIndex: 3
   isDebugData: 0
   playerPaletteArray: []
@@ -15341,6 +15341,9 @@ MonoBehaviour:
   _SpriteSorter: {fileID: 2038403448}
   currentFurniture:
   - {fileID: 1487003972}
+  leftFurniture: []
+  rightFurniture: []
+  bottomFurniture: []
   numberOfFurnitureForCenter: 15
   numberOfFurnitureForRight: 10
   numberOfFurnitureForLeft: 10

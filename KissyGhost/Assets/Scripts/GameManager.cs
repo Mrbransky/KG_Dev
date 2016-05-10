@@ -247,6 +247,7 @@ public class GameManager : MonoBehaviour {
     {
         if (gameEnd)
         {
+            if (currentGhostPlayer.GetComponent<Ghost>())
             currentGhostPlayer.GetComponent<Ghost>().UpdateGameHasEnded(this);
 
             if (didHumansWin)
@@ -311,11 +312,20 @@ public class GameManager : MonoBehaviour {
     void GhostPullToMiddle()
     {
         #if UNITY_EDITOR || UNITY_WEBGL || UNITY_WEBPLAYER || UNITY_STANDALONE
+        if (currentGhostPlayer.GetComponent<Ghost>())
         currentGhostPlayer.GetComponent<Ghost>().debugCurrentSpeed = 0;
         #endif
 
         Vector3 roomPos = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
-        currentGhostPlayer.GetComponent<Ghost>().currentSpeed = 0;
+            if (currentGhostPlayer.GetComponent<Ghost>())
+            {
+                currentGhostPlayer.GetComponent<Ghost>().currentSpeed = 0;
+            }
+            else 
+            { 
+                currentGhostPlayer.GetComponent<GhostAI>().ghostSpeed = 0;
+                currentGhostPlayer.GetComponent<GhostAI>().currentState = GhostAI.GhostState.End;
+            }
         if (Vector2.Distance(currentGhostPlayer.transform.position, roomPos) > 0.5f)
         {
             Vector2 direction = currentGhostPlayer.transform.position - roomPos;

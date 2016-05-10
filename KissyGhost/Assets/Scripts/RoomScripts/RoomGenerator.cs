@@ -32,6 +32,9 @@ public class RoomGenerator : MonoBehaviour
     //Furniture list
     [Header("Furniture Count")]
 	public List<GameObject> currentFurniture;
+    public List<GameObject> leftFurniture;
+    public List<GameObject> rightFurniture;
+    public List<GameObject> bottomFurniture;
 	public int numberOfFurnitureForCenter = 15;
     public int numberOfFurnitureForRight = 10;
     public int numberOfFurnitureForLeft = 10;
@@ -236,6 +239,21 @@ public class RoomGenerator : MonoBehaviour
             }
 
             GameObject newFurniture = (GameObject)Instantiate(FurnitureToSpawn, newPos, Quaternion.identity);
+
+            switch ((int)roomType)
+            {
+                case (int)RoomTypes.Left:
+                    leftFurniture.Add(newFurniture);
+                    break;
+
+                case (int)RoomTypes.Right:
+                    rightFurniture.Add(newFurniture);
+                    break;
+
+                case (int)RoomTypes.Bottom:
+                    bottomFurniture.Add(newFurniture);
+                    break;
+            }
             #region
             if (newFurniture.tag == "Furniture")
             {

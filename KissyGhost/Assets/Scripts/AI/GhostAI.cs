@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class GhostAI : MonoBehaviour {
 
     GameManager gm;
     RoomGenerator rg;
 
-    enum GhostState { Find, Kiss, Wander };
-    GhostState currentState;
+    public enum GhostState { Find, Kiss, Wander, Track, End };
+    public GhostState currentState;
 
-    GameObject currentRoom;
+    public GameObject currentRoom;
     public GameObject furnToKiss;
     public GameObject closestPlayer;
     bool TouchingFurniture = false;
-    float ghostSpeed = 3.5f;
+    public float ghostSpeed = 3.5f;
     Vector2 waypoint;
 
-    float timer = 1;
+    float timer = 3;
+    int kissCooldown = 3;
+    int rand;
+    Vector3 randomVec = Vector3.zero;
 	void Start () {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rg = GameObject.Find("GameManager").GetComponent<RoomGenerator>();
@@ -42,6 +45,11 @@ public class GhostAI : MonoBehaviour {
             case GhostState.Wander:
                 Wander();
                 break;
+            //case GhostState.Track:
+            //    Track();
+            //    break;
+            case GhostState.End:
+                break;
             default:
                 break;
         }
@@ -54,6 +62,7 @@ public class GhostAI : MonoBehaviour {
         float closestDistance = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
 
+        //add switch statement that checks which room ghost is in then changes furniture options
         foreach(GameObject potentialTarget in rg.currentFurniture)
         {
             if (potentialTarget.GetComponent<KissableFurniture>())
@@ -100,32 +109,79 @@ public class GhostAI : MonoBehaviour {
     }
     void Kiss()
     {
-        furnToKiss.GetComponent<KissableFurniture>().KissFurniture();
-
-        int chanceToWander = Random.Range(1, 4);
-
-        if (chanceToWander != 3)
+        if (kissCooldown > 0)
         {
-            currentState = GhostState.Find;
+            furnToKiss.GetComponent<KissableFurniture>().KissFurniture();
+
+            int chanceToWander = Random.Range(1, 4);
+
+            if (chanceToWander != 3)
+            {
+                currentState = GhostState.Find;
+            }
+            else
+            {
+                currentState = GhostState.Wander;
+                rand = Random.Range(1, 3);
+                waypoint = Random.insideUnitCircle * 25;
+            }
+            kissCooldown--;
         }
         else
         {
             currentState = GhostState.Wander;
-            waypoint = Random.insideUnitCircle * 25;
+            rand = Random.Range(1, 3);
         }
-        }
+
+    }
     void Wander()
     {
-        transform.position = Vector3.MoveTowards(transform.position, waypoint, ghostSpeed * Time.deltaTime);
-
         timer -= Time.deltaTime;
-
         if(timer <= 0)
         {
+            kissCooldown = 3;
             currentState = GhostState.Find;
-            timer = 1;
+            timer = 3;
+        }
+
+        switch(rand)
+        {
+            case 1:
+                transform.position = Vector3.MoveTowards(transform.position, RandomVector(), ghostSpeed * Time.deltaTime);
+                break;
+            case 2:
+                transform.position = Vector3.MoveTowards(transform.position, closestPlayer.transform.position, ghostSpeed * Time.deltaTime);
+                break;
+            case 3:
+                transform.position = Vector3.MoveTowards(transform.position, furnToKiss.transform.position, ghostSpeed * Time.deltaTime);
+                break;
+        }
+
+        if(this.transform.position == randomVec)
+        {
+            randomVec = Vector3.zero;
         }
     }
+
+    Vector3 RandomVector()
+    {
+
+        if(randomVec == Vector3.zero)
+        randomVec = Random.insideUnitCircle * 8;
+
+
+        return randomVec;
+    }
+    //void Track()
+    //{
+    //    transform.position = Vector3.MoveTowards(transform.position, closestPlayer.transform.position, ghostSpeed * Time.deltaTime);
+    //    timer -= Time.deltaTime;
+    //    if (timer <= 0)
+    //    {
+    //        currentState = GhostState.Find;
+    //        timer = 1;
+    //    }
+    //}
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Furniture")

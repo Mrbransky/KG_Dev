@@ -82,8 +82,6 @@ public class RoomChangeManager : MonoBehaviour
         roomSubObjectiveTypeArray[(int)RoomLocations.Left] = SubObjective_Left;
         roomSubObjectiveTypeArray[(int)RoomLocations.Right] = SubObjective_Right;
         roomSubObjectiveTypeArray[(int)RoomLocations.Bottom] = SubObjective_Bottom;
-
-        GhostAI = GameObject.Find("AI_Ghost(Clone)");
     }
 
     void Update()
@@ -132,6 +130,7 @@ public class RoomChangeManager : MonoBehaviour
         }
         else
         {
+            GhostAI = GameObject.Find("AI_Ghost(Clone)");
             CheckPlayersWaiting();
         }
     }
@@ -271,6 +270,7 @@ public class RoomChangeManager : MonoBehaviour
 
         }
         AkSoundEngine.PostEvent("Stop_FurnitureMove", gameObject);
+        if (GetComponent<GameManager>().currentGhostPlayer.GetComponent<Ghost>())
         GetComponent<GameManager>().currentGhostPlayer.GetComponent<Ghost>().SetTimeSinceKiss(1.85f);
         
     }
@@ -332,6 +332,7 @@ public class RoomChangeManager : MonoBehaviour
             {
                 BottomRoomDoorArrow.SetActive(true);
             }
+            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().BottomBaseRoomPiece; 
         }
         else if (playersGoingLeft.Count >= curPlayerCount - 1)
         {
@@ -343,6 +344,7 @@ public class RoomChangeManager : MonoBehaviour
             {
                 LeftRoomDoorArrow.SetActive(true);
             }
+            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().LeftBaseRoomPiece;
         }
         else if (playersGoingRight.Count >= curPlayerCount - 1)
         {
@@ -354,6 +356,7 @@ public class RoomChangeManager : MonoBehaviour
             {
                 RightRoomDoorArrow.SetActive(true);
             }
+            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().RightBaseRoomPiece;
         }
         else if (playersGoingBack.Count >= curPlayerCount - 1)
         {
@@ -368,6 +371,7 @@ public class RoomChangeManager : MonoBehaviour
                     go.SetActive(true);
                 }
             }
+            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().MainBaseRoomPiece;
         }
     }
 
