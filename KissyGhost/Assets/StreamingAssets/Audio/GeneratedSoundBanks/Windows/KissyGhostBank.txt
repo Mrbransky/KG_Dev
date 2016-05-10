@@ -29,6 +29,7 @@ Switch	ID	Name	Switch Group			Notes
 	679636833	MenuMusic	MusicSwitch			
 	2275179450	GameplayMusic	MusicSwitch			
 	3628969981	GhostWinMusic	MusicSwitch			
+	4144309277	Animatic	MusicSwitch			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	31833784	MenuDown	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\MenuDown_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\MenuDown		15250
@@ -54,6 +55,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	607850736	StairsMove6	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\StairsMove6_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\StairsMove\StairsMove6		576064
 	620477597	FurnitureMove2	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\FurnitureMove2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\FurnitureMove\FurnitureMove2		148094
 	630630407	MenuConfirm	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\MenuConfirm2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\MenuConfirm		17704
+	638029170	Animatic	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\AnimaticWav_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MainMusicSwitch\Animatic		7978288
 	674771949	Kiss23	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss23_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss23		54626
 	684238937	Dating Human	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Dating Human_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MainMusicSwitch\Dating Human		10182188
 	694748885	Item In Heartagram	C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\ItemInHeartagram_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Items\Item In Heartagram		161408
