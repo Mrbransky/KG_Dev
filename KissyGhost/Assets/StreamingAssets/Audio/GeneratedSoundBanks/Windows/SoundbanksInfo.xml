@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="10" SoundbankVersion="113">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -19,6 +19,7 @@
 			<ShortName>KissyGhostBank</ShortName>
 			<Path>KissyGhostBank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3590944135" Name="Play_AnimaticMusic"/>
 				<Event Id="2690797150" Name="Play_cat"/>
 				<Event Id="3197300806" Name="Play_DoorOpen"/>
 				<Event Id="250868963" Name="Play_FurnitureMove"/>
@@ -64,6 +65,10 @@
 				<File Id="138617315" Language="SFX">
 					<ShortName>BigWhistle.wav</ShortName>
 					<Path>SFX\BigWhistle_9E69E797.wem</Path>
+				</File>
+				<File Id="170637393" Language="SFX">
+					<ShortName>KissyGhost AnimaticTrack.wav</ShortName>
+					<Path>SFX\KissyGhost AnimaticTrack_9E69E797.wem</Path>
 				</File>
 				<File Id="200364935" Language="SFX">
 					<ShortName>cat.wav</ShortName>

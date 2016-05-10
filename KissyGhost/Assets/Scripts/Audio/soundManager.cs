@@ -59,6 +59,12 @@ public class soundManager : MonoBehaviour {
             MainMenuMusicPlaying = true;
         }
 
+		if (Application.loadedLevelName == "Animatic" && !GameHasEnded)
+		{
+			switchVoid("MusicSwitch", "Animatic", gameObject);
+			MainMenuMusicPlaying = false;
+		}
+
         //if (GameHasEnded && !WinMusicPlaying)
         //{
         //    if(HumansWonGame)

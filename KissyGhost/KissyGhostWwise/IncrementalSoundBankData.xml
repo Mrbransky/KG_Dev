@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <IncrementalBankBuild Version="4" Flags="240381544">
+	<Platform GUID="{9A591026-9D3B-42EF-93B9-BEEFF86B888A}">
+		<Language ID="0">
+			<Bank Name="Init" Hash="2933037795" StreamHash="157587662" Timestamp="131073880714631113"/>
+			<Bank Name="KissyGhostBank" Hash="2433050513" StreamHash="157587662" Timestamp="131073885682732487"/>
+		</Language>
+	</Platform>
 	<Platform GUID="{116792B6-46F9-4711-86B2-4D47F3A60B70}">
 		<Language ID="0">
-			<Bank Name="Init" Hash="3958984000" StreamHash="157587662" Timestamp="131062964801475376"/>
-			<Bank Name="KissyGhostBank" Hash="1048965911" StreamHash="157587662" Timestamp="131062981127368511"/>
+			<Bank Name="Init" Hash="3958984000" StreamHash="157587662" Timestamp="131073878678230967"/>
+			<Bank Name="KissyGhostBank" Hash="2121609917" StreamHash="157587662" Timestamp="131073885696243368"/>
 		</Language>
 	</Platform>
 </IncrementalBankBuild>
