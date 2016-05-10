@@ -49,13 +49,17 @@
      <Compile Include="Assets\Scripts\UI\HealthBar.js" />
      <None Include="Assets\Wwise\Version.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\KissyGhostBank.txt" />
+     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\PluginInfo.xml" />
+     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\KissyGhostBank.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
      <None Include="Assets\Scripts\Shaders\SpriteDefaultZWrite.shader" />
      <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\XInputDotNet\MITLicense.txt" />
+     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\SoundbanksInfo.xml" />
      <None Include="Assets\Scripts\PaletteSwap\OLD\SpritePaletteSwap.shader" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
      <None Include="Assets\Wwise\Readme.txt" />
+     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\Init.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\desc.txt" />
      <None Include="Assets\Scripts\Shaders\SpriteOcclude.shader" />

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c38325d11935ec49810174689f94158, type: 3}
-  m_Name: TEST_Old_Lady_FullSpriteSheetRecolored-color-palette_p5
+  m_Name: 6TEST_Old_Lady_FullSpriteSheetRecolored-color-palette_p5
   m_EditorClassIdentifier: 
   source: {fileID: 2800000, guid: 041989b833998e449b94f3845a8a18bc, type: 3}
   palette:
