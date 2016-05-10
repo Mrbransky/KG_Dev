@@ -730,7 +730,7 @@ public class CharacterSelectManager_Single : MonoBehaviour
                     StartCoroutine(InputMapper.Vibration(playerIndex + 1, .2f, 0, .8f));
                     soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
 
-                    ShowSpriteAndSetPalette(playerIndex);
+                    //ShowSpriteAndSetPalette(playerIndex);
                     ColorTextArray[playerIndex].color = Color.black;
 
                     HideTextPrompt(playerIndex);
@@ -921,9 +921,6 @@ public class CharacterSelectManager_Single : MonoBehaviour
     private void KeysCheckIfPlayerReady()
     {
         CheckPlayerStateViaKeys(0, KeyCode.W, KeyCode.S);
-        CheckPlayerStateViaKeys(1, KeyCode.T, KeyCode.G);
-        CheckPlayerStateViaKeys(2, KeyCode.I, KeyCode.K);
-        CheckPlayerStateViaKeys(3, KeyCode.UpArrow, KeyCode.DownArrow);
     }
 
     void CheckPlayerStateViaKeys(int playerIndex, KeyCode OptIn, KeyCode OptOut)
