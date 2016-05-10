@@ -33,6 +33,7 @@ public class AnimaticPlayer : MonoBehaviour {
         //HOPE YOU HAD A GOOD MOTHER'S DAY
         //LIKE, YOUR MOM, NOT U
         //LOL
+		soundManager.SOUND_MAN.playSound("Play_AnimaticMusic", gameObject);
     }
 
     void Update()
