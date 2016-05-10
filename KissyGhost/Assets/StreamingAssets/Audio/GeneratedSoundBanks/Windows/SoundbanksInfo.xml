@@ -134,6 +134,10 @@
 					<ShortName>MenuConfirm2.wav</ShortName>
 					<Path>SFX\MenuConfirm2_9E69E797.wem</Path>
 				</File>
+				<File Id="638029170" Language="SFX">
+					<ShortName>AnimaticWav.wav</ShortName>
+					<Path>SFX\AnimaticWav_9E69E797.wem</Path>
+				</File>
 				<File Id="674771949" Language="SFX">
 					<ShortName>Kiss23.wav</ShortName>
 					<Path>SFX\Kiss23_9E69E797.wem</Path>

@@ -14,25 +14,14 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_CAT = 2690797150U;
-        static const AkUniqueID PLAY_DOOROPEN = 3197300806U;
         static const AkUniqueID PLAY_FURNITUREMOVE = 250868963U;
-        static const AkUniqueID PLAY_ITEM_DOWN = 415713954U;
-        static const AkUniqueID PLAY_ITEM_IN_HEARTAGRAM = 1403551666U;
-        static const AkUniqueID PLAY_ITEM_PICK_UP = 4227397407U;
         static const AkUniqueID PLAY_KISSES = 1888148468U;
         static const AkUniqueID PLAY_MENU_UP = 2878774629U;
         static const AkUniqueID PLAY_MENUBACK = 1113566242U;
         static const AkUniqueID PLAY_MENUCONFIRM = 3100142473U;
         static const AkUniqueID PLAY_MENUDOWN = 529815043U;
         static const AkUniqueID PLAY_MUSIC = 2932040671U;
-        static const AkUniqueID PLAY_PLAYERHIT = 514211712U;
-        static const AkUniqueID PLAY_PLAYERJOIN = 3679533029U;
-        static const AkUniqueID PLAY_ROOMTRANSITION = 1681141998U;
-        static const AkUniqueID PLAY_ROUND_START = 1779266091U;
-        static const AkUniqueID PLAY_ROUND_START_GO = 2801657304U;
-        static const AkUniqueID PLAY_STAIRSMOVE = 1351915383U;
         static const AkUniqueID STOP_FURNITUREMOVE = 2556250589U;
-        static const AkUniqueID STOP_STAIRSMOVE = 1003545697U;
     } // namespace EVENTS
 
     namespace SWITCHES

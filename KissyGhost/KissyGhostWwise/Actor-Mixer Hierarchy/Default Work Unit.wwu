@@ -1150,7 +1150,7 @@
 										<ActiveSource Name="MainGameplayMusicLooped_mixdown" ID="{D176F923-A428-44A4-819A-BDCBCE0DBED0}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="AnimaticMusic" ID="{8FDD8BB4-2D74-4F44-85B3-E8DC8ABEA069}" ShortID="604505356" Type="SoundFX">
+								<Sound Name="Animatic" ID="{690A7557-EC0F-40D1-B92C-062FB1E73962}" ShortID="571457250" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B73C2214-B51E-4653-B9FD-C81123D07E65}"/>
@@ -1160,16 +1160,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="KissyGhost AnimaticTrack" ID="{3342FA3C-425E-47F3-BF14-F0112406F084}" ShortID="640208558">
+										<AudioFileSource Name="AnimaticWav" ID="{07CBA5BE-841F-45DE-AEA9-F64CECA07E27}" ShortID="638029170">
 											<Language>SFX</Language>
-											<AudioFile>KissyGhost AnimaticTrack.wav</AudioFile>
-											<ConvertedFileIDList>
-												<File ID="170637393"/>
-											</ConvertedFileIDList>
+											<AudioFile>AnimaticWav.wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="KissyGhost AnimaticTrack" ID="{3342FA3C-425E-47F3-BF14-F0112406F084}" Platform="Linked"/>
+										<ActiveSource Name="AnimaticWav" ID="{07CBA5BE-841F-45DE-AEA9-F64CECA07E27}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -1181,10 +1178,10 @@
 										<ItemRef Name="Kissy Ghost Main Title" ID="{C04B8743-F917-4D9F-A866-6EAA0AD064AE}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="Dating Human" ID="{30498A98-FAD7-43C8-8015-DD07B1195AC0}"/>
+										<ItemRef Name="Animatic" ID="{690A7557-EC0F-40D1-B92C-062FB1E73962}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="AnimaticMusic" ID="{8FDD8BB4-2D74-4F44-85B3-E8DC8ABEA069}"/>
+										<ItemRef Name="Dating Human" ID="{30498A98-FAD7-43C8-8015-DD07B1195AC0}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Dating - Ghost" ID="{3EDD41E7-EA14-4F27-9187-47F3F2FA1BBE}"/>
@@ -1203,7 +1200,7 @@
 									<Grouping>
 										<SwitchRef Name="Animatic" ID="{A22C1269-E29E-472A-86D4-6D39FFDA53EE}"/>
 										<ItemList>
-											<ItemRef Name="AnimaticMusic" ID="{8FDD8BB4-2D74-4F44-85B3-E8DC8ABEA069}"/>
+											<ItemRef Name="Animatic" ID="{690A7557-EC0F-40D1-B92C-062FB1E73962}"/>
 										</ItemList>
 									</Grouping>
 									<Grouping>
