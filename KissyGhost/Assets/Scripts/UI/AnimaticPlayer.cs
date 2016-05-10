@@ -23,17 +23,22 @@ public class AnimaticPlayer : MonoBehaviour {
 
     void Awake()
     {
+		//myMovieTexture.audioClip = fakeAudioClip;
         myRenderer = GetComponent<Renderer>();
         myMovieTexture = (MovieTexture)myRenderer.material.mainTexture;
         myMovieTexture.loop = IsMovieLoopable;
-        myMovieTexture.Play();
+		myMovieTexture.Play ();
+		//fakeSource.clip = myMovieTexture.audioClip;
+
+		//fakeSource.pitch = .95f;
+       // myMovieTexture.Play();
 
         //PLAY THE TRACK HERE TOM
         //OKAY, THANK YOU
         //HOPE YOU HAD A GOOD MOTHER'S DAY
         //LIKE, YOUR MOM, NOT U
         //LOL
-		soundManager.SOUND_MAN.playSound("Play_AnimaticMusic", gameObject);
+		//soundManager.SOUND_MAN.playSound("Play_AnimaticMusic", gameObject);
     }
 
     void Update()
