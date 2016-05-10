@@ -19,6 +19,7 @@ TagManager:
   - Pull
   - GhostBarrier
   - Interact
+  - Heartagram
   layers:
   - Default
   - TransparentFX

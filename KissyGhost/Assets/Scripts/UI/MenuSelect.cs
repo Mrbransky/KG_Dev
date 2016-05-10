@@ -6,12 +6,14 @@ public class MenuSelect : MonoBehaviour
 {
     public VideoOnDelay _VideoOnDelay;
     public HeartZoomTransition _HeartZoomTransition;
-    public Text option1, option2, option3;
+    public Text option1, option2, option3, option4;
     //public AudioSource audio;
     Transform Controls, Instructions, WinCondition;
     public GameObject heartZoom;
     public Color orgColor;
     public Color altColor;
+
+    const int MAX_CHOICES = 4;
 
     float menuSelectTimer = 0.2f;
     float instructScreensTimer = 1;
@@ -73,7 +75,7 @@ public class MenuSelect : MonoBehaviour
             //Menu Movement Sound
             soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
 
-            if (choice >= 3)
+            if (choice >= MAX_CHOICES)
             {
                 canMove = false;
                 choice = 1;            
@@ -91,7 +93,7 @@ public class MenuSelect : MonoBehaviour
             if (choice <= 1)
             {
                 canMove = false;
-                choice = 3;
+                choice = MAX_CHOICES;
             }
             else
             {
@@ -116,10 +118,15 @@ public class MenuSelect : MonoBehaviour
 
                     case 2:
                         _HeartZoomTransition.enabled = true;
-                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 5);
+                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 6);
                         break;
 
                     case 3:
+                        _HeartZoomTransition.enabled = true;
+                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 5);
+                        break;
+
+                    case 4:
 #if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
                         _HeartZoomTransition.enabled = true;
                         _HeartZoomTransition.StartHeartZoomIn(-1);
@@ -141,18 +148,28 @@ public class MenuSelect : MonoBehaviour
                 option1.color = altColor;
                 option2.color = orgColor;
                 option3.color = orgColor;
+                option4.color = orgColor;
                 break;
 
             case 2:
                 option1.color = orgColor;
                 option2.color = altColor;
                 option3.color = orgColor;
+                option4.color = orgColor;
                 break;
 
             case 3:
                 option1.color = orgColor;
                 option2.color = orgColor;
                 option3.color = altColor;
+                option4.color = orgColor;
+                break;
+
+            case 4:
+                option1.color = orgColor;
+                option2.color = orgColor;
+                option3.color = orgColor;
+                option4.color = altColor;
                 break;
 
             default:
@@ -180,6 +197,9 @@ public class MenuSelect : MonoBehaviour
                         break;
 
                     case 2:
+                        break;
+
+                    case 3:
                         WhichInstructScreen++;
                         instructScreensTimer = 1;
                         canAdvance = false;
@@ -188,7 +208,7 @@ public class MenuSelect : MonoBehaviour
                         WinCondition.gameObject.SetActive(true);
                         break;
 
-                    case 3:
+                    case 4:
                         _HeartZoomTransition.enabled = true;
                         _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 1);
                         break;

@@ -180,8 +180,8 @@ RectTransform:
   - {fileID: 1160868140}
   - {fileID: 1727710771}
   - {fileID: 1604289289}
-  - {fileID: 1473394516}
   - {fileID: 1927428056}
+  - {fileID: 1473394516}
   - {fileID: 1260158547}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1481,7 +1481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &879771142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1563,7 +1563,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -173.100006, y: 180}
+  m_AnchoredPosition: {x: -173.100006, y: 168}
   m_SizeDelta: {x: 243.199997, y: 74.8000031}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &942106689
@@ -1614,7 +1614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &945401597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2436,7 +2436,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 176.5, y: 180}
+  m_AnchoredPosition: {x: 176.5, y: 168}
   m_SizeDelta: {x: 242.600006, y: 74.8000031}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1459070435
@@ -2697,12 +2697,12 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplayer
+  m_Text: Single Player
 --- !u!222 &1560779294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2796,7 +2796,6 @@ GameObject:
   - 222: {fileID: 1604289293}
   - 114: {fileID: 1604289292}
   - 114: {fileID: 1604289291}
-  - 114: {fileID: 1604289290}
   m_Layer: 5
   m_Name: Go_Back
   m_TagString: Untagged
@@ -2822,18 +2821,6 @@ RectTransform:
   m_AnchoredPosition: {x: -310, y: -240}
   m_SizeDelta: {x: 100, y: 35}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &1604289290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1604289288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06b3035612392944904ce493236f355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _HeartZoomTransition: {fileID: 110399876}
 --- !u!114 &1604289291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,6 +3107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _HeartZoomTransition: {fileID: 110399876}
+  CharSelectSceneNum: 8
 --- !u!1 &1756789112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,7 +3352,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4698919}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 238.050003}
