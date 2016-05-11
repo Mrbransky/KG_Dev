@@ -9214,6 +9214,7 @@ MonoBehaviour:
   _HeartZoomTransition: {fileID: 879460498}
   countdown: {fileID: 2111017123}
   pauseGame: {fileID: 2038403446}
+  CatMode: 0
 --- !u!1 &1237209757
 GameObject:
   m_ObjectHideFlags: 0
@@ -12780,7 +12781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1690912245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12795,7 +12796,7 @@ MonoBehaviour:
   isPlayerReadyArray: 01000001
   playerCount: 1
   ghostPlayerIndex: 0
-  isDebugData: 0
+  isDebugData: 1
   playerPaletteArray: []
   startingSprites: []
   isFemaleCharacter: 
@@ -15279,6 +15280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0351cac12f2f80b409ec68d212f24e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CatMode: 0
   heart_splosion: {fileID: 127656, guid: 56b9634d6d55e0847ad58b0f1f3f01f2, type: 2}
   heartZoom: {fileID: 2102822334}
   _HeartZoomTransition: {fileID: 879460498}
@@ -15356,6 +15358,9 @@ MonoBehaviour:
   _SpriteSorter: {fileID: 2038403448}
   currentFurniture:
   - {fileID: 1487003972}
+  leftFurniture: []
+  rightFurniture: []
+  bottomFurniture: []
   numberOfFurnitureForCenter: 15
   numberOfFurnitureForRight: 10
   numberOfFurnitureForLeft: 10

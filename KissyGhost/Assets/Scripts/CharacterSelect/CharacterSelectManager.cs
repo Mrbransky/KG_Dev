@@ -284,25 +284,28 @@ public class CharacterSelectManager : MonoBehaviour
                             {
                                 startGame();
                                 soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                                return;
                             }
-                            else if (InputMapper.GrabVal(XBOX360_BUTTONS.Y, i + 1) && CanStartGame())
-                            {
-                                if (catModeIndex < CatModeLetters.Length)
-                                {
-                                    CatModeLetters[catModeIndex].GetComponent<Text>().color = Color.black;
-                                }
+                        }
+                    }
 
-                                ++catModeIndex;
+                    if (Input.GetButtonDown("Meow_Button") && CanStartGame())
+                    {
+                        if (catModeIndex < CatModeLetters.Length)
+                        {
+                            CatModeLetters[catModeIndex].GetComponent<Text>().color = Color.black;
+                            CatModeLetters[catModeIndex].GetComponent<UIFlasher>().SetDefaultColor(Color.black);
+                        }
 
-                                if (catModeIndex >= CatModeLetters.Length)
-								{
-									catMode = true;
-									catModeBackground.SetActive(true);
-									regularBackground.SetActive(false);
-									startGame();
-									soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
-                                }
-                            }
+                        ++catModeIndex;
+
+                        if (catModeIndex >= CatModeLetters.Length)
+                        {
+                            catMode = true;
+                            catModeBackground.SetActive(true);
+                            regularBackground.SetActive(false);
+                            startGame();
+                            soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
                         }
                     }
                 }

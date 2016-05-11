@@ -12,8 +12,15 @@ public class StartingCountdown : MonoBehaviour
         get{return _hasPlayedStartSound;}
         set
         {
-            if(value != _hasPlayedStartSound)
+            if (value != _hasPlayedStartSound)
+            {
                 soundManager.SOUND_MAN.playSound("Play_Round_Start_Go", gameObject);
+
+                if (CatMode)
+                {
+                    soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+                }
+            }
 
             _hasPlayedStartSound = value;
         }
@@ -42,7 +49,7 @@ public class StartingCountdown : MonoBehaviour
             {
                 countdown.text = ((int)timer).ToString();
 
-				soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
+                soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
             }
 			else if (CatMode)
 			{
@@ -53,7 +60,11 @@ public class StartingCountdown : MonoBehaviour
 					{
 						countdown.text = "M";
 						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
-						
+
+                        if (CatMode)
+                        {
+                            soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+                        }
 					}
 					break;
 				case 2:
@@ -61,7 +72,11 @@ public class StartingCountdown : MonoBehaviour
 					{
 						countdown.text = "E";
 						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
-						
+
+                        if (CatMode)
+                        {
+                            soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+                        }
 					}
 					break;
 				case 1:
@@ -69,7 +84,11 @@ public class StartingCountdown : MonoBehaviour
 					{
 						countdown.text = "OW?";
 						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
-						
+
+                        if (CatMode)
+                        {
+                            soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+                        }
 					}
 					break;
 				default:
@@ -77,7 +96,11 @@ public class StartingCountdown : MonoBehaviour
 					{
 						countdown.text = "W";
 						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
-						
+
+                        if (CatMode)
+                        {
+                            soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+                        }
 					}
 					break;
 				}
@@ -93,6 +116,10 @@ public class StartingCountdown : MonoBehaviour
             else
             {
                 countdown.text = "Meow!";
+                if (CatMode)
+                {
+                    soundManager.SOUND_MAN.playSound("Play_cat", gameObject);
+                }
             }
             hasPlayedStartSound = true;
             gameObject.GetComponent<Image>().CrossFadeAlpha(0, .5f, false);

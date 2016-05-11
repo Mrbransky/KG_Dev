@@ -77,6 +77,7 @@ public class CharacterSelectManager_Single : MonoBehaviour
                     case (int)CharacterSelectStates.LoadMainScene:
                         Debug.Log("Starting CharacterSelectStates.LoadMainScene");
 
+                        setCharacterSelectData();
                         _HeartZoomTransition.enabled = true;
 
                         if (GhostSpriteObject.activeInHierarchy)
@@ -227,6 +228,38 @@ public class CharacterSelectManager_Single : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void setCharacterSelectData()
+    {
+        GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
+        if (characterSelectData != null)
+        {
+            CharacterSelectData charSelectData = characterSelectData.GetComponent<CharacterSelectData>();
+
+            isPlayerReadyArray = new bool[4];
+            isPlayerReadyArray[0] = true;
+            isPlayerReadyArray[3] = true;
+            playerCount = 2;
+
+            if (GhostSpriteObject.activeInHierarchy)
+            {
+                ghostPlayerIndex = 0;
+            }
+            else
+            {
+                ghostPlayerIndex = 3;
+            }
+
+            charSelectData.SetIsPlayerReady(isPlayerReadyArray, playerCount, ghostPlayerIndex);
+            charSelectData.LoadPaletteArray(PlayerPaletteSwapperArray);
+            charSelectData.LoadStartSpritesArray(startingSprites);
+            charSelectData.LoadIsFemaleBoolArray(OldieStartSprite, WomanStartSprite);
+        }
+        else
+        {
+            Debug.LogError("CharacterSelectManager: Could not find game object with tag \"CharacterSelectData\"");
+        }
     }
 
     #region CharacterSelectStates.WaitingForPlayers Functions
@@ -504,7 +537,7 @@ public class CharacterSelectManager_Single : MonoBehaviour
             switch (playerStates[i])
             {
                 case PlayerStates.Inactive:
-                    if (CheckPlayerJoinedIn(i))
+                    if (CheckPlayerJoinedIn(i) && !GhostSpriteObject.activeInHierarchy)
                         playerStates[i] = ChangePlayerState(PlayerStates.PickingColor, i);
                     break;
 

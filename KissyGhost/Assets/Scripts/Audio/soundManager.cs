@@ -8,6 +8,7 @@ public class soundManager : MonoBehaviour {
 
     public bool MainMenuMusicPlaying;
     public bool GameHasEnded;
+    public bool CatMode = false;
 
 	// Use this for initialization
 
@@ -80,6 +81,11 @@ public class soundManager : MonoBehaviour {
 		AkSoundEngine.PostEvent (eventName, soundObject);
 		/*AkSoundEngine.SetRTPCValue ("pitchParameter", pitchValue, soundObject);
 		AkSoundEngine.SetRTPCValue ("flatSharpParameter", pitchFlatten, soundObject);*/
+
+        if (CatMode && eventName != "Play_cat")
+        {
+            AkSoundEngine.PostEvent("Play_cat", soundObject);
+        }
 	}
 	
 	public void stopSound(string eventName, GameObject soundObject, int fadeOut){
