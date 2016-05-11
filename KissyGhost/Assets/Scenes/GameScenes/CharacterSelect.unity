@@ -4186,7 +4186,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: de68e7941195ea2458ed28b88e70643f, type: 2}
   - {fileID: 11400000, guid: 30a276ef8c2e8914abd3303a34a9996b, type: 2}
   - {fileID: 11400000, guid: 6db80334ddebe074baf61b4c6475e448, type: 2}
-  - {fileID: 11400000, guid: bb107b62269d24f409054c88d8c2c22f, type: 2}
   - {fileID: 11400000, guid: c98e38c801d0c0447b3f30a6ee687cae, type: 2}
   startingSprites: []
   CharacterSelectDebugText: {fileID: 407634818}

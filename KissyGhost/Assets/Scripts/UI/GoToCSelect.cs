@@ -21,7 +21,7 @@ public class GoToCSelect : MonoBehaviour
         {
             _HeartZoomTransition.enabled = true;
             _HeartZoomTransition.StartHeartZoomIn(1);
-            soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+            soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
         }
         if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space))
         {

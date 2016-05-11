@@ -8,14 +8,19 @@ public class HeartZoomTransition : MonoBehaviour
 
     private Image _Image;
     private Animator _Animator;
+    private EnableLoading enableLoad;
     private bool isZoomOut = true;
     private bool isZoomIn = false;
     private bool isZoomInFinish = true;
+
+    private int MultiplayerScene = 3;
+    private int SinglePlayerScene = 8;
 
     void Awake()
     {
         _Image = GetComponent<Image>();
         _Animator = GetComponent<Animator>();
+        enableLoad = GetComponent<EnableLoading>();
 
         if (!_Image.enabled)
         {
@@ -61,6 +66,14 @@ public class HeartZoomTransition : MonoBehaviour
         }
 
         LevelIndexToLoad = levelIndex;
+
+        if (LevelIndexToLoad == MultiplayerScene || LevelIndexToLoad == SinglePlayerScene)
+        {
+            if (enableLoad != null)
+            {
+                enableLoad.EnableLoadingTextTimer();
+            }
+        }
 
         _Image.enabled = true;
         _Animator.enabled = true;

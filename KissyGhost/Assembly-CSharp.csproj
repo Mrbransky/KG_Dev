@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager_Single.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectPlayerSpritePositioner.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
+     <Compile Include="Assets\Scripts\EnableLoading.cs" />
      <Compile Include="Assets\Scripts\Furniture\Furniture_FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\Furniture\Furniture_RhinoCharge.cs" />
      <Compile Include="Assets\Scripts\Furniture\Furniture_Shoot.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GoBack.cs" />
      <Compile Include="Assets\Scripts\HeartSpawn.cs" />
+     <Compile Include="Assets\Scripts\Loading.cs" />
      <Compile Include="Assets\Scripts\Mission\MissionManager.cs" />
      <Compile Include="Assets\Scripts\Mission\MissionObjective_Item.cs" />
      <Compile Include="Assets\Scripts\Mission\MissionObjective_ItemNode.cs" />
