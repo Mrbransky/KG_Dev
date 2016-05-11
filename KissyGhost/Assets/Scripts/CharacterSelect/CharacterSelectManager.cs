@@ -295,9 +295,12 @@ public class CharacterSelectManager : MonoBehaviour
                                 ++catModeIndex;
 
                                 if (catModeIndex >= CatModeLetters.Length)
-                                {
-                                    startGame();
-                                    soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+								{
+									catMode = true;
+									catModeBackground.SetActive(true);
+									regularBackground.SetActive(false);
+									startGame();
+									soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
                                 }
                             }
                         }

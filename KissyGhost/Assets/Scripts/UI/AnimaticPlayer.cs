@@ -35,6 +35,7 @@ public class AnimaticPlayer : MonoBehaviour {
 			if (anyGamepadButtonDown () == true || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter)) 
 			{
 				HasBeenSkipped = true;
+				myMovieTexture.Stop();
 				Application.LoadLevel (1);
 			}
 			if (myMovieTexture.isPlaying == false) 

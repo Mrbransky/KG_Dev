@@ -38,33 +38,50 @@ public class StartingCountdown : MonoBehaviour
         if ((int)timer > 0)
         {
             timer -= Time.fixedDeltaTime;
-            if (countdown.text != ((int)timer).ToString())
+            if (countdown.text != ((int)timer).ToString() && !CatMode)
             {
-                if (!CatMode)
-                {
-                    countdown.text = ((int)timer).ToString();
-                }
-                else
-                {
-                    switch (((int)timer))
-                    {
-                        case 3:
-                            countdown.text = "M";
-                            break;
-                        case 2:
-                            countdown.text = "E";
-                            break;
-                        case 1:
-                            countdown.text = "O";
-                            break;
-                        default:
-                            countdown.text = "W";
-                            break;
-                    }
-                }
+                countdown.text = ((int)timer).ToString();
 
-                soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
+				soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
             }
+			else if (CatMode)
+			{
+				switch (((int)timer))
+				{
+				case 3:
+					if (countdown.text != "M")
+					{
+						countdown.text = "M";
+						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
+						
+					}
+					break;
+				case 2:
+					if (countdown.text != "E")
+					{
+						countdown.text = "E";
+						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
+						
+					}
+					break;
+				case 1:
+					if (countdown.text != "OW?")
+					{
+						countdown.text = "OW?";
+						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
+						
+					}
+					break;
+				default:
+					if (countdown.text != "W")
+					{
+						countdown.text = "W";
+						soundManager.SOUND_MAN.playSound("Play_Round_Start", gameObject);
+						
+					}
+					break;
+				}
+			}
         }
         else
         {

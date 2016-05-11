@@ -46,7 +46,7 @@ public class soundManager : MonoBehaviour {
 		}
 #endif
 
-        if (Application.loadedLevelName == "MainScene" && !GameHasEnded)
+		if ((Application.loadedLevelName == "MainScene" || Application.loadedLevelName == "MainScene_Cat") && !GameHasEnded)
         {
             switchVoid("MusicSwitch", "GameplayMusic", gameObject);
             MainMenuMusicPlaying = false;
