@@ -104,7 +104,7 @@
      <None Include="Assets\StreamingAssets\Audio\Windows\Init.txt" />
      <None Include="Assets\Scripts\Shaders\SpriteOcclude.shader" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/thomas.barrett/Desktop/Kissy_Ghost/KissyGhost/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>C:/Users/zachary.bruin/Desktop/GitHub/Kissy_Ghost/KissyGhost/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -122,7 +122,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="XInputDotNetPure">
- <HintPath>C:/Users/thomas.barrett/Desktop/Kissy_Ghost/KissyGhost/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
+ <HintPath>C:/Users/zachary.bruin/Desktop/GitHub/Kissy_Ghost/KissyGhost/Assets/Plugins/x86_64/XInputDotNetPure.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

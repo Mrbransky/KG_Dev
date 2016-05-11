@@ -14,6 +14,7 @@ public class VideoOnDelay : MonoBehaviour
     private MovieTexture myMovieTexture;
     private bool noInputAfterTime = false;
     private float MenuTimer = 20;
+	private float AnimaticTimer = 90;
 
     public bool IsMoviePlaying
     {
@@ -33,6 +34,14 @@ public class VideoOnDelay : MonoBehaviour
         {
             TimerForVideo();
         }
+
+		AnimaticTimer -= Time.deltaTime;
+		if(AnimaticTimer <= 0)
+		{
+			myMovieTexture.Stop();
+			myRenderer.enabled = false;
+			GoBackToAnimatic(0);
+		}
     }
 
     void TimerForVideo()
@@ -40,6 +49,7 @@ public class VideoOnDelay : MonoBehaviour
         if (!noInputAfterTime)
         {
             MenuTimer -= Time.deltaTime;
+
             myRenderer.enabled = false;
 
             if (MenuTimer <= 0)
@@ -47,7 +57,7 @@ public class VideoOnDelay : MonoBehaviour
                 noInputAfterTime = true;
                 myRenderer.enabled = true;
                 
-                MenuTimer = 5;
+                MenuTimer = 20;
                 myMovieTexture.Play();
             }
         }
@@ -57,7 +67,8 @@ public class VideoOnDelay : MonoBehaviour
             anyGamepadButtonDown())
         {
             noInputAfterTime = false;
-            MenuTimer = 5;
+            MenuTimer = 20;
+			AnimaticTimer = 90;
             myMovieTexture.Stop();
             myRenderer.enabled = false;
         }
@@ -75,4 +86,10 @@ public class VideoOnDelay : MonoBehaviour
 
         return false;
     }
+
+	public void GoBackToAnimatic(int sceneToTransfer)
+	{
+		_HeartZoomTransition.enabled = true;
+		_HeartZoomTransition.StartHeartZoomIn(sceneToTransfer);
+	}
 }
