@@ -52,6 +52,13 @@ public class CharacterSelectManager : MonoBehaviour
     private int ghostPlayerIndex = -1;
     private CharacterSelectStates currentCharSelectState = CharacterSelectStates.WaitingForPlayers;
 
+    // CatMode
+    public GameObject[] CatModeLetters;
+    public GameObject regularBackground;
+    public GameObject catModeBackground;
+    private int catModeIndex = 0;
+    private bool catMode = false;
+
     // Game Start Sequence: General
     public Transform GhostSpriteReferencePointTransform;
     private float GhostSelectionDuration = 5;
@@ -151,7 +158,16 @@ public class CharacterSelectManager : MonoBehaviour
                         Debug.Log("Starting CharacterSelectStates.LoadMainScene");
 
                         _HeartZoomTransition.enabled = true;
-                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 1);
+
+                        if (!catMode)
+                        { 
+                            _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 1);
+                        }
+                        else
+                        {
+                            _HeartZoomTransition.StartHeartZoomIn(11);
+                        }
+                    
                         // Application.LoadLevel(Application.loadedLevel + 1);
                         break;
                 }
@@ -262,12 +278,27 @@ public class CharacterSelectManager : MonoBehaviour
                 {
                     for (int i = 0; i < isPlayerReadyArray.Length; i++)
                     {
-                        if (isPlayerReadyArray[i] && InputMapper.GrabVal(XBOX360_BUTTONS.X, i + 1))
+                        if (isPlayerReadyArray[i])
                         {
-                            if (CanStartGame())
+                            if (InputMapper.GrabVal(XBOX360_BUTTONS.X, i + 1) && CanStartGame())
                             {
                                 startGame();
                                 soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                            }
+                            else if (InputMapper.GrabVal(XBOX360_BUTTONS.Y, i + 1) && CanStartGame())
+                            {
+                                if (catModeIndex < CatModeLetters.Length)
+                                {
+                                    CatModeLetters[catModeIndex].GetComponent<Text>().color = Color.black;
+                                }
+
+                                ++catModeIndex;
+
+                                if (catModeIndex >= CatModeLetters.Length)
+                                {
+                                    startGame();
+                                    soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                                }
                             }
                         }
                     }
@@ -276,12 +307,56 @@ public class CharacterSelectManager : MonoBehaviour
 
 #region Debug Code
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
-                if (Input.GetKeyDown(KeyCode.Space) && playerCount >= MIN_PLAYER_COUNT_TO_START)
+                if (playerCount >= MIN_PLAYER_COUNT_TO_START)
                 {
-                    if (CanStartGame())
+                    if (Input.GetKeyDown(KeyCode.Space) && CanStartGame())
                     {
                         startGame();
                         soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                    }
+                    else if (CanStartGame())
+                    {
+                        switch (catModeIndex)
+                        {
+                            case 0:
+                                if (Input.GetKeyDown(KeyCode.M))
+                                {
+                                    CatModeLetters[catModeIndex].GetComponent<Text>().color = Color.black;
+                                    CatModeLetters[catModeIndex].GetComponent<UIFlasher>().SetDefaultColor(Color.black);
+                                    ++catModeIndex;
+                                }
+                                break;
+                            case 1:
+                                if (Input.GetKeyDown(KeyCode.E))
+                                {
+                                    CatModeLetters[catModeIndex].GetComponent<Text>().color = Color.black;
+                                    CatModeLetters[catModeIndex].GetComponent<UIFlasher>().SetDefaultColor(Color.black);
+                                    ++catModeIndex;
+                                }
+                                break;
+                            case 2:
+                                if (Input.GetKeyDown(KeyCode.O))
+                                {
+                                    CatModeLetters[catModeIndex].GetComponent<Text>().color = Color.black;
+                                    CatModeLetters[catModeIndex].GetComponent<UIFlasher>().SetDefaultColor(Color.black);
+                                    ++catModeIndex;
+                                }
+                                break;
+                            case 3:
+                                if (Input.GetKeyDown(KeyCode.W))
+                                {
+                                    CatModeLetters[catModeIndex].GetComponent<Text>().color = Color.black;
+                                    CatModeLetters[catModeIndex].GetComponent<UIFlasher>().SetDefaultColor(Color.black);
+                                    ++catModeIndex;
+
+                                    catMode = true;
+                                    catModeBackground.SetActive(true);
+                                    regularBackground.SetActive(false);
+                                    startGame();
+                                    soundManager.SOUND_MAN.playSound("Play_MenuConfirm", gameObject);
+                                }
+                                break;
+                        }
                     }
                 }
 

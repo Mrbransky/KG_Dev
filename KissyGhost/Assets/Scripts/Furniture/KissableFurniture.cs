@@ -15,7 +15,9 @@ public class KissableFurniture : MonoBehaviour
 
     public Sprite UnkissedSprite;
     public Sprite KissedSprite;
+    public GameObject FaceObject;
     public Color kissedColor = new Color(255.0f / 255.0f, 192.0f / 255.0f, 203.0f / 255.0f);
+    private Color originalColor = Color.white;
     private SpriteRenderer spriteRenderer;
     public bool isKissed = false;
     public int amountKissed = 0;
@@ -67,6 +69,7 @@ public class KissableFurniture : MonoBehaviour
     {
         _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -280,6 +283,11 @@ public class KissableFurniture : MonoBehaviour
                 spriteRenderer.color = kissedColor;
             }
 
+            if (FaceObject != null)
+            {
+                FaceObject.SetActive(true);
+            }
+
             //Start Playing Furniture sliding sound
             if(kissedBehavior == KissedFurnitureBehavior.FollowPlayer)
                 soundManager.SOUND_MAN.playSound("Play_FurnitureMove", gameObject);
@@ -353,11 +361,16 @@ public class KissableFurniture : MonoBehaviour
         }
         else
         {
-            spriteRenderer.color = Color.white;
+            spriteRenderer.color = originalColor;
         }
 
-        if(KissedSprite == null && spriteRenderer.color != Color.white)
-            spriteRenderer.color = Color.white;
+        if (FaceObject != null)
+        {
+            FaceObject.SetActive(false);
+        }
+
+        if(KissedSprite == null && spriteRenderer.color != originalColor)
+            spriteRenderer.color = originalColor;
 
         if(anim != null)
             anim.SetBool("IsAnimated", false);

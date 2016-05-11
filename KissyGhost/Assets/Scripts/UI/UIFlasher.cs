@@ -67,4 +67,11 @@ public class UIFlasher : MonoBehaviour
             }
         }
 	}
+
+    public void SetDefaultColor(Color newCol)
+    {
+        defaultColor = newCol;
+        transparentColor = newCol;
+        transparentColor.a = targetAlpha;
+    }
 }

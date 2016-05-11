@@ -7,6 +7,7 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour {
 
+    public bool CatMode = false;
     public GameObject heart_splosion;
     public GameObject heartZoom;
     public HeartZoomTransition _HeartZoomTransition;
@@ -109,7 +110,16 @@ public class GameManager : MonoBehaviour {
                         ghostPlayer = (GameObject)GameObject.Instantiate(ghostPrefab, players[i].transform.position, players[i].transform.rotation);
                         ghostPlayer.GetComponent<Ghost>().playerNum = players[i].GetComponent<Human>().playerNum;
                         ghostPlayer.gameObject.tag = "Ghost";
-                        ghostPlayer.GetComponentInChildren<Text>().text = "P" + (ghostPlayerIndex + 1);
+
+                        if (!CatMode)
+                        {
+                            ghostPlayer.GetComponentInChildren<Text>().text = "P" + (ghostPlayerIndex + 1);
+                        }
+                        else
+                        {
+                            ghostPlayer.GetComponentInChildren<Text>().text = "MEOW";
+                        }
+
                         ghostPlayer.GetComponentInChildren<FadeOnTimeScale1>().timeScale = .45f;
                         Camera.main.gameObject.GetComponent<NewCameraBehavior>().targets.Remove(players[i]);
                         Destroy(players[i]);
@@ -273,11 +283,25 @@ public class GameManager : MonoBehaviour {
             {
                 if (didHumansWin)
                 {
-                    winnerNameText.text = "Humans Win!";
+                    if (!CatMode)
+                    {
+                        winnerNameText.text = "Humans Win!";
+                    }
+                    else
+                    {
+                        winnerNameText.text = "Meow Meow!";
+                    }
                 }
                 else
                 {
-                    winnerNameText.text = "Ghost Wins!";
+                    if (!CatMode)
+                    {
+                        winnerNameText.text = "Ghost Wins!";
+                    }
+                    else
+                    {
+                        winnerNameText.text = "Meow Meow!";
+                    }
                 }
                 
                 foreach (GameObject i in thingsToTurnOffAtGameEnd)
