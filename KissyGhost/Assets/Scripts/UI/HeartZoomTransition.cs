@@ -67,13 +67,13 @@ public class HeartZoomTransition : MonoBehaviour
 
         LevelIndexToLoad = levelIndex;
 
-        if (LevelIndexToLoad == MultiplayerScene || LevelIndexToLoad == SinglePlayerScene)
-        {
-            if (enableLoad != null)
-            {
-                enableLoad.EnableLoadingTextTimer();
-            }
-        }
+        //if (LevelIndexToLoad == MultiplayerScene || LevelIndexToLoad == SinglePlayerScene)
+        //{
+        //    if (enableLoad != null)
+        //    {
+        //        enableLoad.EnableLoadingTextTimer();
+        //    }
+        //}
 
         _Image.enabled = true;
         _Animator.enabled = true;
