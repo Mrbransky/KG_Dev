@@ -1,4 +1,4 @@
-﻿    using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -131,7 +131,9 @@ public class RoomChangeManager : MonoBehaviour
         else
         {
             GhostAI = GameObject.Find("AI_Ghost(Clone)");
-            CheckPlayersWaiting();
+
+            if(curPlayerCount != 1)
+                CheckPlayersWaiting();
         }
     }
 
@@ -332,7 +334,7 @@ public class RoomChangeManager : MonoBehaviour
             {
                 BottomRoomDoorArrow.SetActive(true);
             }
-            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().BottomBaseRoomPiece; 
+            if(GhostAI != null) GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().BottomBaseRoomPiece; 
         }
         else if (playersGoingLeft.Count >= curPlayerCount - 1)
         {
@@ -344,7 +346,7 @@ public class RoomChangeManager : MonoBehaviour
             {
                 LeftRoomDoorArrow.SetActive(true);
             }
-            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().LeftBaseRoomPiece;
+            if (GhostAI != null)  GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().LeftBaseRoomPiece;
         }
         else if (playersGoingRight.Count >= curPlayerCount - 1)
         {
@@ -356,7 +358,7 @@ public class RoomChangeManager : MonoBehaviour
             {
                 RightRoomDoorArrow.SetActive(true);
             }
-            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().RightBaseRoomPiece;
+            if (GhostAI != null) GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().RightBaseRoomPiece;
         }
         else if (playersGoingBack.Count >= curPlayerCount - 1)
         {
@@ -371,7 +373,7 @@ public class RoomChangeManager : MonoBehaviour
                     go.SetActive(true);
                 }
             }
-            GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().MainBaseRoomPiece;
+            if (GhostAI != null) GhostAI.GetComponent<GhostAI>().currentRoom = GetComponent<RoomGenerator>().MainBaseRoomPiece;
         }
     }
 
