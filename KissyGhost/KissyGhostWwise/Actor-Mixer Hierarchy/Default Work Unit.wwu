@@ -1150,7 +1150,7 @@
 										<ActiveSource Name="MainGameplayMusicLooped_mixdown" ID="{D176F923-A428-44A4-819A-BDCBCE0DBED0}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Animatic" ID="{690A7557-EC0F-40D1-B92C-062FB1E73962}" ShortID="571457250" Type="SoundFX">
+								<Sound Name="AnimaticNEW" ID="{A1714734-AF83-4492-9284-7C445C35C32D}" ShortID="646587885" Type="SoundFX">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B73C2214-B51E-4653-B9FD-C81123D07E65}"/>
@@ -1160,13 +1160,13 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="AnimaticWav" ID="{07CBA5BE-841F-45DE-AEA9-F64CECA07E27}" ShortID="638029170">
+										<AudioFileSource Name="KissyGhost AnimaticTrack (1)" ID="{18D5B1CC-08FF-4E4A-95DB-75AE1A0D9F38}" ShortID="905534507">
 											<Language>SFX</Language>
-											<AudioFile>AnimaticWav.wav</AudioFile>
+											<AudioFile>KissyGhost AnimaticTrack (1).wav</AudioFile>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="AnimaticWav" ID="{07CBA5BE-841F-45DE-AEA9-F64CECA07E27}" Platform="Linked"/>
+										<ActiveSource Name="KissyGhost AnimaticTrack (1)" ID="{18D5B1CC-08FF-4E4A-95DB-75AE1A0D9F38}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -1175,10 +1175,10 @@
 								<DefaultSwitchRef Name="MenuMusic" ID="{8E8D4DD9-F0F1-4265-AA90-EC1468713F45}"/>
 								<GroupingBehaviorList>
 									<GroupingBehavior>
-										<ItemRef Name="Kissy Ghost Main Title" ID="{C04B8743-F917-4D9F-A866-6EAA0AD064AE}"/>
+										<ItemRef Name="AnimaticNEW" ID="{A1714734-AF83-4492-9284-7C445C35C32D}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
-										<ItemRef Name="Animatic" ID="{690A7557-EC0F-40D1-B92C-062FB1E73962}"/>
+										<ItemRef Name="Kissy Ghost Main Title" ID="{C04B8743-F917-4D9F-A866-6EAA0AD064AE}"/>
 									</GroupingBehavior>
 									<GroupingBehavior>
 										<ItemRef Name="Dating Human" ID="{30498A98-FAD7-43C8-8015-DD07B1195AC0}"/>
@@ -1200,7 +1200,7 @@
 									<Grouping>
 										<SwitchRef Name="Animatic" ID="{A22C1269-E29E-472A-86D4-6D39FFDA53EE}"/>
 										<ItemList>
-											<ItemRef Name="Animatic" ID="{690A7557-EC0F-40D1-B92C-062FB1E73962}"/>
+											<ItemRef Name="AnimaticNEW" ID="{A1714734-AF83-4492-9284-7C445C35C32D}"/>
 										</ItemList>
 									</Grouping>
 									<Grouping>

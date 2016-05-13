@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="10" SoundbankVersion="113">
 	<RootPaths>
-		<ProjectRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -130,10 +130,6 @@
 					<ShortName>MenuConfirm2.wav</ShortName>
 					<Path>SFX\MenuConfirm2_9E69E797.wem</Path>
 				</File>
-				<File Id="638029170" Language="SFX">
-					<ShortName>AnimaticWav.wav</ShortName>
-					<Path>SFX\AnimaticWav_9E69E797.wem</Path>
-				</File>
 				<File Id="674771949" Language="SFX">
 					<ShortName>Kiss23.wav</ShortName>
 					<Path>SFX\Kiss23_9E69E797.wem</Path>
@@ -189,6 +185,10 @@
 				<File Id="895972741" Language="SFX">
 					<ShortName>Kiss20.wav</ShortName>
 					<Path>SFX\Kiss20_9E69E797.wem</Path>
+				</File>
+				<File Id="905534507" Language="SFX">
+					<ShortName>KissyGhost AnimaticTrack (1).wav</ShortName>
+					<Path>SFX\KissyGhost AnimaticTrack (1)_9E69E797.wem</Path>
 				</File>
 				<File Id="906090540" Language="SFX">
 					<ShortName>Kiss1.wav</ShortName>
