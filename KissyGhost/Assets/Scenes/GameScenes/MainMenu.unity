@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &31715888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -260}
+  m_AnchoredPosition: {x: 1, y: -226}
   m_SizeDelta: {x: 85, y: 20.3999996}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &270175241
@@ -824,9 +824,8 @@ MonoBehaviour:
   _VideoOnDelay: {fileID: 1318419809}
   _HeartZoomTransition: {fileID: 1410771319}
   option1: {fileID: 1347978025}
-  option2: {fileID: 31715889}
-  option3: {fileID: 2146403200}
-  option4: {fileID: 270175241}
+  option2: {fileID: 2146403200}
+  option3: {fileID: 270175241}
   heartZoom: {fileID: 1615583179}
   orgColor: {r: .92549026, g: .360784322, b: .541176498, a: 1}
   altColor: {r: .544117689, g: .0760164484, b: .26002872, a: 1}
@@ -1478,9 +1477,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Multiplayer
-
-'
+  m_Text: play
 --- !u!222 &1347978026
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2068,6 +2065,6 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -224}
+  m_AnchoredPosition: {x: 1, y: -190}
   m_SizeDelta: {x: 85, y: 54.0999985}
   m_Pivot: {x: .5, y: .5}
