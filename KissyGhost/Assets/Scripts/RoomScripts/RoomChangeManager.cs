@@ -379,9 +379,10 @@ public class RoomChangeManager : MonoBehaviour
 
     private void SendPlayersToBottomRoom()
     {
+        Vector3 curRoomPosition = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
+        //Camera.main.transform.position = new Vector3(curRoomPosition.x, curRoomPosition.y, Camera.main.transform.position.z);
         foreach (GameObject player in playersGoingBottom)
         {
-            Vector3 curRoomPosition = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y + 1);
 
             GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x, curRoomPosition.y);
@@ -391,9 +392,9 @@ public class RoomChangeManager : MonoBehaviour
 
     private void SendPlayersToLeftRoom()
     {
+        Vector3 curRoomPosition = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
         foreach (GameObject player in playersGoingLeft)
         {
-            Vector3 curRoomPosition = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(curRoomPosition.x + 5, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
 
             GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x + 8, curRoomPosition.y);
@@ -403,11 +404,10 @@ public class RoomChangeManager : MonoBehaviour
 
     private void SendPlayersToRightRoom()
     {
+        Vector3 curRoomPosition = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
         foreach (GameObject player in playersGoingRight)
         {
-            Vector3 curRoomPosition = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
             player.transform.position = new Vector2(curRoomPosition.x - 5, Random.Range(curRoomPosition.y - 2, curRoomPosition.y + 2));
-
             GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x - 8, curRoomPosition.y);
             player.GetComponent<Rigidbody2D>().AddForce(-Vector2.left * 200);
         }

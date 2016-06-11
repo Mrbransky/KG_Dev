@@ -15353,14 +15353,13 @@ MonoBehaviour:
   furnitureOptions:
   - {fileID: 173404, guid: 726a651ccfeb020429ec3643ab3f39c1, type: 2}
   - {fileID: 179786, guid: 8e05d8f5f7ddbec4f9c5daea77a59f98, type: 2}
-  - {fileID: 141952, guid: f18f6834f2c22eb40aaff970de5db8ac, type: 2}
   - {fileID: 157222, guid: bff04a741da9f584bbcc7a1282f1cdf8, type: 2}
   - {fileID: 129090, guid: 85d3ec2eac480b34ca78f344126d7b5b, type: 2}
-  - {fileID: 111596, guid: 1082abb1dfd452a41aa42ba44a19e028, type: 2}
-  - {fileID: 143046, guid: 80edcf5bef99e4a4a8bd52c6613423a3, type: 2}
   - {fileID: 128938, guid: bf79a6479091cb940a143879c41e1483, type: 2}
   - {fileID: 106262, guid: 686e335821f1acf45b42f49a99673c8e, type: 2}
   - {fileID: 103124, guid: 0000c320df7c9d3448562535da1dd8b7, type: 2}
+  - {fileID: 191618, guid: 0b60c74c3e6435544a018ba4c1a90e96, type: 2}
+  - {fileID: 145552, guid: b2611b8fefae39d4287af513146cfac1, type: 2}
   kitchenFurnitureOptions:
   - {fileID: 103124, guid: 0000c320df7c9d3448562535da1dd8b7, type: 2}
   - {fileID: 173404, guid: 726a651ccfeb020429ec3643ab3f39c1, type: 2}

@@ -72,6 +72,7 @@ public class RoomGenerator : MonoBehaviour
             AllSpecialItems.Remove(AllSpecialItems[rand]);
 
             //DON'T YOU DARE TRY AND USE THIS
+            //pls its so funny
             //if (AllSpecialItems[rand].name.Contains("Cat"))
             //{
             //    List<GameObject> CatsToDelete = new List<GameObject>();
@@ -233,7 +234,6 @@ public class RoomGenerator : MonoBehaviour
                     break;
 
                 case (int)RoomTypes.Bottom:
-                    //TODO: uncomment when items for these rooms are made
                     FurnitureToSpawn = bathroomFurnitureOptions[Random.Range(0, bathroomFurnitureOptions.Length)];
                     break;
             }
@@ -287,9 +287,32 @@ public class RoomGenerator : MonoBehaviour
             }
             else
             {
-                Destroy(newFurniture);
-                --i;
-                continue;
+                foreach(Transform child in newFurniture.transform)
+                {
+                    child.GetComponent<SpriteRenderer>().sortingOrder = (int)(-child.transform.localPosition.y);
+
+                    if (_SpriteSorter != null)
+                    {
+                        switch ((int)roomType)
+                        {
+                            case (int)RoomTypes.Left:
+                                _SpriteSorter.LeftRoom_SpriteRendererList.Add(child.GetComponent<SpriteRenderer>());
+                                break;
+
+                            case (int)RoomTypes.Right:
+                                _SpriteSorter.RightRoom_SpriteRendererList.Add(child.GetComponent<SpriteRenderer>());
+                                break;
+
+                            case (int)RoomTypes.Bottom:
+                                _SpriteSorter.BottomRoom_SpriteRendererList.Add(child.GetComponent<SpriteRenderer>());
+                                break;
+
+                            case (int)RoomTypes.Center:
+                                _SpriteSorter.CenterRoom_SpriteRendererList.Add(child.GetComponent<SpriteRenderer>());
+                                break;
+                        }
+                    }
+                }
             }
             #endregion
             //currentFurniture.Add(newFurniture);
