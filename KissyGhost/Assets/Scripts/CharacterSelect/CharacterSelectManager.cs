@@ -165,7 +165,7 @@ public class CharacterSelectManager : MonoBehaviour
                         }
                         else
                         {
-                            _HeartZoomTransition.StartHeartZoomIn(11);
+                            _HeartZoomTransition.StartHeartZoomIn(7);
                         }
                     
                         // Application.LoadLevel(Application.loadedLevel + 1);

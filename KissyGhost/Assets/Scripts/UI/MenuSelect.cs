@@ -118,7 +118,7 @@ public class MenuSelect : MonoBehaviour
 
                     case 2:
                         _HeartZoomTransition.enabled = true;
-                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 11);
+                        _HeartZoomTransition.StartHeartZoomIn(Application.loadedLevel + 7);
                         break;
 
                     case 3:
