@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Animatic.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Instructions.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/CharacterSelect.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/MainScene.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/EndGame.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Credits.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/SinglePlayer/Instructions_Single.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/SinglePlayer/CharacterSelect_Single.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/SinglePlayer/MainScene_SingleGhost.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/SinglePlayer/MainScene_SingleHuman.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/MainScene_Cat.unity
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Settings.unity
+  - enabled: 0
+    path: Assets/Scenes/CharacterSelectDemo.unity

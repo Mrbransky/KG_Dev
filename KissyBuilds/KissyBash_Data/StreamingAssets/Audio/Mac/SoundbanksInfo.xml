@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="10" SoundbankVersion="113">
+	<RootPaths>
+		<ProjectRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\thomas.barrett\Desktop\Kissy_Ghost\KissyGhost\KissyGhostWwise\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="4280364611" Language="SFX">
+			<ShortName>KissyGhostBank</ShortName>
+			<Path>KissyGhostBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3590944135" Name="Play_AnimaticMusic"/>
+				<Event Id="2690797150" Name="Play_cat"/>
+				<Event Id="3197300806" Name="Play_DoorOpen"/>
+				<Event Id="250868963" Name="Play_FurnitureMove"/>
+				<Event Id="415713954" Name="Play_Item_Down"/>
+				<Event Id="1403551666" Name="Play_Item_In_Heartagram"/>
+				<Event Id="4227397407" Name="Play_Item_Pick_Up"/>
+				<Event Id="1888148468" Name="Play_Kisses"/>
+				<Event Id="2878774629" Name="Play_Menu_Up"/>
+				<Event Id="1113566242" Name="Play_MenuBack"/>
+				<Event Id="3100142473" Name="Play_MenuConfirm"/>
+				<Event Id="529815043" Name="Play_MenuDown"/>
+				<Event Id="2932040671" Name="Play_Music"/>
+				<Event Id="514211712" Name="Play_PlayerHit"/>
+				<Event Id="3679533029" Name="Play_PlayerJoin"/>
+				<Event Id="1681141998" Name="Play_RoomTransition"/>
+				<Event Id="1779266091" Name="Play_Round_Start"/>
+				<Event Id="2801657304" Name="Play_Round_Start_Go"/>
+				<Event Id="1351915383" Name="Play_StairsMove"/>
+				<Event Id="2556250589" Name="Stop_FurnitureMove"/>
+				<Event Id="1003545697" Name="Stop_StairsMove"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="31833784" Language="SFX">
+					<ShortName>MenuDown.wav</ShortName>
+					<Path>SFX\MenuDown_9E69E797.wem</Path>
+				</File>
+				<File Id="61563541" Language="SFX">
+					<ShortName>StairsMove3.wav</ShortName>
+					<Path>SFX\StairsMove3_9E69E797.wem</Path>
+				</File>
+				<File Id="64905090" Language="SFX">
+					<ShortName>Kiss8.wav</ShortName>
+					<Path>SFX\Kiss8_9E69E797.wem</Path>
+				</File>
+				<File Id="97301958" Language="SFX">
+					<ShortName>StairsMove4.wav</ShortName>
+					<Path>SFX\StairsMove4_9E69E797.wem</Path>
+				</File>
+				<File Id="123639115" Language="SFX">
+					<ShortName>Kissy Ghost Main Title.wav</ShortName>
+					<Path>SFX\Kissy Ghost Main Title_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="138617315" Language="SFX">
+					<ShortName>BigWhistle.wav</ShortName>
+					<Path>SFX\BigWhistle_9E69E797.wem</Path>
+				</File>
+				<File Id="170637393" Language="SFX">
+					<ShortName>KissyGhost AnimaticTrack.wav</ShortName>
+					<Path>SFX\KissyGhost AnimaticTrack_9E69E797.wem</Path>
+				</File>
+				<File Id="200364935" Language="SFX">
+					<ShortName>cat.wav</ShortName>
+					<Path>SFX\cat_9E69E797.wem</Path>
+				</File>
+				<File Id="219454398" Language="SFX">
+					<ShortName>StairsMove5.wav</ShortName>
+					<Path>SFX\StairsMove5_9E69E797.wem</Path>
+				</File>
+				<File Id="219588759" Language="SFX">
+					<ShortName>ShortWhistle2.wav</ShortName>
+					<Path>SFX\ShortWhistle2_9E69E797.wem</Path>
+				</File>
+				<File Id="249660706" Language="SFX">
+					<ShortName>ShortWhistle1.wav</ShortName>
+					<Path>SFX\ShortWhistle1_9E69E797.wem</Path>
+				</File>
+				<File Id="260240409" Language="SFX">
+					<ShortName>Dating - Ghost.wav</ShortName>
+					<Path>SFX\Dating - Ghost_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="274188847" Language="SFX">
+					<ShortName>Kiss10.wav</ShortName>
+					<Path>SFX\Kiss10_9E69E797.wem</Path>
+				</File>
+				<File Id="287426362" Language="SFX">
+					<ShortName>Kiss13.wav</ShortName>
+					<Path>SFX\Kiss13_9E69E797.wem</Path>
+				</File>
+				<File Id="323274989" Language="SFX">
+					<ShortName>MenuBack2.wav</ShortName>
+					<Path>SFX\MenuBack2_9E69E797.wem</Path>
+				</File>
+				<File Id="325351564" Language="SFX">
+					<ShortName>FurnitureMove5.wav</ShortName>
+					<Path>SFX\FurnitureMove5_9E69E797.wem</Path>
+				</File>
+				<File Id="328134839" Language="SFX">
+					<ShortName>FurnitureMove4.wav</ShortName>
+					<Path>SFX\FurnitureMove4_9E69E797.wem</Path>
+				</File>
+				<File Id="396711749" Language="SFX">
+					<ShortName>MainGameplayMusicLooped_mixdown.wav</ShortName>
+					<Path>SFX\MainGameplayMusicLooped_mixdown_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="533495813" Language="SFX">
+					<ShortName>FurnitureMove1.wav</ShortName>
+					<Path>SFX\FurnitureMove1_9E69E797.wem</Path>
+				</File>
+				<File Id="607850736" Language="SFX">
+					<ShortName>StairsMove6.wav</ShortName>
+					<Path>SFX\StairsMove6_9E69E797.wem</Path>
+				</File>
+				<File Id="620477597" Language="SFX">
+					<ShortName>FurnitureMove2.wav</ShortName>
+					<Path>SFX\FurnitureMove2_9E69E797.wem</Path>
+				</File>
+				<File Id="630630407" Language="SFX">
+					<ShortName>MenuConfirm2.wav</ShortName>
+					<Path>SFX\MenuConfirm2_9E69E797.wem</Path>
+				</File>
+				<File Id="638029170" Language="SFX">
+					<ShortName>AnimaticWav.wav</ShortName>
+					<Path>SFX\AnimaticWav_9E69E797.wem</Path>
+				</File>
+				<File Id="674771949" Language="SFX">
+					<ShortName>Kiss23.wav</ShortName>
+					<Path>SFX\Kiss23_9E69E797.wem</Path>
+				</File>
+				<File Id="684238937" Language="SFX">
+					<ShortName>Dating Human.wav</ShortName>
+					<Path>SFX\Dating Human_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="694748885" Language="SFX">
+					<ShortName>ItemInHeartagram.wav</ShortName>
+					<Path>SFX\ItemInHeartagram_9E69E797.wem</Path>
+				</File>
+				<File Id="725965896" Language="SFX">
+					<ShortName>Hit7.wav</ShortName>
+					<Path>SFX\Hit7_9E69E797.wem</Path>
+				</File>
+				<File Id="744413643" Language="SFX">
+					<ShortName>PutDown3.wav</ShortName>
+					<Path>SFX\PutDown3_9E69E797.wem</Path>
+				</File>
+				<File Id="751545851" Language="SFX">
+					<ShortName>Kiss4.wav</ShortName>
+					<Path>SFX\Kiss4_9E69E797.wem</Path>
+				</File>
+				<File Id="757585145" Language="SFX">
+					<ShortName>StairsMove1.wav</ShortName>
+					<Path>SFX\StairsMove1_9E69E797.wem</Path>
+				</File>
+				<File Id="771816336" Language="SFX">
+					<ShortName>FurnitureMove3.wav</ShortName>
+					<Path>SFX\FurnitureMove3_9E69E797.wem</Path>
+				</File>
+				<File Id="795670181" Language="SFX">
+					<ShortName>DoorTransition2.wav</ShortName>
+					<Path>SFX\DoorTransition2_9E69E797.wem</Path>
+				</File>
+				<File Id="814401747" Language="SFX">
+					<ShortName>Hit1.wav</ShortName>
+					<Path>SFX\Hit1_9E69E797.wem</Path>
+				</File>
+				<File Id="836716843" Language="SFX">
+					<ShortName>PlayerJoin3(Synth1).wav</ShortName>
+					<Path>SFX\PlayerJoin3(Synth1)_9E69E797.wem</Path>
+				</File>
+				<File Id="838416374" Language="SFX">
+					<ShortName>Kiss21.wav</ShortName>
+					<Path>SFX\Kiss21_9E69E797.wem</Path>
+				</File>
+				<File Id="866735896" Language="SFX">
+					<ShortName>FurnitureMove6.wav</ShortName>
+					<Path>SFX\FurnitureMove6_9E69E797.wem</Path>
+				</File>
+				<File Id="895972741" Language="SFX">
+					<ShortName>Kiss20.wav</ShortName>
+					<Path>SFX\Kiss20_9E69E797.wem</Path>
+				</File>
+				<File Id="906090540" Language="SFX">
+					<ShortName>Kiss1.wav</ShortName>
+					<Path>SFX\Kiss1_9E69E797.wem</Path>
+				</File>
+				<File Id="936573464" Language="SFX">
+					<ShortName>Kiss6.wav</ShortName>
+					<Path>SFX\Kiss6_9E69E797.wem</Path>
+				</File>
+				<File Id="938908177" Language="SFX">
+					<ShortName>PickUp3.wav</ShortName>
+					<Path>SFX\PickUp3_9E69E797.wem</Path>
+				</File>
+				<File Id="978706488" Language="SFX">
+					<ShortName>StairsMove2.wav</ShortName>
+					<Path>SFX\StairsMove2_9E69E797.wem</Path>
+				</File>
+				<File Id="1007643226" Language="SFX">
+					<ShortName>Menu Up.wav</ShortName>
+					<Path>SFX\Menu Up_9E69E797.wem</Path>
+				</File>
+				<File Id="1044931138" Language="SFX">
+					<ShortName>ShortWhistle3.wav</ShortName>
+					<Path>SFX\ShortWhistle3_9E69E797.wem</Path>
+				</File>
+				<File Id="1046380989" Language="SFX">
+					<ShortName>doorunlock_mixdown.wav</ShortName>
+					<Path>SFX\doorunlock_mixdown_9E69E797.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

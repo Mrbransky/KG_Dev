@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: 041989b833998e449b94f3845a8a18bc
+timeCreated: 1461883070
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Old_Lady_FullSpriteSheetRecolored_0
+    21300002: Old_Lady_FullSpriteSheetRecolored_1
+    21300004: Old_Lady_FullSpriteSheetRecolored_2
+    21300006: Old_Lady_FullSpriteSheetRecolored_3
+    21300008: Old_Lady_FullSpriteSheetRecolored_4
+    21300010: Old_Lady_FullSpriteSheetRecolored_5
+    21300012: Old_Lady_FullSpriteSheetRecolored_6
+    21300014: Old_Lady_FullSpriteSheetRecolored_7
+    21300016: Old_Lady_FullSpriteSheetRecolored_8
+    21300018: Old_Lady_FullSpriteSheetRecolored_9
+    21300020: Old_Lady_FullSpriteSheetRecolored_10
+    21300022: Old_Lady_FullSpriteSheetRecolored_11
+    21300024: Old_Lady_FullSpriteSheetRecolored_12
+    21300026: Old_Lady_FullSpriteSheetRecolored_13
+    21300028: Old_Lady_FullSpriteSheetRecolored_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 5
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Old_Lady_FullSpriteSheetRecolored_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_5
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_6
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_7
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 140
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 139
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_9
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_10
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 68
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 72
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_12
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 0
+        width: 84
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 92
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Old_Lady_FullSpriteSheetRecolored_14
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 0
+        width: 92
+        height: 140
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

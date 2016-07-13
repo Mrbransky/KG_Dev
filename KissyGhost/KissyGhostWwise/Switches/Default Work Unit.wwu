@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2E66FF9A-72C3-4E44-93F5-E5783E7CA7D5}" SchemaVersion="70">
+	<Switches>
+		<WorkUnit Name="Default Work Unit" ID="{2E66FF9A-72C3-4E44-93F5-E5783E7CA7D5}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="MusicSwitch" ID="{6BAB76D3-3835-464C-BA95-23C72CB1CF34}">
+					<ChildrenList>
+						<Switch Name="MenuMusic" ID="{8E8D4DD9-F0F1-4265-AA90-EC1468713F45}"/>
+						<Switch Name="GameplayMusic" ID="{6859B305-CAB5-4418-98BA-8B9A350036D7}"/>
+						<Switch Name="GhostWinMusic" ID="{9B9022AE-0FDA-4341-8BE9-CFB8C94664E5}"/>
+						<Switch Name="HumanWinMusic" ID="{CCE0F782-C9CA-4E89-8440-B229543F4DE7}"/>
+						<Switch Name="Animatic" ID="{A22C1269-E29E-472A-86D4-6D39FFDA53EE}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

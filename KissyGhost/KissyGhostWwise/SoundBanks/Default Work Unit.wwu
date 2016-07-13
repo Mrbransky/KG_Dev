@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4360FEFD-C086-4F90-BDDD-9D1F0EC3DD32}" SchemaVersion="70">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{4360FEFD-C086-4F90-BDDD-9D1F0EC3DD32}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="KissyGhostBank" ID="{4DA963BC-4FA0-4DE2-8B06-9811DCE7C0AA}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_MenuConfirm" ID="{2FD87F0F-1308-4A5E-A125-9F4166531B7E}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Item_Down" ID="{1C56CB17-E27B-4388-99B9-D5F23AF63BA3}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_cat" ID="{281A5C43-704E-4CDB-8481-1D5147EEC5CD}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Kisses" ID="{C9EFD06A-63E9-4CB5-81D2-71D83D1B2DA9}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Item_Pick_Up" ID="{AC00B676-3127-4593-97CD-1DAE31B9E48E}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_MenuBack" ID="{23DAE07D-D010-458D-BF08-4DDEECE3232A}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_DoorOpen" ID="{6912BC8C-A40D-4155-8B39-F52C12FFB833}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_FurnitureMove" ID="{089E129B-3113-463F-8EBE-0A6803FD58D8}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_MenuDown" ID="{C68BA99E-DCC4-4AFE-890D-6FE2A4E2048E}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Stop_FurnitureMove" ID="{A81FAD9F-30C9-4B75-918F-4F06E45920D5}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_StairsMove" ID="{230A0AB6-9E37-4A45-B0B4-E81280898043}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Round_Start_Go" ID="{06E204C6-66E3-43E7-A55E-B1E8B0591C18}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Item_In_Heartagram" ID="{F29ADFCC-4943-4706-8586-8F4ED25B2BAA}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Music" ID="{02D767D1-11F8-4D47-B28F-7067077E250A}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Stop_StairsMove" ID="{75985AD9-3C76-4BFB-94ED-D978ADE963DC}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_PlayerHit" ID="{666292DF-C1E8-4624-A14E-287C4E0679B1}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Menu_Up" ID="{3E6618E0-2B36-45C7-8F55-D72CCCDB49E2}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_PlayerJoin" ID="{3F2CB3EB-83F0-4528-BF6D-BF46736A6712}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Round_Start" ID="{175F9EF4-3EE2-4C15-99CA-A560D9427333}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_RoomTransition" ID="{30CE0AF5-2D1B-423A-991D-EE3CCCF61B89}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_AnimaticMusic" ID="{4D52B1F5-7113-4BB1-B769-FBEF27491D05}" WorkUnitID="{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Human
+  - Ghost
+  - Cat
+  - Furniture
+  - HumanCollider
+  - CharacterSelectData
+  - RightDoor
+  - LeftDoor
+  - BottomDoor
+  - Rug
+  - GameManager
+  - Room
+  - Pull
+  - GhostBarrier
+  - Interact
+  - Heartagram
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Human
+  - Ghost
+  - Furniture
+  - GhostBarrier
+  - Stairs
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Crosshair
+    uniqueID: 1519874363
+    locked: 0

@@ -1,0 +1,475 @@
+fileFormatVersion: 2
+guid: a6f5914f6b30a8049b3fdd2146984478
+timeCreated: 1468266964
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Old_Man_FullSpriteSheetRecolored_0
+    21300002: Old_Man_FullSpriteSheetRecolored_1
+    21300004: Old_Man_FullSpriteSheetRecolored_2
+    21300006: Old_Man_FullSpriteSheetRecolored_3
+    21300008: Old_Man_FullSpriteSheetRecolored_4
+    21300010: Old_Man_FullSpriteSheetRecolored_5
+    21300012: Old_Man_FullSpriteSheetRecolored_6
+    21300014: Old_Man_FullSpriteSheetRecolored_7
+    21300016: Old_Man_FullSpriteSheetRecolored_8
+    21300018: Old_Man_FullSpriteSheetRecolored_9
+    21300020: Old_Man_FullSpriteSheetRecolored_10
+    21300022: Old_Man_FullSpriteSheetRecolored_11
+    21300024: Old_Man_FullSpriteSheetRecolored_12
+    21300026: Old_Man_FullSpriteSheetRecolored_13
+    21300028: Old_Man_FullSpriteSheetRecolored_15
+    21300030: Old_Man_FullSpriteSheetRecolored_14
+    21300032: Old_Man_FullSpriteSheetRecolored_16
+    21300034: Old_Man_FullSpriteSheetRecolored_17
+    21300036: Old_Man_FullSpriteSheetRecolored_18
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 5
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Old_Man_FullSpriteSheetRecolored_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 64}
+        - {x: -13, y: 64}
+        - {x: -38, y: 43}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 25}
+        - {x: 25, y: 61}
+    - name: Old_Man_FullSpriteSheetRecolored_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 64}
+        - {x: -37, y: 38}
+        - {x: -38, y: 31}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 27}
+        - {x: 33, y: 64}
+    - name: Old_Man_FullSpriteSheetRecolored_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 68}
+        - {x: -38, y: 54}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 61}
+        - {x: 37, y: 68}
+    - name: Old_Man_FullSpriteSheetRecolored_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 70}
+        - {x: -38, y: 53}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 66}
+        - {x: 27, y: 70}
+    - name: Old_Man_FullSpriteSheetRecolored_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: -68}
+        - {x: -34, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 39}
+        - {x: 31, y: 70}
+        - {x: -28, y: 70}
+        - {x: -38, y: 54}
+    - name: Old_Man_FullSpriteSheetRecolored_5
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 68}
+        - {x: -38, y: 53}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 40}
+        - {x: 33, y: 68}
+    - name: Old_Man_FullSpriteSheetRecolored_6
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 64}
+        - {x: -38, y: 56}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 64}
+    - name: Old_Man_FullSpriteSheetRecolored_7
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 277
+        width: 76
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 16}
+        - {x: 30, y: 60}
+        - {x: -25, y: 60}
+        - {x: -38, y: 50}
+    - name: Old_Man_FullSpriteSheetRecolored_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 137
+        width: 80
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -55}
+        - {x: 4, y: -56}
+        - {x: 12, y: -56}
+        - {x: 16, y: -55}
+        - {x: 30, y: -49}
+        - {x: 40, y: -31}
+        - {x: 40, y: 26}
+        - {x: 25, y: 70}
+        - {x: -40, y: 70}
+        - {x: -40, y: -70}
+        - {x: 40, y: -70}
+        - {x: 40, y: -56}
+        - {x: -10, y: -56}
+    - name: Old_Man_FullSpriteSheetRecolored_9
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 137
+        width: 73
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: -58}
+        - {x: -33.5, y: -70}
+        - {x: 34.5, y: -70}
+        - {x: 36.5, y: -66}
+        - {x: 36.5, y: -56}
+        - {x: -31.5, y: -56}
+      - - {x: -17.5, y: 68}
+        - {x: -36.5, y: 54}
+        - {x: -36.5, y: -52}
+        - {x: 36.5, y: -52}
+        - {x: 36.5, y: 45}
+        - {x: 20.5, y: 68}
+    - name: Old_Man_FullSpriteSheetRecolored_10
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 137
+        width: 69
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.5, y: -56}
+        - {x: -31.5, y: -58}
+        - {x: -31.5, y: -64}
+        - {x: -24.5, y: -70}
+        - {x: 28.5, y: -70}
+        - {x: 32.5, y: -65}
+        - {x: 32.5, y: -58}
+        - {x: 31.5, y: -56}
+      - - {x: -28.5, y: 60}
+        - {x: -34.5, y: 47}
+        - {x: -34.5, y: -17}
+        - {x: -24.5, y: -56}
+        - {x: 24.5, y: -56}
+        - {x: 33.5, y: -47}
+        - {x: 34.5, y: -40}
+        - {x: 34.5, y: 60}
+    - name: Old_Man_FullSpriteSheetRecolored_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 137
+        width: 68
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 64}
+        - {x: -34, y: 52}
+        - {x: -34, y: -62}
+        - {x: -32, y: -70}
+        - {x: 34, y: -70}
+        - {x: 34, y: 47}
+        - {x: 28, y: 64}
+    - name: Old_Man_FullSpriteSheetRecolored_12
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 137
+        width: 83
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.5, y: 64}
+        - {x: -41.5, y: 54}
+        - {x: -41.5, y: -70}
+        - {x: 41.5, y: -70}
+        - {x: 41.5, y: 58}
+        - {x: 38.5, y: 64}
+    - name: Old_Man_FullSpriteSheetRecolored_13
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 137
+        width: 92
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: -57}
+        - {x: -19, y: -65}
+        - {x: 37, y: -65}
+        - {x: 37, y: -57}
+      - - {x: -46, y: -64}
+        - {x: -43, y: -63}
+        - {x: -43, y: -58}
+        - {x: -45, y: -56}
+        - {x: -46, y: -56}
+      - - {x: -27, y: 63}
+        - {x: -46, y: 52}
+        - {x: -46, y: 8}
+        - {x: -44, y: 3}
+        - {x: -11, y: -57}
+        - {x: 35, y: -57}
+        - {x: 46, y: -50}
+        - {x: 46, y: -11}
+        - {x: 26, y: 63}
+    - name: Old_Man_FullSpriteSheetRecolored_14
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 137
+        width: 89
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 42.5}
+        - {x: -44.5, y: 29.5}
+        - {x: -44.5, y: -68.5}
+        - {x: -36.5, y: -69.5}
+        - {x: 44.5, y: -69.5}
+        - {x: 44.5, y: -32.5}
+        - {x: 13.5, y: 42.5}
+      - - {x: -44.5, y: -25.5}
+        - {x: -44.5, y: -41.5}
+        - {x: -42.5, y: -41.5}
+        - {x: -40.5, y: -39.5}
+        - {x: -40.5, y: -27.5}
+        - {x: -42.5, y: -25.5}
+      - - {x: -44.5, y: 70.5}
+        - {x: -44.5, y: 67.5}
+        - {x: -30.5, y: 67.5}
+        - {x: -28.5, y: 69.5}
+        - {x: -28.5, y: 70.5}
+      - - {x: -8.5, y: 70.5}
+        - {x: -7.5, y: 67.5}
+        - {x: 44.5, y: 67.5}
+        - {x: 44.5, y: 70.5}
+    - name: Old_Man_FullSpriteSheetRecolored_15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 4
+        width: 72
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 47.5}
+        - {x: -16, y: 47.5}
+        - {x: -36, y: 42.5}
+        - {x: -36, y: -66.5}
+        - {x: 36, y: -66.5}
+        - {x: 36, y: -30.5}
+        - {x: 28, y: 13.5}
+    - name: Old_Man_FullSpriteSheetRecolored_16
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 4
+        width: 65
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32.5, y: -66.5}
+        - {x: 30.5, y: -66.5}
+        - {x: 32.5, y: -64.5}
+        - {x: 32.5, y: -54.5}
+        - {x: -32.5, y: -54.5}
+      - - {x: -10.5, y: 62.5}
+        - {x: -32.5, y: 43.5}
+        - {x: -32.5, y: -54.5}
+        - {x: 27.5, y: -54.5}
+        - {x: 31.5, y: -35.5}
+        - {x: 31.5, y: 43.5}
+        - {x: 18.5, y: 62.5}
+    - name: Old_Man_FullSpriteSheetRecolored_17
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 3
+        width: 69
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32.5, y: -54}
+        - {x: -33.5, y: -56}
+        - {x: -33.5, y: -65}
+        - {x: -30.5, y: -67}
+        - {x: 28.5, y: -67}
+        - {x: 28.5, y: -55}
+        - {x: 26.5, y: -54}
+      - - {x: 27.5, y: 67}
+        - {x: -14.5, y: 67}
+        - {x: -34.5, y: 56}
+        - {x: -34.5, y: -30}
+        - {x: 9.5, y: -51}
+        - {x: 23.5, y: -51}
+        - {x: 28.5, y: -47}
+        - {x: 34.5, y: -24}
+        - {x: 34.5, y: 48}
+    - name: Old_Man_FullSpriteSheetRecolored_18
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 3
+        width: 69
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.5, y: 59}
+        - {x: -34.5, y: 50}
+        - {x: -34.5, y: -46}
+        - {x: -30.5, y: -53}
+        - {x: -18.5, y: -52}
+        - {x: -34.5, y: -53}
+        - {x: -34.5, y: -64}
+        - {x: -31.5, y: -67}
+        - {x: 34.5, y: -67}
+        - {x: 34.5, y: 38}
+        - {x: 29.5, y: 59}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,311 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5e5e8f4dc61804aaff6f69819f4aa2, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  CurrentPluginConfig: Profile
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{729513FF-E9F8-4ACD-8FA8-8D26FB232A9E}'
+    m_lastTimePsrt1: -1415323435
+    m_lastTimePart2: -1999404000
+    List:
+    - Name: Play_AnimaticMusic
+      Path: Default Work Unit\Play_AnimaticMusic
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_AnimaticMusic
+        ObjectType: 3
+      ID: -704023161
+      Guid: f5b1524d1371b14bb769fbef27491d05
+      maxAttenuation: 0
+    - Name: Play_cat
+      Path: Default Work Unit\Play_cat
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_cat
+        ObjectType: 3
+      ID: -1604170146
+      Guid: 435c1a284e70db4c84811d5147eec5cd
+      maxAttenuation: 0
+    - Name: Play_DoorOpen
+      Path: Default Work Unit\Play_DoorOpen
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_DoorOpen
+        ObjectType: 3
+      ID: -1097666490
+      Guid: 8cbc12690da455418b39f52c12ffb833
+      maxAttenuation: 0
+    - Name: Play_FurnitureMove
+      Path: Default Work Unit\Play_FurnitureMove
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_FurnitureMove
+        ObjectType: 3
+      ID: 250868963
+      Guid: 9b129e0813313f468ebe0a6803fd58d8
+      maxAttenuation: 0
+    - Name: Play_Item_Down
+      Path: Default Work Unit\Play_Item_Down
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Item_Down
+        ObjectType: 3
+      ID: 415713954
+      Guid: 17cb561c7be2884399b9d5f23af63ba3
+      maxAttenuation: 0
+    - Name: Play_Item_In_Heartagram
+      Path: Default Work Unit\Play_Item_In_Heartagram
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Item_In_Heartagram
+        ObjectType: 3
+      ID: 1403551666
+      Guid: ccdf9af24349064785868f4ed25b2baa
+      maxAttenuation: 0
+    - Name: Play_Item_Pick_Up
+      Path: Default Work Unit\Play_Item_Pick_Up
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Item_Pick_Up
+        ObjectType: 3
+      ID: -67569889
+      Guid: 76b600ac2731934597cd1dae31b9e48e
+      maxAttenuation: 0
+    - Name: Play_Kisses
+      Path: Default Work Unit\Play_Kisses
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Kisses
+        ObjectType: 3
+      ID: 1888148468
+      Guid: 6ad0efc9e963b54c81d271d83d1b2da9
+      maxAttenuation: 0
+    - Name: Play_Menu_Up
+      Path: Default Work Unit\Play_Menu_Up
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Menu_Up
+        ObjectType: 3
+      ID: -1416192667
+      Guid: e018663e362bc7458f55d72cccdb49e2
+      maxAttenuation: 0
+    - Name: Play_MenuBack
+      Path: Default Work Unit\Play_MenuBack
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_MenuBack
+        ObjectType: 3
+      ID: 1113566242
+      Guid: 7de0da2310d08d45bf084ddeece3232a
+      maxAttenuation: 0
+    - Name: Play_MenuConfirm
+      Path: Default Work Unit\Play_MenuConfirm
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_MenuConfirm
+        ObjectType: 3
+      ID: -1194824823
+      Guid: 0f7fd82f08135e4aa1259f4166531b7e
+      maxAttenuation: 0
+    - Name: Play_MenuDown
+      Path: Default Work Unit\Play_MenuDown
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_MenuDown
+        ObjectType: 3
+      ID: 529815043
+      Guid: 9ea98bc6c4dcfe4a890d6fe2a4e2048e
+      maxAttenuation: 0
+    - Name: Play_Music
+      Path: Default Work Unit\Play_Music
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Music
+        ObjectType: 3
+      ID: -1362926625
+      Guid: d167d702f811474db28f7067077e250a
+      maxAttenuation: 0
+    - Name: Play_PlayerHit
+      Path: Default Work Unit\Play_PlayerHit
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_PlayerHit
+        ObjectType: 3
+      ID: 514211712
+      Guid: df926266e8c12446a14e287c4e0679b1
+      maxAttenuation: 0
+    - Name: Play_PlayerJoin
+      Path: Default Work Unit\Play_PlayerJoin
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_PlayerJoin
+        ObjectType: 3
+      ID: -615434267
+      Guid: ebb32c3ff0832845bf6dbf46736a6712
+      maxAttenuation: 0
+    - Name: Play_RoomTransition
+      Path: Default Work Unit\Play_RoomTransition
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_RoomTransition
+        ObjectType: 3
+      ID: 1681141998
+      Guid: f50ace301b2d3a42991dee3cccf61b89
+      maxAttenuation: 0
+    - Name: Play_Round_Start
+      Path: Default Work Unit\Play_Round_Start
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Round_Start
+        ObjectType: 3
+      ID: 1779266091
+      Guid: f49e5f17e23e154c99caa560d9427333
+      maxAttenuation: 0
+    - Name: Play_Round_Start_Go
+      Path: Default Work Unit\Play_Round_Start_Go
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Round_Start_Go
+        ObjectType: 3
+      ID: -1493309992
+      Guid: c604e206e366e743a55eb1e8b0591c18
+      maxAttenuation: 0
+    - Name: Play_StairsMove
+      Path: Default Work Unit\Play_StairsMove
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_StairsMove
+        ObjectType: 3
+      ID: 1351915383
+      Guid: b60a0a23379e454ab0b4e81280898043
+      maxAttenuation: 0
+    - Name: Stop_FurnitureMove
+      Path: Default Work Unit\Stop_FurnitureMove
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_FurnitureMove
+        ObjectType: 3
+      ID: -1738716707
+      Guid: 9fad1fa8c930754b918f4f06e45920d5
+      maxAttenuation: 0
+    - Name: Stop_StairsMove
+      Path: Default Work Unit\Stop_StairsMove
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_StairsMove
+        ObjectType: 3
+      ID: 1003545697
+      Guid: d95a9875763cfb4b94edd978ade963dc
+      maxAttenuation: 0
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{239116D2-DA35-4371-B0F2-A5A816F74DEF}'
+    m_lastTimePsrt1: -1400750810
+    m_lastTimePart2: -1999404000
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{7E120259-2E87-43CA-AEB4-E127F36488C0}'
+    m_lastTimePsrt1: -1357519372
+    m_lastTimePart2: -1999404000
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{2E66FF9A-72C3-4E44-93F5-E5783E7CA7D5}'
+    m_lastTimePsrt1: -1357499353
+    m_lastTimePart2: -1999404000
+    List:
+    - Name: MusicSwitch
+      Path: Default Work Unit\MusicSwitch
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: MusicSwitch
+        ObjectType: 11
+      ID: 1445037870
+      Guid: d376ab6b35384c46ba9523c72cb1cf34
+      values:
+      - Animatic
+      - GameplayMusic
+      - GhostWinMusic
+      - HumanWinMusic
+      - MenuMusic
+      ValueIcons:
+      - ElementName: Animatic
+        ObjectType: 10
+      - ElementName: GameplayMusic
+        ObjectType: 10
+      - ElementName: GhostWinMusic
+        ObjectType: 10
+      - ElementName: HumanWinMusic
+        ObjectType: 10
+      - ElementName: MenuMusic
+        ObjectType: 10
+      valueIDs: 1d2405f7ba7b9c87fdaf4dd833839d12616f8228
+      ValueGuids:
+      - bytes: 69122ca29ee22a4786d46d39ffda53ee
+      - bytes: 05b35968b5ca184498ba8b9a350036d7
+      - bytes: ae22909bda0f41438be9cfb8c94664e5
+      - bytes: 82f7e0cccac9894e8440b229543f4de7
+      - bytes: d94d8d8ef1f06542aa90ec1468713f45
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{4360FEFD-C086-4F90-BDDD-9D1F0EC3DD32}'
+    m_lastTimePsrt1: -1357589402
+    m_lastTimePart2: -1999404000
+    List:
+    - Name: KissyGhostBank
+      Path: Default Work Unit\KissyGhostBank
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: KissyGhostBank
+        ObjectType: 7
+      ID: -14602685
+      Guid: bc63a94da04fe24d8b069811dce7c0aa
+  ExpandedItems: []
+  m_lastPopulateTimePsrt1: 0
+  m_lastPopulateTimePart2: 0
+  autoPopulateEnabled: 1
+  basePath: Audio\GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  memoryCutoffThreshold: 0.95

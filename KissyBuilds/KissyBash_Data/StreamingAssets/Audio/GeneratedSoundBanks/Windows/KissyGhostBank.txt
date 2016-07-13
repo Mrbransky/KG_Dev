@@ -1,0 +1,79 @@
+Event	ID	Name			Wwise Object Path	Notes
+	250868963	Play_FurnitureMove			\Default Work Unit\Play_FurnitureMove	
+	415713954	Play_Item_Down			\Default Work Unit\Play_Item_Down	
+	514211712	Play_PlayerHit			\Default Work Unit\Play_PlayerHit	
+	529815043	Play_MenuDown			\Default Work Unit\Play_MenuDown	
+	1003545697	Stop_StairsMove			\Default Work Unit\Stop_StairsMove	
+	1113566242	Play_MenuBack			\Default Work Unit\Play_MenuBack	
+	1351915383	Play_StairsMove			\Default Work Unit\Play_StairsMove	
+	1403551666	Play_Item_In_Heartagram			\Default Work Unit\Play_Item_In_Heartagram	
+	1681141998	Play_RoomTransition			\Default Work Unit\Play_RoomTransition	
+	1779266091	Play_Round_Start			\Default Work Unit\Play_Round_Start	
+	1888148468	Play_Kisses			\Default Work Unit\Play_Kisses	
+	2556250589	Stop_FurnitureMove			\Default Work Unit\Stop_FurnitureMove	
+	2690797150	Play_cat			\Default Work Unit\Play_cat	
+	2801657304	Play_Round_Start_Go			\Default Work Unit\Play_Round_Start_Go	
+	2878774629	Play_Menu_Up			\Default Work Unit\Play_Menu_Up	
+	2932040671	Play_Music			\Default Work Unit\Play_Music	
+	3100142473	Play_MenuConfirm			\Default Work Unit\Play_MenuConfirm	
+	3197300806	Play_DoorOpen			\Default Work Unit\Play_DoorOpen	
+	3590944135	Play_AnimaticMusic			\Default Work Unit\Play_AnimaticMusic	
+	3679533029	Play_PlayerJoin			\Default Work Unit\Play_PlayerJoin	
+	4227397407	Play_Item_Pick_Up			\Default Work Unit\Play_Item_Pick_Up	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1445037870	MusicSwitch			\Default Work Unit\MusicSwitch	
+
+Switch	ID	Name	Switch Group			Notes
+	312312627	HumanWinMusic	MusicSwitch			
+	679636833	MenuMusic	MusicSwitch			
+	2275179450	GameplayMusic	MusicSwitch			
+	3628969981	GhostWinMusic	MusicSwitch			
+	4144309277	Animatic	MusicSwitch			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	31833784	MenuDown	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\MenuDown_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\MenuDown		15250
+	61563541	StairsMove3	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\StairsMove3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\StairsMove\StairsMove3		576064
+	64905090	Kiss8	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss8_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss8		34864
+	97301958	StairsMove4	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\StairsMove4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\StairsMove\StairsMove4		576064
+	123639115	Kissy Ghost Main Title	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kissy Ghost Main Title_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MainMusicSwitch\Kissy Ghost Main Title		20689204
+	138617315	Round Start Go	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\BigWhistle_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Round Start\Round Start Go		220564
+	170637393	AnimaticMusic	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\KissyGhost AnimaticTrack_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\AnimaticMusic		9471900
+	200364935	cat	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\cat_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\cat		211744
+	217474817	RoomTransition	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\DoorTransition2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Doors\RoomTransition		144948
+	219454398	StairsMove5	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\StairsMove5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\StairsMove\StairsMove5		575272
+	219588759	ShortWhistle2	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\ShortWhistle2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Round Start\Round Start\ShortWhistle2		88264
+	249660706	ShortWhistle1	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\ShortWhistle1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Round Start\Round Start\ShortWhistle1		55192
+	260240409	Dating - Ghost	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Dating - Ghost_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MainMusicSwitch\Dating - Ghost		10304424
+	274188847	Kiss10	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss10_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss10		42098
+	287426362	Kiss13	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss13_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss13		40644
+	323274989	MenuBack	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\MenuBack2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\MenuBack		17660
+	325351564	FurnitureMove5	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\FurnitureMove5_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\FurnitureMove\FurnitureMove5		124910
+	328134839	FurnitureMove4	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\FurnitureMove4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\FurnitureMove\FurnitureMove4		135514
+	396711749	Main Gameplay Music	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\MainGameplayMusicLooped_mixdown_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MainMusicSwitch\Main Gameplay Music		10584064
+	533495813	FurnitureMove1	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\FurnitureMove1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\FurnitureMove\FurnitureMove1		124190
+	607850736	StairsMove6	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\StairsMove6_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\StairsMove\StairsMove6		576064
+	620477597	FurnitureMove2	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\FurnitureMove2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\FurnitureMove\FurnitureMove2		148094
+	630630407	MenuConfirm	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\MenuConfirm2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\MenuConfirm		17704
+	674771949	Kiss23	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss23_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss23		54626
+	684238937	Dating Human	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Dating Human_4B8CC0C5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MainMusicSwitch\Dating Human		10182188
+	694748885	Item In Heartagram	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\ItemInHeartagram_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Items\Item In Heartagram		161408
+	725965896	Hit2	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Hit7_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerHit\PlayerHit\Hit2		11506
+	744413643	ItemDown	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\PutDown3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Items\ItemDown		33144
+	751545851	Kiss4	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss4_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss4		37536
+	757585145	StairsMove1	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\StairsMove1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\StairsMove\StairsMove1		576064
+	771816336	FurnitureMove3	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\FurnitureMove3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\FurnitureMove\FurnitureMove3		124372
+	814401747	Hit1	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Hit1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerHit\PlayerHit\Hit1		13954
+	836716843	PlayerJoin	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\PlayerJoin3(Synth1)_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\PlayerJoin		40400
+	838416374	Kiss21	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss21_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss21		42238
+	866735896	FurnitureMove6	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\FurnitureMove6_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\FurnitureMove\FurnitureMove6		161390
+	895972741	Kiss20	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss20_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss20		47772
+	905534507	AnimaticNEW	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\KissyGhost AnimaticTrack (1)_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MainMusicSwitch\AnimaticNEW		10311420
+	906090540	Kiss1	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss1_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss1		48574
+	936573464	Kiss6	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Kiss6_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ghost\Kisses\Kiss6		63900
+	938908177	ItemPickup	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\PickUp3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Items\ItemPickup		31616
+	978706488	StairsMove2	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\StairsMove2_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Furniture\StairsMove\StairsMove2		576064
+	1007643226	Menu Up	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\Menu Up_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\Menu Up		15316
+	1044931138	ShortWhistle3	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\ShortWhistle3_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Round Start\Round Start\ShortWhistle3		44164
+	1046380989	DoorUnlock	C:\Users\Thomas\Documents\GitHub\Kissy_Ghost\KissyGhost\KissyGhostWwise\.cache\Windows\SFX\doorunlock_mixdown_9E69E797.wem		\Actor-Mixer Hierarchy\Default Work Unit\Doors\DoorUnlock		105904
+
