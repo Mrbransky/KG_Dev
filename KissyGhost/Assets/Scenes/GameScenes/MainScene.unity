@@ -2989,8 +2989,7 @@ GameObject:
 --- !u!114 &164619590
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429552, guid: ee5294862a23f8b4d9acb251d9bf8736,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 164619589}
   m_Enabled: 1
@@ -3455,8 +3454,7 @@ GameObject:
 --- !u!114 &256969603
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429552, guid: ee5294862a23f8b4d9acb251d9bf8736,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256969602}
   m_Enabled: 1
@@ -4354,8 +4352,7 @@ GameObject:
 --- !u!114 &373283056
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429552, guid: ee5294862a23f8b4d9acb251d9bf8736,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 373283055}
   m_Enabled: 1
@@ -12715,7 +12712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14281,8 +14278,7 @@ GameObject:
 --- !u!114 &1730594829
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429552, guid: ee5294862a23f8b4d9acb251d9bf8736,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1730594828}
   m_Enabled: 1
@@ -15568,8 +15564,7 @@ GameObject:
 --- !u!114 &1940782402
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429552, guid: ee5294862a23f8b4d9acb251d9bf8736,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1940782401}
   m_Enabled: 1
@@ -15728,8 +15723,7 @@ RectTransform:
 --- !u!114 &1957020624
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11429552, guid: ee5294862a23f8b4d9acb251d9bf8736,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1957020622}
   m_Enabled: 1
