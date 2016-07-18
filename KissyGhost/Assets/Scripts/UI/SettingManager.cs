@@ -17,33 +17,18 @@ public class SettingManager : MonoBehaviour
 
     Resolution[] resolutions;
     Dropdown resDropdown;
-    List<string> resList;
-
+    Slider M_Volume;
+    Text M_Perc;
     Toggle fullButt;
     void Start()
     {
         showOptions = false;
-        //SixtyH = GameObject.Find("SixtyH").GetComponent<Toggle>();
-        //OneTwentyH = GameObject.Find("OneTwentyH").GetComponent<Toggle>();
         resDropdown = GameObject.Find("Res").GetComponent<Dropdown>();
         fullButt = GameObject.Find("Fullscreen").GetComponent<Toggle>();
+        M_Volume = GameObject.Find("M_volume").GetComponent<Slider>();
+        M_Perc = GameObject.Find("M_Percentage").GetComponent<Text>();
         ChangeSettingsOnStart();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //public void ChangeTo120()
-    //{
-    //    Screen.SetResolution(ResX, ResY, Fullscreen, 120);
-    //}
-    //public void ChangeTo60()
-    //{
-    //    Screen.SetResolution(ResX, ResY, Fullscreen, 60);
-    //}
     
     //fullscreen
     public void SetFullscreen(bool setter)
@@ -107,15 +92,16 @@ public class SettingManager : MonoBehaviour
         }
         resDropdown.onValueChanged.AddListener(delegate { Screen.SetResolution(resolutions[resDropdown.value].width, resolutions[resDropdown.value].height, Screen.fullScreen); });
         fullButt.isOn = Screen.fullScreen;
-        //foreach(Resolution res in resolutions)
-        //{
-        //    //Debug.Log(res);
-        //    resDropdown.options.Add(new Dropdown.OptionData(res.ToString()));
-        //}
+
     }
     string ResToString(Resolution res)
     {
         return res.width + " x " + res.height;
+    }
+
+    public void VolumePercentageChange()
+    {
+        M_Perc.text = M_Volume.value.ToString() + "%";
     }
 
     //        if (GUI.Button(new Rect(500, 0, 140, 100), "Vsync On"))
