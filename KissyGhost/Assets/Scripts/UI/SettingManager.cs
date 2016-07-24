@@ -18,7 +18,7 @@ public class SettingManager : MonoBehaviour
     Resolution[] resolutions;
     Dropdown resDropdown;
     Slider M_Volume;
-    Text M_Perc;
+    Slider SFX_Volume;
     Toggle fullButt;
     void Start()
     {
@@ -26,7 +26,7 @@ public class SettingManager : MonoBehaviour
         resDropdown = GameObject.Find("Res").GetComponent<Dropdown>();
         fullButt = GameObject.Find("Fullscreen").GetComponent<Toggle>();
         M_Volume = GameObject.Find("M_volume").GetComponent<Slider>();
-        M_Perc = GameObject.Find("M_Percentage").GetComponent<Text>();
+        SFX_Volume = GameObject.Find("M_SFX").GetComponent<Slider>();
         ChangeSettingsOnStart();
     }
     
@@ -93,17 +93,26 @@ public class SettingManager : MonoBehaviour
         resDropdown.onValueChanged.AddListener(delegate { Screen.SetResolution(resolutions[resDropdown.value].width, resolutions[resDropdown.value].height, Screen.fullScreen); });
         fullButt.isOn = Screen.fullScreen;
 
+
     }
     string ResToString(Resolution res)
     {
         return res.width + " x " + res.height;
     }
 
-    public void VolumePercentageChange()
+    public void VolumePercentageChange(Text M_Perc)
     {
         M_Perc.text = M_Volume.value.ToString() + "%";
+
+        AkSoundEngine.SetRTPCValue("MusicVol", M_Volume.value);
     }
 
+    public void SFXVolumePercentageChange(Text SFX_Perc)
+    {
+        SFX_Perc.text = SFX_Volume.value.ToString() + "%";
+
+        AkSoundEngine.SetRTPCValue("SFXVol", SFX_Volume.value);
+    }
     //        if (GUI.Button(new Rect(500, 0, 140, 100), "Vsync On"))
     //        {
     //            QualitySettings.vSyncCount = 1;
