@@ -280,7 +280,8 @@ public class KissableFurniture : MonoBehaviour
             }
             else
             {
-                spriteRenderer.color = kissedColor;
+                FadeInColor(kissedColor);
+                //spriteRenderer.color = kissedColor;
             }
 
             if (FaceObject != null)
@@ -510,5 +511,10 @@ public class KissableFurniture : MonoBehaviour
             else if (MoveDirX < 0 && ScaleX > 0)
                 transform.localScale = new Vector3(-ScaleX, transform.localScale.y);
         }
+    }
+
+    private void FadeInColor(Color colorToChange)
+    {
+        spriteRenderer.color = Color.Lerp(spriteRenderer.color, colorToChange, Mathf.PingPong(Time.time, 1));
     }
 }

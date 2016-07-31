@@ -30,7 +30,7 @@ public class StartingCountdown : MonoBehaviour
 
     private float timer = 4;
     
-    void Awake()
+    void Start()
     {
         Time.timeScale = 0;
     }

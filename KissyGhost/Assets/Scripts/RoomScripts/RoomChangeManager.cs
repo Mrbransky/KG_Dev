@@ -27,6 +27,7 @@ public class RoomChangeManager : MonoBehaviour
     private float DoorFadeIncrement = .02f;
     public int NumPlayersIn;
     public Text timerText;
+    public Vector3 roomToChangeTo;
 
     public GameObject[] CenterRoomDoorArrows;
     public GameObject LeftRoomDoorArrow;
@@ -54,11 +55,12 @@ public class RoomChangeManager : MonoBehaviour
     private RoomLocations currentRoomLocation = RoomLocations.Center;
 
     private bool StartFadingDoorsIn;
-
+    private Vector3 velocity = Vector3.zero;
     int curPlayerCount;
 
     GameObject GhostAI;
-
+    bool changingRooms = false;
+    bool doneChanging = false;
     float testTimer = 1f;
     bool shouldCountdown = false;
     public RoomLocations CurrentRoomLocation
@@ -135,6 +137,9 @@ public class RoomChangeManager : MonoBehaviour
             if(curPlayerCount != 1)
                 CheckPlayersWaiting();
         }
+
+        if (changingRooms)
+        { MoveCamera(roomToChangeTo); }
     }
 
     #region Door Fading
@@ -326,9 +331,18 @@ public class RoomChangeManager : MonoBehaviour
 
         if (playersGoingBottom.Count >= curPlayerCount - 1)
         {
-            SendPlayersToBottomRoom();
-            currentRoomLocation = RoomLocations.Bottom;
-            SubObjectiveCheck_OnRoomChanged();
+            //camera move before players
+            roomToChangeTo = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
+
+            if (doneChanging == true)
+            {
+                SendPlayersToBottomRoom();
+                currentRoomLocation = RoomLocations.Bottom;
+                SubObjectiveCheck_OnRoomChanged();
+                doneChanging = false;
+            }
+            else { changingRooms = true; }
+            //-------------------------------
 
             if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
@@ -338,9 +352,18 @@ public class RoomChangeManager : MonoBehaviour
         }
         else if (playersGoingLeft.Count >= curPlayerCount - 1)
         {
-            SendPlayersToLeftRoom();
-            currentRoomLocation = RoomLocations.Left;
-            SubObjectiveCheck_OnRoomChanged();
+            //camera move before players
+            roomToChangeTo = GetComponent<RoomGenerator>().LeftBaseRoomPiece.transform.position;
+
+            if (doneChanging == true)
+            {
+                SendPlayersToLeftRoom();
+                currentRoomLocation = RoomLocations.Left;
+                SubObjectiveCheck_OnRoomChanged();
+                doneChanging = false;
+            }
+            else { changingRooms = true; }
+            //----------------------------
 
             if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
@@ -350,9 +373,18 @@ public class RoomChangeManager : MonoBehaviour
         }
         else if (playersGoingRight.Count >= curPlayerCount - 1)
         {
-            SendPlayersToRightRoom();
-            currentRoomLocation = RoomLocations.Right;
-            SubObjectiveCheck_OnRoomChanged();
+            //camera move before players
+            roomToChangeTo = GetComponent<RoomGenerator>().RightBaseRoomPiece.transform.position;
+
+            if (doneChanging == true)
+            {
+                SendPlayersToRightRoom();
+                currentRoomLocation = RoomLocations.Right;
+                SubObjectiveCheck_OnRoomChanged();
+                doneChanging = false;
+            }
+            else { changingRooms = true; }
+            //----------------------------
 
             if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
@@ -362,9 +394,17 @@ public class RoomChangeManager : MonoBehaviour
         }
         else if (playersGoingBack.Count >= curPlayerCount - 1)
         {
-            SendPlayersToCenterRoom(currentRoomLocation);
-            currentRoomLocation = RoomLocations.Center;
-            SubObjectiveCheck_OnRoomChanged();
+            //camera move before players
+            roomToChangeTo = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
+
+            if (doneChanging == true)
+            {
+                SendPlayersToCenterRoom(currentRoomLocation);
+                currentRoomLocation = RoomLocations.Center;
+                SubObjectiveCheck_OnRoomChanged();
+            }
+            else { changingRooms = true; }
+            //---------------------------
 
             if (!roomSubObjectiveAccomplishedArray[(int)currentRoomLocation])
             {
@@ -380,10 +420,9 @@ public class RoomChangeManager : MonoBehaviour
     private void SendPlayersToBottomRoom()
     {
         Vector3 curRoomPosition = GetComponent<RoomGenerator>().BottomBaseRoomPiece.transform.position;
-        //Camera.main.transform.position = new Vector3(curRoomPosition.x, curRoomPosition.y, Camera.main.transform.position.z);
         foreach (GameObject player in playersGoingBottom)
         {
-            player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y + 1);
+            player.transform.position = new Vector2(Random.Range(curRoomPosition.x - 2, curRoomPosition.x + 2), curRoomPosition.y +2);
 
             GetComponent<GameManager>().currentGhostPlayer.transform.position = new Vector2(curRoomPosition.x, curRoomPosition.y);
             player.GetComponent<Rigidbody2D>().AddForce(-Vector2.up * 200);
@@ -440,4 +479,21 @@ public class RoomChangeManager : MonoBehaviour
         }
     }
     #endregion Room Change Functions
+    public void MoveCamera(Vector3 room)
+    {
+        Camera.main.GetComponent<NewCameraBehavior>().enabled = false;
+        if (changingRooms == true)
+        {
+            Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, room, ref velocity, 0.3f);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, -10);
+
+            float dist = Vector3.Distance(Camera.main.transform.position, room);
+            if (dist <= 10.05f)
+            {
+                changingRooms = false;
+                doneChanging = true;
+                Camera.main.GetComponent<NewCameraBehavior>().enabled = true;
+            }
+        }
+    }
 }

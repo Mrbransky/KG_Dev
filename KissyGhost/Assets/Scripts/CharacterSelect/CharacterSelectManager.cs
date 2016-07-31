@@ -255,7 +255,7 @@ public class CharacterSelectManager : MonoBehaviour
         {
             if ((InputMapper.GrabVal(XBOX360_BUTTONS.B, i + 1) || Input.GetKeyDown(KeyCode.Backspace)) && CanGoBackToInstructions() && !wasBButtonPressed[i])
             {
-                goBackScript.GoBackToInstructions();
+                //goBackScript.GoBackToInstructions();
                 soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
             }
 
