@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : Entity 
 {
-    public enum MoveAnim { Idle, Walking, Kicking, notKicking };
+    public enum MoveAnim { Idle, Walking, Kicking, notKicking, Kiss, stopKiss };
     public MoveAnim MoveAnimation
     {
         get { return moveAnimation; }

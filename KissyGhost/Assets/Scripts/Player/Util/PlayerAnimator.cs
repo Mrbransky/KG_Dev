@@ -31,6 +31,12 @@ public class PlayerAnimator : MonoBehaviour
             case Player.MoveAnim.notKicking:
                 anim.SetTrigger("StopKick");
                 break;
+            case Player.MoveAnim.Kiss:
+                anim.SetBool("Kiss", true);
+                break;
+            case Player.MoveAnim.stopKiss:
+                anim.SetBool("Kiss", false);
+                break;
         }
     }
 }

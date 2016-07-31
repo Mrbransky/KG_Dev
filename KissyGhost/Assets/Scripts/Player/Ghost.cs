@@ -14,7 +14,8 @@ public class Ghost : Player
     public bool TouchingFurniture;
     public Color MainColor;
     private bool wasAButtonPressed = false;
-    private bool hasGameEnded = false;  
+    private bool hasGameEnded = false;
+    public GameObject kissParts;
   
     private HeartComponent[] heartComponentsArray;
 
@@ -70,18 +71,22 @@ public class Ghost : Player
         else if (GetAButtonDown && canKissObject())
         {
             if (_MoveInteractTrigger.interactColliderList.Count > 0)
-                kissObject(_MoveInteractTrigger.interactColliderList);
+            { kissObject(_MoveInteractTrigger.interactColliderList); }
             else
-                kissObject(bodyColliderList);           
+            {kissObject(bodyColliderList);}
+            MoveAnimation = MoveAnim.Kiss;
+            kissParts.SetActive(true);
         }
         #region Keyboard Input Related Code (for Debugging)
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
         else if (Input.GetKeyDown(KeyCode.M) && canKissObject())
         {
             if (_MoveInteractTrigger.interactColliderList.Count > 0)
-                kissObject(_MoveInteractTrigger.interactColliderList);
+            { kissObject(_MoveInteractTrigger.interactColliderList); }
             else
-                kissObject(bodyColliderList);   
+            { kissObject(bodyColliderList); }
+            MoveAnimation = MoveAnim.Kiss;
+            kissParts.SetActive(true);
         }
 #endif
         #endregion
@@ -243,5 +248,10 @@ public class Ghost : Player
             bodyColliderList.Remove(col);
             col.GetComponent<KissableFurniture>().HideOutline();
         }
+    }
+
+    public void stopKissing()
+    {
+        MoveAnimation = MoveAnim.stopKiss;
     }
 }

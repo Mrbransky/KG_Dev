@@ -69,18 +69,8 @@ public class ColorPalette : ScriptableObject {
 	public Color GetColor(Color color){
 
 		for (var i = 0; i < palette.Count; i++) {
-			var tmpColor = palette[i];
-
-            if (color == tmpColor)
+            if (color == palette[i])
                 return newPalette[i];
-            //if(Mathf.Approximately(color.r, tmpColor.r) &&
-            //   Mathf.Approximately(color.g, tmpColor.g) &&
-            //   Mathf.Approximately(color.b, tmpColor.b) &&
-            //   Mathf.Approximately(color.a, tmpColor.a)){
-
-            //    return newPalette[i];
-
-            //}
 		}
 
 		return color;

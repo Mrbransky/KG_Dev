@@ -53,6 +53,9 @@ public class PaletteSwapper : MonoBehaviour {
 
             for (int i = 0; i < colors.Length; i++)
             {
+                if (colors[i].a == 0)
+                    continue;
+
                 colors[i] = palette.GetColor(colors[i]);
             }
 
