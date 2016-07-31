@@ -1,0 +1,17 @@
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.Networking.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\obj\Debug\UnityVS.Kissy_Ghost.CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\obj\Debug\Assembly-CSharp.dll
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEditor.xml
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.Networking.xml
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.xml
+C:\Users\Zac\Documents\GitHub\Games\Kissy_Ghost\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
