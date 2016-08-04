@@ -255,7 +255,7 @@ public class CharacterSelectManager : MonoBehaviour
         {
             if ((InputMapper.GrabVal(XBOX360_BUTTONS.B, i + 1) || Input.GetKeyDown(KeyCode.Backspace)) && CanGoBackToInstructions() && !wasBButtonPressed[i])
             {
-                //goBackScript.GoBackToInstructions();
+                goBackScript.GoBackToInstructions();
                 soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
             }
 
@@ -1096,7 +1096,15 @@ public class CharacterSelectManager : MonoBehaviour
     private void initializeGhostPlayerIndex()
     {
         ghostSelectorImageList = new List<Image>();
-        int randGhostPlayerNumber = Random.Range(0, playerCount);
+        //int randGhostPlayerNumber = Random.Range(0, playerCount);
+        int randGhostPlayerNumber = ShuffleBag.shuffle.Next();
+
+        while (randGhostPlayerNumber >= playerCount)
+        {
+            randGhostPlayerNumber = ShuffleBag.shuffle.Next();
+            Debug.Log("Reshuffling");
+        }
+
         int ghostPlayer_ForLoopCounter = 0;
 
         for (int i = 0; i < isPlayerReadyArray.Length; ++i)

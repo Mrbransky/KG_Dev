@@ -17,10 +17,10 @@ public class GoBack : MonoBehaviour {
         {
             GoBackToAnimatic(0);
         }
-        else if(Input.GetKey("joystick button 1"))
-        {
-            GoBackToInstructions();
-        }
+        //else if(Input.GetKey("joystick button 1"))
+        //{
+            //GoBackToInstructions();
+        //}
 
 #if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
         if (Input.GetKeyDown(KeyCode.Escape))
