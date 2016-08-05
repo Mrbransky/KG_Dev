@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\AI\GhostAI.cs" />
      <Compile Include="Assets\Scripts\AI\PlayerAI.cs" />
      <Compile Include="Assets\Scripts\Audio\soundManager.cs" />
+     <Compile Include="Assets\Scripts\BackFromCharSelect.cs" />
      <Compile Include="Assets\Scripts\CameraBiz\NewCameraBehavior.cs" />
      <Compile Include="Assets\Scripts\CameraBiz\ScreenShake.cs" />
      <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectData.cs" />
@@ -89,6 +90,7 @@
      <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
      <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
      <Compile Include="Assets\Scripts\STUPIDCATS.cs" />
+     <Compile Include="Assets\Scripts\ShuffleBag.cs" />
      <Compile Include="Assets\Scripts\SpriteSorter.cs" />
      <Compile Include="Assets\Scripts\StartingCountdown.cs" />
      <Compile Include="Assets\Scripts\Steamwork.NET\SteamManager.cs" />

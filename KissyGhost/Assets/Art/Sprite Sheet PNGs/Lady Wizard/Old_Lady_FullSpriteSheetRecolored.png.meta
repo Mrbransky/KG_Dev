@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 041989b833998e449b94f3845a8a18bc
-timeCreated: 1461883070
-licenseType: Pro
+timeCreated: 1470355998
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Old_Lady_FullSpriteSheetRecolored_0
@@ -19,6 +19,11 @@ TextureImporter:
     21300024: Old_Lady_FullSpriteSheetRecolored_12
     21300026: Old_Lady_FullSpriteSheetRecolored_13
     21300028: Old_Lady_FullSpriteSheetRecolored_14
+    21300030: Old_Lady_FullSpriteSheetRecolored_15
+    21300032: Old_Lady_FullSpriteSheetRecolored_16
+    21300034: Old_Lady_FullSpriteSheetRecolored_17
+    21300036: Old_Lady_FullSpriteSheetRecolored_18
+    21300038: Old_Lady_FullSpriteSheetRecolored_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,7 +37,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 1
   grayScaleToAlpha: 0
@@ -52,11 +57,12 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -68,152 +74,489 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 52}
+        - {x: -29, y: 44}
+        - {x: -38, y: 0}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 9}
+        - {x: 32, y: 52}
     - name: Old_Lady_FullSpriteSheetRecolored_1
       rect:
         serializedVersion: 2
         x: 76
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 52}
+        - {x: -22, y: 50}
+        - {x: -38, y: -17}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 16}
+        - {x: 30, y: 52}
     - name: Old_Lady_FullSpriteSheetRecolored_2
       rect:
         serializedVersion: 2
         x: 152
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: 56}
+        - {x: 0, y: 56}
+        - {x: -19, y: 50}
+        - {x: -26, y: 43}
+        - {x: -38, y: -3}
+        - {x: -38, y: -70}
+        - {x: 37, y: -70}
+        - {x: 38, y: -68}
+        - {x: 38, y: -11}
+        - {x: 33, y: 33}
     - name: Old_Lady_FullSpriteSheetRecolored_3
       rect:
         serializedVersion: 2
         x: 228
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27, y: 60}
+        - {x: -7, y: 60}
+        - {x: -27, y: 51}
+        - {x: -38, y: 1}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 23}
+        - {x: 34, y: 57}
     - name: Old_Lady_FullSpriteSheetRecolored_4
       rect:
         serializedVersion: 2
         x: 304
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 60}
+        - {x: -8, y: 60}
+        - {x: -27, y: 51}
+        - {x: -38, y: 0}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 18}
+        - {x: 33, y: 56}
     - name: Old_Lady_FullSpriteSheetRecolored_5
       rect:
         serializedVersion: 2
         x: 380
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 45}
+        - {x: -38, y: -44}
+        - {x: -38, y: -68}
+        - {x: -34, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 25}
+        - {x: 37, y: 34}
+        - {x: 29, y: 56}
+        - {x: 0, y: 56}
+        - {x: -19, y: 49}
     - name: Old_Lady_FullSpriteSheetRecolored_6
       rect:
         serializedVersion: 2
         x: 456
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 42}
+        - {x: -38, y: -21}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 20}
+        - {x: 36, y: 30}
+        - {x: 29, y: 52}
+        - {x: -1, y: 52}
     - name: Old_Lady_FullSpriteSheetRecolored_7
       rect:
         serializedVersion: 2
         x: 532
-        y: 140
+        y: 320
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 48}
+        - {x: -25, y: 38}
+        - {x: -38, y: -14}
+        - {x: -38, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: 6}
+        - {x: 32, y: 48}
     - name: Old_Lady_FullSpriteSheetRecolored_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 180
         width: 80
-        height: 139
+        height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: -54}
+        - {x: 4, y: -56}
+        - {x: 12, y: -56}
+        - {x: 16, y: -55}
+        - {x: 30, y: -49}
+        - {x: 37, y: -13}
+        - {x: 38, y: 37}
+        - {x: 24, y: 32}
+        - {x: 22, y: 30}
+        - {x: 22, y: 28}
+        - {x: 18, y: 28}
+        - {x: 22, y: 29}
+        - {x: 22, y: 36}
+        - {x: 24, y: 36}
+        - {x: 26, y: 38}
+        - {x: 27, y: 55}
+        - {x: 22, y: 64}
+        - {x: -10, y: 64}
+        - {x: -33, y: 52}
+        - {x: -40, y: 17}
+        - {x: -40, y: -63}
+        - {x: -37, y: -70}
+        - {x: 40, y: -70}
+        - {x: 40, y: -56}
+        - {x: -4, y: -56}
+      - - {x: -18, y: 64}
+        - {x: -18, y: 56}
+        - {x: -11, y: 56}
+        - {x: -10, y: 58}
+        - {x: -10, y: 64}
     - name: Old_Lady_FullSpriteSheetRecolored_9
       rect:
         serializedVersion: 2
-        x: 88
-        y: 0
+        x: 87
+        y: 180
         width: 76
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: -58}
+        - {x: -35, y: -62}
+        - {x: -32, y: -70}
+        - {x: 38, y: -70}
+        - {x: 38, y: -56}
+        - {x: -33, y: -56}
+      - - {x: 27, y: 28}
+        - {x: 23, y: 28}
+        - {x: 21, y: 26}
+        - {x: 21, y: 24}
+        - {x: 17, y: 24}
+        - {x: 21, y: 25}
+        - {x: 21, y: 32}
+        - {x: 24, y: 30}
+        - {x: 29, y: 52}
+        - {x: 22, y: 60}
+        - {x: -9, y: 60}
+        - {x: -38, y: 46}
+        - {x: -38, y: -52}
+        - {x: 36, y: -52}
+        - {x: 37, y: -51}
+        - {x: 37, y: -12}
+        - {x: 29, y: 26}
     - name: Old_Lady_FullSpriteSheetRecolored_10
       rect:
         serializedVersion: 2
         x: 172
-        y: 0
+        y: 180
         width: 68
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: -64}
+        - {x: -27, y: -70}
+        - {x: 34, y: -70}
+        - {x: 34, y: -56}
+        - {x: -34, y: -56}
+      - - {x: 24, y: 22}
+        - {x: 24, y: 20}
+        - {x: 20, y: 20}
+        - {x: 24, y: 21}
+        - {x: 24, y: 28}
+        - {x: 26, y: 28}
+        - {x: 28, y: 30}
+        - {x: 30, y: 47}
+        - {x: 22, y: 56}
+        - {x: -11, y: 56}
+        - {x: -27, y: 52}
+        - {x: -28, y: 40}
+        - {x: -28, y: -56}
+        - {x: 32, y: -56}
+        - {x: 32, y: 28}
+        - {x: 26, y: 24}
+      - - {x: -14, y: 56}
+        - {x: -16, y: 54}
+        - {x: -16, y: 50}
+        - {x: -14, y: 48}
+        - {x: -6, y: 48}
+        - {x: -4, y: 50}
+        - {x: -4, y: 54}
+        - {x: -6, y: 56}
     - name: Old_Lady_FullSpriteSheetRecolored_11
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 180
         width: 72
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 29}
+        - {x: 22, y: 26}
+        - {x: 22, y: 24}
+        - {x: 18, y: 24}
+        - {x: 22, y: 25}
+        - {x: 22, y: 32}
+        - {x: 25, y: 30}
+        - {x: 29, y: 51}
+        - {x: 22, y: 60}
+        - {x: -10, y: 60}
+        - {x: -25, y: 55}
+        - {x: -36, y: 16}
+        - {x: -36, y: -70}
+        - {x: 36, y: -70}
+        - {x: 36, y: 10}
+        - {x: 31, y: 27}
     - name: Old_Lady_FullSpriteSheetRecolored_12
       rect:
         serializedVersion: 2
         x: 332
-        y: 0
+        y: 180
         width: 84
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 22}
+        - {x: 24, y: 20}
+        - {x: 20, y: 20}
+        - {x: 24, y: 21}
+        - {x: 24, y: 28}
+        - {x: 27, y: 26}
+        - {x: 31, y: 47}
+        - {x: 22, y: 60}
+        - {x: 0, y: 60}
+        - {x: -1, y: 59}
+        - {x: 0, y: 54}
+        - {x: 2, y: 52}
+        - {x: 4, y: 52}
+        - {x: 4, y: 48}
+        - {x: 3, y: 52}
+        - {x: -3, y: 53}
+        - {x: -19, y: 48}
+        - {x: -32, y: 39}
+        - {x: -42, y: 3}
+        - {x: -42, y: -57}
+        - {x: -38, y: -70}
+        - {x: 42, y: -70}
+        - {x: 42, y: 30}
+        - {x: 26, y: 24}
+      - - {x: -42, y: -56}
+        - {x: -42, y: -64}
+        - {x: -38, y: -64}
+        - {x: -36, y: -62}
+        - {x: -36, y: -58}
+        - {x: -38, y: -56}
+      - - {x: -35, y: 40}
+        - {x: -36, y: 38}
+        - {x: -36, y: 33}
+        - {x: -34, y: 32}
+        - {x: -29, y: 32}
+        - {x: -28, y: 34}
+        - {x: -28, y: 39}
+        - {x: -30, y: 40}
     - name: Old_Lady_FullSpriteSheetRecolored_13
       rect:
         serializedVersion: 2
-        x: 416
-        y: 0
+        x: 424
+        y: 180
         width: 92
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: -57}
+        - {x: -28, y: -65}
+        - {x: 28, y: -65}
+        - {x: 28, y: -57}
+      - - {x: -31, y: 51}
+        - {x: -46, y: 42}
+        - {x: -46, y: -12}
+        - {x: -16, y: -56}
+        - {x: -10, y: -57}
+        - {x: 14, y: -57}
+        - {x: 40, y: -44}
+        - {x: 40, y: 21}
+        - {x: 22, y: 51}
     - name: Old_Lady_FullSpriteSheetRecolored_14
       rect:
         serializedVersion: 2
-        x: 509
-        y: 0
+        x: 516
+        y: 180
         width: 92
         height: 140
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 39}
+        - {x: -46, y: 39}
+        - {x: -46, y: -69}
+        - {x: 36, y: -69}
+        - {x: 36, y: -55}
+        - {x: 8, y: 35}
+    - name: Old_Lady_FullSpriteSheetRecolored_15
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 21
+        width: 80
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: -38}
+        - {x: -40, y: -66}
+        - {x: -34, y: -70}
+        - {x: 40, y: -70}
+        - {x: 40, y: 24}
+        - {x: 34, y: 62}
+        - {x: 25, y: 65}
+        - {x: -8, y: 65}
+        - {x: -32, y: 55}
+    - name: Old_Lady_FullSpriteSheetRecolored_16
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 21
+        width: 79
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.5, y: 60}
+        - {x: -39.5, y: 48}
+        - {x: -39.5, y: -70}
+        - {x: 39.5, y: -70}
+        - {x: 39.5, y: 60}
+    - name: Old_Lady_FullSpriteSheetRecolored_17
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 21
+        width: 79
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: 69}
+        - {x: -26.5, y: 66}
+        - {x: -39.5, y: 31}
+        - {x: -39.5, y: -70}
+        - {x: 39.5, y: -70}
+        - {x: 39.5, y: 59}
+        - {x: 29.5, y: 69}
+    - name: Old_Lady_FullSpriteSheetRecolored_18
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 21
+        width: 89
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37.5, y: -60.5}
+        - {x: -37.5, y: -70.5}
+        - {x: -35.5, y: -74.5}
+        - {x: 36.5, y: -74.5}
+        - {x: 44.5, y: -70.5}
+        - {x: 44.5, y: -60.5}
+      - - {x: -41.5, y: 74.5}
+        - {x: -44.5, y: 71.5}
+        - {x: -44.5, y: -30.5}
+        - {x: -15.5, y: -56.5}
+        - {x: 28.5, y: -56.5}
+        - {x: 28.5, y: 74.5}
+    - name: Old_Lady_FullSpriteSheetRecolored_19
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 21
+        width: 79
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 65}
+        - {x: -32.5, y: 51}
+        - {x: -39.5, y: 7}
+        - {x: -39.5, y: -56}
+        - {x: -23.5, y: -56}
+        - {x: -21.5, y: -54}
+        - {x: -10.5, y: -56}
+        - {x: -39.5, y: -56}
+        - {x: -39.5, y: -68}
+        - {x: -36.5, y: -70}
+        - {x: 39.5, y: -70}
+        - {x: 39.5, y: 42}
+        - {x: 38.5, y: 65}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
