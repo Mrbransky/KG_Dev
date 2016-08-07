@@ -181,7 +181,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 99
   m_TargetDisplay: 0
@@ -5556,6 +5555,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 183794, guid: c1dcb7d94a0fda94487598b8d8b98c0f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11415364, guid: c1dcb7d94a0fda94487598b8d8b98c0f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c1dcb7d94a0fda94487598b8d8b98c0f, type: 2}
@@ -5658,7 +5661,7 @@ Prefab:
     - target: {fileID: 21275168, guid: 6632a622d94f5034bb317af683440c11, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d728502b4f58bbe459cf7bb42ed1756c,
+      objectReference: {fileID: 21300000, guid: c7852e994dcaf97418bb80b55b414406,
         type: 3}
     - target: {fileID: 115532, guid: 6632a622d94f5034bb317af683440c11, type: 2}
       propertyPath: m_Name
@@ -8249,7 +8252,7 @@ Prefab:
     - target: {fileID: 21251126, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 138bdc57369f74744a79c6cc26e916db,
+      objectReference: {fileID: 21300000, guid: d01b6afeedf00d247b947f15ace1dba3,
         type: 3}
     - target: {fileID: 6135428, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_Enabled
@@ -9175,7 +9178,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1038236457}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: -0.00000016292068}
-  m_LocalPosition: {x: 0.02, y: 0.786, z: -2}
+  m_LocalPosition: {x: 0.02, y: 0.85, z: -2}
   m_LocalScale: {x: 1.6666667, y: 0.75925195, z: 1}
   m_Children:
   - {fileID: 1578964778}
@@ -10752,7 +10755,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 99
   m_TargetDisplay: 0
@@ -11535,7 +11537,7 @@ Prefab:
     - target: {fileID: 21282272, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c94da724327a81942b1f4e04c39b5b55,
+      objectReference: {fileID: 21300000, guid: 93c993c9ec5abe24a8e0fbce641c6ddf,
         type: 3}
     - target: {fileID: 6105720, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_Enabled
@@ -11698,7 +11700,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 99
   m_TargetDisplay: 0
@@ -12801,7 +12802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12885,7 +12886,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 200
   m_TargetDisplay: 0
@@ -16513,7 +16513,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 99
   m_TargetDisplay: 0
@@ -17674,7 +17673,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444852, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 444852, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_LocalScale.x
@@ -17759,7 +17758,7 @@ Prefab:
     - target: {fileID: 21282272, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 18f06e26f6de26f4a8ee17840cdc2125,
+      objectReference: {fileID: 21300000, guid: 594e3bbfbf6f3c549a45a48a9287f98a,
         type: 3}
     - target: {fileID: 6105720, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_Enabled
