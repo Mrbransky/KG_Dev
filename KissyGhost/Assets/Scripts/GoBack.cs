@@ -13,9 +13,12 @@ public class GoBack : MonoBehaviour {
             return;
         }
         Scene scene = SceneManager.GetActiveScene();
-        if (Input.GetKey("joystick button 1") && scene.buildIndex == 1)
+        if (Input.GetKey("joystick button 1"))
         {
-            GoBackToAnimatic(0);
+            if (scene.buildIndex == 1)
+                GoBackToAnimatic(0);
+            else if (scene.buildIndex == 12)
+                GoBackToInstructions();
         }
         //else if(Input.GetKey("joystick button 1"))
         //{
