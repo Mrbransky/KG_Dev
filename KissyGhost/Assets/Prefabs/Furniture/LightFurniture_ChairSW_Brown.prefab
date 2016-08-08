@@ -60,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.321861, y: 13.74645, z: 0}
+  m_LocalPosition: {x: 9.745838, y: -4.8118033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 447978}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kissedBehavior: 1
-  UnkissedSprite: {fileID: 21300000, guid: 4059ac0e5521e224fa59d786ee2c4f2f, type: 3}
+  UnkissedSprite: {fileID: 21300000, guid: 2e0ebb2f7a2d4ae43b14a8abb81d2a07, type: 3}
   KissedSprite: {fileID: 21300000, guid: 2b83f21a51fb81648a8e9c98ede51831, type: 3}
   FaceObject: {fileID: 0}
   kissedColor: {r: 1, g: 0, b: 0.8896551, a: 1}
@@ -1720,7 +1720,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 4059ac0e5521e224fa59d786ee2c4f2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e0ebb2f7a2d4ae43b14a8abb81d2a07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

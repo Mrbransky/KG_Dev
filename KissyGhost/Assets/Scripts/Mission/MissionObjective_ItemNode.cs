@@ -10,6 +10,8 @@ public class MissionObjective_ItemNode : MonoBehaviour
     private Vector3 itemTargetPosition;
     private SpriteRenderer spriteRenderer;
 
+    public Sprite HasItemSprite;
+
     public Vector3 ItemTargetPosition
     {
         get { return itemTargetPosition; }
@@ -25,7 +27,10 @@ public class MissionObjective_ItemNode : MonoBehaviour
     {
         if (HasItem)
         {
-            GetComponent<Animator>().SetBool("HasItem", true);
+            //GetComponent<Animator>().SetBool("HasItem", true);
+            if (HasItemSprite != null)
+                spriteRenderer.sprite = HasItemSprite;
+
             spriteRenderer.color = HasItemColor;
         }
     }

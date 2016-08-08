@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kissedBehavior: 1
-  UnkissedSprite: {fileID: 21300000, guid: dede6191ad9ab7541821bf8b637663b6, type: 3}
+  UnkissedSprite: {fileID: 21300000, guid: 19f647a7f552fee4fb75f597862dd6df, type: 3}
   KissedSprite: {fileID: 21300000, guid: ef7288dadd3b34a45ac173715336eb19, type: 3}
   FaceObject: {fileID: 0}
   kissedColor: {r: 1, g: 0, b: 0.8896551, a: 1}
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kissedBehavior: 1
-  UnkissedSprite: {fileID: 21300000, guid: 74570dbcd5ed42c48aaa6dbb74fdbf11, type: 3}
+  UnkissedSprite: {fileID: 21300000, guid: 1e65af33e86876949bc38161cee98271, type: 3}
   KissedSprite: {fileID: 21300000, guid: df2e2cd5fef6f1343b174b23e87b4272, type: 3}
   FaceObject: {fileID: 0}
   kissedColor: {r: 1, g: 0, b: 0.8896551, a: 1}
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kissedBehavior: 1
-  UnkissedSprite: {fileID: 21300000, guid: 4059ac0e5521e224fa59d786ee2c4f2f, type: 3}
+  UnkissedSprite: {fileID: 21300000, guid: 2e0ebb2f7a2d4ae43b14a8abb81d2a07, type: 3}
   KissedSprite: {fileID: 21300000, guid: 2b83f21a51fb81648a8e9c98ede51831, type: 3}
   FaceObject: {fileID: 0}
   kissedColor: {r: 1, g: 0, b: 0.8896551, a: 1}
@@ -5201,7 +5201,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 74570dbcd5ed42c48aaa6dbb74fdbf11, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e65af33e86876949bc38161cee98271, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5261,7 +5261,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 4059ac0e5521e224fa59d786ee2c4f2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e0ebb2f7a2d4ae43b14a8abb81d2a07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5291,7 +5291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: dede6191ad9ab7541821bf8b637663b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19f647a7f552fee4fb75f597862dd6df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5336,6 +5336,16 @@ Prefab:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e0ebb2f7a2d4ae43b14a8abb81d2a07,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: UnkissedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e0ebb2f7a2d4ae43b14a8abb81d2a07,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191618}
