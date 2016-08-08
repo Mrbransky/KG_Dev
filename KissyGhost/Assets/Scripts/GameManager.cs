@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour {
 
     private float timer = 2;
 
-    private const string rPath_womanAnimController = "Animations/R_oldWoman_idle_Controller";
-    private const string rPath_oldieAnimController = "Animations/R_oldie_animation_controller";
+    private const string rPath_womanAnimController = "Animations/oldWoman_idle_Controller";
+    private const string rPath_oldieAnimController = "Animations/oldie_animation_controller";
 
     public bool isGhostAI = false;
 
