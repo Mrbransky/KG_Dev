@@ -23,53 +23,95 @@ public class ShuffleBag : MonoBehaviour
 
     void Start()
     {
-        if (Size != 4)
+        if (playerDataSize != 4)
         {
-            data = new List<int>();
+            playerData = new List<int>();
 
             for (int i = 0; i < 4; i++)
-                shuffle.Add(i, 1);
+                shuffle.AddToPlayerData(i, 1);
+        }
+
+        if (shootingStarDataSize != 8)
+        {
+            shootingStarData = new List<int>();
+
+            for (int i = 2; i < 8; i++)
+                shuffle.AddToStarData(i, 1);
         }
 
         DontDestroyOnLoad(this);
     }
 
     private System.Random random = new System.Random();
-    public List<int> data;
 
-    private int currentItem;
-    private int currentPosition = -1;
+    public List<int> playerData;
+    public List<int> shootingStarData;
 
-    private int Capacity { get { return data.Capacity; } }
-    public int Size { get { return data.Count; } }
+    private int currentPlayerDataItem;
+    private int currentShootingStarItem;
 
-    public void Add(int item, int amount)
+    private int currentPlayerDataPosition = -1;
+    private int currentStarDataPosition = -1;
+
+    public int playerDataSize { get { return playerData.Count; } }
+    public int shootingStarDataSize { get { return shootingStarData.Count; } }
+
+    public void AddToPlayerData(int item, int amount)
     {
         for (int i = 0; i < amount; i++)
-            data.Add(item);
+            playerData.Add(item);
 
-        currentPosition = Size - 1;
+        currentPlayerDataPosition = playerDataSize - 1;
     }
 
-    public int Next()
+    public void AddToStarData(int item, int amount)
     {
-        if(currentPosition < 1)
-        {
-            currentPosition = Size - 1;
-            currentItem = data[0];
+        for (int i = 0; i < amount; i++)
+            shootingStarData.Add(item);
 
-            return currentItem;
+        currentStarDataPosition = shootingStarDataSize - 1;
+    }
+
+    public int PlayerListNext()
+    {
+        if(currentPlayerDataPosition < 1)
+        {
+            currentPlayerDataPosition = playerDataSize - 1;
+            currentPlayerDataItem = playerData[0];
+
+            return currentPlayerDataItem;
         }
 
-        int pos = random.Next(currentPosition);
+        int pos = random.Next(currentPlayerDataPosition);
 
-        currentItem = data[pos];
-        data[pos] = data[currentPosition];
-        data[currentPosition] = currentItem;
-        currentPosition--;
+        currentPlayerDataItem = playerData[pos];
+        playerData[pos] = playerData[currentPlayerDataPosition];
+        playerData[currentPlayerDataPosition] = currentPlayerDataItem;
+        currentPlayerDataPosition--;
 
-        return currentItem;
+        return currentPlayerDataItem;
     }
 
-	
+    public int StarListNext()
+    {
+        if (currentStarDataPosition < 1)
+        {
+            currentStarDataPosition = shootingStarDataSize - 1;
+            currentShootingStarItem = shootingStarData[0];
+
+            return currentShootingStarItem;
+        }
+
+        int pos = random.Next(currentStarDataPosition);
+
+        currentShootingStarItem = shootingStarData[pos];
+        shootingStarData[pos] = shootingStarData[currentStarDataPosition];
+        shootingStarData[currentStarDataPosition] = currentShootingStarItem;
+        currentStarDataPosition--;
+
+        return currentShootingStarItem;
+
+    }
+
+
 }

@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectManager_Single.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectPlayerSpritePositioner.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect\OLD\CharacterSelectDemoController.cs" />
+    <Compile Include="Assets\Scripts\CloudMovement.cs" />
     <Compile Include="Assets\Scripts\EnableLoading.cs" />
     <Compile Include="Assets\Scripts\Furniture\Furniture_FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\Furniture\Furniture_RhinoCharge.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
     <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\STUPIDCATS.cs" />
+    <Compile Include="Assets\Scripts\ShootThatStar.cs" />
     <Compile Include="Assets\Scripts\ShuffleBag.cs" />
     <Compile Include="Assets\Scripts\SpriteSorter.cs" />
     <Compile Include="Assets\Scripts\StartingCountdown.cs" />

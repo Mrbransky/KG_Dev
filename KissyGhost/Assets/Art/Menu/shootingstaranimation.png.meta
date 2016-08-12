@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: a32bb094dbe343643877ba814961e58c
+timeCreated: 1471023612
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: shootingstaranimation_0
+    21300002: shootingstaranimation_1
+    21300004: shootingstaranimation_2
+    21300006: shootingstaranimation_3
+    21300008: shootingstaranimation_4
+    21300010: shootingstaranimation_5
+    21300012: shootingstaranimation_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: shootingstaranimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 373
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 178.5, y: 94.5}
+        - {x: 176.5, y: 92.5}
+        - {x: 176.5, y: 90.5}
+        - {x: 180.5, y: 84.5}
+        - {x: 186.5, y: 87.5}
+        - {x: 186.5, y: 94.5}
+    - name: shootingstaranimation_1
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 0
+        width: 373
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 140.5, y: 85.5}
+        - {x: 140.5, y: 67.5}
+        - {x: 147.5, y: 63.5}
+        - {x: 161.5, y: 63.5}
+        - {x: 186.5, y: 89.5}
+        - {x: 186.5, y: 94.5}
+        - {x: 178.5, y: 94.5}
+        - {x: 158.5, y: 90.5}
+    - name: shootingstaranimation_2
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 0
+        width: 373
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.5, y: 36.5}
+        - {x: 37.5, y: 15.5}
+        - {x: 45.5, y: 12.5}
+        - {x: 65.5, y: 12.5}
+        - {x: 173.5, y: 77.5}
+        - {x: 173.5, y: 88.5}
+        - {x: 161.5, y: 88.5}
+        - {x: 40.5, y: 43.5}
+    - name: shootingstaranimation_3
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 0
+        width: 373
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 89.5, y: 49.5}
+        - {x: -88.5, y: -8.5}
+        - {x: -94.5, y: -22.5}
+        - {x: -94.5, y: -49.5}
+        - {x: -90.5, y: -51.5}
+        - {x: -61.5, y: -51.5}
+        - {x: -48.5, y: -49.5}
+        - {x: 91.5, y: 42.5}
+        - {x: 91.5, y: 47.5}
+    - name: shootingstaranimation_4
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 0
+        width: 373
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.5, y: -9.5}
+        - {x: -157.5, y: -55.5}
+        - {x: -161.5, y: -65.5}
+        - {x: -161.5, y: -76.5}
+        - {x: -156.5, y: -85.5}
+        - {x: -135.5, y: -85.5}
+        - {x: -24.5, y: -12.5}
+        - {x: -24.5, y: -9.5}
+    - name: shootingstaranimation_5
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 0
+        width: 373
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -184.5, y: -64.5}
+        - {x: -184.5, y: -94.5}
+        - {x: -158.5, y: -94.5}
+        - {x: -136.5, y: -78.5}
+        - {x: -136.5, y: -64.5}
+    - name: shootingstaranimation_6
+      rect:
+        serializedVersion: 2
+        x: 2238
+        y: 0
+        width: 373
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -185.5, y: -84.5}
+        - {x: -186.5, y: -85.5}
+        - {x: -186.5, y: -94.5}
+        - {x: -180.5, y: -94.5}
+        - {x: -180.5, y: -87.5}
+        - {x: -181.5, y: -84.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

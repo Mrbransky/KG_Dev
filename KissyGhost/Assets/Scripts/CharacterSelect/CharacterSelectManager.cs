@@ -1097,11 +1097,11 @@ public class CharacterSelectManager : MonoBehaviour
     {
         ghostSelectorImageList = new List<Image>();
         //int randGhostPlayerNumber = Random.Range(0, playerCount);
-        int randGhostPlayerNumber = ShuffleBag.shuffle.Next();
+        int randGhostPlayerNumber = ShuffleBag.shuffle.PlayerListNext();
 
         while (randGhostPlayerNumber >= playerCount)
         {
-            randGhostPlayerNumber = ShuffleBag.shuffle.Next();
+            randGhostPlayerNumber = ShuffleBag.shuffle.PlayerListNext();
             Debug.Log("Reshuffling");
         }
 
