@@ -2,7 +2,7 @@
 using System.Collections;
 using XInputDotNetPure;
 
-public enum XBOX360_BUTTONS { A, B, X, Y };
+public enum XBOX360_BUTTONS { A, B, X, Y, SELECT };
 public enum XBOX360_AXES
 {
     LeftStick_Vert,
@@ -32,6 +32,8 @@ public static class InputMapper
                 return (gamepadState.Buttons.X == ButtonState.Pressed);
             case (int)XBOX360_BUTTONS.Y:
                 return (gamepadState.Buttons.Y == ButtonState.Pressed);
+            case (int)XBOX360_BUTTONS.SELECT:
+                return (gamepadState.Buttons.Back == ButtonState.Pressed);
         }
 
         return false;

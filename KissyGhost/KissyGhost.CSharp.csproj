@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -122,6 +116,7 @@
     <Compile Include="Assets\Scripts\Player\Util\PlayerAnimator.cs" />
     <Compile Include="Assets\Scripts\Player\Util\SlowDownGhost.cs" />
     <Compile Include="Assets\Scripts\PullSwitch.cs" />
+    <Compile Include="Assets\Scripts\ResetGame.cs" />
     <Compile Include="Assets\Scripts\RoomScripts\DoorCounter.cs" />
     <Compile Include="Assets\Scripts\RoomScripts\RoomChangeManager.cs" />
     <Compile Include="Assets\Scripts\RoomScripts\RoomGenerator.cs" />
