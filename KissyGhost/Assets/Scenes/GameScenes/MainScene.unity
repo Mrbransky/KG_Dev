@@ -2598,6 +2598,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11418992, guid: 9bb54841d3981764e9f0a4b36ecfa700, type: 2}
+      propertyPath: followSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bb54841d3981764e9f0a4b36ecfa700, type: 2}
   m_IsPrefabParent: 0
@@ -10933,6 +10937,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11470960, guid: 068419ff7607bb44196ec478ed5ad793, type: 2}
+      propertyPath: followSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 068419ff7607bb44196ec478ed5ad793, type: 2}
   m_IsPrefabParent: 0
@@ -12775,7 +12783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14735,6 +14743,14 @@ Prefab:
     - target: {fileID: 434504, guid: c79c29411e441ac4d9c853dbd326686f, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499870, guid: c79c29411e441ac4d9c853dbd326686f, type: 2}
+      propertyPath: kissedDuration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449218, guid: c79c29411e441ac4d9c853dbd326686f, type: 2}
+      propertyPath: followSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c79c29411e441ac4d9c853dbd326686f, type: 2}
@@ -16755,11 +16771,11 @@ MonoBehaviour:
   - {fileID: 173404, guid: 726a651ccfeb020429ec3643ab3f39c1, type: 2}
   - {fileID: 179786, guid: 8e05d8f5f7ddbec4f9c5daea77a59f98, type: 2}
   - {fileID: 157222, guid: bff04a741da9f584bbcc7a1282f1cdf8, type: 2}
-  - {fileID: 129090, guid: 85d3ec2eac480b34ca78f344126d7b5b, type: 2}
+  - {fileID: 191618, guid: 0b60c74c3e6435544a018ba4c1a90e96, type: 2}
   - {fileID: 128938, guid: bf79a6479091cb940a143879c41e1483, type: 2}
   - {fileID: 106262, guid: 686e335821f1acf45b42f49a99673c8e, type: 2}
   - {fileID: 103124, guid: 0000c320df7c9d3448562535da1dd8b7, type: 2}
-  - {fileID: 191618, guid: 0b60c74c3e6435544a018ba4c1a90e96, type: 2}
+  - {fileID: 129090, guid: 85d3ec2eac480b34ca78f344126d7b5b, type: 2}
   - {fileID: 145552, guid: b2611b8fefae39d4287af513146cfac1, type: 2}
   kitchenFurnitureOptions:
   - {fileID: 103124, guid: 0000c320df7c9d3448562535da1dd8b7, type: 2}
@@ -17362,7 +17378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &2102822335
 Animator:
   serializedVersion: 3
