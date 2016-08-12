@@ -5601,7 +5601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443122, guid: 6632a622d94f5034bb317af683440c11, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6152030, guid: 6632a622d94f5034bb317af683440c11, type: 2}
       propertyPath: m_Offset.y
@@ -8161,7 +8161,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470394, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 470394, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_LocalScale.x
@@ -11530,7 +11530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444852, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 444852, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_LocalScale.x
@@ -17670,7 +17670,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444852, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 444852, guid: 8f1bbc2c53776b94ca7ab8ed9b207269, type: 2}
       propertyPath: m_LocalScale.x

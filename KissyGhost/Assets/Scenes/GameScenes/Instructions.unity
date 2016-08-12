@@ -3270,7 +3270,6 @@ GameObject:
   - 222: {fileID: 1604289293}
   - 114: {fileID: 1604289292}
   - 114: {fileID: 1604289291}
-  - 114: {fileID: 1604289290}
   m_Layer: 5
   m_Name: Go_Back
   m_TagString: Untagged
@@ -3296,19 +3295,6 @@ RectTransform:
   m_AnchoredPosition: {x: 38.134216, y: 20}
   m_SizeDelta: {x: 100, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1604289290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1604289288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06b3035612392944904ce493236f355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _HeartZoomTransition: {fileID: 110399876}
-  CharSelectSceneNum: 3
 --- !u!114 &1604289291
 MonoBehaviour:
   m_ObjectHideFlags: 0

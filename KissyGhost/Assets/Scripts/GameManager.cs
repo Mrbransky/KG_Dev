@@ -266,7 +266,6 @@ public class GameManager : MonoBehaviour {
                 if (Vector2.Distance(currentGhostPlayer.transform.position, GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position) < 1f)
                 {
                     timer -= Time.fixedDeltaTime;
-
                     _HeartZoomTransition.enabled = true;
                     _HeartZoomTransition.StartHeartZoomInHalfway();
                 }
@@ -339,8 +338,9 @@ public class GameManager : MonoBehaviour {
         if (currentGhostPlayer.GetComponent<Ghost>())
         currentGhostPlayer.GetComponent<Ghost>().debugCurrentSpeed = 0;
         #endif
-
+        currentGhostPlayer.GetComponent<Animator>().SetBool("isEnd", true);
         Vector3 roomPos = GetComponent<RoomGenerator>().MainBaseRoomPiece.transform.position;
+        float dist = Vector2.Distance(currentGhostPlayer.transform.position, roomPos);
             if (currentGhostPlayer.GetComponent<Ghost>())
             {
                 currentGhostPlayer.GetComponent<Ghost>().currentSpeed = 0;
@@ -350,7 +350,7 @@ public class GameManager : MonoBehaviour {
                 currentGhostPlayer.GetComponent<GhostAI>().ghostSpeed = 0;
                 currentGhostPlayer.GetComponent<GhostAI>().currentState = GhostAI.GhostState.End;
             }
-        if (Vector2.Distance(currentGhostPlayer.transform.position, roomPos) > 0.5f)
+        if (dist > 0.5f)
         {
             Vector2 direction = currentGhostPlayer.transform.position - roomPos;
 

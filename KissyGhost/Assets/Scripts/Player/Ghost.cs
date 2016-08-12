@@ -103,7 +103,10 @@ public class Ghost : Player
                 ++availableKisses;
             }
         }
-
+        if(Time.timeScale <= 0.01f)
+        {
+            GetComponentInChildren<ParticleSystem>().Simulate(Time.unscaledDeltaTime, true, false);
+        }
         base.Update();
 
         if (TouchingFurniture && currentSpeed > 1.5f)
