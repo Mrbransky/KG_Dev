@@ -2602,6 +2602,10 @@ Prefab:
       propertyPath: followSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 21295496, guid: 9bb54841d3981764e9f0a4b36ecfa700, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bb54841d3981764e9f0a4b36ecfa700, type: 2}
   m_IsPrefabParent: 0
@@ -11971,6 +11975,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 21239312, guid: 4eb0b831d63e06044895844aec4bbb07, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4eb0b831d63e06044895844aec4bbb07, type: 2}
   m_IsPrefabParent: 0
@@ -12783,7 +12791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1567667442
 RectTransform:
   m_ObjectHideFlags: 0
