@@ -393,12 +393,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc66c235fe7b5646bd089c2df830908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalAccelRate: 0.25
+  NormalAccelRate: 0.2
   decelRate: 0.15
-  NormalTopSpeed: 5.5
+  NormalTopSpeed: 5
   currentSpeed: 0
   currentAcelRate: 0.25
-  currentTopSpeed: 5.5
+  currentTopSpeed: 5
   AccelWhileHoldingItem: 0
   TopSpeedWhileHoldingItem: 0
   debugMoveDir: {x: 0, y: 0}

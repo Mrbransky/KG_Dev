@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minFollowDistance: 0.1
-  followSpeed: 4
+  followSpeed: 3.5
   BounceBackForce: 30
 --- !u!114 &11438740
 MonoBehaviour:
