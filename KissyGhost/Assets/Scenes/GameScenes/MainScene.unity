@@ -8161,7 +8161,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470394, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 470394, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_LocalScale.x
@@ -13722,6 +13722,38 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 448054, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 448054, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 21201404, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448054, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 494318, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 494318, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 494318, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 494318, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67a3a1d30ffac574e8addc30a7bdfb20, type: 2}
   m_IsPrefabParent: 0
@@ -14751,6 +14783,10 @@ Prefab:
     - target: {fileID: 11449218, guid: c79c29411e441ac4d9c853dbd326686f, type: 2}
       propertyPath: followSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 21256536, guid: c79c29411e441ac4d9c853dbd326686f, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c79c29411e441ac4d9c853dbd326686f, type: 2}
