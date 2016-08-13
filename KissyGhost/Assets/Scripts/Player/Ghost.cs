@@ -103,9 +103,9 @@ public class Ghost : Player
                 ++availableKisses;
             }
         }
-        if(Time.timeScale <= 0.01f)
-        {
-            GetComponentInChildren<ParticleSystem>().Simulate(Time.unscaledDeltaTime, true, false);
+		if(Time.timeScale <= 0.01f && GameObject.Find("GameManager").GetComponent<GameManager>().didHumansWin == true)
+		{
+			GameObject.Find("Heart_Splosion").GetComponent<ParticleSystem>().Simulate(Time.unscaledDeltaTime, true, false);
         }
         base.Update();
 
