@@ -18,6 +18,7 @@ public enum PlayerStates
 {
     Inactive = 0,
     PickingColor = 1,
+    //pickingClass = 2,
     Ready = 2
 }
 

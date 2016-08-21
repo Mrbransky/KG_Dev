@@ -4656,6 +4656,7 @@ MonoBehaviour:
   timeBetweenItemInteract: 0.25
   timeBetweenFurnitureKick: 0.75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
+  currentClass: 0
   ItemPickUpKeycode: 122
   ItemThrowKeycode: 120
 --- !u!114 &407115400
@@ -5238,6 +5239,7 @@ MonoBehaviour:
   timeBetweenItemInteract: 0.25
   timeBetweenFurnitureKick: 0.75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
+  currentClass: 0
   ItemPickUpKeycode: 114
   ItemThrowKeycode: 121
 --- !u!114 &462095493
@@ -14637,6 +14639,7 @@ MonoBehaviour:
   timeBetweenItemInteract: 0.25
   timeBetweenFurnitureKick: 0.75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
+  currentClass: -1
   ItemPickUpKeycode: 113
   ItemThrowKeycode: 101
 --- !u!114 &1743649144
@@ -16108,6 +16111,7 @@ MonoBehaviour:
   timeBetweenItemInteract: 0.25
   timeBetweenFurnitureKick: 0.75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
+  currentClass: 0
   ItemPickUpKeycode: 117
   ItemThrowKeycode: 111
 --- !u!114 &1957596423

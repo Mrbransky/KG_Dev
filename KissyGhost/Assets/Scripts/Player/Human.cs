@@ -7,7 +7,11 @@ using System.Collections.Generic;
 public class Human : Player 
 {
     [SerializeField] private float invulnerabilityDuration = 1.5f;
-
+    public enum CharClass {
+        Tank = 2, 
+        Healer = 0, 
+        Rogue = -1, 
+        Default = 0 };
     private int hugPoints = 0;
     private int hugLimit = 3;
 
@@ -60,7 +64,8 @@ public class Human : Player
     //private float timeSinceKickButtonPrompt = 0.0f;
 
     private List<Collider2D> furnitureToKick;
-
+    public CharClass currentClass = CharClass.Default;
+    
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
     public KeyCode ItemPickUpKeycode = KeyCode.Z;
     public KeyCode ItemThrowKeycode = KeyCode.X;
@@ -68,8 +73,9 @@ public class Human : Player
 
     public override void Awake() 
     {
+
         currentAcelRate = NormalAccelRate;
-        currentTopSpeed = NormalTopSpeed;
+        currentTopSpeed = NormalTopSpeed - (int)currentClass;
 
         FacingRight = false;
         IsPullingSwitch = false;
@@ -90,13 +96,13 @@ public class Human : Player
             switch (playerCount)
             {
                 case 2:
-                    hugLimit = 5;
+                    hugLimit = 5 + (int)currentClass;
                     break;
                 case 3:
-                    hugLimit = 4;
+                    hugLimit = 4 + (int)currentClass;
                     break;
                 case 4:
-                    hugLimit = 3;
+                    hugLimit = 3 + (int)currentClass;
                     break;
             }
         }
