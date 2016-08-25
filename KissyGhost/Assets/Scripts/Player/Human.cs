@@ -8,7 +8,7 @@ public class Human : Player
 {
     [SerializeField] private float invulnerabilityDuration = 1.5f;
     public enum CharClass {
-        Tank = 2, 
+        Tank = 1, 
         Healer = 0, 
         Rogue = -1, 
         Default = 0 };
@@ -52,7 +52,7 @@ public class Human : Player
     private SpriteRenderer mySpriteRenderer;
     private SpriteRenderer heldItemSpriteRenderer;
     private HumanSpriteFlasher _HumanSpriteFlasher;
-
+    private List<Collider2D> furnitureToKick;
     public float kickForce = 1000.0f;
     public float timeBetweenItemInteract = 0;
     public float timeBetweenFurnitureKick = 0;
@@ -62,8 +62,7 @@ public class Human : Player
     //private float interactButtonPromptDurationBuffer = 0.1f;
     //private float timeSinceInteractButtonPrompt = 0.0f;
     //private float timeSinceKickButtonPrompt = 0.0f;
-
-    private List<Collider2D> furnitureToKick;
+    [Header("Preferences")]
     public CharClass currentClass = CharClass.Default;
     
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
@@ -96,7 +95,7 @@ public class Human : Player
             switch (playerCount)
             {
                 case 2:
-                    hugLimit = 5 + (int)currentClass;
+                    hugLimit = 5;
                     break;
                 case 3:
                     hugLimit = 4 + (int)currentClass;
@@ -107,20 +106,24 @@ public class Human : Player
             }
         }
 
-        heartObjects = new GameObject[hugLimit];
+        heartObjects = new GameObject[5];
         hugPoints = hugLimit;
 
         foreach (HeartComponent heartComponent in GetComponentsInChildren<HeartComponent>())
         {
-            if (heartComponent.heartNum < hugLimit)
-            {
+            //if (heartComponent.heartNum < hugLimit)
+            //{
                 heartObjects[heartComponent.heartNum] = heartComponent.gameObject;
-                //heartComponent.GetComponent<Image>().enabled = false;
-            }
-            else
+            if(heartComponent.heartNum >= hugLimit)
             {
                 heartComponent.Disable();
             }
+            //    //heartComponent.GetComponent<Image>().enabled = false;
+            //}
+            //else
+            //{
+            //    heartComponent.Disable();
+            //}
         }
 
         //foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
@@ -147,7 +150,6 @@ public class Human : Player
         priority = Mathf.Clamp(priority, 0f, 1f);
 
         GetAButtonDown = false;
-
         if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && !wasAButtonPressed)
         {
             wasAButtonPressed = true;
@@ -477,6 +479,19 @@ public class Human : Player
         MoveAnimation = MoveAnim.notKicking;
 
     }
+
+    //public void healOther(Human otherPlayer)
+    //{
+    //    float healTimer = 3;
+    //    if (currentSpeed <= 0 && otherPlayer.currentSpeed <= 0)
+    //    {
+    //        healTimer -= Time.deltaTime;
+    //        if(healTimer <= 0 && otherPlayer.hugPoints<otherPlayer.hugLimit)
+    //        {
+    //            otherPlayer.hugPoints++;
+    //        }
+    //    }
+    //}
     //public void AttachToPullSwitch(GameObject obj)
     //{
     //    IsPullingSwitch = true;

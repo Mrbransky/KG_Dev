@@ -8167,7 +8167,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 470394, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 470394, guid: cf9fd7ba83a91f3489b371d3e4244774, type: 2}
       propertyPath: m_LocalScale.x
@@ -14056,8 +14056,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b7600f0619d0b4db37fd23a3689ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerReadyArray: 01010001
-  playerCount: 3
+  isPlayerReadyArray: 01000001
+  playerCount: 2
   ghostPlayerIndex: 3
   isDebugData: 1
   playerPaletteArray: []
@@ -14639,7 +14639,7 @@ MonoBehaviour:
   timeBetweenItemInteract: 0.25
   timeBetweenFurnitureKick: 0.75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
-  currentClass: -1
+  currentClass: 0
   ItemPickUpKeycode: 113
   ItemThrowKeycode: 101
 --- !u!114 &1743649144

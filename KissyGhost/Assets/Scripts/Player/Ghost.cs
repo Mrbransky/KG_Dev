@@ -22,7 +22,7 @@ public class Ghost : Player
     private int availableKisses = 3;
     public int maxKisses = 3;
 
-    public float SpeedReducePercent = 75;
+    public float SpeedReducePercent = 50;
 
     private List<Collider2D> bodyColliderList;
     public bool IsHighlightingFurnitureTouchingBody
