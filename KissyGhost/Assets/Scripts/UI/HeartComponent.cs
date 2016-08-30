@@ -11,6 +11,7 @@ public class HeartComponent : MonoBehaviour
     private bool isAnimating = false;
 
     private Image _Image;
+    private Sprite StartingSprite;
     private Color defaultColor = Color.white;
     private Color transparentColor = Color.white;
     private float defaultScale = 1.0f;
@@ -27,6 +28,7 @@ public class HeartComponent : MonoBehaviour
     {
         defaultScale = transform.localScale.x;
 
+        StartingSprite = GetComponent<Image>().sprite;
         _Animator = GetComponent<Animator>();
         _Image = GetComponent<Image>();
         defaultColor = _Image.color;
@@ -46,13 +48,13 @@ public class HeartComponent : MonoBehaviour
 
     void Update()
     {
-        if (isAnimating && _Animator.GetCurrentAnimatorStateInfo(0).IsName("Heartsplosion_End"))
-        {
-            _Image.enabled = false;
-            _Animator.enabled = false;
-            isAnimating = false;
-            this.enabled = false;
-        }
+        //if (isAnimating && _Animator.GetCurrentAnimatorStateInfo(0).IsName("Heartsplosion_End"))
+        //{
+        //    _Image.enabled = false;
+        //    _Animator.enabled = false;
+        //    isAnimating = false;
+        //    this.enabled = false;
+        //}
 
         if (isShrinking)
         {
@@ -66,11 +68,11 @@ public class HeartComponent : MonoBehaviour
         isAnimating = true;
     }
 
-    public void StartShrink()
-    {
-        isShrinking = true;
-        ReEnable();
-    }
+    //public void StartShrink()
+    //{
+    //    isShrinking = true;
+    //    ReEnable();
+    //}
 
     private void shrink()
     {
@@ -90,8 +92,13 @@ public class HeartComponent : MonoBehaviour
 
     public void ReEnable()
     {
+        GetComponent<Image>().sprite = StartingSprite;
         transform.localScale = new Vector3(defaultScale, defaultScale, defaultScale);
         _Image.enabled = true;
+        this.enabled = true;
+        isAnimating = false;
+        isShrinking = false;
+        //_Animator.enabled = false;
         _Image.color = defaultColor;
     }
     
@@ -100,5 +107,13 @@ public class HeartComponent : MonoBehaviour
         _Image.enabled = true;
         _Image.color = transparentColor;
         transform.localScale = new Vector3(defaultScale * scaleFactor, defaultScale * scaleFactor, defaultScale * scaleFactor);
+    }
+
+    public void DoneAnimatingHearts()
+    {
+        _Image.enabled = false;
+        _Animator.enabled = false;
+        isAnimating = false;
+        this.enabled = false;
     }
 }

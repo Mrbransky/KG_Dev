@@ -8,15 +8,16 @@ public class Human : Player
 {
     [SerializeField] private float invulnerabilityDuration = 1.5f;
     public enum CharClass {
-        Tank = 1, 
-        Healer = 0, 
+        Tank = 2, 
+        Healer = 1, 
         Rogue = -1, 
         Default = 0 };
     private int hugPoints = 0;
     private int hugLimit = 3;
-
+    private float healTimer = 3;
     private GameObject[] heartObjects;
     private float timeSinceInvulnerable = -1;
+    public GameObject HealingHearts;
 
     public bool IsFemaleWizard;
     public bool GetAButtonDown = false;
@@ -92,18 +93,37 @@ public class Human : Player
         if (_GameManager != null && characterSelectData != null)
         {
             int playerCount = characterSelectData.GetComponent<CharacterSelectData>().PlayerCount;
-            switch (playerCount)
+            switch(currentClass)
             {
-                case 2:
+                case CharClass.Healer:
+                    hugLimit = 4;
+                    break;
+                case CharClass.Rogue:
+                    hugLimit = 3;
+                    if (playerCount == 2)
+                        hugLimit = 4;
+                    break;
+                case CharClass.Tank:
                     hugLimit = 5;
                     break;
-                case 3:
-                    hugLimit = 4 + (int)currentClass;
-                    break;
-                case 4:
-                    hugLimit = 3 + (int)currentClass;
+                case CharClass.Default:
+                    hugLimit = 4;
+                    if (playerCount == 2)
+                        hugLimit = 5;
                     break;
             }
+            //switch (playerCount)
+            //{
+            //    case 2:
+            //        hugLimit = 5;
+            //        break;
+            //    case 3:
+            //        hugLimit = 4 + (int)currentClass;
+            //        break;
+            //    case 4:
+            //        hugLimit = 3 + (int)currentClass;
+            //        break;
+            //}
         }
 
         heartObjects = new GameObject[5];
@@ -399,9 +419,17 @@ public class Human : Player
 
             //kickButtonPromptSpriteRenderer.enabled = true;
             //timeSinceKickButtonPrompt = interactButtonPromptDurationBuffer;
-
         }
 
+        if (currentClass == CharClass.Healer && col.tag == "Player")
+        {
+            Debug.Log("Can Heal");
+            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && col.GetComponent<Human>().hugPoints < col.GetComponent<Human>().hugLimit)
+            {
+                healOther(col.GetComponent<Human>());
+            }
+        }
+        //else { healTimer = 3; }
         //else if (col.tag == "Pull" && !IsPullingSwitch)
         //{
         //    if(InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) || Input.GetKeyDown(ItemPickUpKeycode))
@@ -480,18 +508,21 @@ public class Human : Player
 
     }
 
-    //public void healOther(Human otherPlayer)
-    //{
-    //    float healTimer = 3;
-    //    if (currentSpeed <= 0 && otherPlayer.currentSpeed <= 0)
-    //    {
-    //        healTimer -= Time.deltaTime;
-    //        if(healTimer <= 0 && otherPlayer.hugPoints<otherPlayer.hugLimit)
-    //        {
-    //            otherPlayer.hugPoints++;
-    //        }
-    //    }
-    //}
+    public void healOther(Human otherPlayer)
+    {
+        if (currentSpeed <= 0 && otherPlayer.currentSpeed <= 0)
+        {
+            healTimer -= Time.deltaTime;
+            HealingHearts.SetActive(true);
+            if (healTimer <= 0)
+            {
+                HealingHearts.SetActive(false);
+                otherPlayer.hugPoints++;
+                otherPlayer.heartObjects[otherPlayer.hugPoints - 1].GetComponent<HeartComponent>().ReEnable();
+                healTimer = 3;
+            }
+        }
+    }
     //public void AttachToPullSwitch(GameObject obj)
     //{
     //    IsPullingSwitch = true;
