@@ -522,6 +522,10 @@ public class Human : Player
                 healTimer = 3;
             }
         }
+        else
+        {
+            HealingHearts.SetActive(false);
+        }
     }
     //public void AttachToPullSwitch(GameObject obj)
     //{
