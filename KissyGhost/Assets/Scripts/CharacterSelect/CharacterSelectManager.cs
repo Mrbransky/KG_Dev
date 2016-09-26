@@ -18,10 +18,9 @@ public enum PlayerStates
 {
     Inactive = 0,
     PickingColor = 1,
-    //pickingClass = 2,
-    Ready = 2
+    pickingClass = 2,
+    Ready = 3
 }
-
 public enum StickStates
 {
     Neutral = 0,
@@ -52,6 +51,7 @@ public class CharacterSelectManager : MonoBehaviour
     private int playerCount = 0;
     private int ghostPlayerIndex = -1;
     private CharacterSelectStates currentCharSelectState = CharacterSelectStates.WaitingForPlayers;
+    private string[] classNames = {"TOUGH", "SLY", "LOVING", "SIMPLE"};
 
     // CatMode
     public GameObject[] CatModeLetters;
@@ -92,6 +92,8 @@ public class CharacterSelectManager : MonoBehaviour
     public Text[] ReadyTextArray;
     public Text[] ColorTextArray;
     public Text[] PlayerNumTextArray;
+    public Text[] ClassTextArray;
+    public Text[] ClassNameTextArray;
     public GameObject PressToStartTextObject;
 
     [Header("Images")]
@@ -103,6 +105,7 @@ public class CharacterSelectManager : MonoBehaviour
     private List<Image> ghostSelectorImageList;
     private List<ColorPalette> PickedPalettesList;
     public int[] PlayerPosInPaletteList;
+    public int[] PlayerPosInClassSelection;
     private Text[] buttonTextArray;
     private Color transparentColor;
 
@@ -486,7 +489,7 @@ public class CharacterSelectManager : MonoBehaviour
     {
         for(int i = 0; i < MAX_PLAYER_COUNT; i++)
         {
-            if (playerStates[i] == PlayerStates.PickingColor)
+            if (playerStates[i] == PlayerStates.PickingColor || playerStates[i] == PlayerStates.pickingClass)
             {
                 float AnalogXDir = InputMapper.GrabVal(XBOX360_AXES.LeftStick_Horiz, i + 1);
 
@@ -706,7 +709,7 @@ public class CharacterSelectManager : MonoBehaviour
     {
         foreach (PlayerStates state in playerStates)
         {
-            if (state == PlayerStates.PickingColor)
+            if (state == PlayerStates.PickingColor || state == PlayerStates.pickingClass)
                 return false;
         }
 
@@ -731,10 +734,12 @@ public class CharacterSelectManager : MonoBehaviour
                 case PlayerStates.PickingColor:
                       playerStates[i] = ChangePlayerState(CheckPlayerPickedColor(i), i);
                     break;
-
+                case PlayerStates.pickingClass:
+                      playerStates[i] = ChangePlayerState(CheckPlayerPickedClass(i), i);
+                    break;
                 case PlayerStates.Ready:
                     if (CheckPlayerOptedOut(i))
-                        playerStates[i] = ChangePlayerState(PlayerStates.PickingColor, i);
+                        playerStates[i] = ChangePlayerState(PlayerStates.pickingClass, i);
                     break;
             }
         }
@@ -760,7 +765,7 @@ public class CharacterSelectManager : MonoBehaviour
     {
         if(getAButtonDown[playerNum] && CanClaimPaletteColor(playerNum))
         {
-            return PlayerStates.Ready;
+            return PlayerStates.pickingClass;
             #region Debug Code
 #if UNITY_EDITOR
             debugTextArray[playerNum] = "P" + (playerNum + 1) + ": Ready\n";
@@ -774,7 +779,18 @@ public class CharacterSelectManager : MonoBehaviour
 
         return PlayerStates.PickingColor;
     }
+    private PlayerStates CheckPlayerPickedClass(int playerNum)
+    {
+        if (getAButtonDown[playerNum])
+        {
+            return PlayerStates.Ready;
+        }
 
+        else if (getBButtonDown[playerNum])
+            return PlayerStates.PickingColor;
+
+        return PlayerStates.pickingClass;
+    }
     private bool CheckPlayerOptedOut(int playerNum)
     {
         if(getBButtonDown[playerNum])
@@ -794,40 +810,75 @@ public class CharacterSelectManager : MonoBehaviour
 
     StickStates OnAnalogStickStateChange(StickStates newState, int player)
     {
-        switch (newState)
+        if (playerStates[player] == PlayerStates.PickingColor)
         {
-            case StickStates.Right:
-                if (PlayerPosInPaletteList[player] >= AvailablePalettesList.Count - 1)
-                    PlayerPosInPaletteList[player] = 0;
-                else
-                    PlayerPosInPaletteList[player]++;
+            switch (newState)
+            {
+                case StickStates.Right:
+                    if (PlayerPosInPaletteList[player] >= AvailablePalettesList.Count - 1)
+                        PlayerPosInPaletteList[player] = 0;
+                    else
+                        PlayerPosInPaletteList[player]++;
 
-                RightColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
-                soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
-                break;
+                    RightColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
+                    soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
+                    break;
 
-            case StickStates.Left:
-                if (PlayerPosInPaletteList[player] == 0)
-                    PlayerPosInPaletteList[player] = AvailablePalettesList.Count - 1;
-                else
-                    PlayerPosInPaletteList[player]--;
+                case StickStates.Left:
+                    if (PlayerPosInPaletteList[player] == 0)
+                        PlayerPosInPaletteList[player] = AvailablePalettesList.Count - 1;
+                    else
+                        PlayerPosInPaletteList[player]--;
 
-                LeftColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
-                soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
-                break;    
+                    LeftColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
+                    soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
+                    break;
 
-            case StickStates.Neutral:
-                if (playerAnalogStickStates[player] == StickStates.Right)
-                    RightColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
-                else
-                    LeftColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
-                break;
+                case StickStates.Neutral:
+                    if (playerAnalogStickStates[player] == StickStates.Right)
+                        RightColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
+                    else
+                        LeftColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
+                    break;
+            }
+
+            SwapAndUpdatePalette(player);
+            VerifyCharacterSprite(player);
+            SetCorrectPlayerNumTextColor(player);
         }
+        if(playerStates[player] == PlayerStates.pickingClass)
+        {
+            switch (newState)
+            {
+                case StickStates.Right:
+                    if (PlayerPosInClassSelection[player] >= classNames.Length -1)
+                        PlayerPosInClassSelection[player] = 0;
+                    else
+                        PlayerPosInClassSelection[player]++;
 
-        SwapAndUpdatePalette(player);
-        VerifyCharacterSprite(player);
-        SetCorrectPlayerNumTextColor(player);
+                    RightColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
+                    soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
+                    break;
 
+                case StickStates.Left:
+                    if (PlayerPosInClassSelection[player] == 0)
+                        PlayerPosInClassSelection[player] = classNames.Length - 1;
+                    else
+                        PlayerPosInClassSelection[player]--;
+
+                    LeftColorArrowArray[player].transform.localScale = new Vector3(.6f, .6f, 1);
+                    soundManager.SOUND_MAN.playSound("Play_Menu_Up", gameObject);
+                    break;
+
+                case StickStates.Neutral:
+                    if (playerAnalogStickStates[player] == StickStates.Right)
+                        RightColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
+                    else
+                        LeftColorArrowArray[player].transform.localScale = new Vector3(.5f, .5f, 1);
+                    break;
+            }
+            ChangeClassName(player);
+        }
         return newState;
     }
 
@@ -931,6 +982,45 @@ public class CharacterSelectManager : MonoBehaviour
                     HideArrowSprites(playerIndex);
                 }
 
+                else //state must be PlayerStates.pickingClass
+                {
+                    //updateUI_playerReady(playerIndex, true);
+                    StartCoroutine(InputMapper.Vibration(playerIndex + 1, .2f, 0, .8f));
+                    soundManager.SOUND_MAN.playSound("Play_PlayerJoin", gameObject);
+
+                    ColorTextArray[playerIndex].color = transparentColor;
+
+                    //HideArrowSprites(playerIndex);
+                    ResetArrowSizes(playerIndex);
+                    ShowClassTextPrompt(playerIndex);
+                    ClaimPaletteColor(playerIndex);
+                }
+
+                break;
+            case PlayerStates.pickingClass:
+                if (newState == PlayerStates.pickingClass)
+                    return currentState;
+
+                else if (newState == PlayerStates.PickingColor)
+                {
+                    PlayerSpriteRendererArray[playerIndex].enabled = true;
+                    soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
+
+                    ColorTextArray[playerIndex].color = Color.black;
+
+                    ShowArrowSprites(playerIndex);
+                    ResetArrowSizes(playerIndex);
+
+                    UnclaimPaletteColor(playerIndex);
+
+                    PlayerPosInPaletteList[playerIndex] = AvailablePalettesList.Count - 1;
+
+                    HideClassTextPrompt(playerIndex);
+                    SwapAndUpdatePalette(playerIndex);
+                    VerifyCharacterSprite(playerIndex);
+                    SetCorrectPlayerNumTextColor(playerIndex);
+                }
+
                 else //state must be PlayerStates.Ready
                 {
                     updateUI_playerReady(playerIndex, true);
@@ -941,35 +1031,34 @@ public class CharacterSelectManager : MonoBehaviour
 
                     HideArrowSprites(playerIndex);
                     ResetArrowSizes(playerIndex);
-
-                    ClaimPaletteColor(playerIndex);
+                    HideClassTextPrompt(playerIndex);
+                    //ClaimPaletteColor(playerIndex);
                 }
-
                 break;
-
             case PlayerStates.Ready:
                 if (newState == PlayerStates.Inactive)
                     return currentState;
 
-                else if(newState == PlayerStates.PickingColor)
+                else if(newState == PlayerStates.pickingClass)
                 {
                     updateUI_playerReady(playerIndex, false);
                     PlayerSpriteRendererArray[playerIndex].enabled = true;
                     soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
                    
-                    ColorTextArray[playerIndex].color = Color.black;
+                    //ColorTextArray[playerIndex].color = Color.black;
 
                     ShowArrowSprites(playerIndex);
+                    ShowClassTextPrompt(playerIndex);
                     HideTextPrompt(playerIndex);
                     ResetArrowSizes(playerIndex);
 
-                    UnclaimPaletteColor(playerIndex);
+                    //UnclaimPaletteColor(playerIndex);
 
-                    PlayerPosInPaletteList[playerIndex] = AvailablePalettesList.Count - 1;
+                    //PlayerPosInPaletteList[playerIndex] = AvailablePalettesList.Count - 1;
 
-                    SwapAndUpdatePalette(playerIndex);
-                    VerifyCharacterSprite(playerIndex);
-                    SetCorrectPlayerNumTextColor(playerIndex);
+                    //SwapAndUpdatePalette(playerIndex);
+                    //VerifyCharacterSprite(playerIndex);
+                    //SetCorrectPlayerNumTextColor(playerIndex);
                 }
                 break;
         }
@@ -997,6 +1086,20 @@ public class CharacterSelectManager : MonoBehaviour
         buttonTextArray[playerIndex].GetComponent<UIFlasher>().enabled = false;
     }
 
+    void ShowClassTextPrompt(int playerIndex)
+    {
+        ClassTextArray[playerIndex].color = Color.black;
+        ClassNameTextArray[playerIndex].color = Color.black;
+    }
+    void HideClassTextPrompt(int playerIndex)
+    {
+        ClassTextArray[playerIndex].color = transparentColor;
+        ClassNameTextArray[playerIndex].color = transparentColor;
+    }
+    void ChangeClassName(int playerIndex)
+    {
+        ClassNameTextArray[playerIndex].text = classNames[PlayerPosInClassSelection[playerIndex]];
+    }
     void ShowArrowSprites(int playerIndex)
     {
         LeftColorArrowArray[playerIndex].color = Color.white;
@@ -1170,6 +1273,8 @@ public class CharacterSelectManager : MonoBehaviour
             charSelectData.LoadPaletteArray(PlayerPaletteSwapperArray);
             charSelectData.LoadStartSpritesArray(startingSprites);
             charSelectData.LoadIsFemaleBoolArray(OldieStartSprite, WomanStartSprite);
+            //charSelectData.SetPlayerClass(isPlayerReadyArray, PlayerPosInClassSelection);
+            charSelectData.testThis(PlayerPosInClassSelection);
         }
         else
         {
@@ -1307,16 +1412,20 @@ public class CharacterSelectManager : MonoBehaviour
                 playerStates[playerIndex] = ChangePlayerState(PlayerStates.PickingColor, playerIndex);
 
             else if (playerStates[playerIndex] == PlayerStates.PickingColor && CanClaimPaletteColor(playerIndex))
+                playerStates[playerIndex] = ChangePlayerState(PlayerStates.pickingClass, playerIndex);
+            else if (playerStates[playerIndex] == PlayerStates.pickingClass)
                 playerStates[playerIndex] = ChangePlayerState(PlayerStates.Ready, playerIndex);
         }
 
         else if (Input.GetKeyDown(OptOut))
         {
             if (playerStates[playerIndex] == PlayerStates.Ready)
+                playerStates[playerIndex] = ChangePlayerState(PlayerStates.pickingClass, playerIndex);
+            else if (playerStates[playerIndex] == PlayerStates.pickingClass)
                 playerStates[playerIndex] = ChangePlayerState(PlayerStates.PickingColor, playerIndex);
-
             else if(playerStates[playerIndex] == PlayerStates.PickingColor)
                 playerStates[playerIndex] = ChangePlayerState(PlayerStates.Inactive, playerIndex);
+
         }
     }
 

@@ -58,13 +58,13 @@ public class Human : Player
     public float timeBetweenItemInteract = 0;
     public float timeBetweenFurnitureKick = 0;
     public Color MainColor;
-    //private SpriteRenderer interactButtonPromptSpriteRenderer;
+    private SpriteRenderer interactButtonPromptSpriteRenderer;
     //private SpriteRenderer kickButtonPromptSpriteRenderer;
     //private float interactButtonPromptDurationBuffer = 0.1f;
     //private float timeSinceInteractButtonPrompt = 0.0f;
     //private float timeSinceKickButtonPrompt = 0.0f;
     [Header("Preferences")]
-    public CharClass currentClass = CharClass.Default;
+    public int currentClass = (int)CharClass.Default;
     
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
     public KeyCode ItemPickUpKeycode = KeyCode.Z;
@@ -89,24 +89,25 @@ public class Human : Player
 
         GameManager _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
-        
+
         if (_GameManager != null && characterSelectData != null)
         {
             int playerCount = characterSelectData.GetComponent<CharacterSelectData>().PlayerCount;
+            currentClass = characterSelectData.GetComponent<CharacterSelectData>().tempClass[playerNum-1];
             switch(currentClass)
             {
-                case CharClass.Healer:
+                case 2: //Default
                     hugLimit = 4;
                     break;
-                case CharClass.Rogue:
+                case 1: //Rogue
                     hugLimit = 3;
                     if (playerCount == 2)
                         hugLimit = 4;
                     break;
-                case CharClass.Tank:
+                case 0: //Tank
                     hugLimit = 5;
                     break;
-                case CharClass.Default:
+                case 3: //Healer
                     hugLimit = 4;
                     if (playerCount == 2)
                         hugLimit = 5;
@@ -146,17 +147,13 @@ public class Human : Player
             //}
         }
 
-        //foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
-        //{
-        //    if (childSpriteRenderer.gameObject.name == "InteractButtonPrompt")
-        //    {
-        //        interactButtonPromptSpriteRenderer = childSpriteRenderer;
-        //    }
-        //    else if (childSpriteRenderer.gameObject.name == "KickButtonPrompt")
-        //    {
-        //        kickButtonPromptSpriteRenderer = childSpriteRenderer;
-        //    }
-        //}
+        foreach (SpriteRenderer childSpriteRenderer in GetComponentsInChildren<SpriteRenderer>())
+        {
+            if (childSpriteRenderer.gameObject.name == "InteractButtonPrompt")
+            {
+                interactButtonPromptSpriteRenderer = childSpriteRenderer;
+            }
+        }
 	}
 
     public override void Update() 
@@ -421,12 +418,15 @@ public class Human : Player
             //timeSinceKickButtonPrompt = interactButtonPromptDurationBuffer;
         }
 
-        if (currentClass == CharClass.Healer && col.tag == "Player")
+        if (currentClass == 3 && col.tag == "Player")
         {
-            Debug.Log("Can Heal");
-            if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && col.GetComponent<Human>().hugPoints < col.GetComponent<Human>().hugLimit)
+            if (col.GetComponent<Human>().hugPoints < col.GetComponent<Human>().hugLimit)
             {
-                healOther(col.GetComponent<Human>());
+                interactButtonPromptSpriteRenderer.enabled = true;
+                if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum))
+                {
+                    healOther(col.GetComponent<Human>());
+                }
             }
         }
         //else { healTimer = 3; }
@@ -445,6 +445,10 @@ public class Human : Player
         {
             furnitureToKick.Remove(col);
             col.GetComponent<KissableFurniture>().HideOutline();
+        }
+        else if (col.tag == "Player")
+        {
+            interactButtonPromptSpriteRenderer.enabled = false;
         }
     }
 

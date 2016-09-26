@@ -14175,6 +14175,7 @@ MonoBehaviour:
   playerPaletteArray: []
   startingSprites: []
   isFemaleCharacter: 
+  tempClass: 03000000020000000200000002000000
 --- !u!4 &1690912246
 Transform:
   m_ObjectHideFlags: 0
@@ -14752,7 +14753,7 @@ MonoBehaviour:
   timeBetweenItemInteract: 0.25
   timeBetweenFurnitureKick: 0.75
   MainColor: {r: 0, g: 0, b: 0, a: 0}
-  currentClass: 1
+  currentClass: 0
   ItemPickUpKeycode: 113
   ItemThrowKeycode: 101
 --- !u!114 &1743649144

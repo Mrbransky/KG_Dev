@@ -208,8 +208,9 @@ public class GameManager : MonoBehaviour {
     {
         checkIsGameEnd();
         
+        
 #if !UNITY_EDITOR && !UNITY_WEBGL && !UNITY_WEBPLAYER
-        if (Input.GetKeyDown(KeyCode.Escape) && !_HeartZoomTransition.enabled)
+        if (Input.GetKeyDown(KeyCode.Escape) && !_HeartZoomTransition.enabled && GetComponent<PauseGame>().isPaused == true)
         {
             _HeartZoomTransition.enabled = true;
             _HeartZoomTransition.StartHeartZoomIn(-1);

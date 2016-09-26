@@ -10,6 +10,7 @@ public class CharacterSelectData : MonoBehaviour
     [SerializeField] private ColorPalette[] playerPaletteArray;
     [SerializeField] private Sprite[] startingSprites;
     [SerializeField] private bool[] isFemaleCharacter;
+    [SerializeField] public int[] tempClass; 
     
     public bool[] IsPlayerReadyArray
     {
@@ -104,5 +105,10 @@ public class CharacterSelectData : MonoBehaviour
             else if (startingSprites[i] == Woman)
                 isFemaleCharacter[i] = true;
         }   
+    }
+
+    public void testThis(int[] playerClasses)
+    {
+        tempClass = playerClasses;
     }
 }

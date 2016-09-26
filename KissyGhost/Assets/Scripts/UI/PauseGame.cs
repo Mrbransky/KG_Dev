@@ -2,7 +2,7 @@
 using System.Collections;
 public class PauseGame : MonoBehaviour {
 
-    bool isPaused = false;
+    public bool isPaused = false;
     public GameObject pauseScreen;
 	void Update () {
 
