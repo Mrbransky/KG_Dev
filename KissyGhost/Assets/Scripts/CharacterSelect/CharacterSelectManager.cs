@@ -52,6 +52,7 @@ public class CharacterSelectManager : MonoBehaviour
     private int ghostPlayerIndex = -1;
     private CharacterSelectStates currentCharSelectState = CharacterSelectStates.WaitingForPlayers;
     private string[] classNames = {"TOUGH", "SLY", "LOVING", "SIMPLE"};
+    private string[] classInfoArray = { "-Slow speed\n-High health", "-High speed\n-Low health", "-Normal speed\n-Low health\n-Can heal", "-Normal speed\n-Normal health\n-Normal kick" };
 
     // CatMode
     public GameObject[] CatModeLetters;
@@ -972,7 +973,7 @@ public class CharacterSelectManager : MonoBehaviour
                 {
                     soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
                     PlayerPaletteSwapperArray[playerIndex].UpdatePlayerNumTextColor(Color.white);
-
+                    PlayerPosInPaletteList[playerIndex] = 0;
                     PlayerSpriteRendererArray[playerIndex].enabled = false;
                     ColorTextArray[playerIndex].color = transparentColor;
 
@@ -1090,15 +1091,19 @@ public class CharacterSelectManager : MonoBehaviour
     {
         ClassTextArray[playerIndex].color = Color.black;
         ClassNameTextArray[playerIndex].color = Color.black;
+        ClassTextArray[playerIndex].transform.FindChild("Class_Info").GetComponent<Text>().color = Color.black;
+
     }
     void HideClassTextPrompt(int playerIndex)
     {
         ClassTextArray[playerIndex].color = transparentColor;
         ClassNameTextArray[playerIndex].color = transparentColor;
+        ClassTextArray[playerIndex].transform.FindChild("Class_Info").GetComponent<Text>().color = transparentColor;
     }
     void ChangeClassName(int playerIndex)
     {
         ClassNameTextArray[playerIndex].text = classNames[PlayerPosInClassSelection[playerIndex]];
+        ClassTextArray[playerIndex].transform.FindChild("Class_Info").GetComponent<Text>().text = classInfoArray[PlayerPosInClassSelection[playerIndex]];
     }
     void ShowArrowSprites(int playerIndex)
     {

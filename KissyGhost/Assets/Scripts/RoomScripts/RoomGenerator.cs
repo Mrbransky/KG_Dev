@@ -316,6 +316,14 @@ public class RoomGenerator : MonoBehaviour
             }
             #endregion
             //currentFurniture.Add(newFurniture);
+            int ran = Random.Range(0, 1);
+            if(ran == 0 && newFurniture.tag == "Furniture")
+            {
+                Vector2 theScale = newFurniture.transform.localScale;
+                theScale.x *= -1;
+                newFurniture.GetComponent<SpriteRenderer>().transform.localScale = theScale;
+            }
+            
             newFurniture.transform.SetParent(roomObject.transform);
         }
     }

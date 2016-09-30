@@ -7,6 +7,7 @@ public class MissionObjective_ItemNode : MonoBehaviour
     public bool HasItem = false;
 
     public Vector3 ItemTargetPositionOffset = Vector3.zero;
+    //public GameObject fireLightObject;
     private Vector3 itemTargetPosition;
     private SpriteRenderer spriteRenderer;
 
@@ -32,6 +33,8 @@ public class MissionObjective_ItemNode : MonoBehaviour
                 spriteRenderer.sprite = HasItemSprite;
 
             spriteRenderer.color = HasItemColor;
+
+           // fireLightObject.SetActive(true);
         }
     }
 }
