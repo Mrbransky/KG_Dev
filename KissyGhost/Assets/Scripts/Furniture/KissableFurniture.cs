@@ -20,6 +20,8 @@ public class KissableFurniture : MonoBehaviour
     private Color originalColor = Color.white;
     private SpriteRenderer spriteRenderer;
     public bool isKissed = false;
+    public bool isDecoy = false;
+    Human owner;
     public int amountKissed = 0;
     public float DoorPushMag;
    
@@ -148,6 +150,13 @@ public class KissableFurniture : MonoBehaviour
 
         if (isKissed)
         {
+            if(isDecoy)
+            {
+                Destroy(this.gameObject);
+                Ghost temp = _GameManager.currentGhostPlayer.GetComponent<Ghost>();
+                temp.kissedDecoy();
+                owner.DecoyFurnPlaced--;
+            }
             CheckMoveDirForSpriteFlip();
 
             timeSinceKiss -= Time.deltaTime;
@@ -516,5 +525,9 @@ public class KissableFurniture : MonoBehaviour
     private void FadeInColor(Color colorToChange)
     {
         spriteRenderer.color = Color.Lerp(spriteRenderer.color, colorToChange, Mathf.PingPong(Time.time, 1));
+    }
+    public void SetOwner(Human owner_)
+    {
+        owner = owner_;
     }
 }

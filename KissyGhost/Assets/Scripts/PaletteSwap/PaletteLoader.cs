@@ -17,7 +17,9 @@ public class PaletteLoader : MonoBehaviour
     public Sprite OldieStartSprite;
     public Sprite WomanStartSprite;
 
-	void Start () 
+    bool test = true;
+
+	void Awake () 
     {
         GameObject CharSelectMan_GO = GameObject.Find("CharacterSelectManager");
         CharacterSelectManager charSelectManager = CharSelectMan_GO.GetComponent<CharacterSelectManager>();
@@ -25,18 +27,30 @@ public class PaletteLoader : MonoBehaviour
         if (charSelectManager != null)
         {
             Debug.Log("charSelectManager loaded");
+            for (int i = 0; i <= palettesToChooseFrom_FemWiz.Count(); i++)
+            {
+                if (DataManager.UnlockedFemaleSpriteColors[i] >= 1)
+                {
+                    charSelectManager.AvailablePalettesList.Add(palettesToChooseFrom_FemWiz[i]);
+                    palettesToChooseFrom_FemWiz.RemoveAt(i);
+                }
+                if (DataManager.UnlockedMaleSpriteColors[i] >= 1)
+                {
+                    charSelectManager.AvailablePalettesList.Add(palettesToChooseFrom_ManWiz[i]);
+                    palettesToChooseFrom_ManWiz.RemoveAt(i);
+                }
+            }
+            //int randIndex = Random.Range(0, palettesToChooseFrom_FemWiz.Count);
+            //charSelectManager.AvailablePalettesList[FEM_WIZ_TARGET_INDEX] = palettesToChooseFrom_FemWiz[randIndex];
+            //palettesToChooseFrom_FemWiz.RemoveAt(randIndex);
+            //randIndex = Random.Range(0, palettesToChooseFrom_FemWiz.Count);
+            //charSelectManager.AvailablePalettesList[FEM_WIZ_TARGET_INDEX + 1] = palettesToChooseFrom_FemWiz[randIndex];
 
-            int randIndex = Random.Range(0, palettesToChooseFrom_FemWiz.Count);
-            charSelectManager.AvailablePalettesList[FEM_WIZ_TARGET_INDEX] = palettesToChooseFrom_FemWiz[randIndex];
-            palettesToChooseFrom_FemWiz.RemoveAt(randIndex);
-            randIndex = Random.Range(0, palettesToChooseFrom_FemWiz.Count);
-            charSelectManager.AvailablePalettesList[FEM_WIZ_TARGET_INDEX + 1] = palettesToChooseFrom_FemWiz[randIndex];
-
-            randIndex = Random.Range(0, palettesToChooseFrom_ManWiz.Count);
-            charSelectManager.AvailablePalettesList[MAN_WIZ_TARGET_INDEX] = palettesToChooseFrom_ManWiz[randIndex];
-            palettesToChooseFrom_ManWiz.RemoveAt(randIndex);
-            randIndex = Random.Range(0, palettesToChooseFrom_ManWiz.Count);
-            charSelectManager.AvailablePalettesList[MAN_WIZ_TARGET_INDEX + 1] = palettesToChooseFrom_ManWiz[randIndex];
+            //randIndex = Random.Range(0, palettesToChooseFrom_ManWiz.Count);
+            //charSelectManager.AvailablePalettesList[MAN_WIZ_TARGET_INDEX] = palettesToChooseFrom_ManWiz[randIndex];
+            //palettesToChooseFrom_ManWiz.RemoveAt(randIndex);
+            //randIndex = Random.Range(0, palettesToChooseFrom_ManWiz.Count);
+            //charSelectManager.AvailablePalettesList[MAN_WIZ_TARGET_INDEX + 1] = palettesToChooseFrom_ManWiz[randIndex];
 
             palettesToLoad = charSelectManager.AvailablePalettesList;
             int[] playerPosInPalettesList = charSelectManager.PlayerPosInPaletteList;
@@ -73,7 +87,7 @@ public class PaletteLoader : MonoBehaviour
                 if (playerPaletteSwappers[i].currentPalette.name.Contains("Lady") && !playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
                     playerPaletteSwappers[i].GetComponent<Animator>().SetBool("IsWoman", true);
 
-                if (!playerPaletteSwappers[i].currentPalette.name.Contains("Lady") && playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
+                if (!playerPaletteSwappers[i].currentPalette.name.Contains("Man") && playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
                     playerPaletteSwappers[i].GetComponent<Animator>().SetBool("IsWoman", false);
 
                 tempPalettes.Remove(randomPalette);
@@ -134,7 +148,7 @@ public class PaletteLoader : MonoBehaviour
                     if (playerPaletteSwappers[i].currentPalette.name.Contains("Lady") && !playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
                         playerPaletteSwappers[i].GetComponent<Animator>().SetBool("IsWoman", true);
 
-                    if (!playerPaletteSwappers[i].currentPalette.name.Contains("Lady") && playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
+                    if (!playerPaletteSwappers[i].currentPalette.name.Contains("Man") && playerPaletteSwappers[i].GetComponent<Animator>().GetBool("IsWoman"))
                         playerPaletteSwappers[i].GetComponent<Animator>().SetBool("IsWoman", false);
 
                     tempPalettes.Remove(randomPalette);

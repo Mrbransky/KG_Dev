@@ -18,6 +18,7 @@ public class Human : Player
     private GameObject[] heartObjects;
     private float timeSinceInvulnerable = -1;
     public GameObject HealingHearts;
+    GameManager _GameManager;
 
     public bool IsFemaleWizard;
     public bool GetAButtonDown = false;
@@ -47,8 +48,9 @@ public class Human : Player
                 return false;
         }
     }
-    public bool IsPullingSwitch;
 
+    //public bool IsPullingSwitch;
+    public Sprite interactIndent, interactNotIndent;
     private string HeldItemName;
     private SpriteRenderer mySpriteRenderer;
     private SpriteRenderer heldItemSpriteRenderer;
@@ -57,12 +59,15 @@ public class Human : Player
     public float kickForce = 1000.0f;
     public float timeBetweenItemInteract = 0;
     public float timeBetweenFurnitureKick = 0;
+    [HideInInspector]
+    public int DecoyFurnPlaced = 0;
     public Color MainColor;
     private SpriteRenderer interactButtonPromptSpriteRenderer;
     //private SpriteRenderer kickButtonPromptSpriteRenderer;
     //private float interactButtonPromptDurationBuffer = 0.1f;
     //private float timeSinceInteractButtonPrompt = 0.0f;
     //private float timeSinceKickButtonPrompt = 0.0f;
+
     [Header("Preferences")]
     public int currentClass = (int)CharClass.Default;
     
@@ -78,7 +83,7 @@ public class Human : Player
         currentTopSpeed = NormalTopSpeed - (int)currentClass;
 
         FacingRight = false;
-        IsPullingSwitch = false;
+        //IsPullingSwitch = false;
 
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         _HumanSpriteFlasher = GetComponent<HumanSpriteFlasher>();
@@ -87,7 +92,7 @@ public class Human : Player
 
         base.Awake();
 
-        GameManager _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        _GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         GameObject characterSelectData = GameObject.FindGameObjectWithTag("CharacterSelectData");
 
         if (_GameManager != null && characterSelectData != null)
@@ -113,18 +118,6 @@ public class Human : Player
                         hugLimit = 5;
                     break;
             }
-            //switch (playerCount)
-            //{
-            //    case 2:
-            //        hugLimit = 5;
-            //        break;
-            //    case 3:
-            //        hugLimit = 4 + (int)currentClass;
-            //        break;
-            //    case 4:
-            //        hugLimit = 3 + (int)currentClass;
-            //        break;
-            //}
         }
 
         heartObjects = new GameObject[5];
@@ -261,7 +254,7 @@ public class Human : Player
 
         if (furnitureToKick.Count > 0 && timeBetweenFurnitureKick <= 0)
         {
-            if (GetBButtonDown)
+            if (GetBButtonDown && currentClass != -1)
             {
                 MoveAnimation = MoveAnim.Kicking;
                 KickFurniture(furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>());
@@ -272,14 +265,28 @@ public class Human : Player
 #if UNITY_EDITOR || UNITY_WEBGL || UNITY_STANDALONE
             else if (Input.GetKeyDown(ItemThrowKeycode))
             {
+
                 MoveAnimation = MoveAnim.Kicking;
                 KickFurniture(furnitureToKick[furnitureToKick.Count - 1].GetComponent<KissableFurniture>());
                 //kickButtonPromptSpriteRenderer.enabled = false;
+
             }
 #endif
         }
 
-        foreach(Collider2D collider in furnitureToKick)
+        //spawn decoy furniture
+        if (GetBButtonDown && currentClass == -1)
+        {
+            if (DecoyFurnPlaced < 3)
+            {
+
+                GameObject decoyFurniture = Instantiate(_GameManager.gameObject.GetComponent<RoomGenerator>().decoyFurnitureOptions[Random.Range(0, _GameManager.gameObject.GetComponent<RoomGenerator>().decoyFurnitureOptions.Length)], (transform.position + new Vector3(0, 1, 0)), Quaternion.identity) as GameObject;
+                decoyFurniture.GetComponent<KissableFurniture>().SetOwner(this);
+                DecoyFurnPlaced++;
+            }
+        }
+
+        foreach (Collider2D collider in furnitureToKick)
         {
             if (!collider.GetComponent<KissableFurniture>().CanKick())
                 collider.GetComponent<KissableFurniture>().HideOutline();
@@ -429,14 +436,6 @@ public class Human : Player
                 }
             }
         }
-        //else { healTimer = 3; }
-        //else if (col.tag == "Pull" && !IsPullingSwitch)
-        //{
-        //    if(InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) || Input.GetKeyDown(ItemPickUpKeycode))
-        //    {
-        //        AttachToPullSwitch(col.gameObject);
-        //    }
-        //}
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -449,6 +448,8 @@ public class Human : Player
         else if (col.tag == "Player")
         {
             interactButtonPromptSpriteRenderer.enabled = false;
+            HealingHearts.SetActive(false);
+            interactButtonPromptSpriteRenderer.sprite = interactNotIndent;
         }
     }
 
@@ -518,9 +519,11 @@ public class Human : Player
         {
             healTimer -= Time.deltaTime;
             HealingHearts.SetActive(true);
+            interactButtonPromptSpriteRenderer.sprite = interactIndent;
             if (healTimer <= 0)
             {
                 HealingHearts.SetActive(false);
+                interactButtonPromptSpriteRenderer.sprite = interactNotIndent;
                 otherPlayer.hugPoints++;
                 otherPlayer.heartObjects[otherPlayer.hugPoints - 1].GetComponent<HeartComponent>().ReEnable();
                 healTimer = 3;

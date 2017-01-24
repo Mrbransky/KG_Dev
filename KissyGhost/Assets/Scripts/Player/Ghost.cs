@@ -7,6 +7,7 @@ public class Ghost : Player
     public float timeToRechargeKiss = 3.0f;
     public float timeBetweenKisses = 0.2f;
     private float kissRechargeTimer = 0.0f;
+    private float stunTimer = 2.0f;
     private float timeSinceKiss;
 
     [Header("Ghost Misc.")]
@@ -15,7 +16,9 @@ public class Ghost : Player
     public Color MainColor;
     private bool wasAButtonPressed = false;
     private bool hasGameEnded = false;
+    private bool isStunned = false;
     public GameObject kissParts;
+    public GameObject DecoyExplosion;
   
     private HeartComponent[] heartComponentsArray;
 
@@ -31,7 +34,7 @@ public class Ghost : Player
         {
             foreach(Collider2D col in bodyColliderList)
             {
-                if (col.GetComponent<KissableFurniture>().IsShowingOutline)
+                if (col != null && col.GetComponent<KissableFurniture>().IsShowingOutline)
                     return true;
             }
 
@@ -53,7 +56,14 @@ public class Ghost : Player
     public override void Update()
     {
         GetAButtonDown = false;
-
+        if(isStunned == true)
+        {
+            stunTimer -= Time.deltaTime;
+            if(stunTimer > 0)
+            { return; }
+            else
+            { isStunned = false;  stunTimer = 2.0f; TouchingFurniture = false; }
+        }
         if (InputMapper.GrabVal(XBOX360_BUTTONS.A, this.playerNum) && !wasAButtonPressed)
         {
             wasAButtonPressed = true;
@@ -220,6 +230,7 @@ public class Ghost : Player
     {
         if(bodyColliderList.Count > 0)
         {
+            if(bodyColliderList[bodyColliderList.Count -1] != null)
             bodyColliderList[bodyColliderList.Count - 1].GetComponent<KissableFurniture>().ShowOutline(MainColor);
         }
     }
@@ -228,7 +239,7 @@ public class Ghost : Player
     {
         foreach(Collider2D col in bodyColliderList)
         {
-            if (col.GetComponent<KissableFurniture>().IsShowingOutline)
+            if (col != null && col.GetComponent<KissableFurniture>().IsShowingOutline)
                 col.GetComponent<KissableFurniture>().HideOutline();
         }
     }
@@ -256,5 +267,11 @@ public class Ghost : Player
     public void stopKissing()
     {
         MoveAnimation = MoveAnim.stopKiss;
+    }
+    public void kissedDecoy()
+    {
+        Instantiate(DecoyExplosion, transform.position, Quaternion.identity);
+        transform.GetChild(0).GetComponent<MoveInteractTrigger>().RemoveDecoyObject();
+        isStunned = true;
     }
 }

@@ -44,6 +44,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject[] kitchenFurnitureOptions;
     public GameObject[] bathroomFurnitureOptions;
     public GameObject[] bedroomFurnitureOptions;
+    public GameObject[] decoyFurnitureOptions;
     public bool IsRugsEnabledInCenterRoom = true;
 
     //Special Items

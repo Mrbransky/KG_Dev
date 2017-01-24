@@ -12,13 +12,11 @@ public class GoBack : MonoBehaviour {
         {
             return;
         }
-        Scene scene = SceneManager.GetActiveScene();
+
+        //TODO: controller support
         if (Input.GetKey("joystick button 1"))
         {
-            if (scene.buildIndex == 1)
-                GoBackToAnimatic(0);
-            else if (scene.buildIndex == 12)
-                GoBackToInstructions();
+            GoBackToScene(sceneToGoBackToo);
         }
         //else if(Input.GetKey("joystick button 1"))
         //{
@@ -33,14 +31,10 @@ public class GoBack : MonoBehaviour {
         }
 #endif
     }
-    public void GoBackToInstructions()
+
+    public void GoBackToScene(int sceneToGoBackToo_)
     {
         _HeartZoomTransition.enabled = true;
-        _HeartZoomTransition.StartHeartZoomIn(sceneToGoBackToo);
-    }
-    public void GoBackToAnimatic(int sceneToTransfer)
-    {
-        _HeartZoomTransition.enabled = true;
-        _HeartZoomTransition.StartHeartZoomIn(sceneToTransfer);
+        _HeartZoomTransition.StartHeartZoomIn(sceneToGoBackToo_);
     }
 }

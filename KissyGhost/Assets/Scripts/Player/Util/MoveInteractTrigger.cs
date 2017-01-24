@@ -170,4 +170,8 @@ public class MoveInteractTrigger : MonoBehaviour {
         if (col.gameObject.name.Contains("ItemNode"))
             IsOnItemNode = false;
     }
+    public void RemoveDecoyObject()
+    {
+        interactColliderList.Clear();
+    }
 }

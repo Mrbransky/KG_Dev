@@ -130,6 +130,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0a4dfa955ad1a624595953e75c6d8121, type: 2}
   - {fileID: 11400000, guid: 140754bc421c79442849acde5a5cb327, type: 2}
   - {fileID: 11400000, guid: 1375ed9dc21b7be4196a5b9400de3196, type: 2}
+  - {fileID: 11400000, guid: 9bb9fffe6841a0c4eb58e237dbfc950e, type: 2}
   palettesToChooseFrom_ManWiz:
   - {fileID: 11400000, guid: fe55ddec532a349479690878c1072196, type: 2}
   - {fileID: 11400000, guid: 445d12e285f6a4f4695d11d9d37e3f5c, type: 2}
@@ -141,6 +142,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6db80334ddebe074baf61b4c6475e448, type: 2}
   - {fileID: 11400000, guid: bb107b62269d24f409054c88d8c2c22f, type: 2}
   - {fileID: 11400000, guid: c98e38c801d0c0447b3f30a6ee687cae, type: 2}
+  - {fileID: 11400000, guid: 7d47f9cba6e86414a958e72c0e72b78f, type: 2}
   palSwap: {fileID: 14586036}
   OldieStartSprite: {fileID: 21300000, guid: a6f5914f6b30a8049b3fdd2146984478, type: 3}
   WomanStartSprite: {fileID: 21300000, guid: 041989b833998e449b94f3845a8a18bc, type: 3}
@@ -904,7 +906,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 11.5, y: -415.79}
+  m_AnchoredPosition: {x: 11.5, y: -415.75}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407634818
@@ -3883,7 +3885,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 46.82, y: 22}
+  m_AnchoredPosition: {x: 47, y: 22}
   m_SizeDelta: {x: 100, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379216941
@@ -4006,7 +4008,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.8235294, g: 0.3451557, b: 0.7905382, a: 0.019607844}
+  m_BackGroundColor: {r: 1, g: 0.72794116, b: 0.8147685, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -5483,19 +5485,7 @@ MonoBehaviour:
   - {fileID: 855355684}
   PlayerPosInPaletteList: 00000000000000000000000000000000
   PlayerPosInClassSelection: 03000000030000000300000003000000
-  AvailablePalettesList:
-  - {fileID: 11400000, guid: 9bb9fffe6841a0c4eb58e237dbfc950e, type: 2}
-  - {fileID: 11400000, guid: 86a3daf3157cb024ba9db83b1a894c89, type: 2}
-  - {fileID: 11400000, guid: 2dba9db8d08fa1248bf9499d413653d3, type: 2}
-  - {fileID: 11400000, guid: 3eaa786df404917469b0556526ae1608, type: 2}
-  - {fileID: 11400000, guid: 0fd3fff22c80c884e8476b4ba1bc4ff8, type: 2}
-  - {fileID: 11400000, guid: b56367fc01a5c7b4386d685bd4f5ca5e, type: 2}
-  - {fileID: 11400000, guid: 7d47f9cba6e86414a958e72c0e72b78f, type: 2}
-  - {fileID: 11400000, guid: 0e079f795adca9949b901f5299677b7c, type: 2}
-  - {fileID: 11400000, guid: 2cd1220b494ee3f44adfff4550b0d9bd, type: 2}
-  - {fileID: 11400000, guid: 0391027353be1304e84395033b05fefc, type: 2}
-  - {fileID: 11400000, guid: fe55ddec532a349479690878c1072196, type: 2}
-  - {fileID: 11400000, guid: 445d12e285f6a4f4695d11d9d37e3f5c, type: 2}
+  AvailablePalettesList: []
   startingSprites: []
   CharacterSelectDebugText: {fileID: 407634818}
 --- !u!1 &1834165161
@@ -6627,7 +6617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1964735610
 RectTransform:
   m_ObjectHideFlags: 0

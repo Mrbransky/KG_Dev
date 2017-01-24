@@ -51,8 +51,16 @@ public class CharacterSelectManager : MonoBehaviour
     private int playerCount = 0;
     private int ghostPlayerIndex = -1;
     private CharacterSelectStates currentCharSelectState = CharacterSelectStates.WaitingForPlayers;
-    private string[] classNames = {"TOUGH", "SLY", "LOVING", "SIMPLE"};
-    private string[] classInfoArray = { "-Slow speed\n-High health", "-High speed\n-Low health", "-Normal speed\n-Low health\n-Can heal", "-Normal speed\n-Normal health\n-Normal kick" };
+    private string[] classNames = {
+        "TOUGH",
+        "SLY",
+        "LOVING",
+        "SIMPLE" };
+    private string[] classInfoArray = {
+        "-Slow speed\n-High health",
+        "-High speed\n-Low health\n-Can place traps",
+        "-Normal speed\n-Low health\n-Can heal others",
+        "-Normal speed\n-Normal health\n-Normal kick" };
 
     // CatMode
     public GameObject[] CatModeLetters;
@@ -260,7 +268,7 @@ public class CharacterSelectManager : MonoBehaviour
         {
             if ((InputMapper.GrabVal(XBOX360_BUTTONS.B, i + 1) || Input.GetKeyDown(KeyCode.Backspace)) && CanGoBackToInstructions() && !wasBButtonPressed[i])
             {
-                goBackScript.GoBackToInstructions();
+                goBackScript.GoBackToScene(2);
                 soundManager.SOUND_MAN.playSound("Play_MenuDown", gameObject);
             }
 
@@ -1139,7 +1147,7 @@ public class CharacterSelectManager : MonoBehaviour
         if (PlayerPaletteSwapperArray[playerIndex].currentPalette.name.Contains("Lady") && !PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().GetBool("IsWoman"))
             PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().SetBool("IsWoman", true);
 
-        else if (!PlayerPaletteSwapperArray[playerIndex].currentPalette.name.Contains("Lady") && PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().GetBool("IsWoman"))
+        else if (PlayerPaletteSwapperArray[playerIndex].currentPalette.name.Contains("Man") && PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().GetBool("IsWoman"))
             PlayerSpriteRendererArray[playerIndex].GetComponent<Animator>().SetBool("IsWoman", false);
     }
 
