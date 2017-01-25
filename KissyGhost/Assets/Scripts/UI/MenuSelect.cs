@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MenuSelect : MonoBehaviour
 {
-    public VideoOnDelay _VideoOnDelay;
+    //public VideoOnDelay _VideoOnDelay;
     public HeartZoomTransition _HeartZoomTransition;
     public Text option1, option2, option3, option4;
     //public AudioSource audio;
@@ -40,7 +40,7 @@ public class MenuSelect : MonoBehaviour
 
     void Update()
     {
-        if (_HeartZoomTransition.enabled || _VideoOnDelay.IsMoviePlaying)
+        if (_HeartZoomTransition.enabled /*|| _VideoOnDelay.IsMoviePlaying*/)
         {
             return;
         }

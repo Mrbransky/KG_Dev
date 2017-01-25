@@ -6,8 +6,9 @@ public class CloudMovement : MonoBehaviour
 {
     Image image;
 
-    public float LeftBound, RightBound;
+    public float RightBound;
     public float Speed;
+
 
     float Xposition
     {
@@ -31,9 +32,10 @@ public class CloudMovement : MonoBehaviour
 	
 	void Update ()
     {
-        if (Xposition >= LeftBound)
+        if(Camera.main.WorldToViewportPoint(transform.position).x > -0.1f)
+        {
             image.transform.localPosition += new Vector3(-Speed * 10 * Time.deltaTime, 0, 0);
-
+        }
         else
             image.transform.localPosition = new Vector3(RightBound, Yposition, Zposition);
     }

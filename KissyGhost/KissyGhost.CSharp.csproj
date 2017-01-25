@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\AI\GhostAI.cs" />
     <Compile Include="Assets\Scripts\AI\PlayerAI.cs" />
     <Compile Include="Assets\Scripts\Audio\soundManager.cs" />
+    <Compile Include="Assets\Scripts\CameraBiz\HideMouse.cs" />
     <Compile Include="Assets\Scripts\CameraBiz\NewCameraBehavior.cs" />
     <Compile Include="Assets\Scripts\CameraBiz\ScreenShake.cs" />
     <Compile Include="Assets\Scripts\CharacterSelect\CharacterSelectData.cs" />
